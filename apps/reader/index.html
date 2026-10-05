@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f8f7f3">
+<meta name="description" content="News APP — the day's news, with the context that matters.">
+<title>News APP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Serif+Devanagari:wght@400;600&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+<i id="pb" class="pbar"></i>
+<div id="sidebar-hotzone" class="sidebar-hotzone" aria-hidden="true"></div>
+<div id="app" class="shell"><main class="boot" aria-label="Loading News APP"><span class="boot-mark">N</span><div class="boot-copy"><b>News APP</b><span>Getting your edition ready</span></div><div class="boot-sk"></div><div class="boot-sk"></div><div class="boot-sk"></div></main></div>
+<nav id="tabbar" class="tabbar glass-3" aria-label="Primary navigation"></nav>
+<div id="toast" class="toast glass-3" role="status" aria-live="polite" hidden></div>
+<div id="seltb" class="seltb glass-3" hidden><button data-act="hl">Highlight</button><button data-act="hlcopy">Copy</button><button data-act="hlshare">Share</button></div>
+<div id="ov" class="ov" role="dialog" aria-modal="true" aria-label="Today in 5 stories" hidden><div class="ovp glass-3"></div></div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

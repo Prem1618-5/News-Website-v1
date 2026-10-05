@@ -1,0 +1,28 @@
+# Production-like local stack: Postgres + Platform API. Reader and Newsroom are static builds
+# served by any static host (or `pnpm --filter @news/reader preview`).
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: news
+      POSTGRES_PASSWORD: news
+      POSTGRES_DB: news
+    volumes: [pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U news"]
+      interval: 5s
+
+  api:
+    build: ../apps/api
+    depends_on:
+      db: { condition: service_healthy }
+    environment:
+      APP_ENV: production
+      JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET}
+      NEWSROOM_API_KEY: local-newsroom-key
+      NEWS_DATABASE_URL: postgresql+psycopg://news:news@db:5432/news
+      NEWS_CORS_ORIGINS: '["http://localhost:3000","http://localhost:5174"]'
+    ports: ["8000:8000"]
+
+volumes:
+  pgdata: {}

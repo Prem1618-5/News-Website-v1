@@ -1,0 +1,101 @@
+import type { ReactNode } from "react";
+import { FileCheck2, PenLine, ShieldCheck, Timer, TrendingUp, UsersRound } from "lucide-react";
+
+function initials(name: string) {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (!parts.length) return "?";
+  return (parts[0][0] + (parts.length > 1 ? parts[parts.length - 1][0] : "")).toUpperCase();
+}
+
+const SIGNIN_POINTS = [
+  { icon: ShieldCheck, title: "Review with accountability", text: "Editors claim, comment and sign off. Every action is audited." },
+  { icon: Timer, title: "Deadlines that hold", text: "SLA clocks, reminders and a 48 hour cap so nothing sits unseen." },
+  { icon: UsersRound, title: "Trust earned, not assumed", text: "Reporters move to direct publishing as their track record grows." },
+];
+
+const SIGNUP_STEPS = [
+  { icon: PenLine, title: "Write and file", text: "Draft in the editor, attach media and submit when it's ready." },
+  { icon: FileCheck2, title: "An editor reviews", text: "Your assigned editor checks facts and style before it goes live." },
+  { icon: TrendingUp, title: "Earn direct publishing", text: "A clean track record unlocks publishing without review." },
+];
+
+function Shell({ eyebrow, children }: { eyebrow: string; children: ReactNode }) {
+  return (
+    <aside className="relative hidden overflow-hidden bg-banner p-12 text-white lg:flex lg:flex-col lg:justify-between" aria-label="About the newsroom">
+      <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 size-[420px] rounded-full bg-brand/30 blur-3xl" />
+      <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 -left-20 size-[360px] rounded-full bg-brand/15 blur-3xl" />
+      <p className="relative text-[13px] font-medium uppercase tracking-widest text-white/60">{eyebrow}</p>
+      <div className="relative max-w-[440px]">{children}</div>
+      <p className="relative text-[12px] text-white/50">Staff only. Activity on this workspace is logged.</p>
+    </aside>
+  );
+}
+
+export function SignInAside() {
+  return (
+    <Shell eyebrow="The desk that keeps stories moving">
+      <p className="font-serif text-[34px] font-semibold leading-[1.2] text-balance">Every story gets a second pair of eyes before readers do.</p>
+      <ul className="mt-9 space-y-5 text-[15px]">
+        {SIGNIN_POINTS.map(({ icon: Icon, title, text }) => (
+          <li key={title} className="flex gap-3.5">
+            <span className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/10">
+              <Icon className="size-[18px]" aria-hidden="true" />
+            </span>
+            <span>
+              <span className="block font-semibold">{title}</span>
+              <span className="block text-white/70">{text}</span>
+            </span>
+          </li>
+        ))}
+      </ul>
+    </Shell>
+  );
+}
+
+export function SignUpAside({ name, title, email }: { name: string; title: string; email: string }) {
+  const display = name.trim() || "Your name";
+  return (
+    <Shell eyebrow="Joining the newsroom">
+      <p className="text-[13px] font-medium text-white/60">Your staff card</p>
+      <div className="mt-3 rounded-2xl bg-white p-5 text-ink shadow-2xl shadow-black/30">
+        <div className="flex items-center gap-3.5">
+          <span className="flex size-12 shrink-0 items-center justify-center rounded-full bg-brand-soft text-[16px] font-semibold text-brand-deep" aria-hidden="true">
+            {initials(name)}
+          </span>
+          <div className="min-w-0">
+            <p className={name.trim() ? "truncate text-[16px] font-semibold" : "truncate text-[16px] font-semibold text-faint"}>{display}</p>
+            <p className="truncate text-[13px] text-muted">{title.trim() || "Reporter"}</p>
+          </div>
+          <span className="ml-auto shrink-0 rounded-full bg-brand-soft px-2.5 py-0.5 text-[12px] font-medium text-brand-deep">Reporter</span>
+        </div>
+        <dl className="mt-4 grid grid-cols-2 gap-3 border-t border-line pt-4 text-[12px]">
+          <div className="min-w-0">
+            <dt className="text-muted">Email</dt>
+            <dd className="truncate font-medium">{email.trim() || "you@newsapp.example"}</dd>
+          </div>
+          <div>
+            <dt className="text-muted">Publishing</dt>
+            <dd className="font-medium">Editor review</dd>
+          </div>
+        </dl>
+      </div>
+
+      <ol className="mt-9 space-y-5 text-[15px]">
+        {SIGNUP_STEPS.map(({ icon: Icon, title: t, text }, i) => (
+          <li key={t} className="flex gap-3.5">
+            <span className="relative flex size-9 shrink-0 items-center justify-center rounded-lg bg-white/10">
+              <Icon className="size-[18px]" aria-hidden="true" />
+              <span className="absolute -right-1.5 -top-1.5 flex size-4 items-center justify-center rounded-full bg-brand text-[10px] font-semibold" aria-hidden="true">
+                {i + 1}
+              </span>
+            </span>
+            <span>
+              <span className="block font-semibold">{t}</span>
+              <span className="block text-white/70">{text}</span>
+            </span>
+          </li>
+        ))}
+      </ol>
+    </Shell>
+  );
+}

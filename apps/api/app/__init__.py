@@ -1,0 +1,1 @@
+"""News APP Platform API."""

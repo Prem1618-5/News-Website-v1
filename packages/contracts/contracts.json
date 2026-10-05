@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "sections": [
+    { "key": "world", "en": "World", "hi": "दुनिया" },
+    { "key": "politics", "en": "Politics", "hi": "राजनीति" },
+    { "key": "business", "en": "Business", "hi": "व्यापार" },
+    { "key": "tech", "en": "Tech", "hi": "टेक" },
+    { "key": "sports", "en": "Sports", "hi": "खेल" },
+    { "key": "culture", "en": "Culture", "hi": "संस्कृति" },
+    { "key": "science", "en": "Science", "hi": "विज्ञान" }
+  ],
+  "languages": [
+    { "code": "en", "label": "English", "native": "English" },
+    { "code": "hi", "label": "Hindi", "native": "हिन्दी" }
+  ],
+  "consentTiers": [
+    { "id": "necessary", "tier": "C0", "required": true, "label": "Strictly necessary", "description": "Keeps you signed in, remembers this choice and protects the site. Always on." },
+    { "id": "preferences", "tier": "C1", "required": false, "label": "Preferences", "description": "Remembers your theme, text size, language and interests." },
+    { "id": "analytics", "tier": "C2", "required": false, "label": "Analytics", "description": "Counts page views and reading time with a random ID so we can improve the app. No ads, no selling." },
+    { "id": "personalization", "tier": "C3", "required": false, "label": "Personalisation", "description": "Uses what you read to suggest stories for you." },
+    { "id": "notifications", "tier": "C4", "required": false, "label": "Notifications", "description": "Breaking-news alerts. Your browser will ask separately." }
+  ],
+  "consentVersion": "2026-10-01",
+  "blockAllowlist": ["paragraph", "heading", "quote", "bulletListItem", "numberedListItem", "checkListItem", "image", "video", "audio", "table", "divider", "pullquote"],
+  "aiTasks": ["headline", "summary", "proofread", "translate", "tags"]
+}

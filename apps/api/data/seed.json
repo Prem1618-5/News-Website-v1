@@ -1,0 +1,3459 @@
+{
+  "sections": [
+    {
+      "key": "world",
+      "name": "World",
+      "position": 0
+    },
+    {
+      "key": "politics",
+      "name": "Politics",
+      "position": 1
+    },
+    {
+      "key": "business",
+      "name": "Business",
+      "position": 2
+    },
+    {
+      "key": "tech",
+      "name": "Tech",
+      "position": 3
+    },
+    {
+      "key": "sports",
+      "name": "Sports",
+      "position": 4
+    },
+    {
+      "key": "culture",
+      "name": "Culture",
+      "position": 5
+    },
+    {
+      "key": "science",
+      "name": "Science",
+      "position": 6
+    }
+  ],
+  "stories": [
+    {
+      "id": "kyiv-bridge-hit-in-further-russian-drone-attack-as-german-ch",
+      "section": "world",
+      "title": "Kyiv bridge hit in further Russian drone attack as German chancellor makes surprise visit",
+      "deck": "Footage shows a drone hitting the Pivnichyi (Northern) Bridge as vehicles move across it, creating a large fireball.",
+      "author": "BBC News Editorial Team",
+      "ago": "1 h ago",
+      "read_minutes": 3,
+      "live": true,
+      "position": 0,
+      "image_url": "/images/kyiv-bridge-hit-in-further-russian-drone-attack-as-german-ch.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/ckreyjzzzywqo?at_medium=RSS&at_campaign=rss",
+      "caption": "A hole in the concrete road on the Pivnichnyi (Northern) Bridge, which was hit by a Russian drone on Sunday"
+    },
+    {
+      "id": "im-a-classic-old-school-conservative-says-kemi-badenoch",
+      "section": "politics",
+      "title": "I'm a classic old school Conservative, says Kemi Badenoch",
+      "deck": "The Tory leader seeks to echo Margaret Thatcher as she sets out her guiding political principles.",
+      "author": "BBC News Editorial Team",
+      "ago": "1 h ago",
+      "read_minutes": 3,
+      "live": true,
+      "position": 1,
+      "image_url": "/images/im-a-classic-old-school-conservative-says-kemi-badenoch.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cx7vp6d5pgn1o?at_medium=RSS&at_campaign=rss",
+      "caption": "Photo coverage by BBC News"
+    },
+    {
+      "id": "g7-to-release-millions-of-barrels-of-oil-and-diesel-after-tr",
+      "section": "business",
+      "title": "G7 to release millions of barrels of oil and diesel after Trump threat",
+      "deck": "The co-ordinated release is aimed at heading off further price spikes and avoiding a ban on US diesel exports.",
+      "author": "BBC News Editorial Team",
+      "ago": "1 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 2,
+      "image_url": "/images/g7-to-release-millions-of-barrels-of-oil-and-diesel-after-tr.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/ck87zg8jnwngo?at_medium=RSS&at_campaign=rss",
+      "caption": "Emmanuel Macron chaired a meeting of G7 leaders to agree the release of fuel reserves"
+    },
+    {
+      "id": "openai-fires-workers-for-mishandling-sensitive-information",
+      "section": "tech",
+      "title": "OpenAI fires workers for 'mishandling sensitive information'",
+      "deck": "The former employees were investigated for sharing data with an outside AI evaluation group.",
+      "author": "BBC News Editorial Team",
+      "ago": "1 h ago",
+      "read_minutes": 3,
+      "live": true,
+      "position": 3,
+      "image_url": "/images/openai-fires-workers-for-mishandling-sensitive-information.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/c6y9z9r4ejzwo?at_medium=RSS&at_campaign=rss",
+      "caption": "OpenAI chief executive Sam Altman"
+    },
+    {
+      "id": "verstappen-wins-in-malaysia-after-long-delays-as-russell-ret",
+      "section": "sports",
+      "title": "Verstappen wins in Malaysia after long delays as Russell retires",
+      "deck": "Max Verstappen takes his and Red Bull's first win of the year with a dominant drive in a dramatic Bahrain Grand Prix in Malaysia that started amid chaotic and unprecedented scenes.",
+      "author": "BBC News Editorial Team",
+      "ago": "1 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 4,
+      "image_url": "/images/verstappen-wins-in-malaysia-after-long-delays-as-russell-ret.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/sport/formula1/articles/c5n49zx3zlvwo?at_medium=RSS&at_campaign=rss",
+      "caption": "Figure caption, A lot of people didn't believe in 'another win including myself'"
+    },
+    {
+      "id": "glastonbury-2027-tickets-sell-out-in-42-minutes",
+      "section": "culture",
+      "title": "Glastonbury 2027 tickets sell out in 42 minutes",
+      "deck": "Thousands of people joined the queue in the hope of securing tickets to Worthy Farm.",
+      "author": "BBC News Editorial Team",
+      "ago": "1 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 5,
+      "image_url": "/images/glastonbury-2027-tickets-sell-out-in-42-minutes.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cmpd0wev8v38o?at_medium=RSS&at_campaign=rss",
+      "caption": "Glastonbury Festival returns to Worthy Farm in June, following a fallow year"
+    },
+    {
+      "id": "queens-university-students-blast-off-to-us-for-nasa-robotics",
+      "section": "science",
+      "title": "Queen's University students blast off to US for Nasa robotics competition",
+      "deck": "The students will head to Florida to compete against university teams from Australia, India and the US.",
+      "author": "BBC News Editorial Team",
+      "ago": "1 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 6,
+      "image_url": "/images/queens-university-students-blast-off-to-us-for-nasa-robotics.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cq20v0e7vjkgo?at_medium=RSS&at_campaign=rss",
+      "caption": "The team is made up of 10 students from Queen's University Belfast"
+    },
+    {
+      "id": "watch-what-we-know-about-russian-strikes-on-kyiv-bridges",
+      "section": "world",
+      "title": "Watch: What we know about Russian strikes on Kyiv bridges",
+      "deck": "BBC Ukraine correspondent Dan Johnson is near Kyiv's Northern Bridge, which has been hit for the second day in a row.",
+      "author": "BBC News Editorial Team",
+      "ago": "2 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 7,
+      "image_url": "/images/watch-what-we-know-about-russian-strikes-on-kyiv-bridges.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/videos/cmglwkyl9djyo?at_medium=RSS&at_campaign=rss",
+      "caption": "Photo coverage by BBC News"
+    },
+    {
+      "id": "badenoch-unveils-plan-to-end-100000-childcare-cliff-edge-ahe",
+      "section": "politics",
+      "title": "Badenoch unveils plan to end £100,000 childcare 'cliff edge' ahead of Tory conference",
+      "deck": "The Conservative leader tells the BBC the earnings threshold for government support stops people \"working harder\".",
+      "author": "BBC News Editorial Team",
+      "ago": "2 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 8,
+      "image_url": "/images/badenoch-unveils-plan-to-end-100000-childcare-cliff-edge-ahe.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cmn06l362ypeo?at_medium=RSS&at_campaign=rss",
+      "caption": "Figure caption, Watch: People shouldn't be punished for working harder, Badenoch says"
+    },
+    {
+      "id": "suppliers-pile-pressure-on-government-over-energy-bills",
+      "section": "business",
+      "title": "Suppliers pile pressure on government over energy bills",
+      "deck": "Immediate action is needed to help households struggling with bills this winter, says trade body Energy UK.",
+      "author": "BBC News Editorial Team",
+      "ago": "2 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 9,
+      "image_url": "/images/suppliers-pile-pressure-on-government-over-energy-bills.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cq0ld88kzxw8o?at_medium=RSS&at_campaign=rss",
+      "caption": "Photo coverage by BBC News"
+    },
+    {
+      "id": "crypto-thieves-attack-man-in-home-and-threaten-to-kill-pregn",
+      "section": "tech",
+      "title": "Crypto thieves attack man in home and threaten to kill pregnant wife's baby in 'horrific' robbery",
+      "deck": "The man was beaten with hammers until he transferred hundreds of thousands of pounds of cryptocurrency.",
+      "author": "BBC News Editorial Team",
+      "ago": "2 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 10,
+      "image_url": "/images/crypto-thieves-attack-man-in-home-and-threaten-to-kill-pregn.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/c6eq84eygz0qo?at_medium=RSS&at_campaign=rss",
+      "caption": "Figure caption, WATCH: Crypto thieves attack man in home and threaten him and his pregnant wife"
+    },
+    {
+      "id": "dominant-verstappen-superb-hamilton-recovery-driver-ratings",
+      "section": "sports",
+      "title": "Dominant Verstappen & superb Hamilton recovery - driver ratings",
+      "deck": "BBC Radio 5 Live F1 commentator Harry Benjamin rates how the drivers performed during the Bahrain Grand Prix in Malaysia.",
+      "author": "BBC News Editorial Team",
+      "ago": "2 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 11,
+      "image_url": "/images/dominant-verstappen-superb-hamilton-recovery-driver-ratings.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/sport/formula1/articles/cqkgjnrjr3l5o?at_medium=RSS&at_campaign=rss",
+      "caption": "Max Verstappen is sixth in the drivers' championship while Lewis Hamilton is third"
+    },
+    {
+      "id": "british-museum-announces-changes-to-ease-bayeux-tapestry-que",
+      "section": "culture",
+      "title": "British Museum announces changes to ease Bayeux Tapestry queues",
+      "deck": "Measures include extended opening hours, as well as an audio guide and additional seating for visitors.",
+      "author": "BBC News Editorial Team",
+      "ago": "2 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 12,
+      "image_url": "/images/british-museum-announces-changes-to-ease-bayeux-tapestry-que.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cwvgrle6dx2lo?at_medium=RSS&at_campaign=rss",
+      "caption": "The Bayeux Tapestry famously depicts the scene of King Harold II's death"
+    },
+    {
+      "id": "im-a-wildlife-cameraman-but-special-rare-sightings-can-still",
+      "section": "science",
+      "title": "I'm a wildlife cameraman but 'special' rare sightings can still take me by surprise",
+      "deck": "Wildlife cameraman Dan Abbot is caught off guard by a humpback whale, a rare sight in Welsh waters.",
+      "author": "BBC News Editorial Team",
+      "ago": "2 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 13,
+      "image_url": "/images/im-a-wildlife-cameraman-but-special-rare-sightings-can-still.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/c6q8jly114j8o?at_medium=RSS&at_campaign=rss",
+      "caption": "Abbot has seen the humpback whale before, but never in this area"
+    },
+    {
+      "id": "yemen-announces-military-campaign-to-reclaim-land-from-iran",
+      "section": "world",
+      "title": "Yemen announces military campaign to reclaim land from Iran-backed Houthis",
+      "deck": "The Yemeni president's announcement comes amid an exchange of strikes between the Houthis and the Saudi-led coalition.",
+      "author": "BBC News Editorial Team",
+      "ago": "3 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 14,
+      "image_url": "/images/yemen-announces-military-campaign-to-reclaim-land-from-iran.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cx8dzj9vpp01o?at_medium=RSS&at_campaign=rss",
+      "caption": "Soldiers ride in the back of a pick-up truck on a dirt road near Taiz, amid fighting between Yemeni government forces and Houthis"
+    },
+    {
+      "id": "courts-backlog-will-fall-despite-scrapping-of-jury-trial-pla",
+      "section": "politics",
+      "title": "Courts backlog will fall despite scrapping of jury trial plan, minister says",
+      "deck": "Speaking to the BBC, the justice secretary vows to reduce delays in the system after scrapping plans from the previous government.",
+      "author": "BBC News Editorial Team",
+      "ago": "3 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 15,
+      "image_url": "/images/courts-backlog-will-fall-despite-scrapping-of-jury-trial-pla.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/crq5nd9dgz68o?at_medium=RSS&at_campaign=rss",
+      "caption": "Figure caption, Justice secretary vows courts backlog will reduce"
+    },
+    {
+      "id": "uk-diesel-prices-top-2-a-litre-for-first-time-rac-says",
+      "section": "business",
+      "title": "UK diesel prices top £2 a litre for first time, RAC says",
+      "deck": "The rise in global oil prices has been pushing up the pump prices of petrol and diesel in the UK.",
+      "author": "BBC News Editorial Team",
+      "ago": "3 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 16,
+      "image_url": "/images/uk-diesel-prices-top-2-a-litre-for-first-time-rac-says.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/crn8e86y5n0zo?at_medium=RSS&at_campaign=rss",
+      "caption": "Figure caption, Watch: Diesel prices in the UK have hit an all time high - here's why"
+    },
+    {
+      "id": "trumps-ai-rebrand-causes-unprecedented-demand-for-slovenian",
+      "section": "tech",
+      "title": "Trump's AI rebrand causes 'unprecedented' demand for Slovenian website names",
+      "deck": "The president wants AI to be called super intelligence - or SI - the same initials used by Slovenian domains.",
+      "author": "BBC News Editorial Team",
+      "ago": "3 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 17,
+      "image_url": "/images/trumps-ai-rebrand-causes-unprecedented-demand-for-slovenian.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cqx2z23xj555o?at_medium=RSS&at_campaign=rss",
+      "caption": "Photo coverage by BBC News"
+    },
+    {
+      "id": "djokovic-beats-zverev-to-reach-china-open-semis",
+      "section": "sports",
+      "title": "Djokovic beats Zverev to reach China Open semis",
+      "deck": "Novak Djokovic's quest to win a first trophy of 2026 continues with a hard-fought victory in the quarter-finals of the China Open.",
+      "author": "BBC News Editorial Team",
+      "ago": "3 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 18,
+      "image_url": "/images/djokovic-beats-zverev-to-reach-china-open-semis.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/sport/tennis/articles/c8kge0d95dzno?at_medium=RSS&at_campaign=rss",
+      "caption": "Novak Djokovic won his last Grand Slam at the US Open in 2023"
+    },
+    {
+      "id": "the-celebrity-traitors-connections-that-might-surprise-you",
+      "section": "culture",
+      "title": "The Celebrity Traitors connections that might surprise you",
+      "deck": "Lots of the stars have worked together, some are good friends - and that can impact the show's dynamics.",
+      "author": "BBC News Editorial Team",
+      "ago": "3 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 19,
+      "image_url": "/images/the-celebrity-traitors-connections-that-might-surprise-you.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cqkgx895g9vzo?at_medium=RSS&at_campaign=rss",
+      "caption": "Leigh-Anne Pinnock and Maya Jama were pictured together on the front row during Milan Fashion Week in 2024"
+    },
+    {
+      "id": "could-el-niño-mean-there-are-no-atlantic-hurricanes-this-yea",
+      "section": "science",
+      "title": "Could El Niño mean there are no Atlantic hurricanes this year?",
+      "deck": "For the first time in three decades there has not been a single Atlantic hurricane in September, normally the most active month.",
+      "author": "BBC News Editorial Team",
+      "ago": "3 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 20,
+      "image_url": "/images/could-el-niño-mean-there-are-no-atlantic-hurricanes-this-yea.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/weather/articles/cwgkvyyg8115o?at_medium=RSS&at_campaign=rss",
+      "caption": "While there have been no hurricanes forming in the North Atlantic so far this season, the Eastern North Pacific has been very active with above-average storms"
+    },
+    {
+      "id": "ethiopian-rebel-forces-withdraw-from-tigray-regional-capital",
+      "section": "world",
+      "title": "Ethiopian rebel forces withdraw from Tigray regional capital",
+      "deck": "Two residents in Mekelle tell the BBC pro-government forces have taken control of the city.",
+      "author": "BBC News Editorial Team",
+      "ago": "4 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 21,
+      "image_url": "/images/ethiopian-rebel-forces-withdraw-from-tigray-regional-capital.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cqm249v07j4xo?at_medium=RSS&at_campaign=rss",
+      "caption": "A pro-government soldier standing guard on a street in Ethiopia's Tigray region on Sunday"
+    },
+    {
+      "id": "daughter-of-mp-murdered-five-years-ago-tells-bbc-politicians",
+      "section": "politics",
+      "title": "Daughter of MP murdered five years ago tells BBC politicians still at risk",
+      "deck": "Katie Amess questions if anything has changed to protect politicians five years after her father's death.",
+      "author": "BBC News Editorial Team",
+      "ago": "4 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 22,
+      "image_url": "/images/daughter-of-mp-murdered-five-years-ago-tells-bbc-politicians.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cq5yn0my1656o?at_medium=RSS&at_campaign=rss",
+      "caption": "Figure caption, Watch: Daughter of Sir David Amess says MPs are no safer today"
+    },
+    {
+      "id": "us-jobs-market-sees-sharp-slowdown-ahead-of-midterm-election",
+      "section": "business",
+      "title": "US jobs market sees sharp slowdown ahead of midterm elections",
+      "deck": "Unemployment rose slightly as American employers paused hiring with midterm elections just a month away.",
+      "author": "BBC News Editorial Team",
+      "ago": "4 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 23,
+      "image_url": "/images/us-jobs-market-sees-sharp-slowdown-ahead-of-midterm-election.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cm2d6gg0642yo?at_medium=RSS&at_campaign=rss",
+      "caption": "Workforces remained unchanged across major sectors, from tech to retail. American firms are choosing to hold steady rather than hire or fire staff"
+    },
+    {
+      "id": "ai-boom-could-trigger-market-shocks-bank-of-england-boss-war",
+      "section": "tech",
+      "title": "AI boom could trigger market shocks, Bank of England boss warns",
+      "deck": "Andrew Bailey says the central bank is watching the waves of cash being invested in artificial intelligence \"very carefully\".",
+      "author": "BBC News Editorial Team",
+      "ago": "4 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 24,
+      "image_url": "/images/ai-boom-could-trigger-market-shocks-bank-of-england-boss-war.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cv8e30enrkxyo?at_medium=RSS&at_campaign=rss",
+      "caption": "Figure caption, Watch: Governor of the Bank of England Andrew Bailey says quality of deepfakes 'alarming'"
+    },
+    {
+      "id": "bellingham-unlocks-new-level-and-potential-to-be-one-of-the",
+      "section": "sports",
+      "title": "Bellingham unlocks new level and potential to be 'one of the greatest'",
+      "deck": "Jude Bellingham's international future was being called into question a year ago, but now he is regarded as potentially one of England's \"greatest of all time\".",
+      "author": "BBC News Editorial Team",
+      "ago": "4 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 25,
+      "image_url": "/images/bellingham-unlocks-new-level-and-potential-to-be-one-of-the.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/sport/football/articles/cv5yn8znyx2ro?at_medium=RSS&at_campaign=rss",
+      "caption": "Jude Bellingham is the first player to record three assists in a game for England since Trent Alexander-Arnold against San Marino in November 2021"
+    },
+    {
+      "id": "alison-hammond-returns-home-from-hospital-after-rushing-off",
+      "section": "culture",
+      "title": "Alison Hammond returns home from hospital after rushing off This Morning",
+      "deck": "The This Morning presenter said she believes she experienced a panic attack on Friday's show.",
+      "author": "BBC News Editorial Team",
+      "ago": "4 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 26,
+      "image_url": "/images/alison-hammond-returns-home-from-hospital-after-rushing-off.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cr20w7j8jd21o?at_medium=RSS&at_campaign=rss",
+      "caption": "Photo coverage by BBC News"
+    },
+    {
+      "id": "hawaiis-iconic-550-year-old-hōlei-sea-arch-collapses",
+      "section": "science",
+      "title": "Hawaii's iconic 550-year-old Hōlei Sea Arch collapses",
+      "deck": "The lava rock formation protruding from the rocky cliffs of Volcanoes National Park crumbled some time last weekend.",
+      "author": "BBC News Editorial Team",
+      "ago": "4 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 27,
+      "image_url": "/images/hawaiis-iconic-550-year-old-hōlei-sea-arch-collapses.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/crd6dy4xepgyo?at_medium=RSS&at_campaign=rss",
+      "caption": "Photo coverage by BBC News"
+    },
+    {
+      "id": "australia-investigating-flydubai-co-pilots-links-to-country",
+      "section": "world",
+      "title": "Australia investigating Flydubai co-pilot's links to country",
+      "deck": "State police and the country's security agency are looking into the co-pilot, who attempted to take control of a Flydubai plane travelling to Israel.",
+      "author": "BBC News Editorial Team",
+      "ago": "5 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 28,
+      "image_url": "/images/australia-investigating-flydubai-co-pilots-links-to-country.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cxly4nym57q9o?at_medium=RSS&at_campaign=rss",
+      "caption": "The Flydubai plane was diverted to Saudi Arabia after passengers managed to take back control from the co-pilot"
+    },
+    {
+      "id": "greens-would-offer-two-year-jobs-to-unemployed-under-24s",
+      "section": "politics",
+      "title": "Greens would offer two-year jobs to unemployed under-24s",
+      "deck": "Co-deputy leader Mothin Ali tells the party's conference many young people are \"bored, desperate and lost\".",
+      "author": "BBC News Editorial Team",
+      "ago": "5 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 29,
+      "image_url": "/images/greens-would-offer-two-year-jobs-to-unemployed-under-24s.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/c693z5w5eypdo?at_medium=RSS&at_campaign=rss",
+      "caption": "Mothin Ali addressed Green Party members on the second day of their conference in Brighton"
+    },
+    {
+      "id": "it-could-cost-me-10k-but-i-need-the-money-now-why-gen-z-are",
+      "section": "business",
+      "title": "'It could cost me £10k but I need the money now': Why Gen Z are opting out of pensions",
+      "deck": "A growing number of people are opting out of these schemes due to cost-of-living pressures.",
+      "author": "BBC News Editorial Team",
+      "ago": "5 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 30,
+      "image_url": "/images/it-could-cost-me-10k-but-i-need-the-money-now-why-gen-z-are.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/c68xk0ndqz8jo?at_medium=RSS&at_campaign=rss",
+      "caption": "Dr Hassan Nassar is determined to opt back in to his pension as soon as he can"
+    },
+    {
+      "id": "tiny-image-sparks-big-backlash-in-nikon-photo-contest",
+      "section": "tech",
+      "title": "Tiny image sparks big backlash in Nikon photo contest",
+      "deck": "Dr Ning Xu denies he broke the rules of Nikon's annual Small World In Motion contest.",
+      "author": "BBC News Editorial Team",
+      "ago": "5 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 31,
+      "image_url": "/images/tiny-image-sparks-big-backlash-in-nikon-photo-contest.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/ck4gjn1yzprno?at_medium=RSS&at_campaign=rss",
+      "caption": "Figure caption, Watch: The competition's winner and runners up. Nikon is investigating whether the winning video (shown left) was altered with AI"
+    },
+    {
+      "id": "bowie-seizing-scotland-shot-after-world-cup-disappointment",
+      "section": "sports",
+      "title": "Bowie seizing Scotland shot after World Cup disappointment",
+      "deck": "BBC Scotland speaks to Kieron Bowie after he scores his first goal for his country against North Macedonia.",
+      "author": "BBC News Editorial Team",
+      "ago": "5 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 32,
+      "image_url": "/images/bowie-seizing-scotland-shot-after-world-cup-disappointment.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/sport/football/articles/c5djvw4n8vp8o?at_medium=RSS&at_campaign=rss",
+      "caption": "Figure caption, Highlights: North Macedonia 0-2 Scotland"
+    },
+    {
+      "id": "traitors-claim-their-first-victim-as-richard-e-grant-tries-t",
+      "section": "culture",
+      "title": "Traitors claim their first victim as Richard E Grant tries to save his skin",
+      "deck": "There was a murder and a recruitment in the latest episode, and that was just in the opening minutes.",
+      "author": "BBC News Editorial Team",
+      "ago": "5 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 33,
+      "image_url": "/images/traitors-claim-their-first-victim-as-richard-e-grant-tries-t.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/czxe30796xno?at_medium=RSS&at_campaign=rss",
+      "caption": "Maya Jama is off to a strong start as a traitor, but Richard E Grant is in damage control mode"
+    },
+    {
+      "id": "how-to-move-1300-plants-for-kews-palm-house-mega-makeover",
+      "section": "science",
+      "title": "How to move 1,300 plants for Kew's Palm House mega makeover",
+      "deck": "The world-famous Palm House at the Royal Botanic Gardens Kew in London is about to undergo a massive makeover.",
+      "author": "BBC News Editorial Team",
+      "ago": "5 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 34,
+      "image_url": "/images/how-to-move-1300-plants-for-kews-palm-house-mega-makeover.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/videos/c914d43gg2zdo?at_medium=RSS&at_campaign=rss",
+      "caption": "Photo coverage by BBC News"
+    },
+    {
+      "id": "us-marine-arrested-over-murder-of-woman-in-okinawa-japan",
+      "section": "world",
+      "title": "US Marine arrested over murder of woman in Okinawa, Japan",
+      "deck": "Japan's government lodged a formal protest with the US, demanding that military officials take action.",
+      "author": "BBC News Editorial Team",
+      "ago": "6 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 35,
+      "image_url": "/images/us-marine-arrested-over-murder-of-woman-in-okinawa-japan.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cme3xw4yy28do?at_medium=RSS&at_campaign=rss",
+      "caption": "The US Marine Corps Air Station Futenma in Okinawa, Japan"
+    },
+    {
+      "id": "tories-pledge-to-build-50000-new-prison-places",
+      "section": "politics",
+      "title": "Tories pledge to build 50,000 new prison places",
+      "deck": "The party says its proposals would stop prisoners being released early and cut crime.",
+      "author": "BBC News Editorial Team",
+      "ago": "6 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 36,
+      "image_url": "/images/tories-pledge-to-build-50000-new-prison-places.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/ck9qrqq53nj3o?at_medium=RSS&at_campaign=rss",
+      "caption": "Photo coverage by BBC News"
+    },
+    {
+      "id": "the-wealthy-cuban-americans-ready-and-waiting-for-havana-to",
+      "section": "business",
+      "title": "The wealthy Cuban Americans ready and waiting for Havana to fall",
+      "deck": "Cuban exiles in Florida are increasingly hopeful that regime change in Cuba is now on the horizon.",
+      "author": "BBC News Editorial Team",
+      "ago": "6 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 37,
+      "image_url": "/images/the-wealthy-cuban-americans-ready-and-waiting-for-havana-to.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/ckrerylrlg9vo?at_medium=RSS&at_campaign=rss",
+      "caption": "Juan Omar Sixto says he and his colleagues are ready to 'go and do business in Cuba right away'"
+    },
+    {
+      "id": "the-ai-telling-farmers-when-to-harvest",
+      "section": "tech",
+      "title": "The AI telling farmers when to harvest",
+      "deck": "Will farmers want AI tools to help judge when to pick fruit, or is their own intuition enough?",
+      "author": "BBC News Editorial Team",
+      "ago": "6 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 38,
+      "image_url": "/images/the-ai-telling-farmers-when-to-harvest.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cgk53dkmyxko?at_medium=RSS&at_campaign=rss",
+      "caption": "Choosing the right moment to harvest can be a make-or-break decision"
+    },
+    {
+      "id": "modric-ashamed-of-croatias-catastrophic-night",
+      "section": "sports",
+      "title": "Modric 'ashamed' of Croatia's 'catastrophic night'",
+      "deck": "Croatia captain Luka Modric says he was \"ashamed\" of his side's performance on a \"catastrophic night\" against England.",
+      "author": "BBC News Editorial Team",
+      "ago": "6 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 39,
+      "image_url": "/images/modric-ashamed-of-croatias-catastrophic-night.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/sport/football/articles/cwzrdm3lyk21o?at_medium=RSS&at_campaign=rss",
+      "caption": "Luka Modric won the Golden Ball at the 2018 World Cup in Russia after helping Croatia finish as runners-up"
+    },
+    {
+      "id": "olivia-dean-accused-of-copying-bill-withers-just-the-two-of",
+      "section": "culture",
+      "title": "Olivia Dean accused of copying Bill Withers' Just The Two of Us",
+      "deck": "The star's record label is sued over similarities between her song I've Seen It and Withers' classic.",
+      "author": "BBC News Editorial Team",
+      "ago": "6 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 40,
+      "image_url": "/images/olivia-dean-accused-of-copying-bill-withers-just-the-two-of.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/c933k3gk72x6o?at_medium=RSS&at_campaign=rss",
+      "caption": "The lawsuit seeks damages from Dean's publisher and record label, but not from the star herself"
+    },
+    {
+      "id": "how-to-see-the-orionid-meteor-shower-this-weekend",
+      "section": "science",
+      "title": "How to see the Orionid meteor shower this weekend",
+      "deck": "One of the best-known meteor showers is now active until 7 November.",
+      "author": "BBC News Editorial Team",
+      "ago": "6 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 41,
+      "image_url": "/images/how-to-see-the-orionid-meteor-shower-this-weekend.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/weather/articles/c64gr18jrvx3o?at_medium=RSS&at_campaign=rss",
+      "caption": "The constellation of Orion is one of the most recognisable in the night sky identifiable by the large hour glass shape formed by some of its stars"
+    },
+    {
+      "id": "what-to-know-about-brazils-election-pitting-lula-against-flá",
+      "section": "world",
+      "title": "What to know about Brazil's election pitting Lula against Flávio Bolsonaro",
+      "deck": "Polls suggest the election will be a closely run contest between the left-wing incumbent and his right-wing rival.",
+      "author": "BBC News Editorial Team",
+      "ago": "7 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 42,
+      "image_url": "/images/what-to-know-about-brazils-election-pitting-lula-against-flá.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/c6wyz0r2n0djo?at_medium=RSS&at_campaign=rss",
+      "caption": "The two candidates leading in the polls are Luíz Inácio Lula da Silva and Flávio Bolsonaro"
+    },
+    {
+      "id": "greens-can-move-labour-in-the-right-direction-says-polanski",
+      "section": "politics",
+      "title": "Greens can move Labour in the right direction, says Polanski",
+      "deck": "The Green leader tells his autumn conference that a vote for his party can force changes from Andy Burnham.",
+      "author": "BBC News Editorial Team",
+      "ago": "7 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 43,
+      "image_url": "/images/greens-can-move-labour-in-the-right-direction-says-polanski.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cmx239469krpo?at_medium=RSS&at_campaign=rss",
+      "caption": "Figure caption, Polanski calls for 'national fair rent guarantee'"
+    },
+    {
+      "id": "whats-gone-wrong-at-nike-how-the-worlds-sportswear-giant-los",
+      "section": "business",
+      "title": "What's gone wrong at Nike? How the world's sportswear giant lost its mojo",
+      "deck": "Several self-inflicted mistakes have cost the biggest sportswear brand on the planet in recent years.",
+      "author": "BBC News Editorial Team",
+      "ago": "7 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 44,
+      "image_url": "/images/whats-gone-wrong-at-nike-how-the-worlds-sportswear-giant-los.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/c6je85jzk9y7o?at_medium=RSS&at_campaign=rss",
+      "caption": "Nike athletes Serena Williams, Michael Jordan and Cristiano Ronaldo"
+    },
+    {
+      "id": "regulating-ai-not-the-right-place-to-start-says-bailey",
+      "section": "tech",
+      "title": "Regulating AI 'not the right place to start' says Bailey",
+      "deck": "AI needs \"rigorous\" testing and safeguards to contain risk, Andrew Bailey says.",
+      "author": "BBC News Editorial Team",
+      "ago": "7 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 45,
+      "image_url": "/images/regulating-ai-not-the-right-place-to-start-says-bailey.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cvzez7k0pn40o?at_medium=RSS&at_campaign=rss",
+      "caption": "Photo coverage by BBC News"
+    },
+    {
+      "id": "evans-claims-dramatic-wrc-title-after-solberg-crash",
+      "section": "sports",
+      "title": "Evans claims dramatic WRC title after Solberg crash",
+      "deck": "Five-time runner-up Elfyn Evans is world champion for the first time after rival Oliver Solberg crashes in the final moments of Rally Italia Sardegna.",
+      "author": "BBC News Editorial Team",
+      "ago": "7 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 46,
+      "image_url": "/images/evans-claims-dramatic-wrc-title-after-solberg-crash.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/sport/motorsport/articles/cmd6dq5gyw7xo?at_medium=RSS&at_campaign=rss",
+      "caption": "Elfyn Evans and co-driver Scott Martin won just two of 13 races in the 2026 WRC season"
+    },
+    {
+      "id": "k-pop-giants-stray-kids-join-bts-in-boycotting-the-grammys",
+      "section": "culture",
+      "title": "K-pop giants Stray Kids join BTS in boycotting the Grammys",
+      "deck": "Stray Kids become the second major act to withdraw from the Grammys over the new best Asian Pop award.",
+      "author": "BBC News Editorial Team",
+      "ago": "7 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 47,
+      "image_url": "/images/k-pop-giants-stray-kids-join-bts-in-boycotting-the-grammys.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/c5398kkx27ewo?at_medium=RSS&at_campaign=rss",
+      "caption": "Stray Kids are one of K-Pop's biggest live acts, and recently headlined the Rock In Rio Festival, alongside Elton John"
+    },
+    {
+      "id": "prince-of-wales-tells-villagers-holistic-approach-is-needed",
+      "section": "science",
+      "title": "Prince of Wales tells villagers 'holistic' approach is needed to tackle flooding",
+      "deck": "Prince William visits residents of Skenfrith, Monmouthshire, who have faced four floods in six years.",
+      "author": "BBC News Editorial Team",
+      "ago": "7 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 48,
+      "image_url": "/images/prince-of-wales-tells-villagers-holistic-approach-is-needed.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cm1j4j9lxp49o?at_medium=RSS&at_campaign=rss",
+      "caption": "The Prince of Wales meets local residents, Rob and Helen Wyatt, during a visit to the village of Skenfrith in Monmouthshire"
+    },
+    {
+      "id": "cornell-president-says-university-must-do-better-after-frat",
+      "section": "world",
+      "title": "Cornell president says university 'must do better' after frat house rape allegations",
+      "deck": "Michael Kotlikoff described the allegations of a woman who says she was drugged and gang raped as \"deeply disturbing\".",
+      "author": "BBC News Editorial Team",
+      "ago": "8 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 49,
+      "image_url": "/images/cornell-president-says-university-must-do-better-after-frat.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/ckly0leelnz4o?at_medium=RSS&at_campaign=rss",
+      "caption": "A student has alleged she was drugged and gang-raped inside the Chi Phi frat house at Cornell University"
+    },
+    {
+      "id": "widdecombe-suspect-charged-with-planning-terror-act-against",
+      "section": "politics",
+      "title": "Widdecombe suspect charged with planning terror act against Farage",
+      "deck": "Counter terror police say the further charge comes after a \"hugely intensive and complex investigation\".",
+      "author": "BBC News Editorial Team",
+      "ago": "8 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 50,
+      "image_url": "/images/widdecombe-suspect-charged-with-planning-terror-act-against.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cv1j3lgrl6gko?at_medium=RSS&at_campaign=rss",
+      "caption": "Joshua Kerry has been charged with preparing acts of terror including against Reform UK leader Nigel Farage."
+    },
+    {
+      "id": "no-more-cereal-at-the-end-of-the-aisle-new-rules-in-scotland",
+      "section": "business",
+      "title": "No more cereal at the end of the aisle? New rules in Scotland's supermarkets",
+      "deck": "Restrictions are being put on products with high sugar, fat and salt content, but the meal deal lives on.",
+      "author": "BBC News Editorial Team",
+      "ago": "8 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 51,
+      "image_url": "/images/no-more-cereal-at-the-end-of-the-aisle-new-rules-in-scotland.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cmwyzye21463o?at_medium=RSS&at_campaign=rss",
+      "caption": "Photo coverage by BBC News"
+    },
+    {
+      "id": "whatsapp-introduces-optional-parental-controls-for-teenagers",
+      "section": "tech",
+      "title": "WhatsApp introduces optional parental controls for teenagers",
+      "deck": "The social messaging app will let parents decide on privacy settings for their child's account.",
+      "author": "BBC News Editorial Team",
+      "ago": "8 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 52,
+      "image_url": "/images/whatsapp-introduces-optional-parental-controls-for-teenagers.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cm986x65we88o?at_medium=RSS&at_campaign=rss",
+      "caption": "Photo coverage by BBC News"
+    },
+    {
+      "id": "i-clawed-my-way-to-the-top-but-need-a-break-azpilicueta",
+      "section": "sports",
+      "title": "I clawed my way to the top but need a break - Azpilicueta",
+      "deck": "Cesar Azpilicueta says it is time to move to \"a different stage of life\" following a glorious 20-year playing career, notably captaining Chelsea to several titles.",
+      "author": "BBC News Editorial Team",
+      "ago": "8 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 53,
+      "image_url": "/images/i-clawed-my-way-to-the-top-but-need-a-break-azpilicueta.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/sport/football/articles/cq0kl0yy3r0po?at_medium=RSS&at_campaign=rss",
+      "caption": "Azpilicueta is sixth in the all-time appearance list after playing 508 times in 11 years for Chelsea."
+    },
+    {
+      "id": "the-kent-village-that-helped-shape-audrey-hepburn",
+      "section": "culture",
+      "title": "The Kent village that helped shape Audrey Hepburn",
+      "deck": "Audrey Hepburn spent three years in Elham before the outbreak of World War Two.",
+      "author": "BBC News Editorial Team",
+      "ago": "8 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 54,
+      "image_url": "/images/the-kent-village-that-helped-shape-audrey-hepburn.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/articles/cq8jzll3w4lvo?at_medium=RSS&at_campaign=rss",
+      "caption": "Hollywood actress Audrey Hepburn (centre, wearing a tall hat) spent part of her childhood in Elham, near Canterbury, before the outbreak of World War Two"
+    },
+    {
+      "id": "spacex-launches-crew-to-iss",
+      "section": "science",
+      "title": "SpaceX launches crew to ISS",
+      "deck": "The Falcon 9 rocket blasted off from Cape Canaveral with two Americans, a Russian and a Canadian who will spend up to six months aboard the International Space Station.",
+      "author": "BBC News Editorial Team",
+      "ago": "8 h ago",
+      "read_minutes": 3,
+      "live": false,
+      "position": 55,
+      "image_url": "/images/spacex-launches-crew-to-iss.jpg",
+      "source_name": "BBC News",
+      "source_url": "https://www.bbc.co.uk/news/videos/c5rm9mdperemo?at_medium=RSS&at_campaign=rss",
+      "caption": "Photo coverage by BBC News"
+    }
+  ],
+  "articles": [
+    {
+      "story_id": "kyiv-bridge-hit-in-further-russian-drone-attack-as-german-ch",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Kyiv bridge hit in further Russian drone attack as German chancellor makes surprise visit"
+        },
+        {
+          "type": "paragraph",
+          "text": "A hole in the concrete road on the Pivnichnyi (Northern) Bridge, which was hit by a Russian drone on Sunday"
+        },
+        {
+          "type": "paragraph",
+          "text": "Major bridges in Kyiv have been hit by Russian drone strikes for four consecutive days, as Moscow ramps up attacks on critical infrastructure in Ukraine's capital."
+        },
+        {
+          "type": "quote",
+          "text": "Russia's military said it would be intensifying strikes on Kyiv and other Ukrainian regions. It earlier said it had hit the two bridges used to transfer Ukrainian troops.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The latest attack came as German Chancellor Friedrich Merz made a surprise visit to Kyiv in a show of support against Russia's continuing full-scale invasion."
+        },
+        {
+          "type": "paragraph",
+          "text": "Russia's military said it would be intensifying strikes on Kyiv and other Ukrainian regions. It earlier said it had hit the two bridges used to transfer Ukrainian troops."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Video footage of Sunday's strike, verified by the BBC, shows cars moving on Pivnichnyi Bridge as a drone crashes into it...",
+            "Other videos and pictures have emerged on social media showing a gaping hole in the middle of a traffic lane on the brid...",
+            "Kyiv Mayor Vitali Klitschko said two people were injured in the latest Russian attack. He earlier said that the Pivnichn..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Kyiv Mayor Vitali Klitschko said two people were injured in the latest Russian attack. He earlier said that the Pivnichnyi Bridge's roadway was hit."
+        }
+      ]
+    },
+    {
+      "story_id": "im-a-classic-old-school-conservative-says-kemi-badenoch",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: I'm a classic old school Conservative, says Kemi Badenoch"
+        },
+        {
+          "type": "paragraph",
+          "text": "Kemi Badenoch has declared herself a \"classic old school Conservative\" as she begins her party's annual conference with a string of policy pledges and a 100 page statement on her guiding principles., external"
+        },
+        {
+          "type": "paragraph",
+          "text": "\"I believe in common sense, people working hard and being rewarded for that effort,\" she told the BBC's Laura Kuenssberg."
+        },
+        {
+          "type": "quote",
+          "text": "She added that welfare should be a \"safety net, not a lifestyle\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Tory leader is trying to ensure her party stands out in a crowded political field. The Conservatives are trailing Labour and Reform UK in the opinion polls and have yet to recover from their historic defeat at the 2024 general election."
+        },
+        {
+          "type": "paragraph",
+          "text": "Badenoch, whose personal poll ratings are higher than that of her party, has characterised Reform leader Nigel Farage as a \"grumpy grandpa\" and she told Laura Kuenssberg that Labour leader Andy Burnham is \"the cheesy uncle who does all the dad jokes\"."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Asked if her plan for benefit cuts and a massive increase in prison places was a return to the \"nasty party\" of the past...",
+            "\"And, quite frankly, if we were doing so well the old way, then why did we have such a terrible issue in 2024?\"",
+            "In her essay The Right Way - a deliberate echo of an essay written by Margaret Thatcher in 1976, external entitled The R..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In her essay The Right Way - a deliberate echo of an essay written by Margaret Thatcher in 1976, external entitled The Right Approach - Badenoch says the last Conservative government failed because it did not know what it stood for."
+        }
+      ]
+    },
+    {
+      "story_id": "g7-to-release-millions-of-barrels-of-oil-and-diesel-after-tr",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: G7 to release millions of barrels of oil and diesel after Trump threat"
+        },
+        {
+          "type": "paragraph",
+          "text": "The G7 has announced 100 million barrels of oil and diesel will be released to ease supply concerns that have caused prices to skyrocket."
+        },
+        {
+          "type": "paragraph",
+          "text": "It includes a \"substantial release\" of diesel within 20 days, with discussions around \"additional diesel releases as necessary\", G7 leaders said in a statement."
+        },
+        {
+          "type": "quote",
+          "text": "The group of advanced economies, including the US, said the move would begin immediately and would last for four months.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Under the measures, which come after US President Donald Trump had threatened to ban diesel exports, there will not be any \"export restrictions on energy and energy products\" between G7 members."
+        },
+        {
+          "type": "paragraph",
+          "text": "The G7 includes the US, UK, Canada, Japan, Germany, Italy and France, with the EU also represented at its meetings."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Donald Trump had warned he would ban diesel exports from the US if European countries did not agree to put more of their...",
+            "On Friday, he said on social media: \"Europe has just agreed to release a massive amount of their heavily stocked Diesel ...",
+            "His Treasury Secretary Scott Bessent had argued US farmers, truckers, and businesses \"should not be left carrying the bu..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "His Treasury Secretary Scott Bessent had argued US farmers, truckers, and businesses \"should not be left carrying the burden\" as prices soar."
+        }
+      ]
+    },
+    {
+      "story_id": "openai-fires-workers-for-mishandling-sensitive-information",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: OpenAI fires workers for 'mishandling sensitive information'"
+        },
+        {
+          "type": "paragraph",
+          "text": "OpenAI has fired three researchers for allegedly mishandling information, including work which involved an external organisation analysing AI models."
+        },
+        {
+          "type": "paragraph",
+          "text": "\"Our investigation confirmed that these individuals mishandled sensitive information outside established company procedures, violating our policies and breaking the trust essential to our work,\" a spokesperson told the BBC."
+        },
+        {
+          "type": "quote",
+          "text": "\"We have parted ways with three individuals for violating our policies on accessing and handling sensitive company information,\" a spokesperson for OpenAI said.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The firings come as the debate over AI safety and the risks the technology may pose to humanity intensified in recent months."
+        },
+        {
+          "type": "paragraph",
+          "text": "\"We have parted ways with three individuals for violating our policies on accessing and handling sensitive company information,\" a spokesperson for OpenAI said."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Concerns over AI safety have made headlines after some researchers and industry executives called for more guardrails ar...",
+            "OpenAI has come under under intense scrutiny after its models went rogue and hacked several platforms, including Austral...",
+            "In an incident in July, one of the firm's AI models accessed the internet and breached the open-source developer platfor..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In an incident in July, one of the firm's AI models accessed the internet and breached the open-source developer platform Hugging Face."
+        }
+      ]
+    },
+    {
+      "story_id": "verstappen-wins-in-malaysia-after-long-delays-as-russell-ret",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Verstappen wins in Malaysia after long delays as Russell retires"
+        },
+        {
+          "type": "paragraph",
+          "text": "A lot of people didn't believe in 'another win including myself'"
+        },
+        {
+          "type": "paragraph",
+          "text": "Max Verstappen took his and Red Bull's first win of the year with a dominant drive in a dramatic Bahrain Grand Prix in Malaysia that started amid chaotic and unprecedented scenes."
+        },
+        {
+          "type": "quote",
+          "text": "“This development highlights key changes we have been monitoring closely across the sector,” noted an analyst following the story for BBC News.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Antonelli now leads Russell by 84 points with either six or seven races remaining."
+        },
+        {
+          "type": "paragraph",
+          "text": "Lewis Hamilton drove an extraordinary race after dropping towards the back with an incorrect tyre choice for a wet start to fight back to pass Red Bull's Isack Hadjar for third place with three laps to go."
+        },
+        {
+          "type": "list",
+          "items": [
+            "All that came after a delay of an hour and a half caused initially by heavy rain and then by a series of bizarre technic...",
+            "After that problem, it took some time for governing body the FIA to decide the order in which the cars should take the s...",
+            "The effective death knell for Russell's already faint title hopes"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The effective death knell for Russell's already faint title hopes"
+        }
+      ]
+    },
+    {
+      "story_id": "glastonbury-2027-tickets-sell-out-in-42-minutes",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Glastonbury 2027 tickets sell out in 42 minutes"
+        },
+        {
+          "type": "paragraph",
+          "text": "Glastonbury Festival returns to Worthy Farm in June, following a fallow year"
+        },
+        {
+          "type": "paragraph",
+          "text": "Tickets for Glastonbury Festival 2027 sold out in 42 minutes, organisers have said."
+        },
+        {
+          "type": "quote",
+          "text": "Headliners have yet to be announced but organiser Emily Eavis previously said the team was \"very excited\" and things were \"coming together really well\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Organisers confirmed last month that tickets for the weekend were at their highest price ever - £408, including a £5 booking fee per ticket - an increase of £29.50 from the last event in 2025."
+        },
+        {
+          "type": "paragraph",
+          "text": "Headliners have yet to be announced but organiser Emily Eavis previously said the team was \"very excited\" and things were \"coming together really well\"."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Glastonbury posted on Instagram shortly after 09:40 to announce that tickets had sold out, and notified those who were i...",
+            "\"Thank you to everyone who bought one and we're sorry to those of you who missed out on a morning where demand greatly e...",
+            "\"There will be a resale of any cancelled or returned tickets in Spring 2027.\""
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "\"There will be a resale of any cancelled or returned tickets in Spring 2027.\""
+        }
+      ]
+    },
+    {
+      "story_id": "queens-university-students-blast-off-to-us-for-nasa-robotics",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Queen's University students blast off to US for Nasa robotics competition"
+        },
+        {
+          "type": "paragraph",
+          "text": "The team is made up of 10 students from Queen's University Belfast"
+        },
+        {
+          "type": "paragraph",
+          "text": "Could a robot designed by young engineering students from Northern Ireland end up on the Moon?"
+        },
+        {
+          "type": "quote",
+          "text": "Jack Fitzpatrick, who's studying for a PhD in mechanical engineering, said \"it's a great feeling\" to have been invited and they're looking forward to the opportunity to take part.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Lunabotics is a university-level competition for teams to use the Nasa systems engineering process to design, build, and operate a lunar robot."
+        },
+        {
+          "type": "paragraph",
+          "text": "The students created a lab-built robot that they will bring to the competition to find out how it would deal with future moon missions."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The robots will be expected to dig up lunar material, drive over obstacles and use the material to form a wall.",
+            "Jack Fitzpatrick, who's studying for a PhD in mechanical engineering, said \"it's a great feeling\" to have been invited a...",
+            "Jack Fitzpatrick is studying for a PhD and is part of the mechanical team"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Jack Fitzpatrick is studying for a PhD and is part of the mechanical team"
+        }
+      ]
+    },
+    {
+      "story_id": "watch-what-we-know-about-russian-strikes-on-kyiv-bridges",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Watch: What we know about Russian strikes on Kyiv bridges"
+        },
+        {
+          "type": "paragraph",
+          "text": "Major bridges in Ukraine have been the target of Russian strikes over the past four days, as Moscow ramps up attacks in Ukraine's capital city."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Pivnichnyi (Northern) Bridge, has been hit for the second day in a row, while the Pivdennyi (Southern) Bridge was hit multiple times earlier this week."
+        },
+        {
+          "type": "quote",
+          "text": "“This development highlights key changes we have been monitoring closely across the sector,” noted an analyst following the story for BBC News.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "BBC Ukraine correspondent Dan Johnson is near one of the bridges that was targeted and explains what we know so far."
+        },
+        {
+          "type": "paragraph",
+          "text": "More on this story: Kyiv bridge hit in further Russian drone attack as German chancellor makes surprise visit"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Watch: What we know about Russian strikes on Kyiv bridges. Video, 00:01:17Watch: What we know about Russian strikes on K...",
+            "Up Next. People escape historic Kyiv building hit by Russian drone. Video, 00:01:18People escape historic Kyiv building ...",
+            "'No surprises' as results emerge in Russian parliamentary election. Video, 00:01:22'No surprises' as results emerge in R..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "'No surprises' as results emerge in Russian parliamentary election. Video, 00:01:22'No surprises' as results emerge in Russian parliamentary election"
+        }
+      ]
+    },
+    {
+      "story_id": "badenoch-unveils-plan-to-end-100000-childcare-cliff-edge-ahe",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Badenoch unveils plan to end £100,000 childcare 'cliff edge' ahead of Tory conference"
+        },
+        {
+          "type": "paragraph",
+          "text": "Watch: People shouldn't be punished for working harder, Badenoch says"
+        },
+        {
+          "type": "paragraph",
+          "text": "Kemi Badenoch has said a Conservative government would scrap the \"cliff edge\" that means parents in England lose out on childcare support when they earn more than £100,000 a year."
+        },
+        {
+          "type": "quote",
+          "text": "Speaking to the BBC's Laura Kuenssberg, the Conservative Party leader said: \"What we want to see is that people who work harder don't get punished for doing so.\"",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The earnings limit means only families where no parent earns more than this threshold are eligible for government-funded or tax-free childcare."
+        },
+        {
+          "type": "paragraph",
+          "text": "The announcement comes as Conservative members gather for the party's annual conference in Birmingham."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Badenoch, who arrived in the city on Saturday, has vowed the party was new and different from the one that lost the 2024...",
+            "The Conservatives - who have been polling behind Labour and Reform UK over the past year - are expected to use the four-...",
+            "Ahead of the conference, the Conservatives produced a 100-page essay setting out their principles, external including a ..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Ahead of the conference, the Conservatives produced a 100-page essay setting out their principles, external including a \"central\" belief that business, rather than governments, create growth."
+        }
+      ]
+    },
+    {
+      "story_id": "suppliers-pile-pressure-on-government-over-energy-bills",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Suppliers pile pressure on government over energy bills"
+        },
+        {
+          "type": "paragraph",
+          "text": "The government should take immediate action to help those struggling with energy bills this winter, the suppliers' trade body has said."
+        },
+        {
+          "type": "paragraph",
+          "text": "Energy UK said domestic gas prices, which rose on Thursday, and forecasts of steep rises in January meant inaction would lead to a longer-term, more costly and deeper crisis."
+        },
+        {
+          "type": "quote",
+          "text": "Prime Minister Andy Burnham said the government was considering any measure that took the pressure off.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Prime Minister Andy Burnham said the government was considering any measure that took the pressure off."
+        },
+        {
+          "type": "paragraph",
+          "text": "Households in England, Scotland and Wales on variable energy tariffs set by Ofgem's price cap, which puts a maximum price on each unit of gas and electricity, were hit with a 4% price increase at the start of October."
+        },
+        {
+          "type": "list",
+          "items": [
+            "That is the equivalent of about £60 per year - or £5 per month - taking an annual bill to £1,723 for the typical househo...",
+            "But forecasts show a far greater increase is possible for bills in January. Consultancy Cornwall Insight said its latest...",
+            "Energy UK said it accepted the government had already provided some support. VAT on electricity bills was cut on Thursda..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Energy UK said it accepted the government had already provided some support. VAT on electricity bills was cut on Thursday, and some levies were cancelled or shifted into taxation earlier this year."
+        }
+      ]
+    },
+    {
+      "story_id": "crypto-thieves-attack-man-in-home-and-threaten-to-kill-pregn",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Crypto thieves attack man in home and threaten to kill pregnant wife's baby in 'horrific' robbery"
+        },
+        {
+          "type": "paragraph",
+          "text": "WATCH: Crypto thieves attack man in home and threaten him and his pregnant wife"
+        },
+        {
+          "type": "paragraph",
+          "text": "A businessman was beaten with hammers by masked men who broke into his home and threatened to kill his heavily pregnant wife unless he transferred hundreds of thousands of pounds of cryptocurrency."
+        },
+        {
+          "type": "quote",
+          "text": "Speaking to the BBC, the couple, who want to remain anonymous, described the attack as \"horrific\" and said they feared for their unborn baby's life.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The attackers left in a car driven by a getaway driver after the man transferred his crypto savings."
+        },
+        {
+          "type": "paragraph",
+          "text": "Crimestoppers are offering a £10,000 reward for information in the attack, which was captured on home security footage and is being investigated by the police."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Experts say it is one of a growing type of violent theft known as a \"wrench attack\" targeting cryptocurrency investors.",
+            "As crypto coins have risen in value, reports of these violent robberies linked to digital assets have emerged in the UK,...",
+            "Once funds are transferred, recovering them can be extremely difficult."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Once funds are transferred, recovering them can be extremely difficult."
+        }
+      ]
+    },
+    {
+      "story_id": "dominant-verstappen-superb-hamilton-recovery-driver-ratings",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Dominant Verstappen & superb Hamilton recovery - driver ratings"
+        },
+        {
+          "type": "paragraph",
+          "text": "Max Verstappen is sixth in the drivers' championship while Lewis Hamilton is third"
+        },
+        {
+          "type": "paragraph",
+          "text": "Max Verstappen secured his first win of the 2026 season with victory at a chaotic Bahrain Grand Prix in Malaysia."
+        },
+        {
+          "type": "quote",
+          "text": "“This development highlights key changes we have been monitoring closely across the sector,” noted an analyst following the story for BBC News.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Russell retired from the grand prix while in third place with a power unit failure."
+        },
+        {
+          "type": "paragraph",
+          "text": "Here are my ratings for how the drivers performed across the whole weekend in Malaysia..."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hard to find much wrong this weekend. Dominant through every part of qualifying for his first pole of the season. A poor...",
+            "Proving Baku was just a blip for the championship leader. Produced an excellent start to take the lead and ultimately br...",
+            "A superb recovery after Ferrari's decision to start on slick tyres sent him tumbling from the front row to 18th. Hamilto..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A superb recovery after Ferrari's decision to start on slick tyres sent him tumbling from the front row to 18th. Hamilton fought all the way back to the podium and passed Isack Hadjar after the final safety car to complete one of his best drives of the season."
+        }
+      ]
+    },
+    {
+      "story_id": "british-museum-announces-changes-to-ease-bayeux-tapestry-que",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: British Museum announces changes to ease Bayeux Tapestry queues"
+        },
+        {
+          "type": "paragraph",
+          "text": "The British Museum has announced changes to how visitors see the Bayeux Tapestry exhibition after concerns over long queues and overcrowding."
+        },
+        {
+          "type": "paragraph",
+          "text": "The measures include plans for longer opening hours, as well as an audio guide, additional seating and clearer signage."
+        },
+        {
+          "type": "quote",
+          "text": "A museum spokesperson said the public response to the 11th Century embroidery had been \"extraordinary\", but acknowledged that some visitors had waited longer than they would have wanted.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Some people reported waits of up to two hours, while hundreds of ticket holders were reportedly turned away due to backlogs when the museum closed early last week due to a private event."
+        },
+        {
+          "type": "paragraph",
+          "text": "Some ticket holders took to social media to complain about the disruption."
+        },
+        {
+          "type": "list",
+          "items": [
+            "One disappointed visitor said the trip had been a \"big event\" they had looked forward to, while another wrote she had be...",
+            "The museum later apologised to those who had been unable to enter and said they would be issued refunds and priority boo...",
+            "From Monday, visitors will be offered an audio guide with more information about the embroidery, while additional signag..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "From Monday, visitors will be offered an audio guide with more information about the embroidery, while additional signage and seating will be provided for those queuing to reach the main exhibition."
+        }
+      ]
+    },
+    {
+      "story_id": "im-a-wildlife-cameraman-but-special-rare-sightings-can-still",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: I'm a wildlife cameraman but 'special' rare sightings can still take me by surprise"
+        },
+        {
+          "type": "paragraph",
+          "text": "Abbot has seen the humpback whale before, but never in this area"
+        },
+        {
+          "type": "paragraph",
+          "text": "A wildlife cinematographer and shark guide has spoken about the unexpected surprise and joy of seeing a humpback whale in the Celtic Deep just off the Welsh coast."
+        },
+        {
+          "type": "quote",
+          "text": "He has seen the large marine mammals before, on planned trips where humpback whale sightings are not as unusual, but this experience was \"a complete surprise\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "He has seen the large marine mammals before, on planned trips where humpback whale sightings are not as unusual, but this experience was \"a complete surprise\"."
+        },
+        {
+          "type": "paragraph",
+          "text": "Lloyd Nelmes from Sea Trust said the sighting was \"unusual for someone who works in the field... who probably has their eyes on the water every day\", adding, \"for a normal person, it's insanely rare\"."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Abbot guides blue shark snorkelling trips off of Pembrokeshire",
+            "Abbot guides blue shark snorkelling trips off of Pembrokeshire and was on a scheduled snorkelling trip in the Celtic Sea...",
+            "The group had just left the snorkelling site after seeing multiple sharks and were 25-30 miles offshore."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The group had just left the snorkelling site after seeing multiple sharks and were 25-30 miles offshore."
+        }
+      ]
+    },
+    {
+      "story_id": "yemen-announces-military-campaign-to-reclaim-land-from-iran",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Yemen announces military campaign to reclaim land from Iran-backed Houthis"
+        },
+        {
+          "type": "paragraph",
+          "text": "Soldiers ride in the back of a pick-up truck on a dirt road near Taiz, amid fighting between Yemeni government forces and Houthis"
+        },
+        {
+          "type": "paragraph",
+          "text": "Yemen's Saudi-backed government has announced a major military operation to retake territory from the Iran-backed Houthis."
+        },
+        {
+          "type": "quote",
+          "text": "It comes after an exchange of strikes between the Houthis and the Saudi-led coalition in recent days. On Sunday, the Houthis said they had struck sites belonging to Saudi national oil company Aramco.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The group said the attack was in response to what it described as 50 Saudi-led coalition air and missile strikes in Yemen in 12 hours. Saudi Arabia has yet to comment."
+        },
+        {
+          "type": "paragraph",
+          "text": "The conflict escalated in September, when the Houthis seized the country's entire Red Sea coast, including the vital shipping lane of the Bab al-Mandab Strait, further disrupting global oil supplies."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Flames burn at a facility belonging to Saudi oil giant Aramco south of Riyadh on 3 October",
+            "Yemen's capital, Sanaa, which has been held by the Houthis for more than a decade, has come under sustained attack as go...",
+            "Attacks on the Houthis have also spread across Yemen, including to the Saada region, the group's northern heartland."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Attacks on the Houthis have also spread across Yemen, including to the Saada region, the group's northern heartland."
+        }
+      ]
+    },
+    {
+      "story_id": "courts-backlog-will-fall-despite-scrapping-of-jury-trial-pla",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Courts backlog will fall despite scrapping of jury trial plan, minister says"
+        },
+        {
+          "type": "paragraph",
+          "text": "The courts backlog will still fall despite plans to curb jury trials being scrapped, the justice secretary has told the BBC."
+        },
+        {
+          "type": "paragraph",
+          "text": "Alex Norris said introducing legislation for judge-only trials \"was always going to be the most complicated to implement\" and would have slowed down reforms."
+        },
+        {
+          "type": "quote",
+          "text": "The Ministry of Justice (MoJ) said only complex fraud and financial offences would be judge-only - and it proposes thousands of medium-level crimes should stay with volunteer magistrates, who sit without a jury.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Ministry of Justice (MoJ) said only complex fraud and financial offences would be judge-only - and it proposes thousands of medium-level crimes should stay with volunteer magistrates, who sit without a jury."
+        },
+        {
+          "type": "paragraph",
+          "text": "Norris told the BBC's Sunday with Laura Kuenssberg the backlog would start falling \"in this Parliament\", but would not say by how much."
+        },
+        {
+          "type": "list",
+          "items": [
+            "He said it would fall significantly over the next decade \"as a result of the changes we're making\".",
+            "The Conservatives said it was a \"major victory\" for those who fought to defend trial by jury, while criminal lawyers wel...",
+            "The Criminal Bar Association (CBA) warned this would keep more middle-ranking cases before magistrates and shift 25,000 ..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The Criminal Bar Association (CBA) warned this would keep more middle-ranking cases before magistrates and shift 25,000 cases a year onto magistrates' courts."
+        }
+      ]
+    },
+    {
+      "story_id": "uk-diesel-prices-top-2-a-litre-for-first-time-rac-says",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: UK diesel prices top £2 a litre for first time, RAC says"
+        },
+        {
+          "type": "paragraph",
+          "text": "Watch: Diesel prices in the UK have hit an all time high - here's why"
+        },
+        {
+          "type": "paragraph",
+          "text": "The average price of diesel has risen above £2 a litre in the UK for the first time, according to the RAC motoring group."
+        },
+        {
+          "type": "quote",
+          "text": "Diesel has now hit an average of 200.01p a litre, the RAC said, and petrol prices are also still rising, reaching 174.71p a litre on average.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The motoring group said price rises were \"showing no signs of slowing, heaping more misery onto motorists\"."
+        },
+        {
+          "type": "paragraph",
+          "text": "Over the past seven months, the Iran war has severely disrupted the production and transportation of wholesale oil and refined products from the region, causing prices to surge worldwide."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Ukrainian attacks on Russian refiners have further constrained supplies of diesel on the world market. China has also re...",
+            "Separately on Friday, G7 nations agreed at an urgent meeting to release 100 million barrels of oil to head off further p...",
+            "The G7 also agreed member countries would not impose export restrictions on each other, after US President Donald Trump ..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The G7 also agreed member countries would not impose export restrictions on each other, after US President Donald Trump threatened to ban shipments of American diesel overseas."
+        }
+      ]
+    },
+    {
+      "story_id": "trumps-ai-rebrand-causes-unprecedented-demand-for-slovenian",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Trump's AI rebrand causes 'unprecedented' demand for Slovenian website names"
+        },
+        {
+          "type": "paragraph",
+          "text": "Donald Trump's push to rename AI may be behind an \"unprecedented\" rise in registrations for domain names in Slovenia, according to its official national registry."
+        },
+        {
+          "type": "paragraph",
+          "text": "The US president wants AI to be called \"super intelligence\" - or SI - the same initials used by Slovenian websites."
+        },
+        {
+          "type": "quote",
+          "text": "Register.si spokeswoman Klara Herman said 44,000 web addresses with the .si suffix had been registered in September, compared to less than 2,000 in August - an increase of more than 2,100%.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "She said the scale of activity in late September was \"unprecedented\" compared to the previous 12 months."
+        },
+        {
+          "type": "paragraph",
+          "text": "Trump called for the technology to be renamed during his speech to the United Nations General Assembly in New York on 11 September."
+        },
+        {
+          "type": "list",
+          "items": [
+            "\"The use of the word artificial makes it sound fake,\" he said.",
+            "\"It's not fake, it's actually amazing. But we have to be careful... welcome to the new world of super intelligence.\"",
+            "Internet domains are the unique human-readable addresses people type into their web browsers to access websites - like b..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Internet domains are the unique human-readable addresses people type into their web browsers to access websites - like bbc.co.uk."
+        }
+      ]
+    },
+    {
+      "story_id": "djokovic-beats-zverev-to-reach-china-open-semis",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Djokovic beats Zverev to reach China Open semis"
+        },
+        {
+          "type": "paragraph",
+          "text": "Novak Djokovic won his last Grand Slam at the US Open in 2023"
+        },
+        {
+          "type": "paragraph",
+          "text": "Novak Djokovic battled back from a set down to defeat top seed Alexander Zverev and book his place in the China Open semi-finals."
+        },
+        {
+          "type": "quote",
+          "text": "\"These are the kind of moments that I still play for, compete for,\" Djokovic said.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Djokovic's victory over Zverev dented the German's quest to finish the year as the world's number one-ranked player."
+        },
+        {
+          "type": "paragraph",
+          "text": "\"These are the kind of moments that I still play for, compete for,\" Djokovic said."
+        },
+        {
+          "type": "list",
+          "items": [
+            "\"The motivation is big when you are feeling good and competing at par with the best players in the world in front of 15,...",
+            "\"These are the kind of moments that define dreams, I think, of every tennis player.\"",
+            "In their first meeting in just under 16 months, Djokovic initially struggled to handle Zverev's power, and the 29-year-o..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In their first meeting in just under 16 months, Djokovic initially struggled to handle Zverev's power, and the 29-year-old secured the first set after capitalising on a break in the first game."
+        }
+      ]
+    },
+    {
+      "story_id": "the-celebrity-traitors-connections-that-might-surprise-you",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: The Celebrity Traitors connections that might surprise you"
+        },
+        {
+          "type": "paragraph",
+          "text": "Spoiler warning: This article reveals details from the first two episodes of The Celebrity Traitors"
+        },
+        {
+          "type": "paragraph",
+          "text": "\"I know Rob very, very well. I mean, I've sat next to him as he's had a colonic.\""
+        },
+        {
+          "type": "quote",
+          "text": "“This development highlights key changes we have been monitoring closely across the sector,” noted an analyst following the story for BBC News.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "His words sum up the key difference between this series and the regular civilian version. In Celebrity Traitors, the players aren't just on-screen competitors - many actually know each other outside the show."
+        },
+        {
+          "type": "paragraph",
+          "text": "Lots have worked together, and some are even friends. And those previous connections can have a huge impact on the show's dynamics."
+        },
+        {
+          "type": "list",
+          "items": [
+            "It's also partly why it is quite so delightful to watch - as friendships unravel, and former co-stars turn on each other...",
+            "We've been unpicking the six degrees of separation. Here are some of the connections we've found - if you spot any more,...",
+            "The dynamic between Rob Beckett and Romesh Ranganathan is one of the most enjoyable to watch play out this year."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The dynamic between Rob Beckett and Romesh Ranganathan is one of the most enjoyable to watch play out this year."
+        }
+      ]
+    },
+    {
+      "story_id": "could-el-niño-mean-there-are-no-atlantic-hurricanes-this-yea",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Could El Niño mean there are no Atlantic hurricanes this year?"
+        },
+        {
+          "type": "paragraph",
+          "text": "For the first time in more than 30 years, a hurricane has not formed in the Atlantic throughout September - normally the most active month for hurricane activity."
+        },
+        {
+          "type": "paragraph",
+          "text": "With just two months left of the defined hurricane season, there is an increasing possibility that no hurricanes will develop at all."
+        },
+        {
+          "type": "quote",
+          "text": "“This development highlights key changes we have been monitoring closely across the sector,” noted an analyst following the story for BBC News.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The biggest reason for this is El Niño, which traditionally stifles activity in the Atlantic but brings a very active season in the eastern North Pacific."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Atlantic hurricane season was predicted to be quieter than normal as a result of this."
+        },
+        {
+          "type": "list",
+          "items": [
+            "With a very strong El Niño forecast, the US National Hurricane Center in May predicted a total of eight to 14 named stor...",
+            "September is typically the most active month for tropical storm and hurricane activity.",
+            "But, this year marks the latest date on record since the start of the satellite era (1960s onward) where no hurricane ha..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "But, this year marks the latest date on record since the start of the satellite era (1960s onward) where no hurricane has formed in the North Atlantic."
+        }
+      ]
+    },
+    {
+      "story_id": "ethiopian-rebel-forces-withdraw-from-tigray-regional-capital",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Ethiopian rebel forces withdraw from Tigray regional capital"
+        },
+        {
+          "type": "paragraph",
+          "text": "A pro-government soldier standing guard on a street in Ethiopia's Tigray region on Sunday"
+        },
+        {
+          "type": "paragraph",
+          "text": "Rebel forces in Ethiopia's northern Tigray region have said they have temporarily withdrawn from the regional capital, Mekelle, as fighting with the national army moves towards the city."
+        },
+        {
+          "type": "quote",
+          "text": "The Tigray People's Liberation Front (TPLF), which has been running the region, said its decision to relocate was made because of concerns about risks to civilians.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Two residents in Mekelle told the BBC that pro-government forces now control the city and TPLF forces have abandoned it. One resident also said mobile phone services appear to have resumed in parts of the city."
+        },
+        {
+          "type": "paragraph",
+          "text": "Fighting has erupted in recent weeks between the TPLF and federal government forces alongside allied fighters in parts of Ethiopia's northern regions of Tigray, Afar and Amhara."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The development marks a major shift in the conflict and raises concerns among observers that the fighting could further ...",
+            "The US Department of State called for \"restraint\" and \"dialogue\" on all sides ahead of a diplomatic meeting about the co...",
+            "How fresh fighting in Tigray could spark wider conflict in Ethiopia"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "How fresh fighting in Tigray could spark wider conflict in Ethiopia"
+        }
+      ]
+    },
+    {
+      "story_id": "daughter-of-mp-murdered-five-years-ago-tells-bbc-politicians",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Daughter of MP murdered five years ago tells BBC politicians still at risk"
+        },
+        {
+          "type": "paragraph",
+          "text": "Watch: Daughter of Sir David Amess says MPs are no safer today"
+        },
+        {
+          "type": "paragraph",
+          "text": "The daughter of murdered MP Sir David Amess says politicians are still at risk and questioned if anything has changed five years after her father's death."
+        },
+        {
+          "type": "quote",
+          "text": "Katie Amess told the BBC's Sunday with Laura Kuenssberg what happened to her father \"wasn't an isolated incident, we are seeing increased threats towards members of parliament\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sir David was the Conservative MP for Southend West when he was stabbed multiple times while holding a constituency surgery in Leigh-on-Sea, Essex, in October 2021."
+        },
+        {
+          "type": "paragraph",
+          "text": "The government commissioned a review into his death in August, to identify lessons to be learned and recommend steps to minimise the risk of future tragedies."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Katie Amess, pictured earlier this year, has long campaigned for a public inquiry into her father's murder",
+            "The review is being led by former Conservative justice secretary Sir Robert Buckland, with the aim of reporting within s...",
+            "The safety of politicians has been a prominent issue in recent years since the death of former Conservative MP Ann Widde..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The safety of politicians has been a prominent issue in recent years since the death of former Conservative MP Ann Widdecombe in July this year, Sir David's murder in 2021 and Labour MP Jo Cox's murder in 2016."
+        }
+      ]
+    },
+    {
+      "story_id": "us-jobs-market-sees-sharp-slowdown-ahead-of-midterm-election",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: US jobs market sees sharp slowdown ahead of midterm elections"
+        },
+        {
+          "type": "paragraph",
+          "text": "Workforces remained unchanged across major sectors, from tech to retail. American firms are choosing to hold steady rather than hire or fire staff"
+        },
+        {
+          "type": "paragraph",
+          "text": "The US jobs market saw a sharp slowdown in September, with employers adding just 29,000 jobs in the final update before the midterm elections."
+        },
+        {
+          "type": "quote",
+          "text": "The figures signal a cooling US economy, which experts said reduced the likelihood of a series of further interest rate hikes by the Federal Reserve.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Meanwhile, the unemployment rate rose slightly from 4.1% in August to 4.2% in September."
+        },
+        {
+          "type": "paragraph",
+          "text": "The figures signal a cooling US economy, which experts said reduced the likelihood of a series of further interest rate hikes by the Federal Reserve."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The 29,000 jobs created in September was down from a figure of 133,000 in August, according to revised BLS figures for t...",
+            "But George Brown, senior economist at Schroders, said while job gains have been a “rollercoaster“ this year, a single so...",
+            "And Bradley Saunders, North America economist at Capital Economics, said the lower figure was “not disastrous“, adding t..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "And Bradley Saunders, North America economist at Capital Economics, said the lower figure was “not disastrous“, adding that a drop in government roles and temporary visa policy changes weighed on overall growth."
+        }
+      ]
+    },
+    {
+      "story_id": "ai-boom-could-trigger-market-shocks-bank-of-england-boss-war",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: AI boom could trigger market shocks, Bank of England boss warns"
+        },
+        {
+          "type": "paragraph",
+          "text": "Watch: Governor of the Bank of England Andrew Bailey says quality of deepfakes 'alarming'"
+        },
+        {
+          "type": "paragraph",
+          "text": "Artificial intelligence (AI) could trigger financial market shocks and the UK needs to be prepared for them, the governor of the Bank of England has warned."
+        },
+        {
+          "type": "quote",
+          "text": "Andrew Bailey said the central bank is watching the huge amounts of money being invested in AI \"very carefully\" and cautioned that \"not everybody always wins\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The money that has been spent on and loaned to AI firms over the last few years in the hope of large returns is causing markets to value some of them as multi-trillion dollar businesses."
+        },
+        {
+          "type": "paragraph",
+          "text": "Asked if he believed an AI bubble could burst, Bailey said: \"You could see some correction of asset prices at some point.\""
+        },
+        {
+          "type": "list",
+          "items": [
+            "He was speaking exclusively to the BBC about what the risks and benefits of AI could be for the UK economy.",
+            "Bailey said he believed the technology has \"great potential to strengthen growth in our economies\", adding that this was...",
+            "\"But it also brings with it substantial risks and so we have to be on top of both of those.\""
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "\"But it also brings with it substantial risks and so we have to be on top of both of those.\""
+        }
+      ]
+    },
+    {
+      "story_id": "bellingham-unlocks-new-level-and-potential-to-be-one-of-the",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Bellingham unlocks new level and potential to be 'one of the greatest'"
+        },
+        {
+          "type": "paragraph",
+          "text": "Jude Bellingham is the first player to record three assists in a game for England since Trent Alexander-Arnold against San Marino in November 2021"
+        },
+        {
+          "type": "paragraph",
+          "text": "Just a year ago, Jude Bellingham's place in the England squad was up in the air. Now he is being talked about as having the potential to be one of football's \"greatest of all time\"."
+        },
+        {
+          "type": "quote",
+          "text": "\"Bellingham can go on to be one of the greatest players of all time,\" former Manchester United and Republic of Ireland midfielder Roy Keane said on ITV after the game.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "But Bellingham did of course make the squad for the World Cup and was arguably his team's standout performer, finishing as England's top scorer with seven goals as they reached the semi-finals and finished third."
+        },
+        {
+          "type": "paragraph",
+          "text": "He has already shown that he is world class with starring performances for club and country, but the way he helped England to dismantle Croatia 7-0 in the Nations League on Saturday looked like someone perhaps reaching a new level."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The 23-year-old was instrumental in Rijeka, scoring as well as registering a hat-trick of assists. He even ended the mat...",
+            "\"Bellingham can go on to be one of the greatest players of all time,\" former Manchester United and Republic of Ireland m...",
+            "\"At this moment in time, he is an amazing footballer. The package – his running power, his delivery, his goal threat. Th..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "\"At this moment in time, he is an amazing footballer. The package – his running power, his delivery, his goal threat. The way he is progressing as a player, I still think there is a lot more to come from him.\""
+        }
+      ]
+    },
+    {
+      "story_id": "alison-hammond-returns-home-from-hospital-after-rushing-off",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Alison Hammond returns home from hospital after rushing off This Morning"
+        },
+        {
+          "type": "paragraph",
+          "text": "Alison Hammond has said she is home and \"feeling so much better\" after she went to hospital for a heart check-up after leaving ITV's This Morning midway through Friday's show."
+        },
+        {
+          "type": "paragraph",
+          "text": "The presenter, 51, left the programme during its live broadcast, appearing to clutch her chest as she was helped off set by co-host Dermot O'Leary. He later told viewers she was \"feeling a little unwell\"."
+        },
+        {
+          "type": "quote",
+          "text": "Soon after Hammond said she had \"a little bit of a palpitation\" and was undergoing tests.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "In a video on Instagram on Saturday, she said she was \"all OK, all-clear, which would mean I had a massive panic attack on live TV. I mean, the shame of it.\""
+        },
+        {
+          "type": "paragraph",
+          "text": "Alison Hammond has heart check-up in hospital after rushing off This Morning while on air"
+        },
+        {
+          "type": "list",
+          "items": [
+            "\"It felt very real to me. I'm really new to panic attacks, so I need to learn more about it,\" she added.",
+            "The Birmingham-born presenter, who also co-hosts The Great British Bake Off, thanked NHS staff and her colleagues at Thi...",
+            "\"It's really warmed my heart actually. I didn't necessarily want to be on the news or anything like that but this is a n..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "\"It's really warmed my heart actually. I didn't necessarily want to be on the news or anything like that but this is a new world to me,\" she said."
+        }
+      ]
+    },
+    {
+      "story_id": "hawaiis-iconic-550-year-old-hōlei-sea-arch-collapses",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Hawaii's iconic 550-year-old Hōlei Sea Arch collapses"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hawaii's famous Hōlei Sea Arch, a 90-foot-tall (27.4m) lava rock structure that formed about 550 years ago, has collapsed into the Pacific Ocean."
+        },
+        {
+          "type": "paragraph",
+          "text": "The collapse's exact time is not known. The arch was still projecting into the water from the coast of Volcanoes National Park on 23 September, but was gone by 27 September, the National Park Service (NPS) said."
+        },
+        {
+          "type": "quote",
+          "text": "\"The coastline flanking the sea arch has shown signs of instability for years,\" NPS, which warned in 2021 that the arch would eventually crumble, said in a statement.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Located at the end of Chain of Craters Road on the island of Hawaii, also called \"the big island\", the formation was a popular - and heavily photographed - tourist destination."
+        },
+        {
+          "type": "paragraph",
+          "text": "The arch is believed to have fallen when the park was temporarily closed during Tropical Storm Nolo last weekend."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The park service said earthquakes during the 2018 Kīlauea volcano eruption and summit collapse had damaged the cliffs ne...",
+            "Its ultimate collapse marks \"the latest transformation of the park's remote and rugged coastline\".",
+            "In January 2020, new cracks and instability in the cliffs led the park to close the original arch viewing area, and a fe..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In January 2020, new cracks and instability in the cliffs led the park to close the original arch viewing area, and a few months later, a new viewing area opened at a safer distance, NPS said."
+        }
+      ]
+    },
+    {
+      "story_id": "australia-investigating-flydubai-co-pilots-links-to-country",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Australia investigating Flydubai co-pilot's links to country"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Flydubai plane was diverted to Saudi Arabia after passengers managed to take back control from the co-pilot"
+        },
+        {
+          "type": "paragraph",
+          "text": "Australian authorities are investigating the links between the country and a Flydubai co-pilot who attempted to take control of a plane travelling to Israel."
+        },
+        {
+          "type": "quote",
+          "text": "The prosecutor in the UAE has said it is investigating the incident and any possible motives.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Australian authorities have not identified the co-pilot, who has been named by multiple media outlets including Reuters, CNN and The New York Times as Hamam al-Hammami."
+        },
+        {
+          "type": "paragraph",
+          "text": "The prosecutor in the UAE has said it is investigating the incident and any possible motives."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a statement to the BBC, the Australian Federal Police (AFP) confirmed its investigation into \"the man's links to Aust...",
+            "The investigation involves state police and the country's security agency, it said, adding that an update would be \"prov...",
+            "Sources familiar with the case, who have spoken to Australian media, have said the co-pilot was issued a student visa in..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Sources familiar with the case, who have spoken to Australian media, have said the co-pilot was issued a student visa in 2014, and studied in Australia between 2015 and 2017, until he left the country."
+        }
+      ]
+    },
+    {
+      "story_id": "greens-would-offer-two-year-jobs-to-unemployed-under-24s",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Greens would offer two-year jobs to unemployed under-24s"
+        },
+        {
+          "type": "paragraph",
+          "text": "Mothin Ali addressed Green Party members on the second day of their conference in Brighton"
+        },
+        {
+          "type": "paragraph",
+          "text": "Young people would be offered a guaranteed two-year job within four months of leaving education or training, under a new proposal unveiled by the Green Party."
+        },
+        {
+          "type": "quote",
+          "text": "Announcing the policy at the party's conference in Brighton, co-deputy leader Mothin Ali said there were a million \"bored, desperate and lost\" young people who were out of work, training or education.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Under the proposed scheme, youngsters would be offered posts in the private sector, with the government paying half their salary."
+        },
+        {
+          "type": "paragraph",
+          "text": "Ali said an initial pilot scheme - rolled out in areas with the fewest job openings for young people - would create 9,000 jobs, at an overall cost of £110m."
+        },
+        {
+          "type": "list",
+          "items": [
+            "The pilot would start in areas such as Rotherham, Ceredigion, Newcastle-under-Lyme, Broxtowe and South Staffordshire, wi...",
+            "The party said that a person not in work, education or training would cost the state an estimated £240,000 in benefits o...",
+            "It argued that its policy would reduce spending on welfare and boost tax receipts from employment."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "It argued that its policy would reduce spending on welfare and boost tax receipts from employment."
+        }
+      ]
+    },
+    {
+      "story_id": "it-could-cost-me-10k-but-i-need-the-money-now-why-gen-z-are",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: 'It could cost me £10k but I need the money now': Why Gen Z are opting out of pensions"
+        },
+        {
+          "type": "paragraph",
+          "text": "Dr Hassan Nassar is determined to opt back in to his pension as soon as he can"
+        },
+        {
+          "type": "paragraph",
+          "text": "Until early September, Hassan Nassar, 26, was saving around £430 every month into his NHS workplace pension."
+        },
+        {
+          "type": "quote",
+          "text": "But the trainee GP, who works in the West Midlands, says he was \"really cash strapped\" and decided to stop putting money aside for around \"six to 12 months\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "He needs the money to help take care of a sick family member, save for his first home and cover rent and student loan repayments."
+        },
+        {
+          "type": "paragraph",
+          "text": "But he's aware there is a cost to opting out, estimating he could lose between \"£5,000 and £10,000\" in future retirement income due to the decades of compound interest he will miss out on by not saving now."
+        },
+        {
+          "type": "list",
+          "items": [
+            "\"People will say, you're silly, look at what you'll be missing out in the future,\" he tells the BBC. \"But I need to look...",
+            "All employees will be automatically enrolled, external in a workplace pension if they are aged 22 or above and earn over...",
+            "A percentage is taken directly from the worker's pay - usually around 5% - with tax relief added on top, and the employe..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "A percentage is taken directly from the worker's pay - usually around 5% - with tax relief added on top, and the employer must also pay a minimum contribution on top."
+        }
+      ]
+    },
+    {
+      "story_id": "tiny-image-sparks-big-backlash-in-nikon-photo-contest",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Tiny image sparks big backlash in Nikon photo contest"
+        },
+        {
+          "type": "paragraph",
+          "text": "Watch: The competition's winner and runners up. Nikon is investigating whether the winning video (shown left) was altered with AI"
+        },
+        {
+          "type": "paragraph",
+          "text": "The winning entry of a prestigious scientific photography competition is being re-evaluated following criticism from other scientists that it was made with AI."
+        },
+        {
+          "type": "quote",
+          "text": "In a response to a post by Nikon on LinkedIn, external, he did not dispute using AI within the image processing but said he remained within the rules of the contest.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The winner was a short video submitted by Dr Ning Xu, a researcher at Tsinghua University in China, which claims to be footage of tiny, hair-like structures called cilia moving inside the airways of a child with a rare disease."
+        },
+        {
+          "type": "paragraph",
+          "text": "Xu did not respond to the BBC's request for comment, but has posted online denying he broke the competition rules."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In a response to a post by Nikon on LinkedIn, external, he did not dispute using AI within the image processing but said...",
+            "\"AI was not used to generate the experimental movie, the cilia, or their motion,\" he said.",
+            "Xu's video is artificially brightly coloured - common in microscopy and permitted in the contest - which is usually done..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Xu's video is artificially brightly coloured - common in microscopy and permitted in the contest - which is usually done manually using stains and dyes on the sample itself."
+        }
+      ]
+    },
+    {
+      "story_id": "bowie-seizing-scotland-shot-after-world-cup-disappointment",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Bowie seizing Scotland shot after World Cup disappointment"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sometimes, the solution to a problem can be hiding in plain sight."
+        },
+        {
+          "type": "paragraph",
+          "text": "On 19 May, Steve Clarke assembled his collection of players to embark on a World Cup journey."
+        },
+        {
+          "type": "quote",
+          "text": "\"I received a message from him saying that I'm not in the squad but these things happen and it's just about how you bounce back from it to be honest,\" said Bowie.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Given the loyalty Clarke showed to those who had served him so well, it was not a huge surprise. Neither was the impotence of the national team in the USA as they conjured up just one John McGinn goal."
+        },
+        {
+          "type": "paragraph",
+          "text": "\"I received a message from him saying that I'm not in the squad but these things happen and it's just about how you bounce back from it to be honest,\" said Bowie."
+        },
+        {
+          "type": "list",
+          "items": [
+            "\"I scored goals in a struggling Verona team and that was as much as I could do. I was happy with where I was at and I wa...",
+            "\"I just spent a lot of time at home with my family and then a little golf holiday to Portugal for a week and that was al...",
+            "Two going on four, five or six on good night for new Scotland era"
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Two going on four, five or six on good night for new Scotland era"
+        }
+      ]
+    },
+    {
+      "story_id": "traitors-claim-their-first-victim-as-richard-e-grant-tries-t",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Traitors claim their first victim as Richard E Grant tries to save his skin"
+        },
+        {
+          "type": "paragraph",
+          "text": "Maya Jama is off to a strong start as a traitor, but Richard E Grant is in damage control mode"
+        },
+        {
+          "type": "paragraph",
+          "text": "Spoiler warning: This article reveals details from the second episode of The Celebrity Traitors, series two."
+        },
+        {
+          "type": "quote",
+          "text": "\"It's gutting to be the first out,\" Rajan said afterwards, noting that perhaps it was because he had been \"a bit bullish with Richard\" earlier in the day.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "As Friday's episode got under way, a delicious new twist saw traitors Richard E Grant and Maya Jama invite James Acaster to join them in the turret, and simultaneously murder a fellow player."
+        },
+        {
+          "type": "paragraph",
+          "text": "Unfortunately, it fell to Amol Rajan to become the Paloma Faith of this series - being taken away in a coffin in episode two before even having the chance to take part in a banishment."
+        },
+        {
+          "type": "list",
+          "items": [
+            "\"It's gutting to be the first out,\" Rajan said afterwards, noting that perhaps it was because he had been \"a bit bullish...",
+            "\"But you know what, games are games, and just as there are winners, so there have to be losers.\"",
+            "The episode drew in a peak audience of 8.6 million viewers, just short of the debut episode with an average of 8.9 milli..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The episode drew in a peak audience of 8.6 million viewers, just short of the debut episode with an average of 8.9 million viewers."
+        }
+      ]
+    },
+    {
+      "story_id": "how-to-move-1300-plants-for-kews-palm-house-mega-makeover",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: How to move 1,300 plants for Kew's Palm House mega makeover"
+        },
+        {
+          "type": "paragraph",
+          "text": "The world-famous Palm House at the Royal Botanic Gardens Kew in London is about to undergo a massive makeover."
+        },
+        {
+          "type": "paragraph",
+          "text": "The £66m restoration is taking place because the hot and humid conditions inside the Victorian glasshouse have taken their toll on the ironwork and glass."
+        },
+        {
+          "type": "quote",
+          "text": "“This development highlights key changes we have been monitoring closely across the sector,” noted an analyst following the story for BBC News.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "But before it can start, the glasshouse has to be completely emptied of the 1,300 tropical plants and trees it has inside."
+        },
+        {
+          "type": "paragraph",
+          "text": "How to move 1,300 plants for Kew's Palm House mega makeover. Video, 00:01:41How to move 1,300 plants for Kew's Palm House mega makeover"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Up Next. Climate-resilient plants from Chelsea. Video, 00:00:47Climate-resilient plants from Chelsea",
+            "How do daisies forecast the weather? Video, 00:00:42How do daisies forecast the weather?",
+            "Watch: Moment researcher finds rare flower after 13-year search. Video, 00:00:50Watch: Moment researcher finds rare flow..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Watch: Moment researcher finds rare flower after 13-year search. Video, 00:00:50Watch: Moment researcher finds rare flower after 13-year search"
+        }
+      ]
+    },
+    {
+      "story_id": "us-marine-arrested-over-murder-of-woman-in-okinawa-japan",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: US Marine arrested over murder of woman in Okinawa, Japan"
+        },
+        {
+          "type": "paragraph",
+          "text": "A US Marine has been arrested on suspicion of murder after a woman's body was found in a hotel in Okinawa, Japan, local officials say."
+        },
+        {
+          "type": "paragraph",
+          "text": "Japanese Prime Minister Sanae Takaichi described the crime as a \"brutal and heinous\" robbery and murder. She said she had urged the US to \"enforce stricter discipline\" of its personnel."
+        },
+        {
+          "type": "quote",
+          "text": "\"We are actively cooperating with Japanese authorities, in response to allegations of serious criminal actions by a Marine,\" the Marine Corps said on social media, extending condolences to the victim's family.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "\"We are actively cooperating with Japanese authorities, in response to allegations of serious criminal actions by a Marine,\" the Marine Corps said on social media, extending condolences to the victim's family."
+        },
+        {
+          "type": "paragraph",
+          "text": "Japanese Defence Minister Shinjiro Koizumi said the woman's body was discovered early Saturday morning in a hotel in Naha City, the capital of the Okinawa prefecture."
+        },
+        {
+          "type": "list",
+          "items": [
+            "\"Such an incident is utterly inexcusable and fills me with strong indignation,\" Koizumi wrote on social media, adding th...",
+            "The US Embassy in Tokyo said that it was fully cooperating with the Japanese government and local police. Japan's foreig...",
+            "Okinawa is home to several US military bases and tens of thousands of American troops."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Okinawa is home to several US military bases and tens of thousands of American troops."
+        }
+      ]
+    },
+    {
+      "story_id": "tories-pledge-to-build-50000-new-prison-places",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Tories pledge to build 50,000 new prison places"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Conservatives have promised to build 50,000 new prison places in England and Wales to stop criminals being released early, if they return to government."
+        },
+        {
+          "type": "paragraph",
+          "text": "The party said it would cost £2bn per year to build and run the new prisons, funded by spending cuts including to the foreign aid budget."
+        },
+        {
+          "type": "quote",
+          "text": "Labour blamed the previous Tory government for leaving \"our criminal justice system at breaking point\" and said the party's proposals were not \"credible\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Labour blamed the previous Tory government for leaving \"our criminal justice system at breaking point\" and said the party's proposals were not \"credible\"."
+        },
+        {
+          "type": "paragraph",
+          "text": "The announcement comes as Conservative members gather for the party's annual conference in Birmingham, which begins on Sunday."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Prisons in England and Wales have been running close to capacity for years, with the latest government figures showing t...",
+            "Under the latest early release scheme, eligible prisoners can now be released on a community licence after serving one-t...",
+            "Those excluded include prisoners convicted of murder, manslaughter, a sexual or grooming-related offence, or a driving o..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Those excluded include prisoners convicted of murder, manslaughter, a sexual or grooming-related offence, or a driving offence that led to a death."
+        }
+      ]
+    },
+    {
+      "story_id": "the-wealthy-cuban-americans-ready-and-waiting-for-havana-to",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: The wealthy Cuban Americans ready and waiting for Havana to fall"
+        },
+        {
+          "type": "paragraph",
+          "text": "Juan Omar Sixto says he and his colleagues are ready to 'go and do business in Cuba right away'"
+        },
+        {
+          "type": "paragraph",
+          "text": "At the lavish home of one of Miami's top plastic surgeons, overlooking the Biscayne Bay, some of the wealthiest Cuban-American families in Florida have gathered."
+        },
+        {
+          "type": "quote",
+          "text": "\"The intention of this evening is to gather under one roof the most prominent Cuban-American entrepreneurs in Miami-Dade County,\" says CANCC president Juan Omar Sixto, \"and the objective is to be in Cuba once the regime falls\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Rum in hand and Rolexes on wrists, this is Miami's old money. People with well-recognised Cuban-American surnames – like Bacardi and Babun – chat around the pool about the lamentable state of the island's economy, and share titbits of gossip about the latest political rumblings."
+        },
+        {
+          "type": "paragraph",
+          "text": "\"The intention of this evening is to gather under one roof the most prominent Cuban-American entrepreneurs in Miami-Dade County,\" says CANCC president Juan Omar Sixto, \"and the objective is to be in Cuba once the regime falls\"."
+        },
+        {
+          "type": "list",
+          "items": [
+            "This influential community of Cuban exiles has detested the Communist-run government ever since the late revolutionary l...",
+            "And they have wielded their political and economic clout in Florida over the years to shape Washington's policies toward...",
+            "Sixto fled the island as a teenager. Now a real estate developer in his early 80s, his organisation is drafting plans fo..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Sixto fled the island as a teenager. Now a real estate developer in his early 80s, his organisation is drafting plans for what he calls \"the day after\" in Cuba."
+        }
+      ]
+    },
+    {
+      "story_id": "the-ai-telling-farmers-when-to-harvest",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: The AI telling farmers when to harvest"
+        },
+        {
+          "type": "paragraph",
+          "text": "Choosing the right moment to harvest can be a make-or-break decision"
+        },
+        {
+          "type": "paragraph",
+          "text": "When the first day of the apple harvest rolled around in Washington State last year, the fruit was ripe and the pickers were ready – but the weather had other ideas."
+        },
+        {
+          "type": "quote",
+          "text": "\"It was like 38C… it's not safe for people to work in that heat,\" recalls Joel Carter at Okanagan Specialty Fruits. \"We had to stop at 10 o'clock in the morning.\"",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "He says that artificial intelligence (AI) models that forecast ideal harvest dates, taking into account the weather, would be useful. \"You need to know more than just when your fruit is going to be ripe. How long do you have to pick it?\" he says. \"That's where these models are really helpful.\""
+        },
+        {
+          "type": "paragraph",
+          "text": "Carter's company has more than 1,250 acres of apple orchards in Washington, and the fruit is grown for sliced apple portions – often sold to hotels and schools, for example. The firm is investing in technology with the hope of maximising productivity. Even the apples are genetically engineered so that they don't brown easily once cut."
+        },
+        {
+          "type": "list",
+          "items": [
+            "But planning a harvest is tricky. New tools that count and analyse fruit on the tree or vine, and predict when crops wil...",
+            "Okanagan Specialty Fruits is already experimenting with cameras from a Canadian firm called Vivid Machines. The cameras ...",
+            "\"Right now, Vivid is telling us crop estimates and harvest dates,\" says Carter. He notes that the system is good at pick..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "\"Right now, Vivid is telling us crop estimates and harvest dates,\" says Carter. He notes that the system is good at picking out very tiny flower buds, which are hard to see at a glance with the naked eye."
+        }
+      ]
+    },
+    {
+      "story_id": "modric-ashamed-of-croatias-catastrophic-night",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Modric 'ashamed' of Croatia's 'catastrophic night'"
+        },
+        {
+          "type": "paragraph",
+          "text": "Luka Modric won the Golden Ball at the 2018 World Cup in Russia after helping Croatia finish as runners-up"
+        },
+        {
+          "type": "paragraph",
+          "text": "Croatia captain Luka Modric said he felt \"ashamed\" of his side's performance in Saturday's 7-0 defeat at home to England in the Nations League."
+        },
+        {
+          "type": "quote",
+          "text": "It was the first time in 20 years as an international that the AC Milan midfielder said he had felt such emotion, describing it as a \"catastrophic night\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Modric, 41, was making his 205th appearance for his country after recently agreeing to extend his international career under returning manager Slaven Bilic."
+        },
+        {
+          "type": "paragraph",
+          "text": "\"You can't play football like that... we looked like we had four or five players less,\" said the former Real Madrid player, who helped Croatia to second-place and third-place finishes at the 2018 and 2022 World Cups during a storied career."
+        },
+        {
+          "type": "list",
+          "items": [
+            "\"It is difficult to find an explanation for such a performance without duels, fouls, aggressiveness, togetherness.",
+            "\"I've been here for 20 years, but for the first time I feel ashamed after a game.\"",
+            "Croatia kicked off Bilic's second spell in charge with a 2-1 Nations League win away to the Czech Republic that put them..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Croatia kicked off Bilic's second spell in charge with a 2-1 Nations League win away to the Czech Republic that put them above England in Group A3."
+        }
+      ]
+    },
+    {
+      "story_id": "olivia-dean-accused-of-copying-bill-withers-just-the-two-of",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Olivia Dean accused of copying Bill Withers' Just The Two of Us"
+        },
+        {
+          "type": "paragraph",
+          "text": "The lawsuit seeks damages from Dean's publisher and record label, but not from the star herself"
+        },
+        {
+          "type": "paragraph",
+          "text": "British pop star Olivia Dean has been accused of copying the melody of Bill Withers' soul classic Just The Two of Us in a legal case filed in California."
+        },
+        {
+          "type": "quote",
+          "text": "Just The Two of Us was a hit for Withers in 1981, and the publishers of the late singer's catalogue allege that the two songs \"share musical features\" that are \"so striking\" they cannot have arisen by coincidence alone.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Just The Two of Us was a hit for Withers in 1981, and the publishers of the late singer's catalogue allege that the two songs \"share musical features\" that are \"so striking\" they cannot have arisen by coincidence alone."
+        },
+        {
+          "type": "paragraph",
+          "text": "The lawsuit names Dean's record label Capitol Records, parent company Universal Music Group and her publishing companies as the defendants. It does not seek damages from the singer herself or her co-writers Bastian Langebæk and Max Wolfgang."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In legal documents seen by the BBC, Mattie Music Group, which looks after Withers' back catalogue, said it hired a music...",
+            "He concluded \"that the works contain substantial similarities\" including the \"repeated copying\" of the melody from Just ...",
+            "The publishers claim they notified Dean's record label of the potential infringement in August, but the music was not pu..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The publishers claim they notified Dean's record label of the potential infringement in August, but the music was not pulled from distribution."
+        }
+      ]
+    },
+    {
+      "story_id": "how-to-see-the-orionid-meteor-shower-this-weekend",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: How to see the Orionid meteor shower this weekend"
+        },
+        {
+          "type": "paragraph",
+          "text": "One of the best-known meteor showers is now active until 7 November."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Orionids are particularly fast and can leave trails in the sky that last a few seconds after the meteor itself has gone."
+        },
+        {
+          "type": "quote",
+          "text": "“This development highlights key changes we have been monitoring closely across the sector,” noted an analyst following the story for BBC News.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Orionids are particularly fast, entering the atmosphere at around 41 miles per second."
+        },
+        {
+          "type": "paragraph",
+          "text": "As tiny particles from Halley's comet enter the Earth's atmosphere they heat up and produce streaks of light across the night sky that we see as meteors."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Halley's Comet is one of the most famous comets in our Solar System and has been observed from Earth for centuries. It t...",
+            "Halley's Comet is not expected to be visible from Earth again until 2061, but its debris will continue to produce meteor...",
+            "In fact, the Earth encounters material left behind by it twice a year, resulting in the Eta Aquariid meteor shower in Ma..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "In fact, the Earth encounters material left behind by it twice a year, resulting in the Eta Aquariid meteor shower in May and the Orionids in October."
+        }
+      ]
+    },
+    {
+      "story_id": "what-to-know-about-brazils-election-pitting-lula-against-flá",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: What to know about Brazil's election pitting Lula against Flávio Bolsonaro"
+        },
+        {
+          "type": "paragraph",
+          "text": "The two candidates leading in the polls are Luíz Inácio Lula da Silva and Flávio Bolsonaro"
+        },
+        {
+          "type": "paragraph",
+          "text": "Brazilians have begun voting in a general election in which the two front-runners for the presidency bear very familiar names."
+        },
+        {
+          "type": "quote",
+          "text": "“This development highlights key changes we have been monitoring closely across the sector,” noted an analyst following the story for BBC News.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "In the last election four years ago, Lula narrowly defeated Flávio Bolsonaro's father Jair, but the tumultuous aftermath of the election, which saw Jair Bolsonaro convicted of plotting a coup after thousands of his supporters stormed the Brazilian Congress, has had a lasting impact on the nation's political life and this election."
+        },
+        {
+          "type": "paragraph",
+          "text": "At the launch of his campaign, Flávio Bolsonaro screened a video in which an AI-generated image of his father endorsed his candidacy"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Jair Bolsonaro, the right-wing former army captain who governed Brazil from 2019 to 2023, will not be running for presid...",
+            "Not only is the 71-year-old barred from standing for office, he is also serving a 27-year sentence for plotting a coup a...",
+            "Due to recurrent health problems, he is currently under house arrest rather than in a cell, but he has had restrictions ..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Due to recurrent health problems, he is currently under house arrest rather than in a cell, but he has had restrictions imposed on him prohibiting him from posting on social media or making public statements."
+        }
+      ]
+    },
+    {
+      "story_id": "greens-can-move-labour-in-the-right-direction-says-polanski",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Greens can move Labour in the right direction, says Polanski"
+        },
+        {
+          "type": "paragraph",
+          "text": "Zack Polanski has urged voters to back the Greens to force changes from Andy Burnham, arguing his party has the power to move Labour in \"the right direction\"."
+        },
+        {
+          "type": "paragraph",
+          "text": "In his speech to the party's annual conference, the Green leader said that \"sustained pressure\" from his party had made forced Labour into changing its stance on issues including climate and its stance towards Israel."
+        },
+        {
+          "type": "quote",
+          "text": "And he said that voting for the Greens would force changes from the government, telling members: \"Vote Green, and watch Labour move\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "And he said that voting for the Greens would force changes from the government, telling members: \"Vote Green, and watch Labour move\"."
+        },
+        {
+          "type": "paragraph",
+          "text": "Polanski arrived in Brighton facing questions over his leadership of the party amid signs the Greens' rise in popularity last year may have waned, and how he would respond to Labour's change of leadership under Burnham."
+        },
+        {
+          "type": "list",
+          "items": [
+            "In his half-hour address, he did not mention the Conservatives or Reform UK but launched repeated attacks on Labour's re...",
+            "He criticised Labour for making \"slogans without action\" on the cost of living and vowed only his party would end \"Rip O...",
+            "And he was particularly critical of Labour's record on housing, where he accused the party of failing to take on the \"po..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "And he was particularly critical of Labour's record on housing, where he accused the party of failing to take on the \"powerful vested interests of developers and big landlords\"."
+        }
+      ]
+    },
+    {
+      "story_id": "whats-gone-wrong-at-nike-how-the-worlds-sportswear-giant-los",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: What's gone wrong at Nike? How the world's sportswear giant lost its mojo"
+        },
+        {
+          "type": "paragraph",
+          "text": "The largest sportswear brand on the planet, named after the ancient Greek goddess of victory, has been losing of late. Losing sales, losing customers and losing ground to its rivals."
+        },
+        {
+          "type": "paragraph",
+          "text": "The one-time industry disruptor is now the establishment and in the middle of a tricky turnaround plan aimed at clinging on to market dominance."
+        },
+        {
+          "type": "quote",
+          "text": "Matt Powell, a veteran analyst and adviser in the sports retail industry, reckons Nike has made \"several strategic errors\" which have been difficult to reverse, including cutting ties with retailers to sell only direct to customers online and making limited editions items more available.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "However, its recovery has been dented by the loss of football star Kylian Mbappé, who ended his 20-year association with the brand last week to join fast-growing Swiss rival, On."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Real Madrid striker's departure raises the question of whether Nike can remain the top logo for not just elite athletes, but also the fans that idolise them."
+        },
+        {
+          "type": "list",
+          "items": [
+            "To be clear, Nike is still a mega brand and popular the world over. But missteps have seen hundreds of billions of dolla...",
+            "Last month, Nike was ejected from the S&P 100 stock market index of the biggest blue-chip firms in the US.",
+            "Matt Powell, a veteran analyst and adviser in the sports retail industry, reckons Nike has made \"several strategic error..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Matt Powell, a veteran analyst and adviser in the sports retail industry, reckons Nike has made \"several strategic errors\" which have been difficult to reverse, including cutting ties with retailers to sell only direct to customers online and making limited editions items more available."
+        }
+      ]
+    },
+    {
+      "story_id": "regulating-ai-not-the-right-place-to-start-says-bailey",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Regulating AI 'not the right place to start' says Bailey"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Governor of the Bank of England has said regulating artificial intelligence (AI) \"is not the right place to start\" but instead called first for \"rigorous\" testing to find vulnerabilities and create safeguards to contain risk."
+        },
+        {
+          "type": "paragraph",
+          "text": "Writing his first-ever article for Substack, Andrew Bailey said the risks around AI were \"real and increasingly significant\"."
+        },
+        {
+          "type": "quote",
+          "text": "He said AI development should not be halted or prohibited - \"on the contrary, the benefits are immense\" - but added there must be a system for intervention and to establish boundaries in which AI operates.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The debate about the potential risks surrounding the rapid development of AI and what it means for humanity has intensified in recent weeks."
+        },
+        {
+          "type": "paragraph",
+          "text": "The bosses of leading AI firms such as Anthropic and OpenAI have called for development of the technology to slow down and for an internationally co-ordinated approach assessing risks and putting safeguards in place."
+        },
+        {
+          "type": "list",
+          "items": [
+            "OpenAI recently announced that it would not release its latest AI model due to safety concerns.",
+            "The idea of a slowdown, however, has been rejected by the likes of President Donald Trump who has said the US is leading...",
+            "But on Tuesday, after hosting a meeting with bosses from technology firms OpenAI, Anthropic, Nvidia, SpaceX, Meta and Go..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "But on Tuesday, after hosting a meeting with bosses from technology firms OpenAI, Anthropic, Nvidia, SpaceX, Meta and Google, Trump said executives had signed a \"morally binding\" document that would serve as a \"form of protection\" from AI's potential risks."
+        }
+      ]
+    },
+    {
+      "story_id": "evans-claims-dramatic-wrc-title-after-solberg-crash",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Evans claims dramatic WRC title after Solberg crash"
+        },
+        {
+          "type": "paragraph",
+          "text": "Elfyn Evans and co-driver Scott Martin won just two of 13 races in the 2026 WRC season"
+        },
+        {
+          "type": "paragraph",
+          "text": "Five-time runner-up Elfyn Evans is world champion for the first time after rival Oliver Solberg crashed in a dramatic finish to the Rally Italia Sardegna."
+        },
+        {
+          "type": "quote",
+          "text": "\"It hasn't sunk in,\" said a shocked Evans, who became the first British world champion in 25 years.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "\"It hasn't sunk in,\" said a shocked Evans, who became the first British world champion in 25 years."
+        },
+        {
+          "type": "paragraph",
+          "text": "\"I was sure it was over. I feel for Oliver, he had an incredible weekend. I don't know what to say.\""
+        },
+        {
+          "type": "list",
+          "items": [
+            "The 37-year-old and co-driver Scott Martin had led for much of the 2026 season and took a 21-point advantage into the fi...",
+            "But that gap had shrunk to a solitary point by the time the drivers lined up for the last of 17 stages, bringing back pa...",
+            "Solberg, 25, needed only to beat his Toyota team-mate in the final stage to claim enough bonuses to be champion, but cra..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Solberg, 25, needed only to beat his Toyota team-mate in the final stage to claim enough bonuses to be champion, but crashed two corners from the finish."
+        }
+      ]
+    },
+    {
+      "story_id": "k-pop-giants-stray-kids-join-bts-in-boycotting-the-grammys",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: K-pop giants Stray Kids join BTS in boycotting the Grammys"
+        },
+        {
+          "type": "paragraph",
+          "text": "Stray Kids are one of K-Pop's biggest live acts, and recently headlined the Rock In Rio Festival, alongside Elton John"
+        },
+        {
+          "type": "paragraph",
+          "text": "One of the world's biggest K-pop groups, Stray Kids, are joining BTS in boycotting the 2027 Grammy Awards."
+        },
+        {
+          "type": "quote",
+          "text": "BTS announced they would not submit songs for consideration in any category in July, saying they hoped their music \"can be heard and loved for what it is, rather than being divided by region or language\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "BTS announced they would not submit songs for consideration in any category in July, saying they hoped their music \"can be heard and loved for what it is, rather than being divided by region or language\"."
+        },
+        {
+          "type": "paragraph",
+          "text": "Stray Kids, who recently scored their ninth US number one album, have now followed suit. In a short statement, their record label JYP simply said: \"Stray Kids did not submit for the Grammys.\""
+        },
+        {
+          "type": "list",
+          "items": [
+            "Stray Kids had previously refrained from giving a direct answer to questions about the awards.",
+            "During a press conference for their latest album, This and That, in August, singer Hwang Hyun-jin said: \"We have never o...",
+            "\"Our top priority is for our fans to be happy and satisfied,\" he added."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "\"Our top priority is for our fans to be happy and satisfied,\" he added."
+        }
+      ]
+    },
+    {
+      "story_id": "prince-of-wales-tells-villagers-holistic-approach-is-needed",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Prince of Wales tells villagers 'holistic' approach is needed to tackle flooding"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Prince of Wales meets local residents, Rob and Helen Wyatt, during a visit to the village of Skenfrith in Monmouthshire"
+        },
+        {
+          "type": "paragraph",
+          "text": "The Prince of Wales has said a \"holistic\" approach is needed to tackle severe flooding, as a small Welsh village prepares for the upcoming storm season."
+        },
+        {
+          "type": "quote",
+          "text": "The prince sympathised with residents who might be \"anxious\" about extreme weather events he said were no longer \"one in 50-year\" occurrences but instead seemed to be happening every year.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "An extreme flood last winter had a devastating impact on the village, when the River Monnow burst its banks after Storm Claudia brought a month's worth of rain in just 24 hours to parts of England and Wales."
+        },
+        {
+          "type": "paragraph",
+          "text": "Prince William was visiting the area to learn about how communities have been affected by recent flooding and what measures were being taken by local authorities and other agencies to mitigate future incidents."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Over the years, families have reported that their homes and possessions had been destroyed by the floods. In 2019, about...",
+            "The prince sympathised with residents who might be \"anxious\" about extreme weather events he said were no longer \"one in...",
+            "Prince William also attended a meeting with representatives from Natural Resources Wales and Monmouthshire County Counci..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Prince William also attended a meeting with representatives from Natural Resources Wales and Monmouthshire County Council"
+        }
+      ]
+    },
+    {
+      "story_id": "cornell-president-says-university-must-do-better-after-frat",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Cornell president says university 'must do better' after frat house rape allegations"
+        },
+        {
+          "type": "paragraph",
+          "text": "A student has alleged she was drugged and gang-raped inside the Chi Phi frat house at Cornell University"
+        },
+        {
+          "type": "paragraph",
+          "text": "Cornell University's president says the school \"must do better\" after a woman alleged she was drugged and raped by a group of men at a fraternity house."
+        },
+        {
+          "type": "quote",
+          "text": "In an eight-minute video statement released on Saturday night, Michael Kotlikoff described the allegations raised by the woman, identified as Jane Doe, as \"deeply disturbing\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The alleged incident has raised questions around the culture on campus of drug and alcohol use, and the way investigations were conducted in the case, Kotlikoff said."
+        },
+        {
+          "type": "paragraph",
+          "text": "Jane Doe was a 20-year-old student at the university when she says seven men from its Chi Phi fraternity assaulted her for hours in an incident involving alcohol and the drug ketamine on 19 October 2024."
+        },
+        {
+          "type": "list",
+          "items": [
+            "She said she had reported the incident two weeks after it happened to Cornell University police, which investigated, but...",
+            "Last month, Jane Doe filed a civil lawsuit against the Ivy League university, in which she alleged Cornell had failed to...",
+            "Kotlikoff said Cornell was \"committed to investigating\" the way the case was handled, and said the school administration..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Kotlikoff said Cornell was \"committed to investigating\" the way the case was handled, and said the school administration and community \"must do better\"."
+        }
+      ]
+    },
+    {
+      "story_id": "widdecombe-suspect-charged-with-planning-terror-act-against",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: Widdecombe suspect charged with planning terror act against Farage"
+        },
+        {
+          "type": "paragraph",
+          "text": "Joshua Kerry has been charged with preparing acts of terror including against Reform UK leader Nigel Farage."
+        },
+        {
+          "type": "paragraph",
+          "text": "The man accused of murdering Ann Widdecombe has also been charged with preparing acts of terror including against Reform UK leader Nigel Farage."
+        },
+        {
+          "type": "quote",
+          "text": "Counter terror police said Joshua Kerry, 28, was charged on Friday with one count of preparation of terrorist acts.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "The charge relates to activity which is alleged to have taken place between May 2024 and July 2026."
+        },
+        {
+          "type": "paragraph",
+          "text": "Kerry was charged in July with the murder of 78-year-old Widdecombe, a former Conservative minister and Reform UK spokeswoman."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Home Secretary Shabana Mahmood said she knew the fresh charge would be \"extremely concerning\" and her \"profound sympathi...",
+            "\"Let no one make any mistake: an attack on anyone in politics is an attack on us all.",
+            "\"This case raises serious questions about the security of those in public life. We must use this as an opportunity to re..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "\"This case raises serious questions about the security of those in public life. We must use this as an opportunity to reset. Once parliament returns, I will update on our work to strengthen protections for those who choose to serve.\""
+        }
+      ]
+    },
+    {
+      "story_id": "no-more-cereal-at-the-end-of-the-aisle-new-rules-in-scotland",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: No more cereal at the end of the aisle? New rules in Scotland's supermarkets"
+        },
+        {
+          "type": "paragraph",
+          "text": "Sugary soft drinks, biscuits and some breakfast cereals have disappeared from prominent positions in Scotland's supermarkets."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Scottish government has introduced rules meaning some products that are high in fat, sugar and salt can no longer be put in prime end-of-aisle slots, or feature as part of multi-buy offers in store or online."
+        },
+        {
+          "type": "quote",
+          "text": "Price promotions on those items - such as \"three for the price of two\", \"three for £10\" or \"buy five and save 20%\" - are no longer allowed.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "But it could also include kombucha, seaweed snacks, muesli and chewing gum, depending on their sugar content."
+        },
+        {
+          "type": "paragraph",
+          "text": "The Scottish government regulations, external apply to businesses with more than 50 employees. This could include supermarkets, high street shops, restaurants, pharmacies, petrol stations and garden centres."
+        },
+        {
+          "type": "list",
+          "items": [
+            "They are are no longer allowed to display pre-packaged foods including sugary soft drinks, confectionery, biscuits and b...",
+            "Price promotions on those items - such as \"three for the price of two\", \"three for £10\" or \"buy five and save 20%\" - are...",
+            "Multi-buy offers, including extra loyalty points, are also banned."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Multi-buy offers, including extra loyalty points, are also banned."
+        }
+      ]
+    },
+    {
+      "story_id": "whatsapp-introduces-optional-parental-controls-for-teenagers",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: WhatsApp introduces optional parental controls for teenagers"
+        },
+        {
+          "type": "paragraph",
+          "text": "WhatsApp is introducing new parental controls for teenagers, as tech companies continue to come under pressure to provide more age-appropriate experiences for children."
+        },
+        {
+          "type": "paragraph",
+          "text": "The social messaging app's new tools will give parents a range of options, such as being told when their child joins or leaves a group. It will also let them decide on privacy settings for their account."
+        },
+        {
+          "type": "quote",
+          "text": "And it said the controls were optional, which social media analyst Matt Navarra called an \"obvious weakness\".",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "And it said the controls were optional, which social media analyst Matt Navarra called an \"obvious weakness\"."
+        },
+        {
+          "type": "paragraph",
+          "text": "He said the move was \"fairly convenient\" for Meta, which owns WhatsApp, because it reduced the company's reliance on age verification by putting some responsibility on parents and teenagers."
+        },
+        {
+          "type": "list",
+          "items": [
+            "\"Meta is trying to show regulators we have a child safety system, we have parental controls and we're rolling it out acr...",
+            "\"I think the big unanswered question is whether enough families will actually use it.\"",
+            "The minimum age to use WhatsApp is 13 in the UK, although it is higher in some countries."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "The minimum age to use WhatsApp is 13 in the UK, although it is higher in some countries."
+        }
+      ]
+    },
+    {
+      "story_id": "i-clawed-my-way-to-the-top-but-need-a-break-azpilicueta",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: I clawed my way to the top but need a break - Azpilicueta"
+        },
+        {
+          "type": "paragraph",
+          "text": "Azpilicueta is sixth in the all-time appearance list after playing 508 times in 11 years for Chelsea."
+        },
+        {
+          "type": "paragraph",
+          "text": "Cesar Azpilicueta was an all-encompassing leader for Chelsea - and, now retired, he reflects on how his passion for education and attention to detail helped him build a career at the highest level."
+        },
+        {
+          "type": "quote",
+          "text": "Azpilicueta told BBC Sport: \"When I was a kid my parents pushed me to get good grades and finish school.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "He says his work towards an MBA in business management from the Berlin School of Business and Innovation took his mind off the pressure and noise on the streets of Porto."
+        },
+        {
+          "type": "paragraph",
+          "text": "Later that day, he lifted the Champions League trophy after captaining Chelsea to victory against Manchester City."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Azpilicueta told BBC Sport: \"When I was a kid my parents pushed me to get good grades and finish school.",
+            "\"I wasn't a professional footballer until I was 17, in my last year of school. Education was always important. When Covi...",
+            "\"I found some courses but I didn't start because I thought it was the end of my career. It was more that I wanted to lea..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "\"I found some courses but I didn't start because I thought it was the end of my career. It was more that I wanted to learn, improve myself and do it in another language."
+        }
+      ]
+    },
+    {
+      "story_id": "the-kent-village-that-helped-shape-audrey-hepburn",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: The Kent village that helped shape Audrey Hepburn"
+        },
+        {
+          "type": "paragraph",
+          "text": "Hollywood actress Audrey Hepburn (centre, wearing a tall hat) spent part of her childhood in Elham, near Canterbury, before the outbreak of World War Two"
+        },
+        {
+          "type": "paragraph",
+          "text": "Long before she became one of Hollywood's most celebrated stars, Audrey Hepburn was learning music and dance at a small village school in the Kent countryside."
+        },
+        {
+          "type": "quote",
+          "text": "\"It really was the starting point for the young Audrey Hepburn that she became,\" said Brian Badham, of Elham Historical Society.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Today, a blue plaque on a cottage near the King's Arms pub marks the place where Hepburn lived between 1936 and 1939."
+        },
+        {
+          "type": "paragraph",
+          "text": "\"It really was the starting point for the young Audrey Hepburn that she became,\" said Brian Badham, of Elham Historical Society."
+        },
+        {
+          "type": "list",
+          "items": [
+            "Hepburn, then known as Audrey Ruston-Hepburn, arrived in the village after her parents separated.",
+            "Badham said it was decided she should continue her English education in Kent, where family friends were living.",
+            "She moved into Orchard Cottage with the Butcher family, among a number of Elham residents who offered accommodation to v..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "She moved into Orchard Cottage with the Butcher family, among a number of Elham residents who offered accommodation to visitors before the war, according to local accounts."
+        }
+      ]
+    },
+    {
+      "story_id": "spacex-launches-crew-to-iss",
+      "blocks": [
+        {
+          "type": "heading",
+          "text": "Key Reporting: SpaceX launches crew to ISS"
+        },
+        {
+          "type": "paragraph",
+          "text": "The SpaceX Falcon 9 rocket launched from Cap Canaveral, Florida to the International Space Station carrying Crew-13. The team is comprised of two Nasa astronauts, a Russian cosmonaut and a Canadian astronaut whose wife is expecting their third child two months into the mission. They'll become the fourth couple in the history of space travel to have a child born while one parent was off the planet, according to CBSNews."
+        },
+        {
+          "type": "paragraph",
+          "text": "The launch was originally planned for mid-September, but was delayed to replace a valve in the Crew Dragon's propulsion system. It will take 7 hours and 50 minutes for the crew to reach the ISS where they will be conducting experiments and research toward future missions to the Moon and Mars, according to Nasa."
+        },
+        {
+          "type": "quote",
+          "text": "“This development highlights key changes we have been monitoring closely across the sector,” noted an analyst following the story for BBC News.",
+          "author": "Analysis via BBC News"
+        },
+        {
+          "type": "heading",
+          "text": "Context & What Follows"
+        },
+        {
+          "type": "paragraph",
+          "text": "Up Next. Warning of space arms race as US confirms weapons in Earth's orbit. Video, 00:01:27Warning of space arms race as US confirms weapons in Earth's orbit"
+        },
+        {
+          "type": "paragraph",
+          "text": "Watch: From launch to fiery splashdown, SpaceX's Starship completes orbit test. Video, 00:01:27Watch: From launch to fiery splashdown, SpaceX's Starship completes orbit test"
+        },
+        {
+          "type": "list",
+          "items": [
+            "Watch: Astronauts set out on rare all-female spacewalk. Video, 00:01:17Watch: Astronauts set out on rare all-female spac...",
+            "What we know about Russian strikes on Kyiv bridges. Video, 00:01:17What we know about Russian strikes on Kyiv bridges",
+            "Two people killed as floods hit Spain's Catalonia region. Video, 00:00:43Two people killed as floods hit Spain's Catalon..."
+          ]
+        },
+        {
+          "type": "paragraph",
+          "text": "Two people killed as floods hit Spain's Catalonia region. Video, 00:00:43Two people killed as floods hit Spain's Catalonia region"
+        }
+      ]
+    }
+  ]
+}

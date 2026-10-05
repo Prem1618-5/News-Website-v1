@@ -1,18 +1,10 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": null,
-  "installCommand": "npx -y pnpm@12.3.4 install --frozen-lockfile",
+  "installCommand": "npx -y pnpm@12.9.1 install --no-frozen-lockfile",
   "buildCommand": "node scripts/build-vercel.mjs",
   "outputDirectory": "dist",
-  "functions": {
-    "api/index.py": {
-      "includeFiles": "apps/api/{app,data,media}/**",
-      "maxDuration": 30
-    }
-  },
   "rewrites": [
-    { "source": "/api/:path*", "destination": "/api/index" },
-    { "source": "/images/:path*", "destination": "/api/index" },
     { "source": "/newsroom", "destination": "/newsroom/index.html" },
     { "source": "/newsroom/:path*", "destination": "/newsroom/index.html" }
   ],

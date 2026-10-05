@@ -30,17 +30,19 @@
     window.AUTH_TOKEN = "";
     window.SESSION_USER = null;
   };
+  const API_BASE = (typeof import.meta !== "undefined" && import.meta.env && import.meta.env.VITE_API_BASE) || "";
   async function request(url, options = {}, retry = true) {
+    const fullUrl = url.startsWith("http") ? url : `${API_BASE}${url}`;
     const headers = { ...(options.headers || {}) };
     if (options.body && !headers["Content-Type"]) headers["Content-Type"] = "application/json";
-    const opts = { ...options, headers, credentials: "same-origin" };
+    const opts = { ...options, headers, credentials: API_BASE ? "include" : "same-origin" };
     delete opts.auth;
-    const response = await fetch(url, opts);
+    const response = await fetch(fullUrl, opts);
     if (response.status === 401 && retry && url !== "/api/auth/refresh") {
       try {
-        const fresh = await fetch("/api/auth/refresh", {
+        const fresh = await fetch(`${API_BASE}/api/auth/refresh`, {
           method: "POST",
-          credentials: "same-origin",
+          credentials: API_BASE ? "include" : "same-origin",
           headers: { "Content-Type": "application/json" },
         });
         const result = await fresh.json();
@@ -103,16 +105,20 @@
     ]);
     window.SECTIONS = (Array.isArray(sections) ? sections : []).map(section => [section.key, section.name]);
     const items = Array.isArray(page) ? page : page.items || [];
-    window.STORIES = items.map(story => ({
-      id: story.id, s: story.section || story.section_key, t: story.title,
-      d: story.deck || "", by: story.author || "", ago: story.ago || story.published_at || "",
-      rt: story.read_minutes || story.reading_time || 4, live: !!story.live,
-      img: story.image_url || "",
-      src: story.source_name || "",
-      url: story.source_url || "",
-      cap: story.caption || "",
-      lang: story.language === "hi" ? "hi" : "en"
-    }));
+    window.STORIES = items.map(story => {
+      let img = story.image_url || "";
+      if (img && img.startsWith("/") && API_BASE) img = `${API_BASE}${img}`;
+      return {
+        id: story.id, s: story.section || story.section_key, t: story.title,
+        d: story.deck || "", by: story.author || "", ago: story.ago || story.published_at || "",
+        rt: story.read_minutes || story.reading_time || 4, live: !!story.live,
+        img,
+        src: story.source_name || "",
+        url: story.source_url || "",
+        cap: story.caption || "",
+        lang: story.language === "hi" ? "hi" : "en"
+      };
+    });
     window.STORIES_ERROR = "";
   } catch (error) {
     window.SECTIONS = [["world","World"],["politics","Politics"],["business","Business"],["tech","Tech"],["sports","Sports"],["culture","Culture"],["science","Science"]];

@@ -12,10 +12,9 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY app ./app
-COPY data ./data
-COPY media ./media
+COPY content ./content
 
-RUN mkdir -p /srv/data /srv/media && useradd --system --uid 10001 api && chown -R api /srv
+RUN mkdir -p /srv/data /srv/media/images && useradd --system --uid 10001 api && chown -R api /srv
 USER api
 
 EXPOSE 8000

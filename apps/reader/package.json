@@ -1,17 +1,38 @@
 {
   "name": "@news/reader",
   "private": true,
-  "version": "1.1.0",
+  "version": "2.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 3000 --strictPort",
-    "build": "vite build",
-    "preview": "vite preview --port 3000"
+    "build": "tsc --noEmit && vite build && node scripts/prerender.mjs",
+    "build:spa": "tsc --noEmit && vite build",
+    "serve": "node scripts/serve.mjs dist 4173",
+    "audit:responsive": "node tools/resp.mjs",
+    "icons": "node tools/make-icons.mjs",
+    "preview": "vite preview --port 3000",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
   },
   "dependencies": {
-    "@news/contracts": "workspace:*"
+    "@news/contracts": "workspace:*",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.16.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "react-router-dom": "^7.18.4",
+    "swr": "^2.5.1"
   },
   "devDependencies": {
-    "vite": "^8.3.2"
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.1",
+    "playwright-core": "^1.55.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.2",
+    "vitest": "^5.0.3"
   }
 }

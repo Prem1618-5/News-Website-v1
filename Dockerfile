@@ -14,13 +14,12 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl && rm -rf 
 COPY apps/api/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy API application code, initial data, and media
+# Copy API application code and the article packs it publishes
 COPY apps/api/app ./app
-COPY apps/api/data ./data
-COPY apps/api/media ./media
+COPY apps/api/content ./content
 
 # Create runtime directories and run as non-root user
-RUN mkdir -p /srv/data /srv/media && useradd --system --uid 10001 api && chown -R api /srv
+RUN mkdir -p /srv/data /srv/media/images && useradd --system --uid 10001 api && chown -R api /srv
 USER api
 
 EXPOSE 8000

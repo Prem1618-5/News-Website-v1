@@ -1,7 +1,7 @@
 {
   "name": "news-app",
   "private": true,
-  "description": "News APP monorepo: Reader (public site), Newsroom (staff app) and Platform API, deployed independently.",
+  "description": "News APP monorepo: Reader (public site, prerendered React), Newsroom (staff app) and Platform API (FastAPI), deployed independently.",
   "scripts": {
     "dev": "node scripts/dev.mjs",
     "dev:api": "node scripts/dev.mjs api",
@@ -10,8 +10,10 @@
     "build": "pnpm --filter @news/reader build && pnpm --filter @news/newsroom build",
     "build:reader": "pnpm --filter @news/reader build",
     "build:newsroom": "pnpm --filter @news/newsroom build",
-    "test": "pnpm --filter @news/newsroom test",
-    "typecheck": "pnpm --filter @news/newsroom typecheck"
+    "test": "pnpm --filter @news/newsroom test && pnpm --filter @news/reader test",
+    "test:api": "python -m pytest apps/api/tests",
+    "typecheck": "pnpm --filter @news/newsroom typecheck && pnpm --filter @news/reader typecheck",
+    "serve:reader": "pnpm --filter @news/reader serve"
   },
   "packageManager": "pnpm@12.9.1"
 }

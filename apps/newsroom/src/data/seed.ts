@@ -45,6 +45,7 @@ const empty = analytics(0, 1, 0);
 
 const SECTION_TAG: Record<SectionKey, string> = {
   world: "World news", politics: "Politics", business: "Economy", tech: "Technology", sports: "Sport", culture: "Arts", science: "Science",
+  health: "Health", safety: "Safety", justice: "Justice", education: "Education", environment: "Environment", entertainment: "Entertainment",
 };
 
 function sampleBody(id: string, headline: string): ArticleBlock[] {

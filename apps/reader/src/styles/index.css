@@ -1,0 +1,5 @@
+/* Tailwind: theme + utilities only (no preflight) so the ported design is untouched. */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+@import "./app.css";
+@import "./responsive.css";

@@ -5,7 +5,9 @@ export type Presence = "available" | "busy" | "away" | "off_shift";
 export type StaffStatus = "invited" | "active" | "suspended" | "deactivated";
 export type Urgency = 1 | 2 | 3 | 4 | 5;
 
-export type SectionKey = "world" | "politics" | "business" | "tech" | "sports" | "culture" | "science";
+import { SECTIONS, type SectionKey } from "@news/contracts";
+
+export type { SectionKey };
 
 export type ArticleStatus =
   | "draft"
@@ -251,25 +253,10 @@ export interface Settings {
   urgency5QuotaPer24h: number;
 }
 
-export const SECTION_LABEL: Record<SectionKey, string> = {
-  world: "World",
-  politics: "Politics",
-  business: "Business",
-  tech: "Tech",
-  sports: "Sports",
-  culture: "Culture",
-  science: "Science",
-};
+/** Sections come from the shared contract so the Newsroom, Reader and API always agree. */
+export const SECTION_LABEL = Object.fromEntries(SECTIONS.map((s) => [s.key, s.en])) as Record<SectionKey, string>;
 
-export const SECTION_COLOR: Record<SectionKey, string> = {
-  world: "var(--color-s-world)",
-  politics: "var(--color-s-politics)",
-  business: "var(--color-s-business)",
-  tech: "var(--color-s-tech)",
-  sports: "var(--color-s-sports)",
-  culture: "var(--color-s-culture)",
-  science: "var(--color-s-science)",
-};
+export const SECTION_COLOR = Object.fromEntries(SECTIONS.map((s) => [s.key, s.color])) as Record<SectionKey, string>;
 
 export const URGENCY_LABEL: Record<Urgency, string> = {
   5: "Breaking",

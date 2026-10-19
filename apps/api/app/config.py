@@ -31,6 +31,9 @@ class Settings(BaseSettings):
     supabase_url: str = Field(default="", validation_alias="SUPABASE_URL")
     supabase_anon_key: str = Field(default="", validation_alias="SUPABASE_ANON_KEY")
 
+    # Static host deploy hook, called (debounced) after the Newsroom publishes so the prerendered Reader refreshes.
+    deploy_hook_url: str = Field(default="", validation_alias="NEWS_DEPLOY_HOOK_URL")
+
     # Shared secret the Newsroom uses to publish into the reader feed.
     newsroom_api_key: str = Field(default="", validation_alias="NEWSROOM_API_KEY")
 

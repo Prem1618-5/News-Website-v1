@@ -3,9 +3,9 @@ from typing import Annotated, Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, StringConstraints
 
-from .models import Story
+from datetime import datetime
 
-SECTION_KEYS = {"world", "politics", "business", "tech", "sports", "culture", "science"}
+from .taxonomy import SCOPE_KEYS, SECTION_KEYS  # noqa: F401  (re-exported for routers)
 
 
 class Highlight(BaseModel):
@@ -18,7 +18,8 @@ class ReaderState(BaseModel):
     model_config = ConfigDict(extra="ignore")
     saved: list[str] = Field(default_factory=list, max_length=500)
     liked: list[str] = Field(default_factory=list, max_length=500)
-    follow: list[str] = Field(default_factory=list, max_length=20)
+    # Desk keys ("health") and writers ("w:news-app-desk").
+    follow: list[str] = Field(default_factory=list, max_length=80)
     hl: list[Highlight] = Field(default_factory=list, max_length=1000)
     cm: dict[str, list[Annotated[str, Field(max_length=500)]]] = Field(default_factory=dict, max_length=500)
     theme: str = Field("", pattern=r"^(light|dark)?$")
@@ -26,9 +27,61 @@ class ReaderState(BaseModel):
     lang: str = Field("", pattern=r"^(en|hi)?$")
 
 
+class StoryOut(BaseModel):
+    """A story as listed in feeds. Bodies are only sent by the detail endpoint."""
+    model_config = ConfigDict(from_attributes=True)
+    id: str
+    slug: str
+    section: str
+    scope: str
+    title: str
+    title_hi: str = ""
+    deck: str = ""
+    deck_hi: str = ""
+    author: str
+    author_slug: str = ""
+    read_minutes: int
+    live: bool = False
+    urgency: int = 2
+    image_url: str = ""
+    caption: str = ""
+    source_name: str = ""
+    source_url: str = ""
+    language: str = "en"
+    has_hi: bool = False
+    published_at: datetime | None = None
+    updated_at: datetime | None = None
+
+
+class StoryDetail(StoryOut):
+    body: list[dict[str, Any]] = Field(default_factory=list)
+    body_hi: list[dict[str, Any]] = Field(default_factory=list)
+    sources: list[dict[str, str]] = Field(default_factory=list)
+    media: dict[str, Any] = Field(default_factory=dict)
+
+
+class SectionOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+    key: str
+    name: str
+    name_hi: str = ""
+    color: str = ""
+    about: str = ""
+    about_hi: str = ""
+    position: int
+    count: int = 0
+
+
 class Page(BaseModel):
     total: int
-    items: list[Story]
+    items: list[StoryOut]
+
+
+class Snapshot(BaseModel):
+    """Everything the static build needs to prerender the public site."""
+    generated_at: datetime
+    sections: list[SectionOut]
+    stories: list[StoryDetail]
 
 
 EmailText = Annotated[str, StringConstraints(strip_whitespace=True, to_lower=True, min_length=3, max_length=254)]
@@ -48,6 +101,10 @@ class SignupRequest(BaseModel):
     email: EmailText
     password: NewPassword
     display_name: NameText
+
+
+class ForgotRequest(BaseModel):
+    email: EmailText
 
 
 class RefreshRequest(BaseModel):
@@ -119,6 +176,7 @@ class NewsroomPublish(BaseModel):
     headline: str = Field(min_length=1, max_length=300)
     standfirst: str = Field(default="", max_length=600)
     section: str
+    scope: str = Field(default="ranchi", max_length=20)
     author: str = Field(min_length=1, max_length=120)
     urgency: int = Field(default=2, ge=1, le=5)
     language: Literal["en", "hi"] = "en"

@@ -10,24 +10,23 @@ The repository is structured as a monorepo containing three core applications an
 
 ```
 ├── apps/
-│   ├── reader/         # Public news reader website (Vite + Modern Vanilla JS/CSS)
+│   ├── reader/         # Public news site (React 19 + Vite + Tailwind v4, prerendered to static HTML)
 │   ├── newsroom/       # Editorial back-office app (React 19 + TypeScript + Tailwind CSS)
-│   └── api/            # Platform backend API (FastAPI + SQLModel + SQLite/Postgres)
+│   └── api/            # Platform backend API (FastAPI + SQLModel + SQLite/Postgres) and article packs (content/)
 ├── packages/
 │   └── contracts/      # Shared schemas, TypeScript contracts & JSON specifications
 ├── infra/              # Docker Compose & Render deployment manifests
 ├── scripts/            # Monorepo build and development orchestration scripts
-├── public/             # Static public assets, icons, and fallbacks
 └── vercel.json         # Single-project full-stack Vercel deployment configuration
 ```
 
 ### Key Highlights
 
 - **Public Reader (`apps/reader`)**:
-  - Blazing-fast reader experience with clean typography and responsive design tokens.
-  - Multi-language support and dynamic category filtering.
-  - Granular cookie consent management and privacy ledger integration.
-  - Optimized for low latency with edge caching and static asset preloading.
+  - Prerendered static HTML for every story, desk and info page, so search engines and AI agents read the full text without running JavaScript. Sitemaps, news sitemap, RSS, `llms.txt` and a Markdown copy of every story are generated at build time. See [SEO.md](SEO.md).
+  - English and Hindi stories on their own URLs with hreflang. 13 simple, positive desks (World, Politics, Business, Tech, Sports, Culture, Science, Health, Safety, Justice, Education, Environment, Entertainment) and a Local / State / National / World coverage switch.
+  - Save, follow, highlight and search; accounts; cookie consent with Global Privacy Control and a consent ledger.
+  - Responsive from 320 px to 2560 px (`pnpm --filter @news/reader audit:responsive`).
 
 - **Newsroom Back-Office (`apps/newsroom`)**:
   - Role-based editorial workflows (**Reporter**, **Editor**, **Admin**).
@@ -49,7 +48,7 @@ The repository is structured as a monorepo containing three core applications an
 
 | Area | Technologies |
 |---|---|
-| **Reader UI** | Vite, Vanilla JavaScript (ES Modules), Custom CSS Design Tokens |
+| **Reader UI** | React 19, TypeScript, Vite, Tailwind CSS v4 (theme only), React Router, SWR, static prerender |
 | **Newsroom UI** | React 19, TypeScript, Vite, Tailwind CSS, Lucide Icons, Recharts |
 | **Backend API** | Python 3.11+, FastAPI, SQLModel, SQLAlchemy 2.0, Pydantic v2, Passlib/Bcrypt |
 | **Monorepo** | pnpm Workspaces, Node.js |
@@ -104,6 +103,7 @@ Key configuration options in `apps/api/.env`:
 | `NEWSROOM_API_KEY` | Shared secret allowing newsroom publish operations | *(Local dev key)* |
 | `NEWS_DATABASE_URL` | Database connection string | `sqlite:///data/news.db` |
 | `NEWS_CORS_ORIGINS` | JSON list of allowed CORS origins | `[]` |
+| `NEWS_DEPLOY_HOOK_URL` | Static host deploy hook, called (debounced) after the Newsroom publishes so the prerendered Reader rebuilds | *(None)* |
 | `AI_PROVIDER` | AI provider choice (`groq`, `nvidia`, `openai_compatible`) | *(None)* |
 | `GROQ_API_KEY` | Groq API Key (Llama 3.3 70B Versatile) | *(Optional)* |
 | `NVIDIA_API_KEY` | NVIDIA NIM API Key | *(Optional)* |
@@ -141,17 +141,32 @@ pnpm dev:newsroom
 
 ---
 
+## 📰 Content: article packs
+
+Stories come from bilingual Markdown packs in `apps/api/content/` (one `article.md` per story: English and Hindi headline, standfirst and body, sources). On start the API reads every pack, assigns each story a desk, a coverage area, a slug and a date, and stores it (idempotent; stories published from the Newsroom are never touched).
+
+```bash
+python apps/api/app/content_pack.py          # list every story with its desk, coverage and any editor notes to resolve
+```
+
+To add a pack, drop its folder into `apps/api/content/` and restart the API (or rebuild the Reader offline). Desk rules live in `apps/api/app/content_pack.py`; the desk list is `packages/contracts/contracts.json` (mirrored in `apps/api/app/taxonomy.py`, with a test that keeps them equal).
+
+## 🚢 Deployment and search visibility
+
+- [DEPLOYMENT.md](DEPLOYMENT.md): recommended hosting (Cloudflare Pages + Railway + Neon, about $5 a month), alternatives, setup order, scaling path, launch checklist.
+- [SEO.md](SEO.md): what is built in for search and AI answer engines, and what you still need to do.
+
 ## 🧪 Testing & Quality Assurance
 
 ```bash
-# Run Newsroom domain and workflow tests
+# Run Newsroom and Reader tests
 pnpm test
 
 # Run TypeScript typechecks
 pnpm typecheck
 
 # Run API test suite
-pytest apps/api/tests
+pnpm test:api
 ```
 
 ---
@@ -173,6 +188,7 @@ This repository is preconfigured for single-project monorepo deployment on Verce
 - **Newsroom** is served under `/newsroom/`.
 - **API** runs serverless through `api/index.py` at `/api/*`.
 - Handled automatically by `scripts/build-vercel.mjs` and `vercel.json`.
+- Good for previews. For a commercial launch see [DEPLOYMENT.md](DEPLOYMENT.md): Vercel's free plan is non-commercial, and the serverless API loses its SQLite file between cold starts.
 
 ### Docker Compose
 

@@ -7,7 +7,7 @@ import useSWR from "swr";
 import { tokenStore } from "@/api/staffAuth";
 import { AreaFull } from "@/components/ui/charts";
 import { Avatar, Button, Card, CardTitle, PageHeader, Pill, SectionDot, Segmented, Tabs, inputCls } from "@/components/ui/primitives";
-import { SECTION_LABEL, SEVERITY_POINTS, type Article, type SectionKey } from "@/domain/types";
+import { SECTION_COLOR, SECTION_LABEL, SEVERITY_POINTS, type Article, type SectionKey } from "@/domain/types";
 import { useNewsroom } from "@/state/store";
 
 type Tab = "content" | "reviews" | "audience";
@@ -236,8 +236,7 @@ function TrafficSankey({ items }: { items: Article[] }) {
       { key: "internal", name: "Internal", color: "#17703f" },
     ] as const;
     const sections = (Object.keys(SECTION_LABEL) as SectionKey[]).filter((s) => items.some((a) => a.section === s));
-    const hex: Record<SectionKey, string> = { world: "#0b6e78", politics: "#b42318", business: "#17703f", tech: "#6b3fd6", sports: "#b83c0a", culture: "#aa2a78", science: "#8a5a00" };
-    const colored: SNode[] = [...sources.map((s) => ({ name: s.name, color: s.color })), ...sections.map((s) => ({ name: SECTION_LABEL[s], color: hex[s] }))];
+    const colored: SNode[] = [...sources.map((s) => ({ name: s.name, color: s.color })), ...sections.map((s) => ({ name: SECTION_LABEL[s], color: SECTION_COLOR[s] }))];
     const links: { source: number; target: number; value: number }[] = [];
     sources.forEach((src, si) =>
       sections.forEach((sec, ci) => {

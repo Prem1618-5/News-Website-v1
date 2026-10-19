@@ -1,0 +1,1 @@
+export { BODY_DESKTOP as BLOCKS_DESKTOP_STYLE, BODY_MOBILE as BLOCKS_MOBILE_STYLE } from '@/lib/blocks'

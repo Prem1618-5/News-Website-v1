@@ -1,13 +1,25 @@
 {
   "version": 1,
   "sections": [
-    { "key": "world", "en": "World", "hi": "दुनिया" },
-    { "key": "politics", "en": "Politics", "hi": "राजनीति" },
-    { "key": "business", "en": "Business", "hi": "व्यापार" },
-    { "key": "tech", "en": "Tech", "hi": "टेक" },
-    { "key": "sports", "en": "Sports", "hi": "खेल" },
-    { "key": "culture", "en": "Culture", "hi": "संस्कृति" },
-    { "key": "science", "en": "Science", "hi": "विज्ञान" }
+    { "key": "world", "en": "World", "hi": "दुनिया", "color": "#0b6e78", "about": "News from around the world.", "aboutHi": "दुनिया भर की ख़बरें।" },
+    { "key": "politics", "en": "Politics", "hi": "राजनीति", "color": "#b42318", "about": "Government, elections and public decisions.", "aboutHi": "सरकार, चुनाव और जनहित के फ़ैसले।" },
+    { "key": "business", "en": "Business", "hi": "व्यापार", "color": "#17703f", "about": "Jobs, markets, roads and the economy.", "aboutHi": "रोज़गार, बाज़ार, सड़कें और अर्थव्यवस्था।" },
+    { "key": "tech", "en": "Tech", "hi": "टेक", "color": "#6b3fd6", "about": "Phones, apps, AI and the gadgets we use.", "aboutHi": "फ़ोन, ऐप, एआई और हमारे इस्तेमाल के गैजेट।" },
+    { "key": "sports", "en": "Sports", "hi": "खेल", "color": "#b83c0a", "about": "Cricket, football and every game that matters.", "aboutHi": "क्रिकेट, फ़ुटबॉल और हर बड़ा खेल।" },
+    { "key": "culture", "en": "Culture", "hi": "संस्कृति", "color": "#aa2a78", "about": "Festivals, music, art and traditions.", "aboutHi": "त्योहार, संगीत, कला और परंपराएँ।" },
+    { "key": "science", "en": "Science", "hi": "विज्ञान", "color": "#8a5a00", "about": "Space, nature and new discoveries.", "aboutHi": "अंतरिक्ष, प्रकृति और नई खोजें।" },
+    { "key": "health", "en": "Health", "hi": "स्वास्थ्य", "color": "#0a7ea4", "about": "Hospitals, wellness and healthy living.", "aboutHi": "अस्पताल, सेहत और स्वस्थ जीवन।" },
+    { "key": "safety", "en": "Safety", "hi": "सुरक्षा", "color": "#a16207", "about": "Road safety, public safety and staying protected.", "aboutHi": "सड़क सुरक्षा, जन सुरक्षा और बचाव की जानकारी।" },
+    { "key": "justice", "en": "Justice", "hi": "न्याय", "color": "#475a9e", "about": "Courts, laws and your rights.", "aboutHi": "अदालतें, क़ानून और आपके अधिकार।" },
+    { "key": "education", "en": "Education", "hi": "शिक्षा", "color": "#1d4ed8", "about": "Schools, colleges, exams and careers.", "aboutHi": "स्कूल, कॉलेज, परीक्षाएँ और करियर।" },
+    { "key": "environment", "en": "Environment", "hi": "पर्यावरण", "color": "#4d7c0f", "about": "Parks, weather and a greener city.", "aboutHi": "पार्क, मौसम और हरा-भरा शहर।" },
+    { "key": "entertainment", "en": "Entertainment", "hi": "मनोरंजन", "color": "#a21caf", "about": "Movies, music and TV.", "aboutHi": "फ़िल्में, संगीत और टीवी।" }
+  ],
+  "scopes": [
+    { "key": "ranchi", "label": "Local", "labelHi": "स्थानीय", "place": "Ranchi", "placeHi": "रांची" },
+    { "key": "jharkhand", "label": "State", "labelHi": "राज्य", "place": "Jharkhand", "placeHi": "झारखंड" },
+    { "key": "india", "label": "National", "labelHi": "देश", "place": "India", "placeHi": "भारत" },
+    { "key": "world", "label": "World", "labelHi": "विश्व", "place": "World", "placeHi": "दुनिया" }
   ],
   "languages": [
     { "code": "en", "label": "English", "native": "English" },

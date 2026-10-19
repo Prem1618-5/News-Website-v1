@@ -26,28 +26,17 @@ settings.validate_for_runtime()
 STARTED_AT = time.time()
 
 
-def _seed_demo_reader() -> None:
-    from sqlmodel import select
-    from .models import LocalUser
-    from .security import hash_password
-    with Session(engine) as db:
-        if not db.exec(select(LocalUser).where(LocalUser.email == "demo.reader@newsapp.test")).first():
-            db.add(LocalUser(id=str(uuid.uuid4()), email="demo.reader@newsapp.test", password_hash=hash_password("DemoReader#2026"), display_name="Demo Reader"))
-            db.commit()
-
-
 _bootstrapped = False
 
 
 def bootstrap() -> None:
-    """Create tables and seed demo data once per process. Safe to call more than once."""
+    """Create tables, sync sections and article packs, seed dev staff once per process. Safe to call more than once."""
     global _bootstrapped
     if _bootstrapped:
         return
     init_db()
     if not settings.is_production and not settings.supabase_enabled:
         try:
-            _seed_demo_reader()
             with Session(engine) as db:
                 staff_auth.seed_demo_staff(db)
         except IntegrityError:

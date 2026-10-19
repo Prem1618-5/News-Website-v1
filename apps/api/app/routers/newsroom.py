@@ -5,10 +5,13 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import func
 from sqlmodel import select
 
+from ..content_pack import slugify
 from ..database import DB
 from ..models import ArticleContent, Story
-from ..schemas import SECTION_KEYS, NewsroomPublish
+from ..schemas import SCOPE_KEYS, SECTION_KEYS, NewsroomPublish
 from ..security import require_newsroom
+from ..services.content import search_text
+from ..services.rebuild import request_rebuild
 
 router = APIRouter(prefix="/api/newsroom", tags=["newsroom"], dependencies=[Depends(require_newsroom)])
 
@@ -57,22 +60,33 @@ def _plain_text(blocks: list[dict]) -> str:
     return " ".join(filter(None, out))
 
 
+def _unique_slug(db, wanted: str, story_id: str) -> str:
+    base = slugify(wanted) or slugify(story_id) or "story"
+    slug, n = base, 2
+    while (other := db.exec(select(Story).where(Story.slug == slug)).first()) and other.id != story_id:
+        slug, n = f"{base}-{n}", n + 1
+    return slug
+
+
 @router.post("/articles")
 def publish(body: NewsroomPublish, db: DB):
     if body.section not in SECTION_KEYS:
         raise HTTPException(422, "Unknown section.")
+    if body.scope not in SCOPE_KEYS:
+        raise HTTPException(422, "Unknown coverage area.")
     blocks = sanitize_blocks(body.body)
-    words = len(_plain_text(blocks).split())
+    plain = _plain_text(blocks)
     story_id = f"nr-{body.id}"
     now = datetime.now(timezone.utc)
     top = db.exec(select(func.min(Story.position))).one() or 0
-    story = db.get(Story, story_id) or Story(id=story_id, section=body.section, title="", author="", ago="", read_minutes=1, position=top - 1)
+    story = db.get(Story, story_id) or Story(id=story_id, section=body.section, title="", author="", read_minutes=1, position=top - 1)
+    story.slug = _unique_slug(db, body.slug or body.headline, story_id)
     story.section = body.section
+    story.scope = body.scope
     story.title = body.headline.strip()
     story.deck = body.standfirst.strip()
     story.author = body.author.strip()
-    story.ago = "Just now"
-    story.read_minutes = max(1, round(words / 220))
+    story.read_minutes = max(1, round(len(plain.split()) / 220))
     story.live = body.live or body.urgency == 5
     story.image_url = _clean_url(body.hero.poster_url or body.hero.url) if body.hero else ""
     story.caption = body.hero.caption if body.hero else ""
@@ -83,6 +97,7 @@ def publish(body: NewsroomPublish, db: DB):
     story.urgency = body.urgency
     story.published_at = story.published_at or now
     story.updated_at = now
+    story.search_text = search_text(story.title, story.deck, plain)
     db.add(story)
     db.flush()
     content = db.get(ArticleContent, story_id) or ArticleContent(story_id=story_id)
@@ -91,7 +106,8 @@ def publish(body: NewsroomPublish, db: DB):
     content.updated_at = now
     db.add(content)
     db.commit()
-    return {"ok": True, "story_id": story_id, "url": f"/#/story/{story_id}"}
+    request_rebuild()
+    return {"ok": True, "story_id": story_id, "slug": story.slug, "url": f"/story/{story.slug}"}
 
 
 @router.delete("/articles/{article_id}")
@@ -104,4 +120,5 @@ def unpublish(article_id: str, db: DB):
     if story:
         db.delete(story)
     db.commit()
+    request_rebuild()
     return {"ok": True, "removed": bool(story)}

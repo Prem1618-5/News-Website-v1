@@ -10,7 +10,7 @@ from ..config import get_settings
 from ..database import DB
 from ..models import LocalUser
 from ..ratelimit import Limiter, client_ip
-from ..schemas import AuthCredentials, RefreshRequest, SignupRequest
+from ..schemas import AuthCredentials, ForgotRequest, RefreshRequest, SignupRequest
 from ..security import (
     CurrentUser, bearer, clear_auth_cookies, create_access_token, hash_password, local_user_from_token,
     provider_error, set_auth_cookies, supabase_request, verify_password,
@@ -21,6 +21,7 @@ settings = get_settings()
 EMAIL = re.compile(r"[^@\s]+@[^@\s]+\.[^@\s]+")
 _login_failures = Limiter(8)
 _signups = Limiter(5, "Too many accounts created from this network. Try again in a few minutes.")
+_forgots = Limiter(5, "Too many reset requests from this network. Try again in a few minutes.")
 
 
 def _local_session(user: LocalUser, response: Response) -> dict:
@@ -89,6 +90,20 @@ async def signup(body: SignupRequest, request: Request, response: Response, db: 
     if authenticated:
         set_auth_cookies(response, payload)
     return {"authenticated": authenticated, "confirmation_required": not authenticated, "user": payload.get("user") or session.get("user") or {}}
+
+
+@router.post("/forgot")
+async def forgot_password(body: ForgotRequest, request: Request):
+    """Ask the account provider to email a reset link. The answer never says whether the address has an account."""
+    key = f"forgot:{client_ip(request)}"
+    _forgots.check(key)
+    _forgots.hit(key)
+    if not settings.supabase_enabled:
+        return {"sent": False}
+    status, payload = await supabase_request("POST", "/auth/v1/recover", body={"email": body.email})
+    if status >= 500:
+        raise provider_error(status, payload)
+    return {"sent": True}
 
 
 @router.post("/login")

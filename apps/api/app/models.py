@@ -13,15 +13,25 @@ class Section(SQLModel, table=True):
     key: str = Field(primary_key=True)
     name: str
     position: int
+    name_hi: str = ""
+    color: str = ""
+    about: str = ""
+    about_hi: str = ""
 
 
 class Story(SQLModel, table=True):
     id: str = Field(primary_key=True)
+    # Public URL segment: /story/<slug>. Pack stories use the slug as id; Newsroom stories are "nr-<id>".
+    slug: str = Field(default="", index=True)
     section: str = Field(index=True, foreign_key="section.key")
+    # Where it happens: ranchi | jharkhand | india | world.
+    scope: str = Field(default="world", index=True)
     title: str
+    title_hi: str = ""
     deck: str = ""
+    deck_hi: str = ""
     author: str
-    ago: str
+    ago: str = ""  # legacy; relative time is computed in the Reader from published_at
     read_minutes: int
     live: bool = False
     position: int = Field(index=True)
@@ -30,17 +40,21 @@ class Story(SQLModel, table=True):
     source_url: str = ""
     caption: str = ""
     language: str = "en"
-    origin: str = "demo"
+    origin: str = "pack"  # pack | newsroom
     urgency: int = 2
-    published_at: datetime | None = None
+    published_at: datetime | None = Field(default=None, index=True)
     updated_at: datetime | None = None
+    # Lower-cased title + standfirst + body in both languages, for search.
+    search_text: str = ""
 
 
 class ArticleContent(SQLModel, table=True):
     """BlockNote JSON document for a story. HTML is never stored."""
     story_id: str = Field(primary_key=True, foreign_key="story.id")
     blocks: list[dict] = Field(default_factory=list, sa_column=Column(JSON))
+    blocks_hi: list[dict] = Field(default_factory=list, sa_column=Column(JSON))
     media: dict = Field(default_factory=dict, sa_column=Column(JSON))
+    sources: list[dict] = Field(default_factory=list, sa_column=Column(JSON))
     updated_at: datetime = Field(default_factory=utcnow)
 
 

@@ -1,4 +1,5 @@
 """Runtime configuration. Every value can be set through environment variables prefixed with NEWS_."""
+import os
 from functools import lru_cache
 from pathlib import Path
 
@@ -15,7 +16,13 @@ _DEV_ONLY_SECRET = "dev-only-insecure-secret-change-me"
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="NEWS_", env_file=".env", extra="ignore")
 
-    app_env: str = Field(default="development", validation_alias="APP_ENV")
+    # Fail closed: an unset APP_ENV is production, so demo accounts and the dev secret never leak onto a public deploy.
+    app_env: str = Field(default="production", validation_alias="APP_ENV")
+    # Trust X-Forwarded-For only behind a proxy that sets it (Vercel/Render/Railway); otherwise clients could spoof it.
+    trust_proxy: bool = Field(
+        default_factory=lambda: any(os.environ.get(k) for k in ("VERCEL", "RENDER", "RAILWAY_ENVIRONMENT")),
+        validation_alias="TRUST_PROXY",
+    )
     database_url: str = f"sqlite:///{(DATA_DIR / 'news.db').as_posix()}"
     cors_origins: list[str] = []
     jwt_secret: str = Field(default=_DEV_ONLY_SECRET, validation_alias="JWT_SECRET")

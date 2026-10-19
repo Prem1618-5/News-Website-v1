@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type ReactNode } from "react";
-import { NavLink, Outlet, useLocation } from "react-router-dom";
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom";
 import { BarChart3, FileText, Home, Inbox, LogOut, PanelLeftClose, PanelLeftOpen, PauseCircle, PenSquare, ShieldAlert, Siren, Users, X } from "lucide-react";
 import clsx from "clsx";
 import { ROLE_LABEL } from "@/domain/capabilities";
@@ -26,8 +26,17 @@ export function AppShell() {
   const [composeOpen, setComposeOpen] = useState(false);
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => setMenuOpen(false), [location.pathname, location.search]);
+
+  // The "New article" shortcuts navigate to /write; open the composer there and land on the desk.
+  useEffect(() => {
+    if (location.pathname === "/write") {
+      setComposeOpen(true);
+      navigate("/", { replace: true });
+    }
+  }, [location.pathname, navigate]);
 
   const openQueue = state.articles.filter((a) => a.status === "in_review").length;
   const supervised = state.staff.filter((s) => s.supervision === "supervised").length;

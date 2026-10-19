@@ -163,18 +163,16 @@ def require_newsroom(
 ) -> None:
     """Editors and admins signed in to the Newsroom, or the machine key, may publish."""
     if authorization and authorization.lower().startswith("bearer "):
-        account = staff_from_token(db, authorization[7:])
+        account = staff_from_token(db, authorization[7:].strip())
         if account and account.role in ("editor", "admin"):
             return
         if account:
             raise HTTPException(403, "Your role cannot do this.")
     expected = settings.newsroom_api_key
-    if not expected:
-        if settings.is_production:
-            raise HTTPException(503, "Publishing is not configured.")
+    if expected and x_newsroom_key and hmac.compare_digest(x_newsroom_key, expected):
         return
-    if not x_newsroom_key or not hmac.compare_digest(x_newsroom_key, expected):
-        raise HTTPException(403, "This key cannot publish.")
+    # Never open, in any environment: no valid staff token and no valid machine key means no access.
+    raise HTTPException(401, "Sign in to the Newsroom as an editor or admin.")
 
 
 def require_staff(

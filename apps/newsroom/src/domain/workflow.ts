@@ -627,7 +627,7 @@ export function restoreArticle(s: NewsroomState, actor: Staff, id: string): Out 
   const a = s.articles.find((x) => x.id === id);
   if (!a?.takedown) return { state: s, error: "Nothing to restore." };
   const by = getStaff(s, a.takedown.byId);
-  if (by && by.id !== actor.id && by.role === "admin" && actor.role !== "admin") return refuse(s, actor, "article.restore", `article:${id}`, "Only the person who took this down, or higher, can restore it.");
+  if (by && by.id !== actor.id && actor.role !== "admin") return refuse(s, actor, "article.restore", `article:${id}`, "Only the person who took this down, or higher, can restore it.");
   let next = patchArticle(s, id, (x) => ({ ...x, status: "published", takedown: undefined }));
   next = track(next, id, activity(actor.id, "restored", "Put back on the website"));
   return { state: log(next, actor.id, "article.restore", `article:${id}`), message: "Back on the website" };
@@ -648,6 +648,8 @@ export function breakGlassPublish(s: NewsroomState, actor: Staff, id: string, re
   if (!a) return { state: s, error: "Article not found." };
   if (actor.role !== "admin") return refuse(s, actor, "break_glass", `article:${id}`, "Only an admin can publish without review.");
   if (reason.trim().length < 10) return { state: s, error: "Explain why in at least 10 characters." };
+  if (!["in_review", "changes_requested", "approved"].includes(a.status) || a.takedown) return { state: s, error: "Only an article waiting on review can be published this way." };
+  if (!preflightPassed(a)) return { state: s, error: "Pre-flight checks block publishing, even in an emergency. Fix them first." };
   const now = Date.now();
   let next = patchArticle(s, id, (x) => ({ ...x, status: "published", publishedAt: now, publishedVia: "admin_override", cycle: x.cycle ? { ...x.cycle, claimedBy: undefined } : x.cycle }));
   next = track(next, id, activity(actor.id, "published", "Published without editor review (emergency)", { after: clip(reason) }));

@@ -99,7 +99,7 @@ Key configuration options in `apps/api/.env`:
 
 | Variable | Description | Default |
 |---|---|---|
-| `APP_ENV` | Application environment (`development` or `production`) | `development` |
+| `APP_ENV` | Application environment (`development` or `production`). Unset means production: no demo accounts, `JWT_SECRET` and `NEWSROOM_API_KEY` required. | `production` |
 | `JWT_SECRET` | Secret key for signing staff JWT bearer tokens | *(Dev fallback)* |
 | `NEWSROOM_API_KEY` | Shared secret allowing newsroom publish operations | *(Local dev key)* |
 | `NEWS_DATABASE_URL` | Database connection string | `sqlite:///data/news.db` |

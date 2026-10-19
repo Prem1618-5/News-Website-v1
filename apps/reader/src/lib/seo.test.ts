@@ -53,6 +53,25 @@ describe('prefetch mirrors the API', () => {
     expect((resolveKey(snap, '/stories?exclude=ranchi-airport-ready&limit=1') as Page).items[0].slug).toBe('bus-overturns')
   })
 
+  it('ranks the front page for the reader’s place like the API', () => {
+    const at = '2026-10-19T06:00:00.000Z'
+    const ranked = {
+      ...snap,
+      stories: [
+        story({ id: 'world-new', slug: 'world-new', scope: 'world', state: '', district: '', published_at: at }),
+        story({ id: 'ranchi-old', slug: 'ranchi-old', scope: 'local', state: 'JH', district: 'ranchi', published_at: '2026-10-18T22:00:00.000Z' }),
+        story({ id: 'dhanbad', slug: 'dhanbad', scope: 'local', state: 'JH', district: 'dhanbad', published_at: at }),
+        story({ id: 'patna', slug: 'patna', scope: 'local', state: 'BR', district: '', published_at: at }),
+        story({ id: 'breaking', slug: 'breaking', scope: 'india', state: '', district: '', breaking: true, published_at: '2026-10-18T10:00:00.000Z' }),
+      ],
+    }
+    const ids = (near: string) => (resolveKey(ranked, `/stories?limit=40&near=${encodeURIComponent(near)}`) as Page).items.map((s) => s.id)
+    // Breaking first, then Ranchi's own (9 h old beats fresh world news), other districts of the state, the rest.
+    expect(ids('JH:ranchi')).toEqual(['breaking', 'ranchi-old', 'dhanbad', 'world-new'])
+    // Someone in Bihar gets Bihar's local news and never Jharkhand's.
+    expect(ids('BR')).toEqual(['breaking', 'patna', 'world-new'])
+  })
+
   it('embeds only what a page uses', () => {
     expect(keysFor('/story/bus-overturns', snap)).toHaveLength(3)
     expect(Object.keys(fallbackFor('/hi/story/bus-overturns', snap))[0]).toBe('/stories/bus-overturns')

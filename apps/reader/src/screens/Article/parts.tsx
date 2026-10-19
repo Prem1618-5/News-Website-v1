@@ -5,8 +5,8 @@ import { Ico } from '@/components/ui/icons'
 import { post } from '@/lib/api'
 import { track } from '@/lib/consent'
 import { fmtDate, fmtDateTime, readTime, storyPath } from '@/lib/format'
-import { library } from '@/lib/library'
-import { scope, sectionName } from '@/lib/taxonomy'
+import { library, useLang } from '@/lib/library'
+import { sectionName, storyPlace } from '@/lib/taxonomy'
 import { useSession } from '@/lib/session'
 import type { Language, StoryDetail } from '@/lib/types'
 import { SITE, abs } from '@/site'
@@ -22,7 +22,7 @@ export function useArticleView(story: StoryDetail, lang: Language) {
     deck: hi ? story.deck_hi || story.deck : story.deck,
     body: hi && story.body_hi.length ? story.body_hi : story.body,
     section: sectionName(story.section, hi ? 'hi' : 'en'),
-    place: scope(story.scope)[hi ? 'placeHi' : 'place'],
+    place: storyPlace(story, hi ? 'hi' : 'en'),
     otherPath: story.has_hi ? storyPath(story, hi ? 'en' : 'hi') : null,
     date: fmtDate(story.published_at, hi ? 'hi' : 'en'),
     read: readTime(story.read_minutes, hi ? 'hi' : 'en'),
@@ -124,6 +124,7 @@ export function Sources({ story, v }: { story: StoryDetail; v: ReturnType<typeof
 export function Highlighter({ story, children }: { story: StoryDetail; children: React.ReactNode }) {
   const root = useRef<HTMLDivElement>(null)
   const [pos, setPos] = useState<{ x: number; y: number; text: string } | null>(null)
+  const hi = useLang() === 'hi'
   useEffect(() => {
     const check = () => {
       const sel = window.getSelection()
@@ -150,7 +151,7 @@ export function Highlighter({ story, children }: { story: StoryDetail; children:
           }}
           style={{ position: 'fixed', left: Math.max(8, pos.x - 50), top: Math.max(8, pos.y - 52), zIndex: 50, height: 40, boxShadow: '0 8px 24px var(--sh)' }}
         >
-          Highlight
+          {hi ? 'हाइलाइट' : 'Highlight'}
         </button>
       ) : null}
     </div>

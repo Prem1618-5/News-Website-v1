@@ -1,38 +1,537 @@
 {
   "version": 1,
   "sections": [
-    { "key": "world", "en": "World", "hi": "दुनिया", "color": "#0b6e78", "about": "News from around the world.", "aboutHi": "दुनिया भर की ख़बरें।" },
-    { "key": "politics", "en": "Politics", "hi": "राजनीति", "color": "#b42318", "about": "Government, elections and public decisions.", "aboutHi": "सरकार, चुनाव और जनहित के फ़ैसले।" },
-    { "key": "business", "en": "Business", "hi": "व्यापार", "color": "#17703f", "about": "Jobs, markets, roads and the economy.", "aboutHi": "रोज़गार, बाज़ार, सड़कें और अर्थव्यवस्था।" },
-    { "key": "tech", "en": "Tech", "hi": "टेक", "color": "#6b3fd6", "about": "Phones, apps, AI and the gadgets we use.", "aboutHi": "फ़ोन, ऐप, एआई और हमारे इस्तेमाल के गैजेट।" },
-    { "key": "sports", "en": "Sports", "hi": "खेल", "color": "#b83c0a", "about": "Cricket, football and every game that matters.", "aboutHi": "क्रिकेट, फ़ुटबॉल और हर बड़ा खेल।" },
-    { "key": "culture", "en": "Culture", "hi": "संस्कृति", "color": "#aa2a78", "about": "Festivals, music, art and traditions.", "aboutHi": "त्योहार, संगीत, कला और परंपराएँ।" },
-    { "key": "science", "en": "Science", "hi": "विज्ञान", "color": "#8a5a00", "about": "Space, nature and new discoveries.", "aboutHi": "अंतरिक्ष, प्रकृति और नई खोजें।" },
-    { "key": "health", "en": "Health", "hi": "स्वास्थ्य", "color": "#0a7ea4", "about": "Hospitals, wellness and healthy living.", "aboutHi": "अस्पताल, सेहत और स्वस्थ जीवन।" },
-    { "key": "safety", "en": "Safety", "hi": "सुरक्षा", "color": "#a16207", "about": "Road safety, public safety and staying protected.", "aboutHi": "सड़क सुरक्षा, जन सुरक्षा और बचाव की जानकारी।" },
-    { "key": "justice", "en": "Justice", "hi": "न्याय", "color": "#475a9e", "about": "Courts, laws and your rights.", "aboutHi": "अदालतें, क़ानून और आपके अधिकार।" },
-    { "key": "education", "en": "Education", "hi": "शिक्षा", "color": "#1d4ed8", "about": "Schools, colleges, exams and careers.", "aboutHi": "स्कूल, कॉलेज, परीक्षाएँ और करियर।" },
-    { "key": "environment", "en": "Environment", "hi": "पर्यावरण", "color": "#4d7c0f", "about": "Parks, weather and a greener city.", "aboutHi": "पार्क, मौसम और हरा-भरा शहर।" },
-    { "key": "entertainment", "en": "Entertainment", "hi": "मनोरंजन", "color": "#a21caf", "about": "Movies, music and TV.", "aboutHi": "फ़िल्में, संगीत और टीवी।" }
+    {
+      "key": "world",
+      "en": "World",
+      "hi": "दुनिया",
+      "color": "#0b6e78",
+      "about": "News from around the world.",
+      "aboutHi": "दुनिया भर की ख़बरें।"
+    },
+    {
+      "key": "politics",
+      "en": "Politics",
+      "hi": "राजनीति",
+      "color": "#b42318",
+      "about": "Government, elections and public decisions.",
+      "aboutHi": "सरकार, चुनाव और जनहित के फ़ैसले।"
+    },
+    {
+      "key": "business",
+      "en": "Business",
+      "hi": "व्यापार",
+      "color": "#17703f",
+      "about": "Jobs, markets, roads and the economy.",
+      "aboutHi": "रोज़गार, बाज़ार, सड़कें और अर्थव्यवस्था।"
+    },
+    {
+      "key": "tech",
+      "en": "Tech",
+      "hi": "टेक",
+      "color": "#6b3fd6",
+      "about": "Phones, apps, AI and the gadgets we use.",
+      "aboutHi": "फ़ोन, ऐप, एआई और हमारे इस्तेमाल के गैजेट।"
+    },
+    {
+      "key": "sports",
+      "en": "Sports",
+      "hi": "खेल",
+      "color": "#b83c0a",
+      "about": "Cricket, football and every game that matters.",
+      "aboutHi": "क्रिकेट, फ़ुटबॉल और हर बड़ा खेल।"
+    },
+    {
+      "key": "culture",
+      "en": "Culture",
+      "hi": "संस्कृति",
+      "color": "#aa2a78",
+      "about": "Festivals, music, art and traditions.",
+      "aboutHi": "त्योहार, संगीत, कला और परंपराएँ।"
+    },
+    {
+      "key": "science",
+      "en": "Science",
+      "hi": "विज्ञान",
+      "color": "#8a5a00",
+      "about": "Space, nature and new discoveries.",
+      "aboutHi": "अंतरिक्ष, प्रकृति और नई खोजें।"
+    },
+    {
+      "key": "health",
+      "en": "Health",
+      "hi": "स्वास्थ्य",
+      "color": "#0a7ea4",
+      "about": "Hospitals, wellness and healthy living.",
+      "aboutHi": "अस्पताल, सेहत और स्वस्थ जीवन।"
+    },
+    {
+      "key": "safety",
+      "en": "Safety",
+      "hi": "सुरक्षा",
+      "color": "#a16207",
+      "about": "Road safety, public safety and staying protected.",
+      "aboutHi": "सड़क सुरक्षा, जन सुरक्षा और बचाव की जानकारी।"
+    },
+    {
+      "key": "justice",
+      "en": "Justice",
+      "hi": "न्याय",
+      "color": "#475a9e",
+      "about": "Courts, laws and your rights.",
+      "aboutHi": "अदालतें, क़ानून और आपके अधिकार।"
+    },
+    {
+      "key": "education",
+      "en": "Education",
+      "hi": "शिक्षा",
+      "color": "#1d4ed8",
+      "about": "Schools, colleges, exams and careers.",
+      "aboutHi": "स्कूल, कॉलेज, परीक्षाएँ और करियर।"
+    },
+    {
+      "key": "environment",
+      "en": "Environment",
+      "hi": "पर्यावरण",
+      "color": "#4d7c0f",
+      "about": "Parks, weather and a greener city.",
+      "aboutHi": "पार्क, मौसम और हरा-भरा शहर।"
+    },
+    {
+      "key": "entertainment",
+      "en": "Entertainment",
+      "hi": "मनोरंजन",
+      "color": "#a21caf",
+      "about": "Movies, music and TV.",
+      "aboutHi": "फ़िल्में, संगीत और टीवी।"
+    }
   ],
   "scopes": [
-    { "key": "ranchi", "label": "Local", "labelHi": "स्थानीय", "place": "Ranchi", "placeHi": "रांची" },
-    { "key": "jharkhand", "label": "State", "labelHi": "राज्य", "place": "Jharkhand", "placeHi": "झारखंड" },
-    { "key": "india", "label": "National", "labelHi": "देश", "place": "India", "placeHi": "भारत" },
-    { "key": "world", "label": "World", "labelHi": "विश्व", "place": "World", "placeHi": "दुनिया" }
+    {
+      "key": "local",
+      "label": "Local",
+      "labelHi": "स्थानीय",
+      "place": "Your district",
+      "placeHi": "आपका ज़िला"
+    },
+    {
+      "key": "state",
+      "label": "State",
+      "labelHi": "राज्य",
+      "place": "Your state",
+      "placeHi": "आपका राज्य"
+    },
+    {
+      "key": "india",
+      "label": "National",
+      "labelHi": "देश",
+      "place": "India",
+      "placeHi": "भारत"
+    },
+    {
+      "key": "world",
+      "label": "World",
+      "labelHi": "विश्व",
+      "place": "World",
+      "placeHi": "दुनिया"
+    }
   ],
+  "states": [
+    {
+      "code": "AP",
+      "en": "Andhra Pradesh",
+      "hi": "आंध्र प्रदेश"
+    },
+    {
+      "code": "AR",
+      "en": "Arunachal Pradesh",
+      "hi": "अरुणाचल प्रदेश"
+    },
+    {
+      "code": "AS",
+      "en": "Assam",
+      "hi": "असम"
+    },
+    {
+      "code": "BR",
+      "en": "Bihar",
+      "hi": "बिहार"
+    },
+    {
+      "code": "CG",
+      "en": "Chhattisgarh",
+      "hi": "छत्तीसगढ़"
+    },
+    {
+      "code": "GA",
+      "en": "Goa",
+      "hi": "गोवा"
+    },
+    {
+      "code": "GJ",
+      "en": "Gujarat",
+      "hi": "गुजरात"
+    },
+    {
+      "code": "HR",
+      "en": "Haryana",
+      "hi": "हरियाणा"
+    },
+    {
+      "code": "HP",
+      "en": "Himachal Pradesh",
+      "hi": "हिमाचल प्रदेश"
+    },
+    {
+      "code": "JH",
+      "en": "Jharkhand",
+      "hi": "झारखंड"
+    },
+    {
+      "code": "KA",
+      "en": "Karnataka",
+      "hi": "कर्नाटक"
+    },
+    {
+      "code": "KL",
+      "en": "Kerala",
+      "hi": "केरल"
+    },
+    {
+      "code": "MP",
+      "en": "Madhya Pradesh",
+      "hi": "मध्य प्रदेश"
+    },
+    {
+      "code": "MH",
+      "en": "Maharashtra",
+      "hi": "महाराष्ट्र"
+    },
+    {
+      "code": "MN",
+      "en": "Manipur",
+      "hi": "मणिपुर"
+    },
+    {
+      "code": "ML",
+      "en": "Meghalaya",
+      "hi": "मेघालय"
+    },
+    {
+      "code": "MZ",
+      "en": "Mizoram",
+      "hi": "मिज़ोरम"
+    },
+    {
+      "code": "NL",
+      "en": "Nagaland",
+      "hi": "नागालैंड"
+    },
+    {
+      "code": "OD",
+      "en": "Odisha",
+      "hi": "ओडिशा"
+    },
+    {
+      "code": "PB",
+      "en": "Punjab",
+      "hi": "पंजाब"
+    },
+    {
+      "code": "RJ",
+      "en": "Rajasthan",
+      "hi": "राजस्थान"
+    },
+    {
+      "code": "SK",
+      "en": "Sikkim",
+      "hi": "सिक्किम"
+    },
+    {
+      "code": "TN",
+      "en": "Tamil Nadu",
+      "hi": "तमिलनाडु"
+    },
+    {
+      "code": "TS",
+      "en": "Telangana",
+      "hi": "तेलंगाना"
+    },
+    {
+      "code": "TR",
+      "en": "Tripura",
+      "hi": "त्रिपुरा"
+    },
+    {
+      "code": "UP",
+      "en": "Uttar Pradesh",
+      "hi": "उत्तर प्रदेश"
+    },
+    {
+      "code": "UK",
+      "en": "Uttarakhand",
+      "hi": "उत्तराखंड"
+    },
+    {
+      "code": "WB",
+      "en": "West Bengal",
+      "hi": "पश्चिम बंगाल"
+    },
+    {
+      "code": "AN",
+      "en": "Andaman and Nicobar Islands",
+      "hi": "अंडमान और निकोबार द्वीपसमूह"
+    },
+    {
+      "code": "CH",
+      "en": "Chandigarh",
+      "hi": "चंडीगढ़"
+    },
+    {
+      "code": "DH",
+      "en": "Dadra and Nagar Haveli and Daman and Diu",
+      "hi": "दादरा और नगर हवेली और दमन और दीव"
+    },
+    {
+      "code": "DL",
+      "en": "Delhi",
+      "hi": "दिल्ली"
+    },
+    {
+      "code": "JK",
+      "en": "Jammu and Kashmir",
+      "hi": "जम्मू और कश्मीर"
+    },
+    {
+      "code": "LA",
+      "en": "Ladakh",
+      "hi": "लद्दाख"
+    },
+    {
+      "code": "LD",
+      "en": "Lakshadweep",
+      "hi": "लक्षद्वीप"
+    },
+    {
+      "code": "PY",
+      "en": "Puducherry",
+      "hi": "पुडुचेरी"
+    }
+  ],
+  "districts": {
+    "JH": [
+      {
+        "key": "bokaro",
+        "en": "Bokaro",
+        "hi": "बोकारो"
+      },
+      {
+        "key": "chatra",
+        "en": "Chatra",
+        "hi": "चतरा"
+      },
+      {
+        "key": "deoghar",
+        "en": "Deoghar",
+        "hi": "देवघर"
+      },
+      {
+        "key": "dhanbad",
+        "en": "Dhanbad",
+        "hi": "धनबाद"
+      },
+      {
+        "key": "dumka",
+        "en": "Dumka",
+        "hi": "दुमका"
+      },
+      {
+        "key": "east-singhbhum",
+        "en": "East Singhbhum",
+        "hi": "पूर्वी सिंहभूम",
+        "city": "Jamshedpur"
+      },
+      {
+        "key": "garhwa",
+        "en": "Garhwa",
+        "hi": "गढ़वा"
+      },
+      {
+        "key": "giridih",
+        "en": "Giridih",
+        "hi": "गिरिडीह"
+      },
+      {
+        "key": "godda",
+        "en": "Godda",
+        "hi": "गोड्डा"
+      },
+      {
+        "key": "gumla",
+        "en": "Gumla",
+        "hi": "गुमला"
+      },
+      {
+        "key": "hazaribagh",
+        "en": "Hazaribagh",
+        "hi": "हज़ारीबाग"
+      },
+      {
+        "key": "jamtara",
+        "en": "Jamtara",
+        "hi": "जामताड़ा"
+      },
+      {
+        "key": "khunti",
+        "en": "Khunti",
+        "hi": "खूंटी"
+      },
+      {
+        "key": "koderma",
+        "en": "Koderma",
+        "hi": "कोडरमा"
+      },
+      {
+        "key": "latehar",
+        "en": "Latehar",
+        "hi": "लातेहार"
+      },
+      {
+        "key": "lohardaga",
+        "en": "Lohardaga",
+        "hi": "लोहरदगा"
+      },
+      {
+        "key": "pakur",
+        "en": "Pakur",
+        "hi": "पाकुड़"
+      },
+      {
+        "key": "palamu",
+        "en": "Palamu",
+        "hi": "पलामू",
+        "city": "Daltonganj"
+      },
+      {
+        "key": "ramgarh",
+        "en": "Ramgarh",
+        "hi": "रामगढ़"
+      },
+      {
+        "key": "ranchi",
+        "en": "Ranchi",
+        "hi": "रांची"
+      },
+      {
+        "key": "sahibganj",
+        "en": "Sahibganj",
+        "hi": "साहिबगंज"
+      },
+      {
+        "key": "seraikela-kharsawan",
+        "en": "Seraikela Kharsawan",
+        "hi": "सरायकेला खरसावां"
+      },
+      {
+        "key": "simdega",
+        "en": "Simdega",
+        "hi": "सिमडेगा"
+      },
+      {
+        "key": "west-singhbhum",
+        "en": "West Singhbhum",
+        "hi": "पश्चिमी सिंहभूम",
+        "city": "Chaibasa"
+      }
+    ]
+  },
+  "defaultLocation": {
+    "state": "JH",
+    "district": "ranchi"
+  },
+  "priorities": [
+    {
+      "key": "normal",
+      "label": "Normal",
+      "labelHi": "सामान्य"
+    },
+    {
+      "key": "breaking",
+      "label": "Breaking",
+      "labelHi": "ब्रेकिंग"
+    }
+  ],
+  "breakingHours": 6,
   "languages": [
-    { "code": "en", "label": "English", "native": "English" },
-    { "code": "hi", "label": "Hindi", "native": "हिन्दी" }
+    {
+      "code": "en",
+      "label": "English",
+      "native": "English"
+    },
+    {
+      "code": "hi",
+      "label": "Hindi",
+      "native": "हिन्दी"
+    }
   ],
   "consentTiers": [
-    { "id": "necessary", "tier": "C0", "required": true, "label": "Strictly necessary", "description": "Keeps you signed in, remembers this choice and protects the site. Always on." },
-    { "id": "preferences", "tier": "C1", "required": false, "label": "Preferences", "description": "Remembers your theme, text size, language and interests." },
-    { "id": "analytics", "tier": "C2", "required": false, "label": "Analytics", "description": "Counts page views and reading time with a random ID so we can improve the app. No ads, no selling." },
-    { "id": "personalization", "tier": "C3", "required": false, "label": "Personalisation", "description": "Uses what you read to suggest stories for you." },
-    { "id": "notifications", "tier": "C4", "required": false, "label": "Notifications", "description": "Breaking-news alerts. Your browser will ask separately." }
+    {
+      "id": "necessary",
+      "tier": "C0",
+      "required": true,
+      "label": "Strictly necessary",
+      "description": "Keeps you signed in, remembers this choice and protects the site. Always on."
+    },
+    {
+      "id": "preferences",
+      "tier": "C1",
+      "required": false,
+      "label": "Preferences",
+      "description": "Remembers your theme, text size, language and interests."
+    },
+    {
+      "id": "analytics",
+      "tier": "C2",
+      "required": false,
+      "label": "Analytics",
+      "description": "Counts page views and reading time with a random ID so we can improve the app. No ads, no selling."
+    },
+    {
+      "id": "personalization",
+      "tier": "C3",
+      "required": false,
+      "label": "Personalisation",
+      "description": "Uses what you read to suggest stories for you."
+    },
+    {
+      "id": "notifications",
+      "tier": "C4",
+      "required": false,
+      "label": "Notifications",
+      "description": "Breaking-news alerts. Your browser will ask separately."
+    }
   ],
   "consentVersion": "2026-10-01",
-  "blockAllowlist": ["paragraph", "heading", "quote", "bulletListItem", "numberedListItem", "checkListItem", "image", "video", "audio", "table", "divider", "pullquote"],
-  "aiTasks": ["headline", "summary", "proofread", "translate", "tags"]
+  "blockAllowlist": [
+    "paragraph",
+    "heading",
+    "quote",
+    "bulletListItem",
+    "numberedListItem",
+    "checkListItem",
+    "image",
+    "video",
+    "audio",
+    "table",
+    "divider",
+    "pullquote",
+    "factbox"
+  ],
+  "aiTasks": [
+    "headline",
+    "summary",
+    "proofread",
+    "translate",
+    "tags"
+  ]
 }

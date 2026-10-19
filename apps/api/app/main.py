@@ -19,7 +19,7 @@ from sqlmodel import Session
 from .config import get_settings
 
 from .database import engine, init_db
-from .routers import account, ai, auth, content, newsroom, privacy, staff_auth
+from .routers import account, ai, auth, content, desk, media, newsroom, privacy, staff_auth, team
 
 settings = get_settings()
 settings.validate_for_runtime()
@@ -35,6 +35,8 @@ def bootstrap() -> None:
     if _bootstrapped:
         return
     init_db()
+    with Session(engine) as db:
+        staff_auth.seed_first_admin(db)
     if not settings.is_production and not settings.supabase_enabled:
         try:
             with Session(engine) as db:
@@ -58,7 +60,7 @@ if settings.cors_origins:
         CORSMiddleware,
         allow_origins=settings.cors_origins,
         allow_credentials=True,
-        allow_methods=["GET", "POST", "PUT", "DELETE"],
+        allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE"],
         allow_headers=["Authorization", "Content-Type", "X-Legacy-Reader-Id", "X-Newsroom-Key", "X-Request-Id"],
     )
 
@@ -105,7 +107,7 @@ async def request_context(request: Request, call_next):
     if settings.is_production:
         response.headers["Strict-Transport-Security"] = "max-age=63072000"
     path = request.url.path
-    if path.startswith(("/api/reader", "/api/account", "/api/auth", "/api/staff-auth", "/api/me")):
+    if path.startswith(("/api/reader", "/api/account", "/api/auth", "/api/staff-auth", "/api/me", "/api/desk")):
         response.headers["Cache-Control"] = "no-store"
     return response
 
@@ -120,5 +122,5 @@ def index():
     return {"service": "News APP Platform API", "docs": "/api/docs", "health": "/api/health"}
 
 
-for module in (auth, staff_auth, account, content, privacy, newsroom, ai):
+for module in (auth, staff_auth, account, content, privacy, newsroom, desk, team, media, ai):
     app.include_router(module.router)

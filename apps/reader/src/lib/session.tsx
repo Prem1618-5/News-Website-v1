@@ -1,6 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { ApiError, api, post, put } from './api'
-import { library, mergeLibraries, type Library } from './library'
+import { library, mergeLibraries, parsePlace, placeKey, type Library } from './library'
 import { readerId } from './consent'
 
 export type User = { id: string; email: string; display_name: string }
@@ -21,7 +21,7 @@ type SessionPayload = { authenticated: boolean; user?: { id?: string; email?: st
 const toUser = (p: SessionPayload): User | null =>
   p.authenticated && p.user?.id ? { id: p.user.id, email: p.user.email ?? '', display_name: p.user.user_metadata?.display_name ?? '' } : null
 
-type ServerState = Partial<Library> & { cm?: unknown; theme?: string; sz?: number }
+type ServerState = Partial<Omit<Library, 'place'>> & { place?: string; cm?: unknown; theme?: string; sz?: number }
 
 export function SessionProvider({ children }: { children: ReactNode }) {
   const [status, setStatus] = useState<Status>('loading')
@@ -43,7 +43,8 @@ export function SessionProvider({ children }: { children: ReactNode }) {
     api<ServerState>('/reader/state', { headers: { 'X-Legacy-Reader-Id': readerId() } })
       .then((remote) => {
         if (!live) return
-        const merged = mergeLibraries(library.get(), remote)
+        const place = parsePlace(remote.place)
+        const merged = mergeLibraries(library.get(), { ...remote, place: place ?? undefined, placeChosen: !!place })
         library.adopt(merged)
         void push(merged)
       })
@@ -51,7 +52,10 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         /* the local shelf keeps working */
       })
     const push = (s: Library) =>
-      put('/reader/state', { saved: s.saved.slice(0, 500), liked: s.liked.slice(0, 500), follow: s.follow.slice(0, 80), hl: s.hl.slice(0, 1000), lang: s.lang, cm: {}, theme: '', sz: 0 }).catch(() => undefined)
+      put('/reader/state', {
+        saved: s.saved.slice(0, 500), liked: s.liked.slice(0, 500), follow: s.follow.slice(0, 80), hl: s.hl.slice(0, 1000), lang: s.lang,
+        place: s.placeChosen ? placeKey(s.place) : '', cm: {}, theme: '', sz: 0,
+      }).catch(() => undefined)
     library.onChange((s) => {
       window.clearTimeout(timer.current)
       timer.current = window.setTimeout(() => void push(s), 800)

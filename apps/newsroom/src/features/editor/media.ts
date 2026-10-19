@@ -1,71 +1,126 @@
-import type { HeroMedia } from "@/domain/types";
+/** Getting photos, video and voice from a phone into the story quickly. */
+import { useCallback, useEffect, useRef, useState } from "react";
+import { uploadMedia, type Uploaded } from "@/api/desk";
 
-export type MediaValue = HeroMedia;
+const MAX_EDGE = 2000;
+const JPEG_QUALITY = 0.85;
 
-export const ACCEPT_MEDIA = "image/jpeg,image/png,image/webp,image/gif,image/avif,video/mp4,video/webm,video/quicktime";
-const MAX_BYTES = 200 * 1024 * 1024;
-
-const VIDEO_EXT = /\.(mp4|webm|mov|m4v)(\?|#|$)/i;
-
-export function kindFromUrl(url: string): MediaValue["kind"] {
-  return VIDEO_EXT.test(url) ? "video" : "image";
-}
-
-export function fileNameFromUrl(url: string): string {
+/**
+ * Phone photos are 3-8 MB; a news photo needs about 2000 px on the long edge. Shrinking in the browser makes
+ * uploads 5-10x faster on mobile data. GIFs (animation) and small files are sent as they are.
+ */
+export async function shrinkPhoto(file: File): Promise<Blob> {
+  if (!/^image\/(jpeg|png|webp)$/.test(file.type) || (file.size < 900_000 && file.type === "image/jpeg")) return file;
+  let bitmap: ImageBitmap;
   try {
-    const path = new URL(url, window.location.href).pathname;
-    return decodeURIComponent(path.split("/").pop() || "media");
+    bitmap = await createImageBitmap(file, { imageOrientation: "from-image" });
   } catch {
-    return "media";
+    return file;
   }
+  const scale = Math.min(1, MAX_EDGE / Math.max(bitmap.width, bitmap.height));
+  if (scale === 1 && file.size < 1_500_000) {
+    bitmap.close();
+    return file;
+  }
+  const canvas = document.createElement("canvas");
+  canvas.width = Math.round(bitmap.width * scale);
+  canvas.height = Math.round(bitmap.height * scale);
+  const ctx = canvas.getContext("2d");
+  if (!ctx) return file;
+  ctx.fillStyle = "#fff"; // transparent PNGs become JPEGs on white
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+  bitmap.close();
+  const blob = await new Promise<Blob | null>((r) => canvas.toBlob(r, "image/jpeg", JPEG_QUALITY));
+  return blob && blob.size < file.size ? blob : file;
 }
 
-/** Reads size, dimensions and duration without playing anything. */
-export function probeMedia(url: string, kind: MediaValue["kind"]): Promise<Pick<MediaValue, "width" | "height" | "durationSec">> {
+export type PickKind = "photo" | "camera" | "video" | "any";
+
+/** Opens the system picker. "camera" goes straight to the phone camera. */
+export function pickFiles(kind: PickKind, multiple = false): Promise<File[]> {
   return new Promise((resolve) => {
-    if (kind === "image") {
-      const img = new Image();
-      img.crossOrigin = "anonymous";
-      img.onload = () => resolve({ width: img.naturalWidth, height: img.naturalHeight });
-      img.onerror = () => resolve({});
-      img.src = url;
-      return;
-    }
-    const video = document.createElement("video");
-    video.preload = "metadata";
-    video.muted = true;
-    video.onloadedmetadata = () => resolve({ width: video.videoWidth, height: video.videoHeight, durationSec: Math.round(video.duration || 0) });
-    video.onerror = () => resolve({});
-    video.src = url;
+    const input = document.createElement("input");
+    input.type = "file";
+    input.accept = kind === "video" ? "video/*" : kind === "any" ? "image/*,video/*" : "image/*";
+    if (kind === "camera") input.setAttribute("capture", "environment");
+    input.multiple = multiple;
+    input.style.display = "none";
+    input.onchange = () => {
+      resolve(Array.from(input.files ?? []));
+      input.remove();
+    };
+    // Some browsers never fire change on cancel; the promise simply stays pending, which is harmless.
+    document.body.appendChild(input);
+    input.click();
   });
 }
 
-export async function mediaFromFile(file: File): Promise<MediaValue | { error: string }> {
-  const kind = file.type.startsWith("video/") ? "video" : file.type.startsWith("image/") ? "image" : null;
-  if (!kind) return { error: "That file type is not supported. Use a photo (JPG, PNG, WebP) or a video (MP4, WebM)." };
-  if (file.size > MAX_BYTES) return { error: "That file is larger than 200 MB." };
-  const url = URL.createObjectURL(file);
-  const meta = await probeMedia(url, kind);
-  return { kind, url, name: file.name, sizeBytes: file.size, alt: "", credit: "", caption: "", ...meta };
+export async function uploadFile(file: File, onProgress?: (f: number) => void): Promise<Uploaded> {
+  const isImage = file.type.startsWith("image/");
+  const body = isImage ? await shrinkPhoto(file) : file;
+  const name = isImage && body !== file ? file.name.replace(/\.\w+$/, "") + ".jpg" : file.name;
+  return uploadMedia(body, name || "upload", { onProgress, audio: file.type.startsWith("audio/") });
 }
 
-export async function mediaFromUrl(raw: string): Promise<MediaValue | { error: string }> {
-  const url = raw.trim();
-  if (!/^(https?:\/\/|\/)/.test(url)) return { error: "Paste a full link that starts with https://" };
-  const kind = kindFromUrl(url);
-  const meta = await probeMedia(url, kind);
-  return { kind, url, name: fileNameFromUrl(url), alt: "", credit: "", caption: "", ...meta };
+/** Voice recording in the browser. Returns the clip as a file ready to upload. */
+export function useRecorder() {
+  const [state, setState] = useState<"idle" | "recording" | "denied">("idle");
+  const [seconds, setSeconds] = useState(0);
+  const rec = useRef<MediaRecorder | null>(null);
+  const chunks = useRef<Blob[]>([]);
+  const timer = useRef<number | undefined>(undefined);
+  const done = useRef<((f: File | null) => void) | null>(null);
+
+  const stopTracks = () => rec.current?.stream.getTracks().forEach((t) => t.stop());
+
+  const start = useCallback(async () => {
+    if (!navigator.mediaDevices?.getUserMedia || typeof MediaRecorder === "undefined") {
+      setState("denied");
+      return;
+    }
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const type = ["audio/webm;codecs=opus", "audio/mp4", "audio/webm"].find((t) => MediaRecorder.isTypeSupported(t));
+      const r = new MediaRecorder(stream, type ? { mimeType: type } : undefined);
+      chunks.current = [];
+      r.ondataavailable = (e) => e.data.size && chunks.current.push(e.data);
+      r.onstop = () => {
+        const mime = r.mimeType || "audio/webm";
+        const ext = mime.includes("mp4") ? "m4a" : "webm";
+        const file = new File(chunks.current, `voice-${Date.now()}.${ext}`, { type: mime });
+        stopTracks();
+        done.current?.(chunks.current.length ? file : null);
+        done.current = null;
+      };
+      rec.current = r;
+      r.start(1000);
+      setSeconds(0);
+      timer.current = window.setInterval(() => setSeconds((s) => s + 1), 1000);
+      setState("recording");
+    } catch {
+      setState("denied");
+    }
+  }, []);
+
+  const stop = useCallback(
+    () =>
+      new Promise<File | null>((resolve) => {
+        window.clearInterval(timer.current);
+        setState("idle");
+        if (!rec.current || rec.current.state === "inactive") return resolve(null);
+        done.current = resolve;
+        rec.current.stop();
+      }),
+    [],
+  );
+
+  useEffect(() => () => {
+    window.clearInterval(timer.current);
+    stopTracks();
+  }, []);
+
+  return { state, seconds, start, stop };
 }
 
-export function formatBytes(n?: number): string | undefined {
-  if (!n) return undefined;
-  if (n < 1024 * 1024) return `${Math.max(1, Math.round(n / 1024))} KB`;
-  return `${(n / (1024 * 1024)).toFixed(1)} MB`;
-}
-
-export function formatDuration(sec?: number): string | undefined {
-  if (!sec) return undefined;
-  const m = Math.floor(sec / 60);
-  const s = String(sec % 60).padStart(2, "0");
-  return `${m}:${s}`;
-}
+export const isAudioFile = (f: File) => f.type.startsWith("audio/");

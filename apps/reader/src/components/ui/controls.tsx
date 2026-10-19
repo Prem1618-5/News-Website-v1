@@ -1,5 +1,7 @@
 import type { CSSProperties } from 'react'
 import { Link } from 'react-router-dom'
+import { placeLabel } from '@news/contracts'
+import { useMounted } from '@/lib/hooks'
 import { library, useLibrary } from '@/lib/library'
 import { track } from '@/lib/consent'
 import { SCOPES, SECTIONS, sectionName } from '@/lib/taxonomy'
@@ -81,11 +83,11 @@ export function ScopeSwitch({ value, onChange, name, lang = 'en' }: { value: Sco
   )
 }
 
-/** All / Ranchi / Jharkhand / India / World pills that filter a list by coverage area. */
+/** All / Local / State / India / World pills that filter a list by coverage area. */
 export function ScopeChips({ value, onChange, name, lang = 'en' }: { value: ScopeKey | 'all'; onChange: (k: ScopeKey | 'all') => void; name: string; lang?: Language }) {
   const items: { key: ScopeKey | 'all'; label: string }[] = [
     { key: 'all', label: lang === 'hi' ? 'सभी' : 'All' },
-    ...SCOPES.map((s) => ({ key: s.key, label: lang === 'hi' ? s.placeHi : s.place })),
+    ...SCOPES.map((s) => ({ key: s.key, label: lang === 'hi' ? s.labelHi : s.label })),
   ]
   return (
     <div className="row rc" style={{ flexWrap: 'wrap' }} role="radiogroup" aria-label="Coverage area">
@@ -99,12 +101,14 @@ export function ScopeChips({ value, onChange, name, lang = 'en' }: { value: Scop
   )
 }
 
-/** "Ranchi, Jharkhand" chip that opens the location screen. */
+/** "Ranchi, Jharkhand": the reader's place, opening the location screen. */
 export function PlaceChip({ style }: { style?: CSSProperties }) {
+  const { place, lang } = useLibrary()
+  const mounted = useMounted()
   return (
-    <Link to="/location" className="btn" style={{ borderRadius: '22px', ...style }}>
+    <Link to="/location" className="btn" style={{ borderRadius: '22px', ...style }} aria-label={lang === 'hi' ? 'अपना क्षेत्र बदलें' : 'Change your area'}>
       <Ico name="pin" />
-      <b style={{ fontWeight: 600 }}>Ranchi, Jharkhand</b>
+      <b style={{ fontWeight: 600 }} suppressHydrationWarning>{placeLabel(mounted ? place : undefined, lang) || placeLabel({ state: 'JH', district: 'ranchi' }, lang)}</b>
       <Ico name="chevron" size={14} />
     </Link>
   )

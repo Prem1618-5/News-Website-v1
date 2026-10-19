@@ -8,7 +8,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 API_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = API_ROOT / "data"
-MEDIA_DIR = API_ROOT / "media"
+# Photos and clips. Point NEWS_MEDIA_DIR at a persistent volume in production (Railway: mount one at /srv/media).
+MEDIA_DIR = Path(os.environ.get("NEWS_MEDIA_DIR") or API_ROOT / "media")
 
 _DEV_ONLY_SECRET = "dev-only-insecure-secret-change-me"
 
@@ -37,6 +38,19 @@ class Settings(BaseSettings):
     # Shared secret the Newsroom uses to publish into the reader feed.
     newsroom_api_key: str = Field(default="", validation_alias="NEWSROOM_API_KEY")
 
+    # Public addresses, used to build links in emails (invites, password resets).
+    reader_url: str = Field(default="http://localhost:3000", validation_alias="READER_URL")
+    newsroom_url: str = Field(default="http://localhost:5174/newsroom", validation_alias="NEWSROOM_URL")
+
+    # Email through Resend (https://resend.com). Without a key, links are logged instead of sent.
+    resend_api_key: str = Field(default="", validation_alias="RESEND_API_KEY")
+    email_from: str = Field(default="News APP <onboarding@resend.dev>", validation_alias="EMAIL_FROM")
+
+    # First admin, created on start when no admin exists yet. Change the password after the first sign-in.
+    admin_email: str = Field(default="", validation_alias="NEWSROOM_ADMIN_EMAIL")
+    admin_password: str = Field(default="", validation_alias="NEWSROOM_ADMIN_PASSWORD")
+    admin_name: str = Field(default="Managing editor", validation_alias="NEWSROOM_ADMIN_NAME")
+
     # AI providers. Add a key and the matching features switch on. Nothing is called without one.
     ai_provider: str = Field(default="", validation_alias="AI_PROVIDER")
     groq_api_key: str = Field(default="", validation_alias="GROQ_API_KEY")
@@ -62,6 +76,10 @@ class Settings(BaseSettings):
     @property
     def is_production(self) -> bool:
         return self.app_env.lower() == "production"
+
+    @property
+    def email_enabled(self) -> bool:
+        return bool(self.resend_api_key)
 
     @property
     def supabase_enabled(self) -> bool:

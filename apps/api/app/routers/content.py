@@ -12,15 +12,25 @@ from ..content_pack import slugify
 from ..database import DB
 from ..models import AnalyticsEvent, ArticleContent, Section, Story
 from ..schemas import SCOPE_KEYS, Page, SectionOut, Snapshot, StoryDetail, StoryOut
+from ..taxonomy import STATE_CODES, is_district
 
 router = APIRouter(tags=["content"])
 IMAGES_DIR = (MEDIA_DIR / "images").resolve()
 FEED_CACHE = "public, max-age=30, stale-while-revalidate=600"
 
 
+def _aware(at: datetime | None) -> datetime | None:
+    return at if at is None or at.tzinfo else at.replace(tzinfo=timezone.utc)
+
+
+def is_breaking(story: Story, at: datetime | None = None) -> bool:
+    until = _aware(story.breaking_until)
+    return bool(until and until > (at or datetime.now(timezone.utc)))
+
+
 def story_out(story: Story) -> StoryOut:
-    data = story.model_dump(exclude={"search_text", "ago", "origin", "position"})
-    return StoryOut(**data, author_slug=slugify(story.author), has_hi=bool(story.title_hi))
+    data = story.model_dump(exclude={"search_text", "ago", "origin", "position", "breaking_until"})
+    return StoryOut(**data, author_slug=slugify(story.author), has_hi=bool(story.title_hi), breaking=is_breaking(story))
 
 
 def story_detail(story: Story, content: ArticleContent | None) -> StoryDetail:
@@ -36,6 +46,49 @@ def story_detail(story: Story, content: ArticleContent | None) -> StoryDetail:
 
 def newest_first(stmt):
     return stmt.order_by(Story.published_at.desc(), Story.position)
+
+
+# Hours of freshness a story gains in a reader's feed for being about their place (or breaking).
+BOOST_LOCAL, BOOST_STATE, BOOST_BREAKING = 18, 8, 48
+RANK_WINDOW = 400
+
+
+def parse_near(near: str | None) -> tuple[str, str] | None:
+    """"JH:ranchi" -> ("JH", "ranchi"); "JH" -> ("JH", ""). Unknown places are ignored."""
+    if not near:
+        return None
+    state, _, district = near.partition(":")
+    if state not in STATE_CODES:
+        return None
+    return state, district if is_district(state, district) else ""
+
+
+def relevance(story: Story, state: str, district: str) -> float | None:
+    """Hours of boost for a reader in (state, district), or None when the story is about somewhere else.
+
+    Local news from the reader's district comes first, then their state (including other districts),
+    then national and world news; local and state news from other states is left out of their feed."""
+    if story.scope in ("local", "state"):
+        if story.state != state:
+            return None
+        return BOOST_LOCAL if story.scope == "local" and district and story.district == district else BOOST_STATE
+    return 0.0
+
+
+def ranked(db, stmt, near: tuple[str, str], limit: int, offset: int) -> tuple[int, list[Story]]:
+    at = datetime.now(timezone.utc)
+    rows = db.exec(newest_first(stmt).limit(RANK_WINDOW)).all()
+    scored: list[tuple[float, int, Story]] = []
+    for i, s in enumerate(rows):
+        boost = relevance(s, *near)
+        if boost is None:
+            continue
+        if is_breaking(s, at):
+            boost += BOOST_BREAKING
+        age = (at - (_aware(s.published_at) or at)).total_seconds() / 3600
+        scored.append((age - boost, i, s))
+    scored.sort(key=lambda t: (t[0], t[1]))
+    return len(scored), [s for _, _, s in scored[offset: offset + limit]]
 
 
 def sections_with_counts(db) -> list[SectionOut]:
@@ -62,8 +115,12 @@ def stories(
     exclude: Annotated[str | None, Query(max_length=200)] = None,
     limit: Annotated[int, Query(ge=1, le=100)] = 30,
     offset: Annotated[int, Query(ge=0)] = 0,
+    near: Annotated[str | None, Query(max_length=60, description="Reader's place, 'JH:ranchi' or 'JH': ranks local, then state, then national")] = None,
+    state: Annotated[str | None, Query(max_length=4)] = None,
 ):
     stmt = select(Story)
+    if state:
+        stmt = stmt.where(Story.state == state)
     if section:
         stmt = stmt.where(Story.section.in_(section.split(",")[:20]))
     if scope:
@@ -78,8 +135,12 @@ def stories(
         stmt = stmt.where(Story.id != exclude, Story.slug != exclude)
     for word in (q or "").lower().split()[:6]:
         stmt = stmt.where(Story.search_text.contains(word, autoescape=True))
-    total = db.exec(select(func.count()).select_from(stmt.subquery())).one()
-    items = db.exec(newest_first(stmt).offset(offset).limit(limit)).all()
+    place = parse_near(near)
+    if place:
+        total, items = ranked(db, stmt, place, limit, offset)
+    else:
+        total = db.exec(select(func.count()).select_from(stmt.subquery())).one()
+        items = db.exec(newest_first(stmt).offset(offset).limit(limit)).all()
     response.headers["Cache-Control"] = FEED_CACHE
     return Page(total=total, items=[story_out(s) for s in items])
 

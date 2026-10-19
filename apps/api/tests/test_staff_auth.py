@@ -35,11 +35,12 @@ def test_session_rejects_garbage_token():
     assert client.get("/api/staff-auth/session", headers={"Authorization": "Bearer abc"}).status_code == 401
 
 
-def test_signup_creates_reporter_and_blocks_duplicates():
+def test_signup_asks_to_join_and_blocks_duplicates():
     email = f"new.{uuid.uuid4().hex[:6]}@newsapp.example"
     body = {"display_name": "New Person", "email": email, "password": "long-enough-pw"}
     r = client.post("/api/staff-auth/signup", json=body)
-    assert r.status_code == 200 and r.json()["staff"]["role"] == "reporter"
+    assert r.status_code == 200 and r.json()["pending"] is True and "token" not in r.json()
+    assert login(email, "long-enough-pw").status_code == 403  # waiting for an admin
     assert client.post("/api/staff-auth/signup", json={**body, "email": f"  {email.upper()} "}).status_code == 409
 
 
@@ -56,7 +57,7 @@ def test_signup_rejects_blank_name():
 
 def test_successful_logins_do_not_lock_the_account():
     for _ in range(12):
-        assert login("landon.shepherd@newsapp.example").status_code == 200
+        assert login("jane.black@newsapp.example").status_code == 200
 
 
 def test_repeated_failures_are_throttled():
@@ -77,8 +78,16 @@ def test_editor_token_passes_newsroom_guard():
 
 
 def test_ai_status_is_public_and_assist_needs_sign_in():
-    assert "enabled" in client.get("/api/ai/status").json()
+    status = client.get("/api/ai/status").json()
+    assert "enabled" in status and "provider" not in status and "model" not in status
     assert client.post("/api/ai/assist", json={"task": "headline", "text": "x"}).status_code == 401
+
+
+def test_reader_token_is_not_a_staff_token():
+    from app.security import create_access_token
+
+    staff = client.get("/api/staff-auth/session", headers={"Authorization": f"Bearer {create_access_token('anyone')}"})
+    assert staff.status_code == 401
 
 
 def test_reporter_can_call_ai_assist_but_gets_503_without_key():

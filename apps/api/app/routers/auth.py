@@ -1,6 +1,7 @@
 import re
 import uuid
 from typing import Annotated
+from urllib.parse import quote
 
 from fastapi import APIRouter, Cookie, Header, HTTPException, Request, Response
 from sqlalchemy.exc import IntegrityError
@@ -10,7 +11,9 @@ from ..config import get_settings
 from ..database import DB
 from ..models import LocalUser
 from ..ratelimit import Limiter, client_ip
-from ..schemas import AuthCredentials, ForgotRequest, RefreshRequest, SignupRequest
+from ..schemas import AuthCredentials, ForgotRequest, RefreshRequest, ResetRequest, SignupRequest
+from ..services import email as mailer
+from ..services import tokens
 from ..security import (
     CurrentUser, bearer, clear_auth_cookies, create_access_token, hash_password, local_user_from_token,
     provider_error, set_auth_cookies, supabase_request, verify_password,
@@ -92,18 +95,58 @@ async def signup(body: SignupRequest, request: Request, response: Response, db: 
     return {"authenticated": authenticated, "confirmation_required": not authenticated, "user": payload.get("user") or session.get("user") or {}}
 
 
+def _reset_page() -> str:
+    return f"{settings.reader_url.rstrip('/')}/reset-password"
+
+
 @router.post("/forgot")
-async def forgot_password(body: ForgotRequest, request: Request):
-    """Ask the account provider to email a reset link. The answer never says whether the address has an account."""
+async def forgot_password(body: ForgotRequest, request: Request, db: DB):
+    """Email a reset link. The answer never says whether the address has an account."""
     key = f"forgot:{client_ip(request)}"
     _forgots.check(key)
     _forgots.hit(key)
-    if not settings.supabase_enabled:
-        return {"sent": False}
-    status, payload = await supabase_request("POST", "/auth/v1/recover", body={"email": body.email})
-    if status >= 500:
-        raise provider_error(status, payload)
-    return {"sent": True}
+    if settings.supabase_enabled:
+        status, payload = await supabase_request(
+            "POST", f"/auth/v1/recover?redirect_to={quote(_reset_page(), safe='')}", body={"email": body.email},
+        )
+        if status >= 500:
+            raise provider_error(status, payload)
+        return {"sent": True}
+    answer: dict = {"sent": True}
+    user = db.exec(select(LocalUser).where(LocalUser.email == body.email)).first()
+    if user:
+        raw = tokens.issue(db, "reader", user.id, "reset", tokens.RESET_HOURS)
+        link = f"{_reset_page()}?token={raw}"
+        mailer.send(
+            user.email, "Reset your News APP password", "Reset your password",
+            ["Someone asked to reset the password for this account. If it was not you, ignore this email.",
+             "The link works for one hour."],
+            "Choose a new password", link,
+        )
+        if not settings.is_production and not settings.email_enabled:
+            answer["dev_link"] = link
+    return answer
+
+
+@router.post("/reset")
+async def reset_password(body: ResetRequest, response: Response, db: DB):
+    """Set a new password from a reset link and sign in.
+
+    Local accounts send the token from the link; with Supabase the link signs the reader in with a
+    short recovery session, whose access token is sent here instead."""
+    if settings.supabase_enabled:
+        status, payload = await supabase_request("PUT", "/auth/v1/user", body={"password": body.password}, access_token=body.token)
+        if status != 200:
+            raise HTTPException(410, "This reset link has expired. Ask for a new one.") if status in (401, 403) else provider_error(status, payload)
+        return {"ok": True, "authenticated": False}
+    row = tokens.consume(db, body.token, "reader")
+    user = db.get(LocalUser, row.subject_id) if row else None
+    if not row or not user:
+        raise HTTPException(410, "This reset link has expired or was already used. Ask for a new one.")
+    user.password_hash = hash_password(body.password)
+    db.add(user)
+    db.commit()
+    return {"ok": True, **_local_session(user, response)}
 
 
 @router.post("/login")

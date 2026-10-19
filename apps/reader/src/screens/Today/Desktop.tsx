@@ -6,8 +6,9 @@ import { DeskTile, HeroDesktop, NearRow, NumRow, TileCard, Thumb, useStoryView }
 import { WriterRow } from '@/components/story/writers'
 import { FollowToggle, PlaceChip, ScopeSwitch } from '@/components/ui/controls'
 import { SectionIcon } from '@/components/ui/icons'
-import { SECTIONS, scope as scopeInfo, sectionAbout, sectionName } from '@/lib/taxonomy'
+import { SECTIONS, sectionAbout, sectionName } from '@/lib/taxonomy'
 import type { Story } from '@/lib/types'
+import BreakingBanner from '@/components/shared/BreakingBanner'
 import { useTodayModel } from './model'
 
 function PictureCard({ story }: { story: Story }) {
@@ -45,15 +46,16 @@ export default function TodayDesktop() {
               <ScopeSwitch name="scope-d" value={m.scope} onChange={m.setScope} lang={m.lang} />
             </div>
           </div>
+          <BreakingBanner stories={m.breaking} lang={m.lang} />
           <div className="today-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(12,1fr)', gap: '16px' }}>
             {m.top ? <HeroDesktop story={m.top} label={hi ? 'मुख्य ख़बर' : 'Top story'} /> : null}
             {m.near.length ? (
               <section className="card hv" style={{ padding: '20px', gridColumn: '8/13' }}>
                 <div className="row" style={{ justifyContent: 'space-between', marginBottom: '8px' }}>
                   <b style={{ fontSize: '16px' }}>{hi ? 'आपके पास' : 'Near you'}</b>
-                  <span className="mf sm">{scopeInfo('ranchi')[hi ? 'placeHi' : 'place']}</span>
+                  <span className="mf sm">{m.placeName}</span>
                 </div>
-                {m.near.map((s) => <NearRow key={s.id} story={s} place={scopeInfo('ranchi')[hi ? 'placeHi' : 'place']} />)}
+                {m.near.map((s) => <NearRow key={s.id} story={s} place={m.placeName} />)}
               </section>
             ) : null}
             {m.latest.length ? (
@@ -100,8 +102,8 @@ export default function TodayDesktop() {
             {m.forYou.length ? (
               <section className="card hv" style={{ padding: '20px', gridColumn: '1/9' }}>
                 <div className="row" style={{ justifyContent: 'space-between', marginBottom: '8px' }}>
-                  <b style={{ fontSize: '16px' }}>{hi ? 'आपके लिए' : 'For you'}</b>
-                  <span className="mf sm">{hi ? 'आपके डेस्क से चुनी हुई' : 'Picked from your desks'}</span>
+                  <b style={{ fontSize: '16px' }}>{m.personal ? (hi ? 'आपके लिए' : 'For you') : hi ? 'पढ़ते रहें' : 'Keep reading'}</b>
+                  <span className="mf sm">{m.personal ? (hi ? 'आपके डेस्क से चुनी हुई' : 'Picked from your desks') : hi ? 'और ख़बरें' : 'More stories'}</span>
                 </div>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
                   {m.forYou.map((s) => <TileCard key={s.id} story={s} />)}

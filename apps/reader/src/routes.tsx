@@ -26,6 +26,7 @@ export const ROUTES: Entry[] = [
   { path: '/login', load: () => import('@/screens/Login') },
   { path: '/signup', load: () => import('@/screens/Signup') },
   { path: '/forgot-password', load: () => import('@/screens/Forgot') },
+  { path: '/reset-password', load: () => import('@/screens/ResetPassword') },
   { path: '/onboarding', load: () => import('@/screens/Onboarding') },
   { path: '/onboarding/2', load: () => import('@/screens/Onboarding2') },
   { path: '/about', load: () => import('@/screens/Info/About') },

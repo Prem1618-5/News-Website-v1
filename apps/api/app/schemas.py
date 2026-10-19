@@ -25,6 +25,8 @@ class ReaderState(BaseModel):
     theme: str = Field("", pattern=r"^(light|dark)?$")
     sz: int = Field(0, ge=0, le=2)
     lang: str = Field("", pattern=r"^(en|hi)?$")
+    # The reader's place for the ranked feed, "JH:ranchi" or "JH"; empty until they choose one.
+    place: str = Field("", max_length=60, pattern=r"^([A-Z]{2}(:[a-z-]{2,40})?)?$")
 
 
 class StoryOut(BaseModel):
@@ -34,6 +36,8 @@ class StoryOut(BaseModel):
     slug: str
     section: str
     scope: str
+    state: str = ""
+    district: str = ""
     title: str
     title_hi: str = ""
     deck: str = ""
@@ -43,6 +47,8 @@ class StoryOut(BaseModel):
     read_minutes: int
     live: bool = False
     urgency: int = 2
+    # Breaking right now: the Reader shows a banner and the feed keeps it on top for a few hours.
+    breaking: bool = False
     image_url: str = ""
     caption: str = ""
     source_name: str = ""
@@ -105,6 +111,11 @@ class SignupRequest(BaseModel):
 
 class ForgotRequest(BaseModel):
     email: EmailText
+
+
+class ResetRequest(BaseModel):
+    token: str = Field(min_length=20, max_length=4096)
+    password: NewPassword
 
 
 class RefreshRequest(BaseModel):
@@ -175,15 +186,21 @@ class NewsroomPublish(BaseModel):
     slug: str = Field(min_length=1, max_length=160)
     headline: str = Field(min_length=1, max_length=300)
     standfirst: str = Field(default="", max_length=600)
+    headline_hi: str = Field(default="", max_length=300)
+    standfirst_hi: str = Field(default="", max_length=600)
     section: str
-    scope: str = Field(default="ranchi", max_length=20)
+    scope: str = Field(default="local", max_length=20)
+    state: str = Field(default="JH", max_length=4)
+    district: str = Field(default="ranchi", max_length=40)
     author: str = Field(min_length=1, max_length=120)
     urgency: int = Field(default=2, ge=1, le=5)
     language: Literal["en", "hi"] = "en"
     tags: list[str] = Field(default_factory=list, max_length=12)
     hero: HeroMedia | None = None
     body: list[dict[str, Any]] = Field(default_factory=list, max_length=400)
+    body_hi: list[dict[str, Any]] = Field(default_factory=list, max_length=400)
     live: bool = False
+    breaking: bool = False
 
 
 class AiRequest(BaseModel):
@@ -196,6 +213,8 @@ class AiRequest(BaseModel):
 class StaffLogin(BaseModel):
     email: EmailText
     password: LoginPassword
+    # Phones stay signed in for 30 days; shared computers can opt out (12 hours).
+    remember: bool = True
 
 
 class StaffSignup(BaseModel):

@@ -37,3 +37,8 @@ async function start() {
 }
 
 void start()
+
+// Installable app and offline reading. Production only: in development a worker would serve stale modules.
+if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+  window.addEventListener('load', () => void navigator.serviceWorker.register('/sw.js'))
+}

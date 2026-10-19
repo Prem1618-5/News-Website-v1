@@ -38,5 +38,95 @@ SECTION_DEFS: tuple[SectionDef, ...] = (
 
 SECTION_KEYS: frozenset[str] = frozenset(s.key for s in SECTION_DEFS)
 
-# Where a story happens, narrowest first. The Reader's Local / State / National / World switch.
-SCOPE_KEYS: tuple[str, ...] = ("ranchi", "jharkhand", "india", "world")
+# Coverage level, narrowest first. Local stories carry a state and a district, state stories a state.
+SCOPE_KEYS: tuple[str, ...] = ("local", "state", "india", "world")
+# Older rows used place names as scopes; they are rewritten on start (see database.migrate_columns).
+LEGACY_SCOPES: dict[str, tuple[str, str, str]] = {"ranchi": ("local", "JH", "ranchi"), "jharkhand": ("state", "JH", "")}
+
+PRIORITIES: tuple[str, ...] = ("normal", "breaking")
+BREAKING_HOURS = 6
+
+# States and union territories: (code, English, Hindi).
+STATES: tuple[tuple[str, str, str], ...] = (
+    ("AP", "Andhra Pradesh", "आंध्र प्रदेश"),
+    ("AR", "Arunachal Pradesh", "अरुणाचल प्रदेश"),
+    ("AS", "Assam", "असम"),
+    ("BR", "Bihar", "बिहार"),
+    ("CG", "Chhattisgarh", "छत्तीसगढ़"),
+    ("GA", "Goa", "गोवा"),
+    ("GJ", "Gujarat", "गुजरात"),
+    ("HR", "Haryana", "हरियाणा"),
+    ("HP", "Himachal Pradesh", "हिमाचल प्रदेश"),
+    ("JH", "Jharkhand", "झारखंड"),
+    ("KA", "Karnataka", "कर्नाटक"),
+    ("KL", "Kerala", "केरल"),
+    ("MP", "Madhya Pradesh", "मध्य प्रदेश"),
+    ("MH", "Maharashtra", "महाराष्ट्र"),
+    ("MN", "Manipur", "मणिपुर"),
+    ("ML", "Meghalaya", "मेघालय"),
+    ("MZ", "Mizoram", "मिज़ोरम"),
+    ("NL", "Nagaland", "नागालैंड"),
+    ("OD", "Odisha", "ओडिशा"),
+    ("PB", "Punjab", "पंजाब"),
+    ("RJ", "Rajasthan", "राजस्थान"),
+    ("SK", "Sikkim", "सिक्किम"),
+    ("TN", "Tamil Nadu", "तमिलनाडु"),
+    ("TS", "Telangana", "तेलंगाना"),
+    ("TR", "Tripura", "त्रिपुरा"),
+    ("UP", "Uttar Pradesh", "उत्तर प्रदेश"),
+    ("UK", "Uttarakhand", "उत्तराखंड"),
+    ("WB", "West Bengal", "पश्चिम बंगाल"),
+    ("AN", "Andaman and Nicobar Islands", "अंडमान और निकोबार द्वीपसमूह"),
+    ("CH", "Chandigarh", "चंडीगढ़"),
+    ("DH", "Dadra and Nagar Haveli and Daman and Diu", "दादरा और नगर हवेली और दमन और दीव"),
+    ("DL", "Delhi", "दिल्ली"),
+    ("JK", "Jammu and Kashmir", "जम्मू और कश्मीर"),
+    ("LA", "Ladakh", "लद्दाख"),
+    ("LD", "Lakshadweep", "लक्षद्वीप"),
+    ("PY", "Puducherry", "पुडुचेरी"),
+)
+STATE_CODES: frozenset[str] = frozenset(code for code, _en, _hi in STATES)
+
+# Districts per state: (key, English, Hindi, best-known city). Only Jharkhand is listed so far.
+DISTRICTS: dict[str, tuple[tuple[str, str, str, str], ...]] = {
+    "JH": (
+        ("bokaro", "Bokaro", "बोकारो", ""),
+        ("chatra", "Chatra", "चतरा", ""),
+        ("deoghar", "Deoghar", "देवघर", ""),
+        ("dhanbad", "Dhanbad", "धनबाद", ""),
+        ("dumka", "Dumka", "दुमका", ""),
+        ("east-singhbhum", "East Singhbhum", "पूर्वी सिंहभूम", "Jamshedpur"),
+        ("garhwa", "Garhwa", "गढ़वा", ""),
+        ("giridih", "Giridih", "गिरिडीह", ""),
+        ("godda", "Godda", "गोड्डा", ""),
+        ("gumla", "Gumla", "गुमला", ""),
+        ("hazaribagh", "Hazaribagh", "हज़ारीबाग", ""),
+        ("jamtara", "Jamtara", "जामताड़ा", ""),
+        ("khunti", "Khunti", "खूंटी", ""),
+        ("koderma", "Koderma", "कोडरमा", ""),
+        ("latehar", "Latehar", "लातेहार", ""),
+        ("lohardaga", "Lohardaga", "लोहरदगा", ""),
+        ("pakur", "Pakur", "पाकुड़", ""),
+        ("palamu", "Palamu", "पलामू", "Daltonganj"),
+        ("ramgarh", "Ramgarh", "रामगढ़", ""),
+        ("ranchi", "Ranchi", "रांची", ""),
+        ("sahibganj", "Sahibganj", "साहिबगंज", ""),
+        ("seraikela-kharsawan", "Seraikela Kharsawan", "सरायकेला खरसावां", ""),
+        ("simdega", "Simdega", "सिमडेगा", ""),
+        ("west-singhbhum", "West Singhbhum", "पश्चिमी सिंहभूम", "Chaibasa"),
+    ),
+}
+
+DEFAULT_STATE, DEFAULT_DISTRICT = "JH", "ranchi"
+
+
+def is_district(state: str, district: str) -> bool:
+    return any(key == district for key, *_ in DISTRICTS.get(state, ()))
+
+
+def state_name(code: str) -> str:
+    return next((en for c, en, _hi in STATES if c == code), "")
+
+
+def district_name(state: str, key: str) -> str:
+    return next((en for k, en, _hi, _city in DISTRICTS.get(state, ()) if k == key), "")

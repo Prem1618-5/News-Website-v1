@@ -19,7 +19,7 @@ export default function LandingMobile() {
           Reporting across the stories that shape your world, with the detail, perspective and time to read what matters.
         </p>
         <div style={{ display: "grid", gap: "10px" }}>
-          <Link to="/onboarding" className="btn p">Make it yours</Link>
+          <Link to="/signup" className="btn p">Make it yours</Link>
           <Link to="/login" className="btn">I have an account</Link>
         </div>
       </div>

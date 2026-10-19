@@ -6,7 +6,7 @@ from fastapi import APIRouter, Header, HTTPException
 from sqlmodel import select
 
 from ..database import DB
-from ..models import ConsentRecord, Reader, ReadingDay, Story
+from ..models import AccountProfile, ConsentRecord, LocalUser, Reader, ReadingDay, Story
 from ..schemas import SECTION_KEYS, AccountUpdate, ReadActivity, ReaderState
 from ..security import CurrentUser
 from ..services.accounts import account_payload, ensure_profile, mark_read
@@ -64,7 +64,10 @@ def get_state(db: DB, user: CurrentUser, x_legacy_reader_id: Annotated[str | Non
     reader = db.get(Reader, user_id)
     if x_legacy_reader_id and x_legacy_reader_id != user_id:
         legacy = db.get(Reader, x_legacy_reader_id)
-        if legacy:
+        # Only anonymous rows from the old build can be merged: a row keyed by a real account (local
+        # or Supabase) belongs to that account, and merging it would copy and wipe someone else's data.
+        owned = db.get(LocalUser, x_legacy_reader_id) or db.get(AccountProfile, x_legacy_reader_id)
+        if legacy and not owned:
             mine, old = ReaderState(**(reader.state if reader else {})), ReaderState(**legacy.state)
             merged = ReaderState(
                 saved=list(dict.fromkeys(mine.saved + old.saved)),
@@ -75,6 +78,7 @@ def get_state(db: DB, user: CurrentUser, x_legacy_reader_id: Annotated[str | Non
                 theme=mine.theme or old.theme,
                 sz=mine.sz or old.sz,
                 lang=mine.lang or old.lang,
+                place=mine.place or old.place,
             )
             db.merge(Reader(id=user_id, state=merged.model_dump()))
             db.delete(legacy)

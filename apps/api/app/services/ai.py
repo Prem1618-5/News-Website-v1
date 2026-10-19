@@ -92,7 +92,10 @@ async def run_task(settings: Settings, task: str, text: str, language: str, targ
         raise HTTPException(429, "The AI provider is rate limiting requests. Try again in a minute.")
     if response.status_code >= 400:
         raise HTTPException(502, "The AI provider rejected the request.")
-    data = response.json()
+    try:
+        data = response.json()
+    except ValueError:
+        raise HTTPException(502, "The AI provider sent an unreadable answer. Try again.")
     output = (data.get("choices") or [{}])[0].get("message", {}).get("content", "").strip()
     suggestions = [line.strip(" -•\t") for line in output.splitlines() if line.strip()] if task == "headline" else []
     tags = [t.strip().lower() for t in output.split(",") if t.strip()][:6] if task == "tags" else []

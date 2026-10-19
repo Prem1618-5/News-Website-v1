@@ -61,7 +61,8 @@ def sync_content(db: Session, root: Path = CONTENT_DIR) -> int:
         story = db.get(Story, it["slug"])
         body_text = f"{blocks_text(it['blocks'])} {blocks_text(it['blocks_hi'])}"
         fields = dict(
-            slug=it["slug"], section=it["section"], scope=it["scope"], title=it["title"], title_hi=it["title_hi"],
+            slug=it["slug"], section=it["section"], scope=it["scope"], state=it["state"], district=it["district"],
+            title=it["title"], title_hi=it["title_hi"],
             deck=it["deck"], deck_hi=it["deck_hi"], author=PACK_AUTHOR, read_minutes=it["read_minutes"], live=False,
             position=rank, source_name=it["source_name"], source_url=it["source_url"], language="en", origin="pack",
             urgency=2, published_at=it["published_at"], search_text=search_text(it["title"], it["title_hi"], it["deck"], it["deck_hi"], body_text),

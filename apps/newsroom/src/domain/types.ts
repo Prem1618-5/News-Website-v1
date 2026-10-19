@@ -1,291 +1,205 @@
+/**
+ * Shapes returned by the Newsroom API (/api/desk, /api/staff-auth). The server owns every rule; these
+ * types only describe what it sends back.
+ */
+import type { JSONContent } from "@tiptap/react";
+import { SECTIONS, type Priority, type ScopeKey, type SectionKey } from "@news/contracts";
+
+export type { Priority, ScopeKey, SectionKey };
 export type Role = "reporter" | "editor" | "admin";
-export type PublishMode = "review" | "auto";
-export type EffectiveMode = "auto" | "review" | "supervised";
-export type Presence = "available" | "busy" | "away" | "off_shift";
-export type StaffStatus = "invited" | "active" | "suspended" | "deactivated";
-export type Urgency = 1 | 2 | 3 | 4 | 5;
-
-import { SECTIONS, type SectionKey } from "@news/contracts";
-
-export type { SectionKey };
-
-export type ArticleStatus =
-  | "draft"
-  | "in_review"
-  | "changes_requested"
-  | "approved"
-  | "scheduled"
-  | "published_pending_check"
-  | "published"
-  | "rejected"
-  | "unpublished"
-  | "withdrawn"
-  | "archived";
-
-export type PublishedVia = "direct" | "approval" | "timeout" | "admin_override";
-export type Verdict = "approve" | "approve_with_notes" | "request_changes" | "reject";
-export type Severity = "minor" | "major" | "critical";
-
-export const SEVERITY_POINTS: Record<Severity, number> = { minor: 1, major: 3, critical: 6 };
-
-export const MISTAKE_CATEGORIES = [
-  "Factual accuracy",
-  "Sourcing / attribution",
-  "Legal / defamation risk",
-  "Plagiarism / copied text",
-  "Fabrication",
-  "Headline accuracy",
-  "Context / balance",
-  "Style / grammar",
-  "Media & credits",
-  "Process",
-] as const;
-export type MistakeCategory = (typeof MISTAKE_CATEGORIES)[number];
+export type Lang = "en" | "hi";
+export type Status = "draft" | "submitted" | "changes_requested" | "published" | "rejected" | "unpublished";
+export type NoteKind = "problem" | "suggestion" | "comment";
+export type NoteStatus = "open" | "done" | "accepted" | "dismissed";
+export type Doc = JSONContent;
 
 export interface Staff {
   id: string;
   name: string;
-  email: string;
   role: Role;
-  status: StaffStatus;
   jobTitle: string;
-  editorId?: string;
-  backupEditorId?: string;
-  publishMode: PublishMode;
-  supervision: "none" | "supervised";
-  supervisionReason?: string;
-  supervisedAt?: number;
-  liftedAt?: number;
-  presence: Presence;
-  mfa: boolean;
-  lastActiveAt: number;
-  createdAt: number;
+  status: "invited" | "pending" | "active" | "suspended";
+  reportsTo: string;
+  trusted: boolean;
+  homeState: string;
+  homeDistrict: string;
+  writingLanguage: Lang;
+  email?: string;
+  createdAt?: string;
+  lastLoginAt?: string | null;
+  createdBy?: string;
+  canManage?: boolean;
 }
 
-export interface Preflight {
-  hasHero: boolean;
-  heroAlt: boolean;
-  heroCredit: boolean;
-  hasByline: boolean;
-  hasSection: boolean;
-  bodyBlocks: number;
-  brokenMedia: boolean;
-  slugUnique: boolean;
-}
-
-export interface Comment {
+export interface Person {
   id: string;
-  authorId: string;
-  body: string;
-  at: number;
+  name: string;
+  role: Role;
 }
 
-export interface Thread {
-  id: string;
-  blockLabel: string;
-  /** BlockNote block id the comment is anchored to. */
-  blockId?: string;
-  /** The exact words the reviewer highlighted. */
-  quote?: string;
-  severity: "blocking" | "advisory";
-  status: "open" | "resolved";
-  createdBy: string;
-  comments: Comment[];
-}
-
-export type Language = "en" | "hi";
-
-/** A BlockNote JSON block. Stored as-is; HTML is never stored. */
-export interface ArticleBlock {
-  id?: string;
-  type: string;
-  props?: Record<string, unknown>;
-  content?: unknown;
-  children?: ArticleBlock[];
-}
-
-export interface HeroMedia {
+export interface Hero {
   kind: "image" | "video";
-  url: string;
-  name?: string;
-  posterUrl?: string;
+  src: string;
+  poster: string;
   alt: string;
+  caption: string;
   credit: string;
-  caption?: string;
-  width?: number;
-  height?: number;
-  durationSec?: number;
-  sizeBytes?: number;
 }
 
-export type ActivityKind =
-  | "created"
-  | "edited"
-  | "editor_fix"
-  | "commented"
-  | "replied"
-  | "resolved"
-  | "reopened"
-  | "submitted"
-  | "decision"
-  | "published"
-  | "paused"
-  | "resumed"
-  | "removed"
-  | "restored";
+export interface Can {
+  edit: boolean;
+  review: boolean;
+  submit: boolean;
+  publish: boolean;
+  update_live: boolean;
+  unpublish: boolean;
+  reopen: boolean;
+  delete: boolean;
+  check: boolean;
+  note: boolean;
+}
 
-/** One line in an article's change history. Always says who did what. */
-export interface ActivityEntry {
+export interface ArticleSummary {
   id: string;
-  at: number;
-  actorId: string;
-  kind: ActivityKind;
-  summary: string;
-  field?: string;
-  before?: string;
-  after?: string;
-  blockId?: string;
-}
-
-export interface ReviewCycle {
-  cycleNo: number;
-  submittedAt: number;
-  urgencyAtSubmit: Urgency;
-  dueAt: number;
-  claimedBy?: string;
-  claimExpiresAt?: number;
-  escalationLevel: number;
-  reminderSent: boolean;
-  poolOpen: boolean;
-}
-
-export interface Article {
-  id: string;
-  slug: string;
-  kicker: string;
+  status: Status;
+  version: number;
+  primary_language: Lang;
+  languages: Lang[];
   headline: string;
   standfirst: string;
   section: SectionKey;
-  authorId: string;
-  urgency: Urgency;
-  sensitivity: boolean;
-  hold: boolean;
-  holdNote?: string;
-  status: ArticleStatus;
-  origin: "original" | "wire" | "demo";
-  createdAt: number;
-  updatedAt: number;
-  publishedAt?: number;
-  publishedVia?: PublishedVia;
-  preflight: Preflight;
-  cycle?: ReviewCycle;
-  threads: Thread[];
-  verdicts: VerdictRecord[];
-  checkDueAt?: number;
-  checkDoneAt?: number;
-  takedown?: { byId: string; reason: string; at: number };
-  analytics: ArticleAnalytics;
-  language: Language;
-  body: ArticleBlock[];
+  scope: ScopeKey;
+  state: string;
+  district: string;
+  priority: Priority;
+  hero: Hero | null;
+  author: Person;
+  reviewer: Person | null;
+  review_message: string;
+  needs_check: boolean;
+  slug: string;
+  story_id: string;
+  words: number;
+  open_notes: number;
+  created_at: string;
+  updated_at: string;
+  submitted_at: string | null;
+  published_at: string | null;
+}
+
+export interface Reply {
+  by: string;
+  name: string;
+  text: string;
+  at: string;
+}
+
+export interface Note {
+  id: string;
+  kind: NoteKind;
+  lang: Lang;
+  quote: string;
+  suggestion: string;
+  message: string;
+  status: NoteStatus;
+  author: Person;
+  replies: Reply[];
+  resolved_by: string;
+  created_at: string;
+  resolved_at: string | null;
+}
+
+export interface Article extends ArticleSummary {
+  headline_en: string;
+  standfirst_en: string;
+  body_en: Doc;
+  headline_hi: string;
+  standfirst_hi: string;
+  body_hi: Doc;
+  unproofed: Lang[];
   tags: string[];
-  hero?: HeroMedia;
-  seo?: { title?: string; description?: string };
-  activity: ActivityEntry[];
+  notes: Note[];
+  changed_by: (Person & { at: string })[];
+  senior_edits: number;
+  can: Can;
 }
 
-export interface VerdictRecord {
-  id: string;
-  cycleNo: number;
-  verdict: Verdict;
-  byId: string;
+export type RevisionKind = "create" | "edit" | "submit" | "publish" | "request_changes" | "reject" | "unpublish" | "check";
+
+export interface Snapshot {
+  headline_en: string;
+  standfirst_en: string;
+  body_en: Doc;
+  headline_hi: string;
+  standfirst_hi: string;
+  body_hi: Doc;
+  section: SectionKey;
+  scope: ScopeKey;
+  state: string;
+  district: string;
+  priority: Priority;
+}
+
+export interface Revision {
+  id: number;
+  kind: RevisionKind;
   summary: string;
-  at: number;
+  actor: Person;
+  lane: "author" | "desk";
+  at: string;
+  started_at: string;
+  snapshot: Snapshot | null;
 }
 
-export interface Mistake {
-  id: string;
-  articleId: string;
-  reporterId: string;
-  category: MistakeCategory;
-  severity: Severity;
-  note: string;
-  at: number;
-  countsTowardQuality: boolean;
-  disputed: boolean;
+export interface NoticeItem {
+  id: number;
+  kind: "submitted" | "breaking" | "returned" | "rejected" | "published" | "edited" | "joined" | "request";
+  text: string;
+  article_id: string;
+  at: string;
+  read: boolean;
 }
 
-export interface ArticleAnalytics {
+export interface Me {
+  staff: Staff;
+  counts: { drafts: number; returned: number; waiting: number; to_review?: number; to_check?: number };
+  unread: number;
+}
+
+export interface StatsRow {
+  person: Person;
+  drafts: number;
+  waiting: number;
+  returned: number;
+  published: number;
+  breaking: number;
   views: number;
-  uniques: number;
-  likes: number;
-  saves: number;
-  shares: number;
-  avgEngagedSec: number;
-  readThrough: number;
-  source: { direct: number; search: number; social: number; internal: number };
-  daily: number[];
-  publishToFirstReadSec: number;
 }
 
-export interface Notice {
-  id: string;
-  kind: "notice" | "warning" | "strike";
-  fromId: string;
-  toId: string;
-  body: string;
-  at: number;
-  ackAt?: number;
+export interface Stats {
+  days: number;
+  people: StatsRow[];
+  published: number;
+  median_wait_min: number | null;
+  views: number;
+  top: (ArticleSummary & { views: number })[];
+  views_tracked: boolean;
 }
 
-export interface AuditEntry {
-  id: string;
-  at: number;
-  actorId: string;
-  action: string;
-  entity: string;
-  outcome: "ok" | "denied" | "break_glass";
-  detail?: string;
-}
+export const ROLE_LABEL: Record<Role, string> = { reporter: "Reporter", editor: "Editor", admin: "Admin" };
 
-export interface Settings {
-  autoPublishEnabled: boolean;
-  timeoutPublishEnabled: boolean;
-  urgency5QuotaPer24h: number;
-}
-
-/** Sections come from the shared contract so the Newsroom, Reader and API always agree. */
-export const SECTION_LABEL = Object.fromEntries(SECTIONS.map((s) => [s.key, s.en])) as Record<SectionKey, string>;
-
-export const SECTION_COLOR = Object.fromEntries(SECTIONS.map((s) => [s.key, s.color])) as Record<SectionKey, string>;
-
-export const URGENCY_LABEL: Record<Urgency, string> = {
-  5: "Breaking",
-  4: "Urgent",
-  3: "Timely",
-  2: "Standard",
-  1: "Routine",
-};
-
-export const URGENCY_EXAMPLE: Record<Urgency, string> = {
-  5: "Major incident, election result, disaster",
-  4: "Developing story, official announcement today",
-  3: "Same-day news, event coverage",
-  2: "Features, explainers with a news hook",
-  1: "Municipal update, evergreen, notices",
-};
-
-export const STATUS_LABEL: Record<ArticleStatus, string> = {
+export const STATUS_LABEL: Record<Status, string> = {
   draft: "Draft",
-  in_review: "Waiting for editor",
-  changes_requested: "Edits requested",
-  approved: "Approved",
-  scheduled: "Scheduled",
-  published_pending_check: "Live, quick check pending",
-  published: "Live",
-  rejected: "Not accepted",
-  unpublished: "Removed from site",
-  withdrawn: "Withdrawn",
-  archived: "Archived",
+  submitted: "Waiting for review",
+  changes_requested: "Back with notes",
+  published: "Published",
+  rejected: "Declined",
+  unpublished: "Taken down",
 };
 
-export const LANGUAGE_LABEL: Record<Language, string> = { en: "English", hi: "हिन्दी (Hindi)" };
+export const SECTION_LABEL = Object.fromEntries(SECTIONS.map((s) => [s.key, s.en])) as Record<SectionKey, string>;
+export const SECTION_LABEL_HI = Object.fromEntries(SECTIONS.map((s) => [s.key, s.hi])) as Record<SectionKey, string>;
+export const SECTION_COLOR = Object.fromEntries(SECTIONS.map((s) => [s.key, s.color])) as Record<SectionKey, string>;
+export const SECTION_KEYS = SECTIONS.map((s) => s.key);
+
+export const isSenior = (s: Pick<Staff, "role"> | null | undefined) => s?.role === "editor" || s?.role === "admin";

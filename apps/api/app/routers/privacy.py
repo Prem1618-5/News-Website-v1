@@ -2,16 +2,23 @@
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Request
 from sqlmodel import select
 
 from ..database import DB
 from ..models import AnalyticsEvent, ConsentRecord
+from ..ratelimit import Limiter, client_ip
 from ..schemas import ConsentChoice, EventBatch
 from ..security import OptionalUser, require_newsroom
 
 router = APIRouter(prefix="/api", tags=["privacy"])
 K_ANONYMITY_FLOOR = 10
+# Per network, per 5 minutes. Generous for real readers, but enough to stop one script from inventing
+# thousands of "readers" to push a story up the trending list.
+_consents = Limiter(30, "Too many requests. Try again in a few minutes.")
+_event_batches = Limiter(120, "Too many requests. Try again in a few minutes.")
+# One reader counts once per story per day towards trending.
+OPEN_DEDUPE = timedelta(hours=24)
 
 
 def latest_consent(db, subject_id: str) -> ConsentRecord | None:
@@ -21,7 +28,10 @@ def latest_consent(db, subject_id: str) -> ConsentRecord | None:
 
 
 @router.post("/consent")
-def record_consent(body: ConsentChoice, db: DB, user: OptionalUser):
+def record_consent(body: ConsentChoice, request: Request, db: DB, user: OptionalUser):
+    key = f"consent:{client_ip(request)}"
+    _consents.check(key)
+    _consents.hit(key)
     choices = body.choices.model_dump()
     choices["necessary"] = True
     if body.gpc:
@@ -45,14 +55,29 @@ def get_consent(subject_id: str, db: DB):
 
 
 @router.post("/events", status_code=202)
-def ingest_events(batch: EventBatch, db: DB):
+def ingest_events(batch: EventBatch, request: Request, db: DB):
+    key = f"events:{client_ip(request)}"
+    _event_batches.check(key)
+    _event_batches.hit(key)
     consent = latest_consent(db, batch.subject_id)
     if not consent or not consent.choices.get("analytics"):
         return {"accepted": 0, "reason": "no analytics consent"}
+    since = datetime.now(timezone.utc) - OPEN_DEDUPE
+    opened = {
+        sid for sid in db.exec(select(AnalyticsEvent.story_id).where(
+            AnalyticsEvent.subject_id == batch.subject_id, AnalyticsEvent.name == "article_open", AnalyticsEvent.created_at >= since,
+        )).all()
+    }
+    accepted = 0
     for event in batch.events:
+        if event.name == "article_open":
+            if event.story_id in opened:
+                continue
+            opened.add(event.story_id)
         db.add(AnalyticsEvent(subject_id=batch.subject_id, **event.model_dump()))
+        accepted += 1
     db.commit()
-    return {"accepted": len(batch.events)}
+    return {"accepted": accepted}
 
 
 @router.get("/admin/audience", dependencies=[Depends(require_newsroom)])

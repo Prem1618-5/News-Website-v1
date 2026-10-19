@@ -1,4 +1,4 @@
-import { SCOPES, SECTIONS, type ScopeInfo, type SectionInfo } from '@news/contracts'
+import { SCOPES, SECTIONS, districtName, stateName, type ScopeInfo, type SectionInfo } from '@news/contracts'
 import type { Language, ScopeKey, SectionKey } from './types'
 
 export { SCOPES, SECTIONS }
@@ -12,6 +12,13 @@ export const section = (k: string): SectionInfo => byKey.get(k) ?? SECTIONS[0]
 export const sectionName = (k: string, lang: Language = 'en') => (lang === 'hi' ? section(k).hi : section(k).en)
 export const sectionAbout = (k: string, lang: Language = 'en') => (lang === 'hi' ? section(k).aboutHi : section(k).about)
 export const scope = (k: ScopeKey): ScopeInfo => scopeByKey.get(k) ?? SCOPES[0]
+
+/** Where a story happens, in words: "Ranchi", "Jharkhand", "India", "World". */
+export function storyPlace(s: { scope: ScopeKey; state: string; district: string }, lang: Language = 'en'): string {
+  if (s.scope === 'local') return districtName(s.state, s.district, lang) || stateName(s.state, lang)
+  if (s.scope === 'state') return stateName(s.state, lang)
+  return scope(s.scope)[lang === 'hi' ? 'placeHi' : 'place']
+}
 
 /** Outline icon per desk, as SVG child markup in the design's 24px grid (stroke 1.8). */
 export const SECTION_ICON: Record<SectionKey, string> = {

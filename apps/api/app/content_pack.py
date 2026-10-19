@@ -35,13 +35,13 @@ CONTENT_DIR = Path(__file__).resolve().parent.parent / "content"
 
 # Pack folder -> (section, default coverage). Folders are desks of the source pack, not our sections.
 FOLDERS: dict[str, tuple[str, str]] = {
-    "business_infrastructure": ("business", "ranchi"),
-    "crime_accidents": ("safety", "ranchi"),
-    "culture_durga_puja": ("culture", "ranchi"),
-    "education": ("education", "ranchi"),
-    "environment_civic": ("environment", "ranchi"),
-    "health_public_services": ("health", "ranchi"),
-    "sports": ("sports", "ranchi"),
+    "business_infrastructure": ("business", "local"),
+    "crime_accidents": ("safety", "local"),
+    "culture_durga_puja": ("culture", "local"),
+    "education": ("education", "local"),
+    "environment_civic": ("environment", "local"),
+    "health_public_services": ("health", "local"),
+    "sports": ("sports", "local"),
     "national": ("politics", "india"),
     "world": ("world", "world"),
     "technology": ("tech", "world"),
@@ -232,14 +232,19 @@ def classify(folder: str, title: str, ranchi_specific: bool) -> tuple[str, str]:
         if pattern.search(title):
             section = key
             break
-    if scope == "ranchi":
+    if scope == "local":
         if JHARKHAND_HINT.search(title) and not RANCHI_HINT.search(title):
-            scope = "jharkhand"
+            scope = "state"
     elif folder.lower() in ("technology", "science", "entertainment") and INDIA_HINT.search(title):
         scope = "india"
-    if not ranchi_specific and scope in ("ranchi", "jharkhand"):
+    if not ranchi_specific and scope in ("local", "state"):
         scope = "india" if INDIA_HINT.search(title) else "world"
     return section, scope
+
+
+def place_of(scope: str) -> tuple[str, str]:
+    """(state, district) for a pack story: the pack covers Ranchi, Jharkhand."""
+    return {"local": ("JH", "ranchi"), "state": ("JH", "")}.get(scope, ("", ""))
 
 
 def discover(root: Path = CONTENT_DIR) -> list[Path]:
@@ -257,6 +262,7 @@ def load_pack(root: Path = CONTENT_DIR) -> list[dict]:
             print(f"skip {path}: {exc}", file=sys.stderr)
             continue
         item["section"], item["scope"] = classify(folder, item["title"], item["ranchi_specific"])
+        item["state"], item["district"] = place_of(item["scope"])
         item["path"] = path
         items.append(item)
 
@@ -285,6 +291,7 @@ def snapshot(root: Path = CONTENT_DIR) -> dict:
     for it in load_pack(root):
         stories.append({
             "id": it["slug"], "slug": it["slug"], "section": it["section"], "scope": it["scope"],
+            "state": it["state"], "district": it["district"], "breaking": False,
             "title": it["title"], "title_hi": it["title_hi"], "deck": it["deck"], "deck_hi": it["deck_hi"],
             "author": "News APP Desk", "author_slug": "news-app-desk",
             "read_minutes": it["read_minutes"], "live": False, "urgency": 2, "image_url": "", "caption": "",

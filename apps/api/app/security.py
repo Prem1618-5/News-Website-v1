@@ -11,7 +11,7 @@ from sqlmodel import Session, select
 
 from .config import get_settings
 from .database import get_db
-from .models import LocalUser
+from .models import LocalUser, StaffAccount
 
 settings = get_settings()
 ALGORITHM = "HS256"
@@ -26,15 +26,28 @@ def verify_password(plain: str, hashed: str) -> bool:
     return pwd_context.verify(plain, hashed)
 
 
+READER_AUDIENCE = "reader"
+STAFF_AUDIENCE = "newsroom-staff"
+
+
+def _decode(token: str, audience: str) -> dict | None:
+    """Verify signature, expiry and audience. python-jose accepts a token with no `aud` even when one is
+    expected, so the claim is checked explicitly: a reader token can never pass as a staff token or back."""
+    try:
+        payload = jwt.decode(token, settings.jwt_secret, algorithms=[ALGORITHM], audience=audience)
+    except JWTError:
+        return None
+    return payload if payload.get("aud") == audience else None
+
+
 def create_access_token(user_id: str, days: int = 7) -> str:
     expire = datetime.now(timezone.utc) + timedelta(days=days)
-    return jwt.encode({"sub": user_id, "exp": expire}, settings.jwt_secret, algorithm=ALGORITHM)
+    return jwt.encode({"sub": user_id, "aud": READER_AUDIENCE, "exp": expire}, settings.jwt_secret, algorithm=ALGORITHM)
 
 
 def local_user_from_token(db: Session, token: str) -> dict | None:
-    try:
-        payload = jwt.decode(token, settings.jwt_secret, algorithms=[ALGORITHM])
-    except JWTError:
+    payload = _decode(token, READER_AUDIENCE)
+    if not payload:
         return None
     user_id = payload.get("sub")
     if not user_id:
@@ -139,21 +152,44 @@ def clear_auth_cookies(response: Response) -> None:
     response.delete_cookie("news_refresh", path="/api/auth", **args)
 
 
-STAFF_AUDIENCE = "newsroom-staff"
+def create_staff_token(account: StaffAccount, hours: int = 12) -> str:
+    exp = datetime.now(timezone.utc) + timedelta(hours=hours)
+    claims = {"sub": account.id, "aud": STAFF_AUDIENCE, "tv": account.token_version, "exp": exp}
+    return jwt.encode(claims, settings.jwt_secret, algorithm=ALGORITHM)
 
 
-def staff_from_token(db: Session, token: str):
-    """Return the active StaffAccount for a newsroom bearer token, else None."""
-    from .models import StaffAccount
-    try:
-        payload = jwt.decode(token, settings.jwt_secret, algorithms=[ALGORITHM], audience=STAFF_AUDIENCE)
-    except JWTError:
-        return None
-    subject = payload.get("sub")
+def staff_from_token(db: Session, token: str) -> StaffAccount | None:
+    """Return the active StaffAccount for a newsroom bearer token, else None.
+
+    A token stops working when the account is suspended or its token_version moves on (password reset,
+    "sign out everywhere")."""
+    payload = _decode(token, STAFF_AUDIENCE)
+    subject = payload.get("sub") if payload else None
     if not subject:
         return None
     account = db.get(StaffAccount, subject)
-    return account if account and account.status == "active" else None
+    if not account or account.status != "active" or payload.get("tv", 0) != account.token_version:
+        return None
+    return account
+
+
+def current_staff(
+    authorization: Annotated[str | None, Header()] = None,
+    db: Session = Depends(get_db),
+) -> StaffAccount:
+    """Any active, signed-in Newsroom staff member (reporters included)."""
+    token = bearer(authorization)
+    account = staff_from_token(db, token) if token else None
+    if not account:
+        raise HTTPException(401, "Sign in to the Newsroom to use this.")
+    return account
+
+
+CurrentStaff = Annotated[StaffAccount, Depends(current_staff)]
+
+
+def require_staff(_: CurrentStaff) -> None:
+    return None
 
 
 def require_newsroom(
@@ -161,9 +197,10 @@ def require_newsroom(
     x_newsroom_key: Annotated[str | None, Header(alias="X-Newsroom-Key")] = None,
     db: Session = Depends(get_db),
 ) -> None:
-    """Editors and admins signed in to the Newsroom, or the machine key, may publish."""
-    if authorization and authorization.lower().startswith("bearer "):
-        account = staff_from_token(db, authorization[7:].strip())
+    """Editors and admins signed in to the Newsroom, or the machine key (scripts, imports)."""
+    token = bearer(authorization)
+    if token:
+        account = staff_from_token(db, token)
         if account and account.role in ("editor", "admin"):
             return
         if account:
@@ -173,13 +210,3 @@ def require_newsroom(
         return
     # Never open, in any environment: no valid staff token and no valid machine key means no access.
     raise HTTPException(401, "Sign in to the Newsroom as an editor or admin.")
-
-
-def require_staff(
-    authorization: Annotated[str | None, Header()] = None,
-    db: Session = Depends(get_db),
-) -> None:
-    """Any active, signed-in Newsroom staff member (reporters included)."""
-    account = staff_from_token(db, authorization[7:]) if authorization and authorization.lower().startswith("bearer ") else None
-    if not account:
-        raise HTTPException(401, "Sign in to the Newsroom to use this.")

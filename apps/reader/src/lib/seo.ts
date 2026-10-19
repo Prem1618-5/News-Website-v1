@@ -1,4 +1,5 @@
 /** Structured data and page-level SEO helpers. Pure functions, shared by the screens and the prerender step. */
+import { placeLabel } from '@news/contracts'
 import { SITE, abs } from '@/site'
 import { blocksText } from './blocks'
 import { fmtLongDate, storyPath, titleOf, deckOf } from './format'
@@ -66,7 +67,7 @@ export const isDesk = (author: string) => author === SITE.deskName
 export function articleLd(story: StoryDetail, lang: Language) {
   const body = lang === 'hi' && story.body_hi.length ? story.body_hi : story.body
   const url = abs(storyPath(story, lang))
-  const place = story.scope === 'ranchi' ? SITE.city : story.scope === 'jharkhand' ? SITE.region : ''
+  const place = story.scope === 'local' || story.scope === 'state' ? placeLabel({ state: story.state, district: story.scope === 'local' ? story.district : '' }) : ''
   return {
     '@context': 'https://schema.org',
     '@type': 'NewsArticle',

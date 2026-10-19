@@ -14,15 +14,18 @@ export default defineConfig(({ mode }) => {
       host: "0.0.0.0",
       port: 5174,
       allowedHosts: true,
-      proxy: { "/api": { target: apiTarget, changeOrigin: true }, "/images": { target: apiTarget, changeOrigin: true } },
+      proxy: {
+        "/api": { target: apiTarget, changeOrigin: true },
+        "/images": { target: apiTarget, changeOrigin: true },
+        "/media": { target: apiTarget, changeOrigin: true },
+      },
     },
     build: {
       target: "es2022",
       rollupOptions: {
         output: {
           manualChunks(id: string) {
-            if (id.includes("@blocknote") || id.includes("@mantine") || id.includes("prosemirror") || id.includes("@tiptap")) return "editor";
-            if (id.includes("recharts") || id.includes("d3-")) return "charts";
+            if (id.includes("prosemirror") || id.includes("@tiptap") || id.includes("linkifyjs")) return "editor";
             if (id.includes("node_modules/react") || id.includes("react-router")) return "react";
           },
         },

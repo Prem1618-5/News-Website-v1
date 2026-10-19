@@ -1,6 +1,7 @@
 import { Suspense, useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import ConsentBanner from '@/components/shared/ConsentBanner'
+import InstallSheet from '@/components/shared/InstallSheet'
 import { track } from '@/lib/consent'
 import ScrollToTop from '@/lib/ScrollToTop'
 import { NotFoundScreen, ROUTES, lazyScreens } from './routes'
@@ -50,6 +51,7 @@ export default function App() {
         </Routes>
       </Suspense>
       <ConsentBanner />
+      <InstallSheet />
     </>
   )
 }

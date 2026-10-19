@@ -10,6 +10,7 @@ from sqlmodel import Session, SQLModel, create_engine
 
 from .config import DATA_DIR, get_settings
 from .services import content
+from .taxonomy import LEGACY_SCOPES
 
 settings = get_settings()
 
@@ -56,6 +57,13 @@ _ADDED_COLUMNS: dict[str, dict[str, str]] = {
         "slug": "VARCHAR NOT NULL DEFAULT ''", "scope": "VARCHAR NOT NULL DEFAULT 'world'",
         "title_hi": "VARCHAR NOT NULL DEFAULT ''", "deck_hi": "VARCHAR NOT NULL DEFAULT ''",
         "search_text": "VARCHAR NOT NULL DEFAULT ''",
+        "state": "VARCHAR NOT NULL DEFAULT ''", "district": "VARCHAR NOT NULL DEFAULT ''", "breaking_until": "TIMESTAMP",
+    },
+    "staffaccount": {
+        "reports_to": "VARCHAR NOT NULL DEFAULT ''", "trusted": "BOOLEAN NOT NULL DEFAULT FALSE",
+        "home_state": "VARCHAR NOT NULL DEFAULT ''", "home_district": "VARCHAR NOT NULL DEFAULT ''",
+        "writing_language": "VARCHAR NOT NULL DEFAULT 'en'", "created_by": "VARCHAR NOT NULL DEFAULT ''",
+        "token_version": "INTEGER NOT NULL DEFAULT 0", "last_login_at": "TIMESTAMP",
     },
     "articlecontent": {"blocks_hi": "JSON NOT NULL DEFAULT '[]'", "sources": "JSON NOT NULL DEFAULT '[]'"},
 }
@@ -63,6 +71,7 @@ _ADDED_INDEXES = (
     "CREATE INDEX IF NOT EXISTS ix_story_slug ON story (slug)",
     "CREATE INDEX IF NOT EXISTS ix_story_scope ON story (scope)",
     "CREATE INDEX IF NOT EXISTS ix_story_published_at ON story (published_at)",
+    "CREATE INDEX IF NOT EXISTS ix_story_state ON story (state)",
 )
 
 
@@ -78,6 +87,13 @@ def migrate_columns(target=None) -> None:
                     conn.execute(text(f'ALTER TABLE {table} ADD COLUMN {name} {ddl}'))
         for statement in _ADDED_INDEXES:
             conn.execute(text(statement))
+        if present.has_table("story"):
+            # Scopes used to be place names; they are now a level plus a place.
+            for legacy, (level, state, district) in LEGACY_SCOPES.items():
+                conn.execute(
+                    text("UPDATE story SET scope = :level, state = :state, district = :district WHERE scope = :legacy"),
+                    {"level": level, "state": state, "district": district, "legacy": legacy},
+                )
 
 
 def init_db() -> None:

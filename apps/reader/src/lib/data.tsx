@@ -1,12 +1,17 @@
 import type { ReactNode } from 'react'
 import useSWR, { SWRConfig } from 'swr'
+import { DEFAULT_LOCATION } from '@news/contracts'
 import { api } from './api'
+import { placeKey, usePlace, type Place } from './library'
 import type { Page, Story, StoryDetail } from './types'
 
 /** SWR keys. The prerender step fills the same keys (see prefetch.ts), so the first paint already has data. */
 export const SECTIONS_KEY = '/sections'
-export const FEED = '/stories?limit=40'
-export const sectionKey = (k: string) => `/stories?section=${encodeURIComponent(k)}&limit=40`
+/** Front-page feed for a place: the API ranks local, then state, then national and world news. */
+export const feedKey = (place: Place) => `/stories?limit=40&near=${encodeURIComponent(placeKey(place))}`
+/** The feed the static build prerenders (the newsroom's home market). */
+export const FEED = feedKey(DEFAULT_LOCATION)
+export const sectionKey = (k: string, limit = 40) => `/stories?section=${encodeURIComponent(k)}&limit=${limit}`
 export const authorKey = (slug: string) => `/stories?author=${encodeURIComponent(slug)}&limit=40`
 export const storyKey = (slug: string) => `/stories/${encodeURIComponent(slug)}`
 export const moreKey = (slug: string) => `/stories?exclude=${encodeURIComponent(slug)}&limit=6`
@@ -44,14 +49,17 @@ function useList(key: string | null): Feed {
   }
 }
 
-export const useFeed = () => useList(FEED)
+export function useFeed() {
+  return useList(feedKey(usePlace()))
+}
 
 /** Story count per desk. */
 export function useSectionCounts(): Record<string, number> {
   const { data } = useSWR<{ key: string; count: number }[]>(SECTIONS_KEY)
   return Object.fromEntries((data ?? []).map((s) => [s.key, s.count]))
 }
-export const useSection = (k: string) => useList(sectionKey(k))
+/** A desk's stories; `limit` grows with "Load more" (the first 40 are prerendered). */
+export const useSection = (k: string, limit = 40) => useList(sectionKey(k, limit))
 export const useAuthor = (slug: string) => useList(authorKey(slug))
 export const useMore = (slug: string) => useList(moreKey(slug))
 export const useRelated = (slug: string, section: string) => useList(relatedKey(slug, section))

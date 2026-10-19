@@ -20,6 +20,9 @@ export type Story = {
   slug: string
   section: SectionKey
   scope: ScopeKey
+  /** State code ("JH") for local and state stories, district key for local ones. */
+  state: string
+  district: string
   title: string
   title_hi: string
   deck: string
@@ -29,6 +32,8 @@ export type Story = {
   read_minutes: number
   live: boolean
   urgency: number
+  /** Breaking right now: banner on Today and first in the feed for a few hours. */
+  breaking: boolean
   image_url: string
   caption: string
   source_name: string

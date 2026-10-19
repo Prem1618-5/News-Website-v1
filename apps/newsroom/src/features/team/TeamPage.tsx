@@ -1,263 +1,180 @@
-import { useEffect, useState } from "react";
-import { Link, Navigate, useNavigate, useSearchParams } from "react-router-dom";
-import { ChevronRight, List, Network, Plus, ShieldCheck } from "lucide-react";
-import { ModePill } from "@/components/ui/badges";
-import { Avatar, Button, EmptyState, Field, Modal, PageHeader, Pill, Segmented, Tabs, inputCls } from "@/components/ui/primitives";
-import { CAPABILITY_LABEL, ROLE_GRANTS, ROLE_LABEL } from "@/domain/capabilities";
-import { improvementSignal } from "@/domain/supervision";
-import type { Role, Staff } from "@/domain/types";
-import { effectiveMode, getStaff, inviteStaff } from "@/domain/workflow";
-import { useNewsroom } from "@/state/store";
+/**
+ * The team on one page. Editors see their reporters with one switch each (Trusted) and an Add button.
+ * Admins see everyone grouped under their editor, plus people who asked to join.
+ */
+import { useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { ChevronRight, UserPlus } from "lucide-react";
+import { approvePerson, removePerson, updatePerson, useTeam } from "@/api/desk";
+import { errorText } from "@/api/http";
+import { districtName, stateName } from "@/domain/places";
+import { ROLE_LABEL, type Staff } from "@/domain/types";
+import { useSession } from "@/state/session";
+import { Avatar, Button, Card, EmptyState, PageHeader, Pill, Tabs, Toggle, selectCls, timeAgo } from "@/components/ui/primitives";
+import { AddPersonDialog } from "./AddPersonDialog";
 
-type Tab = "all" | "supervised" | "ready";
+export const placeOf = (p: Staff) => [districtName(p.homeState, p.homeDistrict), stateName(p.homeState)].filter(Boolean).join(", ");
 
-export default function Team() {
-  const { state, actor, can } = useNewsroom();
+export default function TeamPage() {
+  const { me, toast } = useSession();
+  const { data, mutate } = useTeam();
   const [params, setParams] = useSearchParams();
-  const [tab, setTab] = useState<Tab>(params.get("tab") === "supervised" ? "supervised" : "all");
-  const [layout, setLayout] = useState<"list" | "org">("list");
-  const [rolesOpen, setRolesOpen] = useState(false);
-  const [inviteOpen, setInviteOpen] = useState(params.get("invite") === "1");
+  const [adding, setAdding] = useState(params.get("add") === "1");
+  const tab = params.get("tab") === "requests" ? "requests" : "people";
+  const people = data ?? [];
+  const pending = people.filter((p) => p.status === "pending");
+  const editors = people.filter((p) => (p.role === "editor" || p.role === "admin") && p.status === "active");
+  const admin = me.role === "admin";
 
-  useEffect(() => {
-    if (params.get("tab") === "supervised") setTab("supervised");
-    if (params.get("invite") === "1") setInviteOpen(true);
-  }, [params]);
+  const trust = async (p: Staff, trusted: boolean) => {
+    try {
+      await updatePerson(p.id, { trusted });
+      void mutate();
+      toast(trusted ? `${p.name} now publishes directly.` : `${p.name}'s stories go to review again.`, "success");
+    } catch (err) {
+      toast(errorText(err), "error");
+    }
+  };
 
-  if (!can("team.view")) return <Navigate to="/" replace />;
-
-  const people = state.staff.filter((s) => (actor.role === "admin" ? true : s.role === "reporter" && s.editorId === actor.id));
-  const ready = people.filter((s) => s.supervision === "supervised" && improvementSignal(state.outcomes, s, Date.now()).ready);
-  const rows = people.filter((s) => (tab === "supervised" ? s.supervision === "supervised" : tab === "ready" ? ready.includes(s) : true));
+  const groups: { title: string; people: Staff[] }[] = admin
+    ? [
+        { title: "Editors and admins", people: people.filter((p) => p.role !== "reporter" && p.status !== "pending") },
+        ...editors.map((e) => ({ title: `Reporters with ${e.name}`, people: people.filter((p) => p.role === "reporter" && p.reportsTo === e.id && p.status !== "pending") })),
+        { title: "Reporters without an editor", people: people.filter((p) => p.role === "reporter" && !editors.some((e) => e.id === p.reportsTo) && p.status !== "pending") },
+      ]
+    : [
+        { title: "Your reporters", people: people.filter((p) => p.role === "reporter" && p.reportsTo === me.id) },
+        { title: "Everyone else", people: people.filter((p) => p.id !== me.id && !(p.role === "reporter" && p.reportsTo === me.id)) },
+      ];
 
   return (
-    <>
-      <PageHeader title={actor.role === "admin" ? "Team" : "My reporters"} subtitle={actor.role === "editor" ? "You can manage modes and supervision for reporters assigned to you." : undefined}>
-        <Button onClick={() => setRolesOpen(true)}>
-          <ShieldCheck className="size-4" /> Roles
+    <div>
+      <PageHeader title={admin ? "Team" : "My reporters"} subtitle={admin ? "Add people, choose who edits whom, and who publishes directly." : "Reporters you add send their stories to you."}>
+        <Button variant="primary" onClick={() => setAdding(true)}>
+          <UserPlus className="size-4" aria-hidden="true" /> {admin ? "Add a person" : "Add a reporter"}
         </Button>
-        {can("team.manage") && (
-          <Button variant="primary" onClick={() => setInviteOpen(true)}>
-            <Plus className="size-4" /> Invite
-          </Button>
-        )}
       </PageHeader>
-
-      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-        <Tabs
-          label="Team views"
-          value={tab}
-          onChange={(t) => {
-            setTab(t);
-            setParams(t === "all" ? {} : { tab: t });
-          }}
-          items={[
-            { id: "all", label: "All", count: people.length },
-            { id: "supervised", label: "Supervised", count: people.filter((p) => p.supervision === "supervised").length },
-            { id: "ready", label: "Ready for review", count: ready.length },
-          ]}
-        />
-        {actor.role === "admin" && (
-          <Segmented
-            label="Layout"
-            value={layout}
-            onChange={setLayout}
-            items={[
-              { id: "list", label: "List", icon: <List className="size-4" /> },
-              { id: "org", label: "Org chart", icon: <Network className="size-4" /> },
-            ]}
+      {admin && (
+        <div className="mb-4">
+          <Tabs
+            label="Team view"
+            value={tab}
+            onChange={(v) => setParams(v === "people" ? {} : { tab: v }, { replace: true })}
+            items={[{ id: "people", label: "People", count: people.length - pending.length }, { id: "requests", label: "Asking to join", count: pending.length }]}
           />
-        )}
-      </div>
-
-      {layout === "org" && actor.role === "admin" ? (
-        <OrgChart />
-      ) : rows.length === 0 ? (
-        <EmptyState title="No one here" body={tab === "ready" ? "When a supervised reporter shows a sustained improvement, they appear here for you to decide." : undefined} />
-      ) : (
-        <div role="table" aria-label="Team members">
-          <div role="row" className="hidden grid-cols-[minmax(0,1.4fr)_100px_150px_130px_100px] gap-4 border-b border-line px-2 pb-2 text-[12px] font-medium text-muted md:grid">
-            <span role="columnheader">Name</span>
-            <span role="columnheader">Role</span>
-            <span role="columnheader">Assigned editor</span>
-            <span role="columnheader">Mode</span>
-            <span role="columnheader">Status</span>
-          </div>
-          {rows.map((p) => (
-            <PersonRow key={p.id} p={p} />
-          ))}
         </div>
       )}
 
-      {rolesOpen && <RolesModal onClose={() => setRolesOpen(false)} />}
-      {inviteOpen && (
-        <InviteModal
-          onClose={() => {
-            setInviteOpen(false);
-            if (params.get("invite")) setParams({});
-          }}
-        />
-      )}
-    </>
-  );
-}
-
-function PersonRow({ p }: { p: Staff }) {
-  const { state } = useNewsroom();
-  const navigate = useNavigate();
-  const editor = p.editorId ? getStaff(state, p.editorId) : undefined;
-  return (
-    <div role="row" className="border-b border-line">
-      <button
-        onClick={() => p.role === "reporter" && navigate(`/team/${p.id}`)}
-        className="grid w-full grid-cols-[minmax(0,1fr)_auto] items-center gap-x-4 gap-y-1 px-2 py-3 text-left hover:bg-wash md:grid-cols-[minmax(0,1.4fr)_100px_150px_130px_100px]"
-      >
-        <span role="cell" className="flex min-w-0 items-center gap-3">
-          <Avatar person={p} size={32} />
-          <span className="min-w-0 leading-tight">
-            <span className="block truncate text-[14px] font-medium">{p.name}</span>
-            <span className="block truncate text-[12px] text-muted">{p.email}</span>
-          </span>
-        </span>
-        <span role="cell" className="hidden text-[14px] md:block">{ROLE_LABEL[p.role]}</span>
-        <span role="cell" className="hidden truncate text-[14px] md:block">{editor?.name ?? "-"}</span>
-        <span role="cell" className="flex items-center justify-end gap-1.5 md:justify-start">
-          {p.role === "reporter" ? <ModePill mode={effectiveMode(p)} /> : <Pill>{p.publishMode === "auto" ? "Auto" : "Review"}</Pill>}
-        </span>
-        <span role="cell" className="hidden md:block">
-          <Pill tone={p.status === "active" ? "good" : p.status === "invited" ? "brand" : "warn"}>{p.status[0].toUpperCase() + p.status.slice(1)}</Pill>
-        </span>
-      </button>
-    </div>
-  );
-}
-
-function OrgChart() {
-  const { state } = useNewsroom();
-  const admins = state.staff.filter((s) => s.role === "admin");
-  const editors = state.staff.filter((s) => s.role === "editor");
-  return (
-    <div className="space-y-6">
-      <div className="flex flex-wrap justify-center gap-3">
-        {admins.map((a) => (
-          <OrgNode key={a.id} p={a} />
-        ))}
-      </div>
-      <div className="mx-auto h-6 w-px bg-line" aria-hidden="true" />
-      <div className="grid gap-4 md:grid-cols-3">
-        {editors.map((e) => {
-          const reporters = state.staff.filter((s) => s.editorId === e.id);
-          return (
-            <div key={e.id} className="rounded-2xl border border-line p-3">
-              <OrgNode p={e} />
-              <p className="mb-1 mt-3 px-1 text-[12px] font-medium text-muted">{reporters.length} reporters</p>
-              <ul className="space-y-1">
-                {reporters.map((r) => (
-                  <li key={r.id}>
-                    <Link to={`/team/${r.id}`} className="flex items-center gap-2.5 rounded-lg px-1.5 py-1.5 hover:bg-wash">
-                      <Avatar person={r} size={24} />
-                      <span className="flex-1 truncate text-[13px]">{r.name}</span>
-                      <ModePill mode={effectiveMode(r)} />
-                      <ChevronRight className="size-4 text-faint" aria-hidden="true" />
+      {tab === "requests" ? (
+        <Requests pending={pending} editors={editors} onDone={() => void mutate()} />
+      ) : (
+        <div className="space-y-5">
+          {groups.filter((g) => g.people.length).map((g) => (
+            <Card key={g.title} className="p-3 sm:p-4">
+              <h2 className="mb-1 px-1 text-[13px] font-medium text-muted">{g.title}</h2>
+              <ul className="divide-y divide-line/70">
+                {g.people.map((p) => (
+                  <li key={p.id} className="flex items-center gap-3 px-1 py-2.5">
+                    <Link to={`/team/${p.id}`} className="flex min-w-0 flex-1 items-center gap-3">
+                      <Avatar person={p} size={36} />
+                      <span className="min-w-0">
+                        <span className="flex flex-wrap items-center gap-1.5 text-[14.5px] font-medium">
+                          {p.name}
+                          {p.id === me.id && <span className="text-[12px] font-normal text-faint">(you)</span>}
+                          {p.status === "invited" && <Pill>Invited</Pill>}
+                          {p.status === "suspended" && <Pill tone="bad">Suspended</Pill>}
+                        </span>
+                        <span className="block truncate text-[12.5px] text-muted">{[p.role !== "reporter" ? ROLE_LABEL[p.role] : p.jobTitle, placeOf(p)].filter(Boolean).join(" · ")}</span>
+                      </span>
+                    </Link>
+                    {p.role === "reporter" && p.canManage && p.status === "active" && (
+                      <label className="flex items-center gap-2 text-[12.5px] text-muted">
+                        <span className="max-sm:hidden">Trusted</span>
+                        <Toggle label={`${p.name} publishes directly`} checked={p.trusted} onChange={(v) => void trust(p, v)} />
+                      </label>
+                    )}
+                    {p.role === "reporter" && !p.canManage && p.trusted && <Pill tone="good">Trusted</Pill>}
+                    <Link to={`/team/${p.id}`} aria-label={`Open ${p.name}`} className="text-faint hover:text-ink">
+                      <ChevronRight className="size-5" />
                     </Link>
                   </li>
                 ))}
               </ul>
-            </div>
+            </Card>
+          ))}
+          {!people.length && <EmptyState title="No one here yet" body="Add your first reporter with the button above." />}
+          <p className="px-1 text-[12.5px] text-muted">
+            <b className="font-medium text-ink">Trusted</b> reporters publish straight away and their stories appear under Review → Published without review for a quick read. Everyone else sends stories to their editor.
+          </p>
+        </div>
+      )}
+      {adding && (
+        <AddPersonDialog
+          editors={editors}
+          onClose={() => (setAdding(false), params.has("add") && setParams({}, { replace: true }))}
+          onAdded={() => void mutate()}
+        />
+      )}
+    </div>
+  );
+}
+
+function Requests({ pending, editors, onDone }: { pending: Staff[]; editors: Staff[]; onDone: () => void }) {
+  const { toast } = useSession();
+  const [choice, setChoice] = useState<Record<string, { role: "reporter" | "editor"; reports_to: string }>>({});
+  if (!pending.length) return <EmptyState title="No requests" body="People who ask to join from the sign-in page appear here." />;
+  return (
+    <Card className="p-3 sm:p-4">
+      <ul className="divide-y divide-line/70">
+        {pending.map((p) => {
+          const c = choice[p.id] ?? { role: "reporter" as const, reports_to: "" };
+          const setC = (patch: Partial<typeof c>) => setChoice((all) => ({ ...all, [p.id]: { ...c, ...patch } }));
+          return (
+            <li key={p.id} className="space-y-2 px-1 py-3">
+              <div className="flex items-center gap-3">
+                <Avatar person={p} size={36} />
+                <span className="min-w-0 flex-1">
+                  <span className="block text-[14.5px] font-medium">{p.name}</span>
+                  <span className="block truncate text-[12.5px] text-muted">{p.email} · {p.jobTitle} · asked {timeAgo(p.createdAt)}</span>
+                </span>
+              </div>
+              <div className="flex flex-wrap items-center gap-2">
+                <select aria-label="Role" className={`${selectCls} w-auto`} value={c.role} onChange={(e) => setC({ role: e.target.value as "reporter" | "editor" })}>
+                  <option value="reporter">Reporter</option>
+                  <option value="editor">Editor</option>
+                </select>
+                {c.role === "reporter" && (
+                  <select aria-label="Editor" className={`${selectCls} w-auto`} value={c.reports_to} onChange={(e) => setC({ reports_to: e.target.value })}>
+                    <option value="">No editor yet</option>
+                    {editors.map((e) => (
+                      <option key={e.id} value={e.id}>{e.name}</option>
+                    ))}
+                  </select>
+                )}
+                <Button
+                  variant="primary"
+                  onClick={() =>
+                    void approvePerson(p.id, c)
+                      .then(() => (toast(`${p.name} can sign in now.`, "success"), onDone()))
+                      .catch((e) => toast(errorText(e), "error"))
+                  }
+                >
+                  Approve
+                </Button>
+                <Button
+                  variant="ghost"
+                  onClick={() => {
+                    if (!window.confirm(`Decline ${p.name}'s request?`)) return;
+                    void removePerson(p.id).then(onDone).catch((e) => toast(errorText(e), "error"));
+                  }}
+                >
+                  Decline
+                </Button>
+              </div>
+            </li>
           );
         })}
-      </div>
-    </div>
-  );
-}
-
-function OrgNode({ p }: { p: Staff }) {
-  return (
-    <div className="flex items-center gap-3 rounded-xl bg-wash px-3 py-2.5">
-      <Avatar person={p} size={36} />
-      <div className="leading-tight">
-        <p className="text-[14px] font-medium">{p.name}</p>
-        <p className="text-[12px] text-muted">
-          {ROLE_LABEL[p.role]} · {p.jobTitle}
-        </p>
-      </div>
-    </div>
-  );
-}
-
-function RolesModal({ onClose }: { onClose: () => void }) {
-  return (
-    <Modal title="Roles and what they can do" onClose={onClose} footer={<Button onClick={onClose}>Close</Button>}>
-      <p className="text-[13px] text-muted">
-        Navigation and actions come from this list. The server checks it on every request; hiding a button is never the security.
-      </p>
-      {(["admin", "editor", "reporter"] as Role[]).map((r) => (
-        <section key={r}>
-          <h3 className="mb-1.5 text-[14px] font-semibold">
-            {ROLE_LABEL[r]} <span className="font-normal text-muted">· rank {{ reporter: 1, editor: 2, admin: 3 }[r]}</span>
-          </h3>
-          <ul className="space-y-1 text-[13px]">
-            {Object.entries(ROLE_GRANTS[r]).map(([cap, scope]) => (
-              <li key={cap} className="flex justify-between gap-3">
-                <span>{CAPABILITY_LABEL[cap as keyof typeof CAPABILITY_LABEL]}</span>
-                <span className="text-muted">{scope}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
-    </Modal>
-  );
-}
-
-function InviteModal({ onClose }: { onClose: () => void }) {
-  const { state, run } = useNewsroom();
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [role, setRole] = useState<"reporter" | "editor">("reporter");
-  const [editorId, setEditorId] = useState(state.staff.find((s) => s.role === "editor")?.id ?? "");
-  return (
-    <Modal
-      title="Invite staff"
-      onClose={onClose}
-      footer={
-        <>
-          <Button onClick={onClose}>Cancel</Button>
-          <Button
-            variant="primary"
-            onClick={() => {
-              if (run((s, a) => inviteStaff(s, a, { name, email, role, editorId: role === "reporter" ? editorId : undefined }))) onClose();
-            }}
-          >
-            Send invite
-          </Button>
-        </>
-      }
-    >
-      <p className="text-[13px] text-muted">There is no public staff sign-up. Invites are one-time links that expire in 72 hours. The invitee sets a password and enrols TOTP.</p>
-      <Field label="Full name">
-        <input className={inputCls} value={name} onChange={(e) => setName(e.target.value)} />
-      </Field>
-      <Field label="Work email">
-        <input className={inputCls} type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      </Field>
-      <Field label="Role">
-        <select className={inputCls} value={role} onChange={(e) => setRole(e.target.value as "reporter" | "editor")}>
-          <option value="reporter">Reporter</option>
-          <option value="editor">Editor</option>
-        </select>
-      </Field>
-      {role === "reporter" && (
-        <Field label="Assigned editor" hint="Every reporter has exactly one. New reporters start in review mode.">
-          <select className={inputCls} value={editorId} onChange={(e) => setEditorId(e.target.value)}>
-            {state.staff.filter((s) => s.role === "editor").map((e) => (
-              <option key={e.id} value={e.id}>
-                {e.name}
-              </option>
-            ))}
-          </select>
-        </Field>
-      )}
-    </Modal>
+      </ul>
+    </Card>
   );
 }

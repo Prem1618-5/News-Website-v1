@@ -60,7 +60,7 @@ const manifestPath = join(dist, '.vite', 'manifest.json')
 const manifest = existsSync(manifestPath) ? JSON.parse(readFileSync(manifestPath, 'utf8')) : {}
 
 /** Screen chunk (and its shared imports) for a URL, so the browser fetches it in parallel with the HTML parse. */
-const SCREEN = { '': 'Today', story: 'Article', hi: 'Article', section: 'Section', writer: 'Writer', categories: 'Categories', about: 'Info/About', 'editorial-standards': 'Info/Standards', contact: 'Info/Contact', privacy: 'Info/Privacy', search: 'Search', following: 'Following', saved: 'Saved', notifications: 'Notifications', account: 'Account', location: 'Location', landing: 'Landing', login: 'Login', signup: 'Signup', 'forgot-password': 'Forgot', onboarding: 'Onboarding' }
+const SCREEN = { '': 'Today', story: 'Article', hi: 'Article', section: 'Section', writer: 'Writer', categories: 'Categories', about: 'Info/About', 'editorial-standards': 'Info/Standards', contact: 'Info/Contact', privacy: 'Info/Privacy', search: 'Search', following: 'Following', saved: 'Saved', notifications: 'Notifications', account: 'Account', location: 'Location', landing: 'Landing', login: 'Login', signup: 'Signup', 'forgot-password': 'Forgot', 'reset-password': 'ResetPassword', onboarding: 'Onboarding' }
 function preloads(url) {
   const name = SCREEN[url.split('/').filter(Boolean)[0] ?? '']
   const entry = name && (manifest[`src/screens/${name}/index.tsx`] ?? manifest[`src/screens/${name}.tsx`])

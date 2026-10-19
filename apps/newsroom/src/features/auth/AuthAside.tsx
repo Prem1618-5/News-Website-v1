@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { FileCheck2, PenLine, ShieldCheck, Timer, TrendingUp, UsersRound } from "lucide-react";
+import { Camera, FileCheck2, PenLine, Send, Siren, TrendingUp } from "lucide-react";
 
 function initials(name: string) {
   const parts = name.trim().split(/\s+/).filter(Boolean);
@@ -8,15 +8,15 @@ function initials(name: string) {
 }
 
 const SIGNIN_POINTS = [
-  { icon: ShieldCheck, title: "Review with accountability", text: "Editors claim, comment and sign off. Every action is audited." },
-  { icon: Timer, title: "Deadlines that hold", text: "SLA clocks, reminders and a 48 hour cap so nothing sits unseen." },
-  { icon: UsersRound, title: "Trust earned, not assumed", text: "Reporters move to direct publishing as their track record grows." },
+  { icon: Camera, title: "From your phone", text: "Take a photo, write the headline and a few lines. It saves as you type." },
+  { icon: Send, title: "One tap to send", text: "Choose who it is for and how urgent it is, then publish or send to your editor." },
+  { icon: Siren, title: "Breaking news first", text: "Breaking stories reach every editor at once and top readers' feeds." },
 ];
 
 const SIGNUP_STEPS = [
-  { icon: PenLine, title: "Write and file", text: "Draft in the editor, attach media and submit when it's ready." },
-  { icon: FileCheck2, title: "An editor reviews", text: "Your assigned editor checks facts and style before it goes live." },
-  { icon: TrendingUp, title: "Earn direct publishing", text: "A clean track record unlocks publishing without review." },
+  { icon: PenLine, title: "Write and send", text: "Write or paste the story, add photos, and send it when it's ready." },
+  { icon: FileCheck2, title: "An editor reviews", text: "Your editor highlights what to fix or fixes it, and you see every change." },
+  { icon: TrendingUp, title: "Become trusted", text: "Trusted reporters publish straight away." },
 ];
 
 function Shell({ eyebrow, children }: { eyebrow: string; children: ReactNode }) {
@@ -26,15 +26,15 @@ function Shell({ eyebrow, children }: { eyebrow: string; children: ReactNode }) 
       <div aria-hidden="true" className="pointer-events-none absolute -bottom-32 -left-20 size-[360px] rounded-full bg-brand/15 blur-3xl" />
       <p className="relative text-[13px] font-medium uppercase tracking-widest text-white/60">{eyebrow}</p>
       <div className="relative max-w-[440px]">{children}</div>
-      <p className="relative text-[12px] text-white/50">Staff only. Activity on this workspace is logged.</p>
+      <p className="relative text-[12px] text-white/50">For newsroom staff.</p>
     </aside>
   );
 }
 
 export function SignInAside() {
   return (
-    <Shell eyebrow="The desk that keeps stories moving">
-      <p className="font-serif text-[34px] font-semibold leading-[1.2] text-balance">Every story gets a second pair of eyes before readers do.</p>
+    <Shell eyebrow="The newsroom in your pocket">
+      <p className="font-serif text-[34px] font-semibold leading-[1.2] text-balance">From the spot to the front page in minutes.</p>
       <ul className="mt-9 space-y-5 text-[15px]">
         {SIGNIN_POINTS.map(({ icon: Icon, title, text }) => (
           <li key={title} className="flex gap-3.5">

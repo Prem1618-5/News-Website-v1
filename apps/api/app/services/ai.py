@@ -7,6 +7,7 @@ Keys never leave the server.
 """
 import asyncio
 import hashlib
+import logging
 from collections import OrderedDict
 from dataclasses import dataclass
 
@@ -14,6 +15,8 @@ import httpx
 from fastapi import HTTPException
 
 from ..config import Settings
+
+log = logging.getLogger("news.ai")
 
 
 @dataclass(frozen=True)
@@ -125,6 +128,8 @@ async def run_task(settings: Settings, task: str, text: str, language: str, targ
     if response.status_code == 429:
         raise HTTPException(429, "The AI provider is rate limiting requests. Try again in a minute.")
     if response.status_code >= 400:
+        # Operators need the reason (bad key, region, model retired). The key itself is never logged.
+        log.warning("AI provider %s (%s) answered %s: %s", provider.name, provider.model, response.status_code, getattr(response, "text", "")[:300])
         raise HTTPException(502, "The AI provider rejected the request.")
     try:
         data = response.json()

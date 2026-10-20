@@ -14,16 +14,34 @@ services:
       - key: JWT_SECRET
         generateValue: true
       - key: NEWSROOM_API_KEY
+        generateValue: true
+      # Neon connection string (secret: Render asks for it when the Blueprint is applied).
+      - key: DATABASE_URL
         sync: false
-      - key: NEWS_DATABASE_URL
-        sync: false
+      # JSON list of the two front-end origins, e.g. ["https://news-reader.onrender.com","https://news-newsroom.onrender.com"]
       - key: NEWS_CORS_ORIGINS
         sync: false
       - key: NEWS_COOKIE_SAMESITE
         value: none
-      - key: GROQ_API_KEY
+      - key: READER_URL
         sync: false
-      - key: NVIDIA_API_KEY
+      - key: NEWSROOM_URL
+        sync: false
+      - key: NEWS_DEPLOY_HOOK_URL
+        sync: false
+      # First admin; delete NEWSROOM_ADMIN_PASSWORD after the first sign-in.
+      - key: NEWSROOM_ADMIN_EMAIL
+        sync: false
+      - key: NEWSROOM_ADMIN_PASSWORD
+        sync: false
+      - key: NEWSROOM_ADMIN_NAME
+        value: Managing editor
+      # AI and translation through Gemini's OpenAI-compatible endpoint.
+      - key: AI_BASE_URL
+        value: https://generativelanguage.googleapis.com/v1beta/openai
+      - key: AI_MODEL
+        value: gemini-2.5-flash
+      - key: AI_API_KEY
         sync: false
 
   - type: web

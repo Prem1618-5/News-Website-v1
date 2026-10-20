@@ -2,3 +2,8 @@ packages:
   - apps/reader
   - apps/newsroom
   - packages/*
+
+# pnpm 12 fails a CI install when a dependency has an unapproved build script. core-js only prints a donation banner,
+# so it is explicitly declined; anything new with a build script will still stop the build until someone decides.
+allowBuilds:
+  core-js: false

@@ -2,6 +2,7 @@
 import os
 from functools import lru_cache
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from pydantic import Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -53,6 +54,8 @@ class Settings(BaseSettings):
 
     # AI providers. Add a key and the matching features switch on. Nothing is called without one.
     ai_provider: str = Field(default="", validation_alias="AI_PROVIDER")
+    gemini_api_key: str = Field(default="", validation_alias="GEMINI_API_KEY")
+    gemini_model: str = Field(default="gemini-3.5-flash", validation_alias="GEMINI_MODEL")
     groq_api_key: str = Field(default="", validation_alias="GROQ_API_KEY")
     groq_model: str = Field(default="llama-3.3-70b-versatile", validation_alias="GROQ_MODEL")
     nvidia_api_key: str = Field(default="", validation_alias="NVIDIA_API_KEY")
@@ -60,6 +63,11 @@ class Settings(BaseSettings):
     openai_compatible_base_url: str = Field(default="", validation_alias="AI_BASE_URL")
     openai_compatible_api_key: str = Field(default="", validation_alias="AI_API_KEY")
     openai_compatible_model: str = Field(default="", validation_alias="AI_MODEL")
+
+    # Neon Auth (managed Better Auth): readers may sign in there as well as with the local login. Empty = off.
+    neon_auth_url: str = Field(default="", validation_alias="NEON_AUTH_URL")
+    neon_auth_jwks_url: str = Field(default="", validation_alias="NEON_AUTH_JWKS_URL")
+    neon_auth_issuer: str = Field(default="", validation_alias="NEON_AUTH_ISSUER")
 
     # Set by Neon / Vercel Postgres integrations. Takes precedence over NEWS_DATABASE_URL's SQLite default.
     platform_database_url: str = Field(default="", validation_alias="DATABASE_URL")
@@ -84,6 +92,22 @@ class Settings(BaseSettings):
     @property
     def supabase_enabled(self) -> bool:
         return bool(self.supabase_url and self.supabase_anon_key)
+
+    @property
+    def neon_auth_enabled(self) -> bool:
+        return bool(self.neon_auth_url)
+
+    @property
+    def neon_jwks_url(self) -> str:
+        return self.neon_auth_jwks_url or f"{self.neon_auth_url.rstrip('/')}/.well-known/jwks.json"
+
+    @property
+    def neon_issuer(self) -> str:
+        # Neon Auth (Better Auth) signs tokens with the origin of its own base URL as issuer.
+        if self.neon_auth_issuer:
+            return self.neon_auth_issuer
+        parts = urlsplit(self.neon_auth_url)
+        return f"{parts.scheme}://{parts.netloc}"
 
     def validate_for_runtime(self) -> None:
         if self.is_production and self.jwt_secret == _DEV_ONLY_SECRET:

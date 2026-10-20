@@ -12,9 +12,19 @@ export class ApiError extends Error {
   }
 }
 
+/** Set while the reader is signed in through Neon Auth: its short-lived token rides along as a Bearer header. */
+let tokenProvider: (() => Promise<string | null>) | null = null
+export const setTokenProvider = (fn: (() => Promise<string | null>) | null) => {
+  tokenProvider = fn
+}
+
 export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
   const headers: Record<string, string> = { ...(init.headers as Record<string, string> | undefined) }
   if (init.body && !headers['Content-Type']) headers['Content-Type'] = 'application/json'
+  if (tokenProvider && !headers.Authorization) {
+    const token = await tokenProvider().catch(() => null)
+    if (token) headers.Authorization = `Bearer ${token}`
+  }
   let res: Response
   try {
     res = await fetch(`${API_BASE}${path}`, { credentials: env.VITE_API_URL ? 'include' : 'same-origin', ...init, headers })

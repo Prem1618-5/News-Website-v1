@@ -7,6 +7,7 @@ from fastapi import APIRouter, Cookie, Header, HTTPException, Request, Response
 from sqlalchemy.exc import IntegrityError
 from sqlmodel import select
 
+from .. import neon_auth
 from ..config import get_settings
 from ..database import DB
 from ..models import LocalUser
@@ -35,7 +36,7 @@ def _local_session(user: LocalUser, response: Response) -> dict:
 
 @router.get("/config")
 def auth_config():
-    return {"configured": True, "provider": "supabase" if settings.supabase_enabled else "local"}
+    return {"configured": True, "provider": "supabase" if settings.supabase_enabled else "local", "neon": settings.neon_auth_enabled}
 
 
 @router.get("/session")
@@ -44,11 +45,18 @@ async def auth_session(
     db: DB,
     access_cookie: Annotated[str | None, Cookie(alias="news_access")] = None,
     refresh_cookie: Annotated[str | None, Cookie(alias="news_refresh")] = None,
+    authorization: Annotated[str | None, Header()] = None,
 ):
     if access_cookie:
         local = local_user_from_token(db, access_cookie)
         if local:
             return {"authenticated": True, "user": local}
+    # A reader signed in through Neon Auth sends its token as a Bearer header (no cookie of ours).
+    neon_token = bearer(authorization)
+    if neon_token and settings.neon_auth_enabled and neon_auth.looks_like_neon_token(neon_token):
+        neon = await neon_auth.user_from_token(settings, neon_token)
+        if neon:
+            return {"authenticated": True, "user": neon}
     if not settings.supabase_enabled:
         return {"authenticated": False, "user": None}
     if access_cookie:

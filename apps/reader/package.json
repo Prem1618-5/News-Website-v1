@@ -15,6 +15,7 @@
     "test": "vitest run"
   },
   "dependencies": {
+    "@neondatabase/neon-js": "0.8.0-beta",
     "@news/contracts": "workspace:*",
     "clsx": "^2.1.1",
     "lucide-react": "^1.16.0",

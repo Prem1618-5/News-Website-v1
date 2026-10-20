@@ -16,6 +16,11 @@ services:
     build: ../apps/api
     depends_on:
       db: { condition: service_healthy }
+    # Secrets (DATABASE_URL, GEMINI_API_KEY, ...) live in ../secrets/api.env, which git ignores.
+    # DATABASE_URL, when set there, wins over the local Postgres below.
+    env_file:
+      - path: ../secrets/api.env
+        required: false
     environment:
       APP_ENV: production
       JWT_SECRET: ${JWT_SECRET:?set JWT_SECRET}

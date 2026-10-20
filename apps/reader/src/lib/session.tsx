@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
-import { ApiError, api, post, put } from './api'
+import { ApiError, api, post, put, setTokenProvider } from './api'
+import { isNeonUser, markNeonUser, neonJwt, neonSignOut } from './neonToken'
 import { library, mergeLibraries, parsePlace, placeKey, type Library } from './library'
 import { readerId } from './consent'
 
@@ -68,8 +69,18 @@ export function SessionProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     let live = true
+    // Local/Supabase cookie session first. If there is none and this browser has used Neon sign-in, restore that.
+    const restoreNeon = async () => {
+      if (!isNeonUser() || !(await neonJwt())) return null
+      setTokenProvider(neonJwt)
+      const p = await api<SessionPayload>('/auth/session')
+      const next = toUser(p)
+      if (!next) setTokenProvider(null)
+      return next
+    }
     api<SessionPayload>('/auth/session')
-      .then((p) => live && adopt(toUser(p)))
+      .then((p) => toUser(p) ?? restoreNeon().catch(() => null))
+      .then((next) => live && adopt(next))
       .catch(() => live && adopt(null))
     return () => {
       live = false
@@ -93,6 +104,9 @@ export function SessionProvider({ children }: { children: ReactNode }) {
         try {
           await post('/auth/logout')
         } finally {
+          if (isNeonUser()) await neonSignOut().catch(() => undefined)
+          markNeonUser(false)
+          setTokenProvider(null)
           adopt(null)
         }
       },

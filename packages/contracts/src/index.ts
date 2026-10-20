@@ -11,7 +11,7 @@ export type ScopeKey = "local" | "state" | "india" | "world";
 export type Priority = "normal" | "breaking";
 export type Language = "en" | "hi";
 export type ConsentId = "necessary" | "preferences" | "analytics" | "personalization" | "notifications";
-export type AiTask = "headline" | "summary" | "proofread" | "translate" | "tags";
+export type AiTask = "headline" | "summary" | "proofread" | "translate" | "tags" | "seo";
 
 export interface ConsentTier {
   id: ConsentId;

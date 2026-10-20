@@ -6,6 +6,8 @@ pydantic-settings>=2.4.0
 sqlalchemy>=2.0.0
 httpx>=0.27.0
 python-jose[cryptography]>=3.3.0
+# Verifies Neon Auth tokens: they are signed with EdDSA (Ed25519), which python-jose cannot check.
+PyJWT[crypto]>=2.8.0
 passlib[bcrypt]>=1.7.4
 bcrypt>=4.0.0,<4.1
 psycopg[binary]>=3.2

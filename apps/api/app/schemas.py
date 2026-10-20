@@ -204,7 +204,7 @@ class NewsroomPublish(BaseModel):
 
 
 class AiRequest(BaseModel):
-    task: Literal["headline", "summary", "proofread", "translate", "tags"]
+    task: Literal["headline", "summary", "proofread", "translate", "tags", "seo"]
     text: str = Field(min_length=1, max_length=20000)
     language: Literal["en", "hi"] = "en"
     target_language: Literal["en", "hi"] | None = None

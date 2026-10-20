@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent, type ReactNode } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { post } from '@/lib/api'
 import { errorMessage, useSession } from '@/lib/session'
+import { NEON_AUTH_URL } from '@/lib/neonToken'
 import { Ico } from '@/components/ui/icons'
 
 const INPUT = { height: '44px', border: '1px solid var(--bd)', borderRadius: '10px', padding: '0 14px', background: 'var(--bg)', color: 'var(--fg)', font: '400 15px Inter' } as const
@@ -20,6 +21,16 @@ const Problem = ({ text }: { text: string }) => (
 )
 
 /** Email and password sign-in. Sends the reader home (or to where they were headed) on success. */
+/** Second way in, shown only when Neon Auth is configured for this build. */
+function NeonLink({ to }: { to: string }) {
+  if (!NEON_AUTH_URL) return null
+  return (
+    <Link to={to} className="btn" style={{ width: '100%', textAlign: 'center' }}>
+      Continue with Neon sign-in
+    </Link>
+  )
+}
+
 export function LoginForm({ next = '/' }: { next?: string }) {
   const { login } = useSession()
   const navigate = useNavigate()
@@ -50,6 +61,7 @@ export function LoginForm({ next = '/' }: { next?: string }) {
       </Field>
       <Link to="/forgot-password" style={{ color: 'var(--pt)', fontWeight: 600, justifySelf: 'end', display: 'flex', alignItems: 'center', minHeight: '44px' }}>Forgot password?</Link>
       <button type="submit" className="btn p" disabled={busy || !email || !password} style={{ width: '100%' }}>{busy ? 'Signing in…' : 'Log in'}</button>
+      <NeonLink to="/auth/sign-in" />
     </form>
   )
 }
@@ -98,6 +110,7 @@ export function SignupForm() {
         <input type="text" name="name" autoComplete="name" required minLength={2} placeholder="How should we address you?" value={name} onChange={(e) => setName(e.target.value)} style={INPUT} />
       </Field>
       <button type="submit" className="btn p" disabled={busy || !email || !password || name.trim().length < 2} style={{ width: '100%' }}>{busy ? 'Creating account…' : 'Create account'}</button>
+      <NeonLink to="/auth/sign-up" />
     </form>
   )
 }

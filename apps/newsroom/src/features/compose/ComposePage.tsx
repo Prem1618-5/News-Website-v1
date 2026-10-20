@@ -253,6 +253,9 @@ function Composer({ article, setArticle, revalidate, reload }: { article: Articl
           article={article}
           editable={editable}
           onChange={(p) => set(p, 400)}
+          lang={lang}
+          aiText={ai.enabled && editable ? `${fields[`headline_${lang}`]}\n\n${docText(save.draft.current[`body_${lang}`])}`.trim() : ""}
+          toast={toast}
         />
       )}
     </div>
@@ -652,8 +655,32 @@ function AiSummary({ lang, text, onPick, toast }: { lang: Lang; text: string; on
   );
 }
 
-function Details({ fields, article, editable, onChange }: { fields: Fields; article: Article; editable: boolean; onChange: (p: Partial<Fields>) => void }) {
+function Details({ fields, article, editable, onChange, lang, aiText, toast }: { fields: Fields; article: Article; editable: boolean; onChange: (p: Partial<Fields>) => void; lang: Lang; aiText: string; toast: (t: string, tone?: "error") => void }) {
   const [tag, setTag] = useState("");
+  const [busy, setBusy] = useState<"tags" | "seo" | null>(null);
+  const [seo, setSeo] = useState("");
+  const enoughText = aiText.split(/\s+/).length > 30;
+  const suggestTags = async () => {
+    setBusy("tags");
+    try {
+      const r = await runAi("tags", aiText, lang);
+      onChange({ tags: [...new Set([...fields.tags, ...r.tags])].slice(0, 12) });
+    } catch (err) {
+      toast(errorText(err), "error");
+    } finally {
+      setBusy(null);
+    }
+  };
+  const suggestSeo = async () => {
+    setBusy("seo");
+    try {
+      setSeo((await runAi("seo", aiText, lang)).output.trim());
+    } catch (err) {
+      toast(errorText(err), "error");
+    } finally {
+      setBusy(null);
+    }
+  };
   const addTag = () => {
     const v = tag.trim().toLowerCase();
     if (v && !fields.tags.includes(v) && fields.tags.length < 12) onChange({ tags: [...fields.tags, v] });
@@ -722,6 +749,25 @@ function Details({ fields, article, editable, onChange }: { fields: Fields; arti
             placeholder="Add a topic and press Enter"
             maxLength={40}
           />
+        )}
+        {aiText && enoughText && (
+          <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
+            <button type="button" onClick={() => void suggestTags()} disabled={busy !== null} className="inline-flex items-center gap-1 text-[12.5px] font-medium text-brand hover:underline disabled:opacity-60">
+              {busy === "tags" ? <Spinner className="size-3" /> : <Sparkles className="size-3.5" aria-hidden="true" />} Suggest topics
+            </button>
+            <button type="button" onClick={() => void suggestSeo()} disabled={busy !== null} className="inline-flex items-center gap-1 text-[12.5px] font-medium text-brand hover:underline disabled:opacity-60">
+              {busy === "seo" ? <Spinner className="size-3" /> : <Sparkles className="size-3.5" aria-hidden="true" />} Search description
+            </button>
+          </div>
+        )}
+        {seo && (
+          <div className="mt-2 rounded-xl border border-line bg-wash p-2.5 text-[13px]">
+            <p className={clsx(lang === "hi" && "lang-hi")}>{seo}</p>
+            <div className="mt-1.5 flex gap-3 text-[12px]">
+              <button type="button" className="font-medium text-brand hover:underline" onClick={() => void navigator.clipboard?.writeText(seo).then(() => toast("Copied."))}>Copy</button>
+              <button type="button" className="text-muted hover:underline" onClick={() => setSeo("")}>Close</button>
+            </div>
+          </div>
         )}
       </div>
     </div>

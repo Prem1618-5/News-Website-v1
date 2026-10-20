@@ -36,13 +36,14 @@ services:
         sync: false
       - key: NEWSROOM_ADMIN_NAME
         value: Managing editor
-      # AI and translation through Gemini's OpenAI-compatible endpoint.
-      - key: AI_BASE_URL
-        value: https://generativelanguage.googleapis.com/v1beta/openai
-      - key: AI_MODEL
-        value: gemini-2.5-flash
-      - key: AI_API_KEY
+      # AI and translation through Gemini (free tier). The key is a secret: Render asks for it.
+      - key: GEMINI_API_KEY
         sync: false
+      - key: GEMINI_MODEL
+        value: gemini-3.5-flash
+      # Neon Auth: second sign-in option for readers. Public address, not a secret.
+      - key: NEON_AUTH_URL
+        value: https://ep-square-dawn-ao0kxo51.neonauth.c-2.ap-southeast-1.aws.neon.tech/neondb/auth
 
   - type: web
     name: news-reader
@@ -57,6 +58,8 @@ services:
         sync: false
       - key: SNAPSHOT_URL
         sync: false
+      - key: VITE_NEON_AUTH_URL
+        value: https://ep-square-dawn-ao0kxo51.neonauth.c-2.ap-southeast-1.aws.neon.tech/neondb/auth
     headers:
       - path: /*
         name: X-Content-Type-Options

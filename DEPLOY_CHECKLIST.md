@@ -11,14 +11,15 @@ Legend: **Built** = implemented and covered by local tests/build (API 50 tests, 
 | API (Render) | **Not created.** The create call was blocked by the permission classifier as a production deploy. |
 | Reader (static) | Not created |
 | Newsroom (static) | Not created |
-| Gemini key | **Not received**, not set anywhere. |
+| Gemini key | Received. In gitignored `apps/api/.env` and `secrets/api.env` only; verified live (model `gemini-3.5-flash`). Not yet set on any host. |
+| Neon Auth | Enabled on the Neon project (Better Auth). Reader origin still has to be added as a trusted domain once its URL exists. |
 | Local secrets | `.env.deploy.local` (gitignored) holds generated JWT secret, API key and first-admin login. |
 
 ## Blockers to resolve
 
 1. Render must be able to read the private repo `Prem16180/news-app` (Render is linked to `Prem1618-5`). Install the Render GitHub app on `Prem16180`, or approve a different path.
 2. Allow `create_web_service` / `create_static_site` on Render (or create them from the dashboard using `infra/render.yaml`).
-3. Provide the Gemini key through the host's env settings, not chat.
+3. Enter `GEMINI_API_KEY` in the host's env settings (it is in `apps/api/.env` locally). Rotate it after launch: it was shared in chat.
 4. Uploaded media (`/media/...`) will not display on the split static hosts until a route or `VITE_API_URL` prefix is added (known, unfixed).
 
 ## One-click deploy when you are back (Render Blueprint)
@@ -26,12 +27,13 @@ Legend: **Built** = implemented and covered by local tests/build (API 50 tests, 
 `infra/render.yaml` now defines all three services (API, Reader, Newsroom), with Gemini wired in.
 1. Install the Render GitHub app on `Prem16180` (github.com/apps/render, grant `news-app`).
 2. Render dashboard -> New -> Blueprint -> pick `Prem16180/news-app`, branch `feat/reader-redesign-seo`, path `infra/render.yaml`.
-3. Fill the prompted secrets: `DATABASE_URL` (Neon `news-platform`, copy from console.neon.tech), `AI_API_KEY` (Gemini), `NEWSROOM_ADMIN_EMAIL`, `NEWSROOM_ADMIN_PASSWORD` (see `.env.deploy.local`).
+3. Fill the prompted secrets: `DATABASE_URL` (Neon `news-platform`, copy from console.neon.tech), `GEMINI_API_KEY`, `NEWSROOM_ADMIN_EMAIL`, `NEWSROOM_ADMIN_PASSWORD` (see `.env.deploy.local`).
 4. After the first deploy, set `NEWS_CORS_ORIGINS`, `READER_URL`, `NEWSROOM_URL`, the Reader's `VITE_SITE_URL`/`VITE_API_URL`/`SNAPSHOT_URL` and the Newsroom's `VITE_API_BASE` to the real `*.onrender.com` URLs, then redeploy.
 
-## Gemini wiring (no code change needed)
+## Gemini and Neon Auth wiring (done in code)
 
-Set on the API service: `AI_BASE_URL=https://generativelanguage.googleapis.com/v1beta/openai`, `AI_API_KEY=<key>`, `AI_MODEL=gemini-2.5-flash` (or another current Gemini model). The API already supports any OpenAI-compatible endpoint. Then `/api/ai/status` should report `enabled: true`, and the Newsroom shows AI draft/translate.
+- **Gemini:** set `GEMINI_API_KEY` (and optionally `GEMINI_MODEL`, default `gemini-3.5-flash`) on the API. `gemini-2.5-flash` is closed to new keys. Thinking is switched off for Gemini calls so long translations are not cut short, and one retry covers Google's "high demand" 503s. `/api/ai/status` should then report `enabled: true` with tasks `headline, summary, proofread, translate, tags, seo`.
+- **Neon Auth (reader only, alongside the local login):** API `NEON_AUTH_URL`, Reader build `VITE_NEON_AUTH_URL` (same value). In Neon console -> Auth, add the Reader's `https://...onrender.com` origin as a trusted domain, otherwise sign-in is refused. The API verifies the EdDSA token against Neon's JWKS (issuer = auth URL origin).
 
 ## Feature checklist
 
@@ -47,7 +49,9 @@ Set on the API service: `AI_BASE_URL=https://generativelanguage.googleapis.com/v
 | Built | [ ] | Ranked Today feed | District, then state, then national/world; other states' local news hidden (`?near=JH:ranchi`) |
 | Built | [ ] | Breaking banner | Red banner, region-matched, expires after 6 hours; breaking becomes top story |
 | Built | [ ] | Rich article formatting | Tables, fact boxes, video, audio, colours, pull quotes, alignment, subheadings, photo credits |
-| Built | [ ] | Reader accounts | Sign-up, sign-in, saved items |
+| Built | [ ] | Reader accounts | Sign-up, sign-in, saved items (local login) |
+| Built | [ ] | Neon sign-in (reader) | "Continue with Neon sign-in" on Log in / Sign up opens `/auth/sign-in`; after sign-in the saved shelf syncs; `/neon-account/settings` for account; Log out signs out of Neon too |
+| Built | [ ] | Neon pages are private | `/auth/*` and `/neon-account/*` are noindex and in robots Disallow |
 | Built | [ ] | Reset-password page | `/reset-password` for local and Supabase links |
 | Built | [ ] | Install prompt + offline | Install sheet from 2nd visit; recently read stories work offline |
 | Built | [ ] | Personalisation consent | Consent banner, "load more" on sections, landing button, theme colour |
@@ -77,9 +81,11 @@ Set on the API service: `AI_BASE_URL=https://generativelanguage.googleapis.com/v
 ### AI / translation (needs the Gemini key)
 | Done | Live? | Feature | Detail to check |
 |---|---|---|---|
-| Built, not configured | [ ] | AI status | `/api/ai/status` shows enabled and provider |
-| Built, not configured | [ ] | Translate EN <-> HI | Keeps names and numbers unchanged, returns only the translation |
-| Built, not configured | [ ] | AI draft, suggestions, tags | Optional draft in the writing screen |
+| Built, key set locally | [ ] | AI status | `/api/ai/status` shows `enabled: true` and 6 tasks |
+| Verified live locally | [ ] | Translate EN <-> HI | One-click button in the editor; keeps names and numbers; Hindi output checked |
+| Verified live locally | [ ] | Headline ideas, subheading, tags | Headline suggestions, subheading writer, "Suggest topics" in Details |
+| Verified live locally | [ ] | Search description (SEO) | "Search description" in Details: a <=155 character sentence with Copy (not stored on the story) |
+| Built | [ ] | AI result cache | Same text + task answered from memory (saves free-tier quota) |
 | Built | [ ] | AI cost cap | Security fix: limit on AI calls per user |
 
 ### Security and platform (the minute ones)

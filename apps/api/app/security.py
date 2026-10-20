@@ -9,6 +9,7 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from sqlmodel import Session, select
 
+from . import neon_auth
 from .config import get_settings
 from .database import get_db
 from .models import LocalUser, StaffAccount
@@ -98,14 +99,21 @@ async def current_user(
     access_cookie: Annotated[str | None, Cookie(alias="news_access")] = None,
     db: Session = Depends(get_db),
 ) -> dict:
-    token = access_cookie or bearer(authorization)
-    if not token:
+    # The cookie wins, but a header token is tried too: a stale local cookie must not hide a fresh Neon sign-in.
+    tokens = [t for t in dict.fromkeys((access_cookie, bearer(authorization))) if t]
+    if not tokens:
         raise HTTPException(401, "Sign in to continue.")
-    local = local_user_from_token(db, token)
-    if local:
-        return local
+    for token in tokens:
+        local = local_user_from_token(db, token)
+        if local:
+            return local
+        if settings.neon_auth_enabled and neon_auth.looks_like_neon_token(token):
+            neon = await neon_auth.user_from_token(settings, token)
+            if neon:
+                return neon
     if not settings.supabase_enabled:
         raise HTTPException(401, "Your session has expired. Sign in again.")
+    token = tokens[0]
     status, user = await supabase_request("GET", "/auth/v1/user", access_token=token)
     if status != 200 or not user.get("id"):
         if status >= 500:

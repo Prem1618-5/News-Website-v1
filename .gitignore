@@ -32,6 +32,8 @@ apps/api/data/*.db
 dist/
 apps/*/dist/
 build/
+# The reader's build-time SEO code (sitemaps, RSS, robots, llms.txt) is source, not output.
+!apps/reader/src/build/
 .output/
 
 # Python Cache & Testing

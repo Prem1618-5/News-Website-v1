@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Page: https://hindutone.com/festivals/dussehra-2026-jharkhand/
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/dussehra-2026-in-jharkhand-key-dates-for-ranchi-devotees.jpg
+**Caption | कैप्शन:** Giant effigy of Ravana during Vijayadashami and Dussehra celebrations | विजयादशमी और दशहरा पर रावण दहन की तैयारी
+
 ---
 
 ## English

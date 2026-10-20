@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { buildArtifacts } from '@/build/artifacts'
 import { blocksText } from '@/lib/blocks'
 import { headElements, headHtml } from '@/lib/head'
+import { captionOf } from '@/lib/format'
 import { fallbackFor, keysFor, resolveKey } from '@/lib/prefetch'
 import { articleLd, clip, storyHead, storyMarkdown } from '@/lib/seo'
 import { SECTIONS, SECTION_ICON } from '@/lib/taxonomy'
@@ -40,6 +41,31 @@ describe('story head', () => {
   it('clips long text on a word boundary', () => {
     expect(clip('word '.repeat(100), 40).length).toBeLessThanOrEqual(40)
     expect(clip('short', 40)).toBe('short')
+  })
+
+  it('resolves custom story image in open graph and JSON-LD when present', () => {
+    const s = story({ image_url: '/images/stories/custom.jpg', caption: 'Terminal view | टर्मिनल दृश्य' })
+    const els = headElements(storyHead(s, 'en'))
+    const ogImg = els.find((e) => e.attrs?.property === 'og:image')
+    const twImg = els.find((e) => e.attrs?.name === 'twitter:image')
+    expect(ogImg?.attrs?.content).toMatch(/\/images\/stories\/custom\.jpg$/)
+    expect(twImg?.attrs?.content).toMatch(/\/images\/stories\/custom\.jpg$/)
+    const ld = els.filter((e) => e.tag === 'script').map((e) => JSON.parse(e.text!))
+    expect(ld[0].image).toEqual([expect.stringMatching(/\/images\/stories\/custom\.jpg$/)])
+  })
+
+  it('captionOf splits bilingual captions and handles fallbacks', () => {
+    const s = story({ caption: 'English text | हिन्दी पाठ' })
+    expect(captionOf(s, 'en')).toBe('English text')
+    expect(captionOf(s, 'hi')).toBe('हिन्दी पाठ')
+
+    const single = story({ caption: 'Single language only' })
+    expect(captionOf(single, 'en')).toBe('Single language only')
+    expect(captionOf(single, 'hi')).toBe('Single language only')
+
+    const empty = story({ caption: '' })
+    expect(captionOf(empty, 'en')).toBe('')
+    expect(captionOf(empty, 'hi')).toBe('')
   })
 })
 

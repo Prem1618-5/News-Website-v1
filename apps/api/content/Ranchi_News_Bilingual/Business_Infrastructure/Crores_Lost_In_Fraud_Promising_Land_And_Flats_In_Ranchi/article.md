@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Page: https://www.etvbharat.com/hi/jharkhand/!state
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/crores-lost-in-fraud-promising-land-and-flats-in-ranchi.jpg
+**Caption | कैप्शन:** Residential apartment complex and housing construction under development in Ranchi | रांची में निर्माणाधीन आवासीय अपार्टमेंट और भवन
+
 ---
 
 ## English

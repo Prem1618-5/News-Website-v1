@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Listing: https://thecsrjournal.in/over-20-injured-when-kolkata-ranchi-bus-overturns-on-jharkhand-highway (dated 3 October 2026)
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/over-20-injured-as-kolkata-ranchi-bus-overturns-on-nh-33.jpg
+**Caption | कैप्शन:** Stretch of National Highway connecting Ranchi and Kolkata in Jharkhand | झारखंड में रांची और कोलकाता को जोड़ने वाला राष्ट्रीय राजमार्ग
+
 ---
 
 ## English

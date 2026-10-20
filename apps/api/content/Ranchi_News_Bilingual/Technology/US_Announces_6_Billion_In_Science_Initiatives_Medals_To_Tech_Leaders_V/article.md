@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image. Source: https://www.aip.org/fyi/the-week-of-october-12-2026
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/us-announces-6-billion-in-science-initiatives-medals-to-tech-leaders.jpg
+**Caption | कैप्शन:** The National Medal of Technology and Innovation honoring leaders in science and technology | विज्ञान और प्रौद्योगिकी के क्षेत्र में उत्कृष्ट योगदान हेतु राष्ट्रीय पदक
+
 ---
 
 ## English

@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Pages: https://www.etvbharat.com/hi/jharkhand/!state ; https://www.amarujala.com/jharkhand
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/108-ambulance-staff-announce-indefinite-strike-from-21-october.jpg
+**Caption | कैप्शन:** Emergency 108 ambulance vehicle providing medical services across Jharkhand | झारखंड में आपातकालीन चिकित्सा सेवा देने वाली 108 एम्बुलेंस
+
 ---
 
 ## English

@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** Prabhat Khabar used an AI-generated illustration (not a photo). Page: https://www.prabhatkhabar.com/state/jharkhand/ranchi-durga-puja-ram-temple-inspired-indonesian-style-pandal-to-dazzle-visitors
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/singh-mod-puja-committee-builds-indonesian-style-shri-ram-temple-pandal.jpg
+**Caption | कैप्शन:** 60-foot temple replica pandal inspired by Indonesian architecture and Shri Ram Temple | इंडोनेशियाई वास्तुकला व श्रीराम मंदिर से प्रेरित भव्य पूजा पंडाल
+
 ---
 
 ## English

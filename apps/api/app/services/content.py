@@ -66,6 +66,7 @@ def sync_content(db: Session, root: Path = CONTENT_DIR) -> int:
             deck=it["deck"], deck_hi=it["deck_hi"], author=PACK_AUTHOR, read_minutes=it["read_minutes"], live=False,
             position=rank, source_name=it["source_name"], source_url=it["source_url"], language="en", origin="pack",
             urgency=2, published_at=it["published_at"], search_text=search_text(it["title"], it["title_hi"], it["deck"], it["deck_hi"], body_text),
+            image_url=it.get("image_url", ""), caption=it.get("caption", ""),
         )
         content = db.get(ArticleContent, it["slug"])
         unchanged = (

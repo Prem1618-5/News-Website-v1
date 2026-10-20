@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Page: https://www.prabhatkhabar.com/religion/durga-puja-2026-ranchi-durgabari-puja-schedule-chandi-path-navpatrika-vijayadashami-timings/amp
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/durgabari-ranchi-releases-2026-puja-schedule-goddess-to-arrive-on-horse.jpg
+**Caption | कैप्शन:** Traditional idol of Goddess Durga during Durga Puja celebrations | दुर्गा पूजा के दौरान मां दुर्गा की पारंपरिक प्रतिमा
+
 ---
 
 ## English

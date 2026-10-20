@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** Image (The CSR Journal): https://thecsrjournal.in/wp-content/uploads/2026/10/1ranchi-city-pg-2-0_e6e729fe-5e67-4fd0-a76a-adb6568427a6-large-e1791772939998.jpg  Page: https://thecsrjournal.in/ranchi-three-eco-friendly-parks-project-hindi
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/rs-30-crore-plan-for-three-eco-friendly-parks-in-ranchi.jpg
+**Caption | कैप्शन:** Landscaping and green walkways planned for eco-friendly urban parks in Ranchi | रांची में बनने वाले पर्यावरण अनुकूल नगर पार्कों की हरियाली और वॉकवे
+
 ---
 
 ## English

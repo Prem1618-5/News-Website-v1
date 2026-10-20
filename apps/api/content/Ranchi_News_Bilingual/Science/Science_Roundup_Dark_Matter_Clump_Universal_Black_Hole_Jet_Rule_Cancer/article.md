@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No images. Sources: https://www.sciencedaily.com/ ; https://www.sciencedaily.com/news/top/science/ ; https://www.sciencedaily.com/news/health_medicine/ ; https://www.science.org/news
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/science-roundup-dark-matter-clump-universal-black-hole-jet-rule-cancer.jpg
+**Caption | कैप्शन:** Artist rendering of a supermassive black hole with relativistic jets and accretion disk | अंतरिक्ष में ब्लैक होल, उसके चारों ओर घूमते पदार्थ और तीव्र जेट्स का चित्रण
+
 ---
 
 ## English

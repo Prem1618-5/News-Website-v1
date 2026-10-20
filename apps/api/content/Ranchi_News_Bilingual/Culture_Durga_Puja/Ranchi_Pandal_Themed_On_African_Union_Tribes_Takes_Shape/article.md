@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** Photos (PTI via Outlook India, 12 Oct 2026): workers decorating the 'Tribals of the African Union' pandal in Ranchi. Page: https://www.outlookindia.com/national/durga-puja-2026-pandals-rise-idols-take-shape
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/ranchi-pandal-themed-on-african-union-tribes-takes-shape.jpg
+**Caption | कैप्शन:** Artisans and decorators crafting an elaborate themed Durga Puja pandal | थीम आधारित दुर्गा पूजा पंडाल को अंतिम रूप देते कारीगर
+
 ---
 
 ## English

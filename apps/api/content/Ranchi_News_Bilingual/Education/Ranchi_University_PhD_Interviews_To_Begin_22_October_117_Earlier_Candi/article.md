@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Page: https://www.amarujala.com/jharkhand
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/ranchi-university-phd-interviews-to-begin-22-october-117-earlier.jpg
+**Caption | कैप्शन:** Main administrative block and campus grounds of Ranchi University, Jharkhand | रांची विश्वविद्यालय का मुख्य प्रशासनिक परिसर
+
 ---
 
 ## English

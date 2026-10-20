@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No images retrievable. Pages: https://www.prabhatkhabar.com/state/jharkhand/ranchi/this-year-a-grand-durga-puja-is-being-organised ; https://www.prabhatkhabar.com/state/jharkhand/ranchi/jyoti-sangam-shri-durga-puja-committee ; https://www.prabhatkhabar.com/state/jharkhand/ranchi/the-bihar-club-durga-puja-committee
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/more-ranchi-pandals-zila-school-ground-upper-bazar-and-kachahri-road.jpg
+**Caption | कैप्शन:** Spectacular architectural illumination and decorations at a grand Durga Puja pandal | दुर्गा पूजा पंडाल की भव्य रोशनी और सजावट
+
 ---
 
 ## English

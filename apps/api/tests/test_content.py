@@ -20,6 +20,7 @@ def test_pack_has_every_story_with_both_languages():
     assert len(items) == PACK > 0
     assert all(i["blocks"] and i["blocks_hi"] and i["title_hi"] for i in items)
     assert all(i["section"] in SECTION_KEYS for i in items)
+    assert all(i["image_url"].startswith("/images/stories/") and i["caption"] for i in items)
     assert len({i["slug"] for i in items}) == len(items)
 
 
@@ -55,8 +56,8 @@ def test_demo_data_is_gone_and_real_stories_are_served(client):
     page = client.get("/api/stories", params={"limit": 100}).json()
     assert page["total"] == PACK
     assert all(i["title_hi"] and i["author"] == "News APP Desk" for i in page["items"])
-    assert not any("bbc.co.uk" in i["source_url"] for i in page["items"])
-    assert not any(i["image_url"] for i in page["items"])  # third-party photos are never hotlinked
+    assert not any(i["image_url"].startswith("http") for i in page["items"])  # third-party photos are never hotlinked
+    assert all(i["image_url"].startswith("/images/stories/") for i in page["items"])
     dates = [i["published_at"] for i in page["items"]]
     assert dates == sorted(dates, reverse=True)
 
@@ -97,6 +98,25 @@ def test_snapshot_carries_everything_the_build_needs(client):
     snap = client.get("/api/snapshot").json()
     assert len(snap["stories"]) == PACK and len(snap["sections"]) == 13
     assert all(s["body"] for s in snap["stories"])
+    assert all(s["image_url"].startswith("/images/stories/") and s["caption"] for s in snap["stories"])
+
+
+def test_parser_handles_images_and_captions_with_bold_formatting():
+    text = (
+        "# Main Headline\n# मुख्य शीर्षक\n\n## Subhead\n## उपशीर्षक\n\n"
+        "**Image | चित्र:** /images/stories/custom-story.jpg\n"
+        "**Caption | कैप्शन:** Photo of **Birsa Munda** Airport in Ranchi | रांची में **बिरसा मुंडा** हवाई अड्डा\n\n---\n\n"
+        "## English\n\nBody paragraph text.\n\n---\n\n"
+        "## हिंदी\n\nमुख्य भाग का पाठ।\n\n---\n"
+        "*Source | स्रोत:* https://www.etvbharat.com/y\n"
+        "*Compiled | संकलन:* 19 October 2026\n"
+    )
+    a = parse_article(text, "Business_Infrastructure")
+    assert a["image_url"] == "/images/stories/custom-story.jpg"
+    assert a["caption"] == "Photo of **Birsa Munda** Airport in Ranchi | रांची में **बिरसा मुंडा** हवाई अड्डा"
+    # Ensure image URL was not falsely captured as a source reference
+    assert not any("/images/" in s["url"] for s in a["sources"])
+    assert [s["name"] for s in a["sources"]] == ["ETV Bharat"]
 
 
 def test_sync_is_idempotent(client):

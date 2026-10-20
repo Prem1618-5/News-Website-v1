@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Reports: https://www.khaleejtimes.com/travel/air-india-air-india-express-extend-saudi-flight-cancellations-until-october-20 ; https://telanganatoday.com/air-india-air-india-express-suspend-saudi-arabia-flights-until-october-20
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/saudi-airspace-turmoil-indian-airlines-extend-cancellations-to-riyadh.jpg
+**Caption | कैप्शन:** Commercial passenger airliner on tarmac amid widespread flight schedule disruptions | उड़ानें रद्द होने और समय-सारणी में व्यवधान के बीच रनवे पर वाणिज्यिक यात्री विमान
+
 ---
 
 ## English

@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Sources: https://starlust.org/esa-and-jax-as-bepi-colombo-spacecraft-begins-mercury-arrival-after-8-years-in-space/ ; https://orbitcodex.com/events/bepicolombo-mercury-orbit-insertion ; https://en.wikipedia.org/wiki/BepiColombo
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/bepicolombo-nears-mercury-eight-years-after-launch-europe-and-japan.jpg
+**Caption | कैप्शन:** Model of the joint ESA-JAXA BepiColombo spacecraft en route to explore Mercury | बुध ग्रह के अध्ययन के लिए रवाना संयुक्त ईएसए-जाक्सा बेपीकोलंबो अंतरिक्ष यान
+
 ---
 
 ## English

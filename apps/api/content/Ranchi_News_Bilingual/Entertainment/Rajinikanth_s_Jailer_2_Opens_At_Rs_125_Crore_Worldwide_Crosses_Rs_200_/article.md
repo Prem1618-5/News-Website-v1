@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Sources: https://www.theweek.in/news/entertainment/2026/10/16/jailer-2-day-1-box-office-collection.html ; https://www.sacnilk.com/news/jailer-2-box-office-rajinikanths-blockbuster-crosses-200-cr-worldwide-in-2-days-becomes-4th-tamil-film-of-2026-to-do
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/rajinikanths-jailer-2-opens-at-rs-125-crore-worldwide-crosses-rs-200.jpg
+**Caption | कैप्शन:** Superstar Rajinikanth whose blockbuster Jailer 2 crossed ₹200 crore worldwide | सुपरस्टार रजनीकांत, जिनकी फिल्म 'जेलर 2' ने दुनिया भर में ₹200 करोड़ का आंकड़ा पार किया
+
 ---
 
 ## English

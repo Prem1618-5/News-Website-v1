@@ -26,16 +26,23 @@ export function useStoryView(s: Story) {
 }
 
 /** Photo when the story has one of our own; otherwise a tinted tile carrying the desk's icon. */
-export function Thumb({ story, style, icon = 28 }: { story: Story; style?: CSSProperties; icon?: number }) {
+export function Thumb({ story, style, icon = 28, loading = 'lazy', priority = false }: { story: Story; style?: CSSProperties; icon?: number; loading?: 'lazy' | 'eager'; priority?: boolean }) {
   const info = sectionInfo(story.section)
   const photo = story.image_url
   return (
     <div className="img" aria-hidden={photo ? undefined : true} style={{ background: tint(story.id), overflow: 'hidden', position: 'relative', display: 'grid', placeItems: 'center', color: info.color, ...style }}>
+      <SectionIcon k={story.section} size={icon} style={{ opacity: 0.35 }} />
       {photo ? (
-        <img src={photo} alt={story.caption || ''} loading="lazy" style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-      ) : (
-        <SectionIcon k={story.section} size={icon} style={{ opacity: 0.35 }} />
-      )}
+        <img
+          src={photo}
+          alt={story.caption || ''}
+          loading={priority ? 'eager' : loading}
+          decoding="async"
+          fetchPriority={priority ? 'high' : 'auto'}
+          onError={(e) => { e.currentTarget.style.display = 'none' }}
+          style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+        />
+      ) : null}
     </div>
   )
 }
@@ -152,7 +159,7 @@ export function HeroDesktop({ story, label }: { story: Story; label: string }) {
   return (
     <section className="card hv" style={{ gridColumn: '1/8', gridRow: '1/3', display: 'flex', flexDirection: 'column', gap: '14px', padding: '16px' }}>
       <Link to={v.href} style={{ display: 'block', flex: 1 }}>
-        <Thumb story={story} icon={64} style={{ aspectRatio: '16/10', minHeight: '260px' }} />
+        <Thumb story={story} icon={64} priority style={{ aspectRatio: '16/10', minHeight: '260px' }} />
         <div className="row" style={{ margin: '14px 0 8px' }}>
           <span className="pill">{v.section}</span>
           <span className="mf sm">{label} · {v.read}</span>

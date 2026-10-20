@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Source: https://letsdatascience.com/news/hangzhou-to-host-china-robot-competition-and-embodied-ai-cha-ac22a05a
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/robots-play-badminton-and-sort-parcels-as-hangzhou-hosts-china-robot.jpg
+**Caption | कैप्शन:** Autonomous robots demonstrating dexterity and sorting agility at robotics challenge | रोबोटिक्स प्रतियोगिता में स्वायत्त रोबोट्स की दक्षता और छँटाई का प्रदर्शन
+
 ---
 
 ## English

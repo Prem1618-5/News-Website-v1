@@ -163,7 +163,24 @@ def parse_article(text: str, folder: str) -> dict:
     if len(heads) < 2:
         raise ValueError("expected an English and a Hindi '# ' headline")
 
-    ref = next((l for l in lines if l.startswith("**Image")), "")
+    ref = next((l for l in lines if l.startswith("**Image / video reference") or l.startswith("**Image reference")), "")
+    if not ref:
+        ref = next((l for l in lines if (l.startswith("**Image") or l.startswith("**चित्र")) and ("reference" in l.lower() or "संदर्भ" in l)), "")
+
+    image_url = ""
+    caption = ""
+    for l in lines:
+        if not image_url:
+            m = re.match(r"^\*\*(?:Image(?:\s*URL)?|चित्र)(?:\s*\|[^*:]+)?(?::\*\*|\*\*[:\s]*)\s*(\S+)", l, re.IGNORECASE)
+            if m:
+                image_url = m.group(1).strip()
+                continue
+        if not caption:
+            m = re.match(r"^\*\*(?:Caption|चित्र विवरण|कैप्शन)(?:\s*\|[^*:]+)?(?::\*\*|\*\*[:\s]*)\s*(.*)$", l, re.IGNORECASE)
+            if m:
+                caption = m.group(1).strip()
+                continue
+
     primary = next((m.group(1) for l in lines if (m := re.match(r"^\*Source[^*]*\*\s*(\S+)", l))), "")
     compiled = next((l for l in lines if l.startswith("*Compiled")), "")
     date = None
@@ -213,6 +230,8 @@ def parse_article(text: str, folder: str) -> dict:
         "title_hi": heads[1],
         "deck": subs[0] if subs else "",
         "deck_hi": subs[1] if len(subs) > 1 else "",
+        "image_url": image_url,
+        "caption": caption,
         "blocks": blocks_en,
         "blocks_hi": blocks_hi,
         "sources": sources,
@@ -274,6 +293,19 @@ def load_pack(root: Path = CONTENT_DIR) -> list[dict]:
             slug, n = f"{base}-{n}", n + 1
         used.add(slug)
         item["slug"] = slug
+        if not item.get("image_url"):
+            candidate = f"{slug}.jpg"
+            reader_img = root.parent.parent / "apps" / "reader" / "public" / "images" / "stories" / candidate
+            media_img = root.parent / "media" / "images" / "stories" / candidate
+            if reader_img.is_file() or media_img.is_file():
+                item["image_url"] = f"/images/stories/{slug}.jpg"
+            else:
+                item["image_url"] = ""
+        if not item.get("caption"):
+            if item.get("image_url"):
+                item["caption"] = f"{item['title']} | {item['title_hi']}"
+            else:
+                item["caption"] = ""
 
     items.sort(key=lambda i: (-i["words"], i["slug"]))
     for rank, item in enumerate(items):
@@ -294,7 +326,8 @@ def snapshot(root: Path = CONTENT_DIR) -> dict:
             "state": it["state"], "district": it["district"], "breaking": False,
             "title": it["title"], "title_hi": it["title_hi"], "deck": it["deck"], "deck_hi": it["deck_hi"],
             "author": "News APP Desk", "author_slug": "news-app-desk",
-            "read_minutes": it["read_minutes"], "live": False, "urgency": 2, "image_url": "", "caption": "",
+            "read_minutes": it["read_minutes"], "live": False, "urgency": 2,
+            "image_url": it.get("image_url", ""), "caption": it.get("caption", ""),
             "source_name": it["source_name"], "source_url": it["source_url"], "language": "en", "has_hi": bool(it["blocks_hi"]),
             "published_at": it["published_at"].isoformat(), "updated_at": it["published_at"].isoformat(),
             "body": it["blocks"], "body_hi": it["blocks_hi"], "sources": it["sources"],

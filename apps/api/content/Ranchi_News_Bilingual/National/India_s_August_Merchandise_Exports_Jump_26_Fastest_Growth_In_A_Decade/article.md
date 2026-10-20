@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image. Sources: https://www.dtnext.in/news/business/indias-exports-up-2612-pc-to-usd-4381-bn-in-aug-trade-deficit-narrows-to-usd-2686-bn ; https://www.ibef.org/news/the-cumulative-exports-merchandise-services-during-april-august-2026-27-is-estimated-at-us-399-27-billion-as-compared-to-us-345-55-billion-in-april-august-2025-26-an-estimated-growth-of-15-55
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/indias-august-merchandise-exports-jump-26-fastest-growth-in-a-decade.jpg
+**Caption | कैप्शन:** Cargo container terminal handling international merchandise export freight | अंतरराष्ट्रीय व्यापारिक निर्यात के लिए कंटेनर फ्रेट संभालता पोर्ट टर्मिनल
+
 ---
 
 ## English

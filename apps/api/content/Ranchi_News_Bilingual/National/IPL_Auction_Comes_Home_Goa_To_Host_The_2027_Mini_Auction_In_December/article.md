@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Sources: https://www.deccanchronicle.com/sports/ipl-2027-auction-to-be-held-in-goa-in-december-1989949 ; https://www.freepressjournal.in/sports/ipl-2027-auction-set-for-goa-in-december-bcci-shifts-india-a-women-match-to-mohali
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/ipl-auction-comes-home-goa-to-host-the-2027-mini-auction-in-december.jpg
+**Caption | कैप्शन:** Floodlit cricket stadium during high-voltage Indian Premier League action | भारतीय प्रीमियर लीग (आईपीएल) मैच के दौरान जगमगाता स्टेडियम
+
 ---
 
 ## English

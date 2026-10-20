@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** AP photo caption (12 Oct 2026): a couple looks out to sea from the seawall in Puerto Vallarta after Simon passed. Reports: https://www.jems.com/?p=222684 ; https://www.itv.com/news/2026-10-10/simon-strengthens-into-a-category-4-hurricane-as-it-approaches-mexicos-coast
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/hurricane-simon-crawls-along-mexicos-pacific-coast-as-rachels-remnants.jpg
+**Caption | कैप्शन:** Satellite imagery of Category 4 Pacific hurricane churning off the coast of Mexico | मेक्सिको के प्रशांत तट के पास विशाल श्रेणी-4 चक्रवाती तूफान का उपग्रह चित्र
+
 ---
 
 ## English

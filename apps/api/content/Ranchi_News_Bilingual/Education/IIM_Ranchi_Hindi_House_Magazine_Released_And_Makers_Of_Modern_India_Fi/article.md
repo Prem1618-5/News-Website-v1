@@ -7,6 +7,9 @@
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Page: https://iimranchi.ac.in/ ; CAT date via https://www.msmunify.com/in/college/iim-ranchi
 (Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
+**Image | चित्र:** /images/stories/iim-ranchi-hindi-house-magazine-released-and-makers-of-modern-india.jpg
+**Caption | कैप्शन:** Academic building at the Indian Institute of Management (IIM) Ranchi campus | भारतीय प्रबंधन संस्थान (आईआईएम) रांची का परिसर
+
 ---
 
 ## English

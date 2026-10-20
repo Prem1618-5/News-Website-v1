@@ -55,10 +55,22 @@ Prices and limits are from the providers' pages in October 2026 and change. Chec
    | `NEWS_CORS_ORIGINS` | `["https://www.example.com","https://newsroom.example.com"]` |
    | `NEWS_COOKIE_SAMESITE` | `lax` (API on a sibling subdomain) |
    | `NEWS_DEPLOY_HOOK_URL` | the Pages deploy hook from step 4 (add after step 4) |
+   | `READER_URL` | `https://www.example.com`. Used for the reader's password-reset links. |
+   | `NEWSROOM_URL` | `https://newsroom.example.com` (no trailing path, since the Newsroom is built with `NEWSROOM_BASE=/`). Used for staff invite and reset links. The default points at localhost, so emailed links are wrong until this is set. |
+   | `RESEND_API_KEY` | from resend.com. Sends staff invites and password resets. Without it the links are only written to the API log (and the Newsroom still shows each invite link to copy). |
+   | `EMAIL_FROM` | `Your Brand <newsroom@example.com>` on a domain verified in Resend. The default is a placeholder sender. |
+   | `NEWSROOM_ADMIN_EMAIL`, `NEWSROOM_ADMIN_PASSWORD` | first admin, see "First sign-in" below. Optional `NEWSROOM_ADMIN_NAME` (default "Managing editor"). |
+   | `NEWS_MEDIA_DIR` | `/srv/media`, the volume mount (see "Uploads" below) |
    | `SUPABASE_URL`, `SUPABASE_ANON_KEY` | optional: managed accounts and password-reset email |
    | `GROQ_API_KEY` etc. | optional: AI assistant in the Newsroom |
 
    Point `api.example.com` at the Railway service. On first start the API creates the tables, adds any missing columns, syncs the 13 desks and loads the article packs in `apps/api/content/`.
+
+   **Uploads (photos, video, voice).** The Newsroom saves files to disk on the API container, and the API serves them at `/media/`. A container's disk is wiped on every redeploy, so attach a Railway **volume** to the API service and mount it at `/srv/media`, then set `NEWS_MEDIA_DIR=/srv/media`. Without the volume, every uploaded photo disappears at the next deploy. The container runs as a non-root user; if uploads fail with "permission denied" on the volume, set `RAILWAY_RUN_UID=0` on the service (Railway's documented fix for volume permissions). Back the volume up, or move uploads to Cloudflare R2 later (see "Growing").
+
+   **Uploaded files and the two front ends.** Uploads are stored as site-relative addresses (`/media/abc.jpg`). The Reader and Newsroom live on different hostnames from the API, so those addresses must also resolve on `www.example.com` and `newsroom.example.com`. This is not set up in the repo yet. Until it is, uploaded images and clips will not display. Two ways to close it: route `www.example.com/media/*` and `newsroom.example.com/media/*` to the API with a Cloudflare Worker route (untested here), or change the Reader and Newsroom to prefix `/media/` paths with `VITE_API_URL` (a small code change, including the prerender). The article packs' own images in `/images/` are unaffected.
+
+   **First sign-in.** Set `NEWSROOM_ADMIN_EMAIL` and `NEWSROOM_ADMIN_PASSWORD` for the first deploy only. On start, if the newsroom has no admin, the API creates one from them (or promotes an existing account with that email). Sign in at `newsroom.example.com`, change the password, then **delete `NEWSROOM_ADMIN_PASSWORD` from the Railway variables**. From there the admin invites editors, editors invite reporters, and people can also use "Ask to join" for the admin to approve. In production no demo accounts exist, so without these two variables nobody can sign in to the Newsroom.
 4. **Reader on Cloudflare Pages.** Connect the repo.
    - Build command: `corepack enable && pnpm install --frozen-lockfile && pnpm build:reader`
    - Output directory: `apps/reader/dist`
@@ -83,7 +95,7 @@ For true minute-by-minute breaking news later, move the story route to an edge f
 | API CPU/RAM regularly above ~60 % | Raise the Railway service size, or add a second replica. Move rate limiting (`ratelimit.py` is in-memory) to Redis/Valkey first. |
 | Database near 0.5 GB or sleeps hurt | Neon Launch plan, or Supabase Pro. |
 | Hundreds of stories, build over ~3 minutes | Build only changed stories, or render story pages on demand in a Cloudflare Worker with the same React code and cache them at the edge. |
-| Newsroom photo uploads | Cloudflare R2 (free tier, no egress fees) for images; store the URL in `hero.url`. |
+| Upload volume filling up, or you want a CDN for photos | Cloudflare R2 (free tier, no egress fees) for uploads instead of the Railway volume; store the full URL in the story's image and block `url`. Reader and API currently only accept `/media/` and `/images/` paths, so widen that allow-list in `blocks.tsx` and `services/doc.py` at the same time. |
 | Heavy traffic or ads | Cloudflare in front of the API with cache rules, Argo/Tiered cache, a real analytics tool (Plausible/Umami) alongside the consented first-party events. |
 | Uptime matters | Better Stack / UptimeRobot on `/api/health` and the home page (free tiers), Sentry (free tier) on the Reader. |
 
@@ -93,6 +105,10 @@ For true minute-by-minute breaking news later, move the story route to an edge f
 - [ ] `APP_ENV=production`, strong `JWT_SECRET` and `NEWSROOM_API_KEY` (the API refuses to start without them).
 - [ ] `NEWS_CORS_ORIGINS` lists only your two front ends.
 - [ ] Demo staff accounts are not created (they are only seeded when `APP_ENV` is not `production`).
+- [ ] A volume is mounted at `/srv/media` and `NEWS_MEDIA_DIR=/srv/media` is set. Upload a photo, redeploy, and confirm it is still there.
+- [ ] `/media/...` addresses resolve on the Reader and Newsroom hostnames (see "Uploaded files and the two front ends").
+- [ ] `READER_URL` and `NEWSROOM_URL` are the real addresses, `RESEND_API_KEY` is set and `EMAIL_FROM` uses a verified domain. Send yourself an invite and a password reset and open the links.
+- [ ] You signed in as the first admin, changed the password, and removed `NEWSROOM_ADMIN_PASSWORD` from the environment.
 - [ ] The editor notes in some pack stories ("please verify the year", "only the opening lines were retrievable") are resolved or removed. `python apps/api/app/content_pack.py` lists the flagged stories.
 - [ ] Read the About, Editorial standards and Privacy pages and make sure they describe what you really do (AI assistance, corrections, who answers email).
 - [ ] Submit the sitemap in Google Search Console and Bing Webmaster Tools, and apply to Google News Publisher Center (see `SEO.md`).

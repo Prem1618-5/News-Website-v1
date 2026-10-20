@@ -81,3 +81,8 @@ Thumbs.db
 *.swo
 # Uploaded newsroom media (local development)
 apps/api/media/
+
+# Graphify: commit graph.json + report, ignore regenerable/heavy files
+graphify-out/cache/
+graphify-out/graph.html
+graphify-out/.graphify_labels.pending.json

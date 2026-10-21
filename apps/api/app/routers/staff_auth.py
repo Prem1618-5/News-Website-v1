@@ -26,11 +26,15 @@ EMAIL = re.compile(r"[^@\s]+@[^@\s]+\.[^@\s]+")
 DEMO_PASSWORD = "Newsroom#2026"
 # Local development only (never seeded in production): one of each role, already linked.
 DEMO_STAFF = [
-    ("jane", "Jane Black", "admin", "Managing editor", ""),
-    ("mary", "Mary Metcalfe", "editor", "City editor", ""),
-    ("alice", "Alice Chen", "reporter", "City reporter", "mary"),
-    ("anthony", "Anthony Buteo", "reporter", "Sports reporter", "mary"),
+    ("rajiv", "Rajiv Ranjan Sinha", "admin", "Managing editor", ""),
+    ("prabhat", "Prabhat Singh", "editor", "City editor", ""),
+    ("sunita", "Sunita Mahto", "editor", "State desk editor", ""),
+    ("ananya", "Ananya Kumari", "reporter", "City reporter", "prabhat"),
+    ("mohit", "Mohit Oraon", "reporter", "Sports reporter", "prabhat"),
+    ("shabnam", "Shabnam Ansari", "reporter", "Jamshedpur correspondent", "sunita"),
+    ("deepak", "Deepak Munda", "reporter", "Dhanbad correspondent", "sunita"),
 ]
+DEMO_HOME = {"shabnam": "east-singhbhum", "deepak": "dhanbad"}
 _login_failures = Limiter(8)
 _signups = Limiter(5, "Too many requests from this network. Try again in a few minutes.")
 _forgot = Limiter(5, "Too many reset requests. Check your inbox, or try again in a few minutes.")
@@ -46,7 +50,7 @@ def seed_demo_staff(db: Session) -> None:
             continue
         db.add(StaffAccount(
             id=str(uuid.uuid4()), staff_id=staff_id, email=_email_for(name), password_hash=hash_password(DEMO_PASSWORD),
-            display_name=name, role=role, job_title=title, reports_to=reports_to, home_state="JH", home_district="ranchi",
+            display_name=name, role=role, job_title=title, reports_to=reports_to, home_state="JH", home_district=DEMO_HOME.get(staff_id, "ranchi"),
         ))
     db.commit()
 

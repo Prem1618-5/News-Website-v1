@@ -20,11 +20,11 @@ def _lifespan():
 
 
 def test_login_wrong_password_is_401():
-    assert login("mary.metcalfe@newsapp.example", "nope-nope").status_code == 401
+    assert login("prabhat.singh@newsapp.example", "nope-nope").status_code == 401
 
 
 def test_login_and_session_roundtrip():
-    r = login("mary.metcalfe@newsapp.example")
+    r = login("prabhat.singh@newsapp.example")
     assert r.status_code == 200
     token = r.json()["token"]
     me = client.get("/api/staff-auth/session", headers={"Authorization": f"Bearer {token}"})
@@ -57,22 +57,22 @@ def test_signup_rejects_blank_name():
 
 def test_successful_logins_do_not_lock_the_account():
     for _ in range(12):
-        assert login("jane.black@newsapp.example").status_code == 200
+        assert login("rajiv.ranjan.sinha@newsapp.example").status_code == 200
 
 
 def test_repeated_failures_are_throttled():
-    codes = [login("anthony.buteo@newsapp.example", "wrong-password").status_code for _ in range(9)]
+    codes = [login("mohit.oraon@newsapp.example", "wrong-password").status_code for _ in range(9)]
     assert codes[:8] == [401] * 8 and codes[8] == 429
 
 
 def test_reporter_token_cannot_use_editor_routes():
-    token = login("alice.chen@newsapp.example").json()["token"]
+    token = login("ananya.kumari@newsapp.example").json()["token"]
     r = client.post("/api/newsroom/articles", headers={"Authorization": f"Bearer {token}"}, json={})
     assert r.status_code == 403
 
 
 def test_editor_token_passes_newsroom_guard():
-    token = login("mary.metcalfe@newsapp.example").json()["token"]
+    token = login("prabhat.singh@newsapp.example").json()["token"]
     r = client.post("/api/newsroom/articles", headers={"Authorization": f"Bearer {token}"}, json={})
     assert r.status_code != 403
 
@@ -91,6 +91,6 @@ def test_reader_token_is_not_a_staff_token():
 
 
 def test_reporter_can_call_ai_assist_but_gets_503_without_key():
-    token = login("alice.chen@newsapp.example").json()["token"]
+    token = login("ananya.kumari@newsapp.example").json()["token"]
     r = client.post("/api/ai/assist", headers={"Authorization": f"Bearer {token}"}, json={"task": "headline", "text": "A story"})
     assert r.status_code in (200, 503)

@@ -5,7 +5,12 @@
 ## कांके के बोरिया स्थित राजकीय उच्च विद्यालय में चित्रकला व भाषण प्रतियोगिता
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Source: The Pioneer, Ranchi edition, 14 October 2026 e-paper: https://dailypioneer.com/uploads/2026/epaper/october/ranchi-english-edition-2026-10-14.pdf
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
+
+**Image | चित्र:** /images/stories/cmpdil-holds-student-activities-ahead-of-vigilance-awareness-week-2026.jpg
+**Caption | कैप्शन:** File photo, not from this event: A view of a national level painting competition, about 5.25 lakh students of IV and V standard participated in the school level competition across the country. Photo: Ministry of Power / Wikimedia Commons, GODL-India | फ़ाइल फ़ोटो, इस घटना की नहीं: A view of a national level painting competition, about 5.25 lakh students of IV and V standard participated in the school level competition across the country. Photo: Ministry of Power / Wikimedia Commons, GODL-India
 
 ---
 

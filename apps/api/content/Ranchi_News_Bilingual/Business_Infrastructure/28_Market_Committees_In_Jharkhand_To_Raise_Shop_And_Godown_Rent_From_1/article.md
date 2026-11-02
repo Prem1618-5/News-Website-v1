@@ -5,7 +5,6 @@
 ## विपणन बोर्ड के फैसले से व्यवसायियों में आक्रोश, ईटीवी भारत झारखंड की रिपोर्ट
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** Image shown by ETV Bharat: Agricultural Produce Market Committee, Ranchi. Page: https://www.etvbharat.com/hi/jharkhand/!state
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
 ---
 

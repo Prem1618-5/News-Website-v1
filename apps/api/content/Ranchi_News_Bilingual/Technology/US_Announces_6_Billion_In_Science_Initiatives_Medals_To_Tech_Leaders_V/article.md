@@ -5,7 +5,6 @@
 ## 12 अक्टूबर 2026 वाले सप्ताह की एआईपी की विज्ञान-नीति ब्रीफिंग
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image. Source: https://www.aip.org/fyi/the-week-of-october-12-2026
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
 ---
 

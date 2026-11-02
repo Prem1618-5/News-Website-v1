@@ -5,7 +5,12 @@
 ## शनिवार तड़के झारखंड के राजमार्ग पर यात्री बस पलटी
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Listing: https://thecsrjournal.in/over-20-injured-when-kolkata-ranchi-bus-overturns-on-jharkhand-highway (dated 3 October 2026)
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
+
+**Image | चित्र:** /images/stories/over-20-injured-as-kolkata-ranchi-bus-overturns-on-nh-33.jpg
+**Caption | कैप्शन:** File photo, not from this event: National Highway no. 114A connecting West Bengal and Jharkhand 02. Photo: Pinakpani / Wikimedia Commons, CC BY-SA 4.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: National Highway no. 114A connecting West Bengal and Jharkhand 02. Photo: Pinakpani / Wikimedia Commons, CC BY-SA 4.0
 
 ---
 

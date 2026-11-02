@@ -5,7 +5,12 @@
 ## चरम पर श्रेणी-4 का तूफान कई दिन तट के बेहद करीब रहा; कम से कम छह मौतें
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** AP photo caption (12 Oct 2026): a couple looks out to sea from the seawall in Puerto Vallarta after Simon passed. Reports: https://www.jems.com/?p=222684 ; https://www.itv.com/news/2026-10-10/simon-strengthens-into-a-category-4-hurricane-as-it-approaches-mexicos-coast
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
+
+**Image | चित्र:** /images/stories/hurricane-simon-crawls-along-mexicos-pacific-coast-as-rachels-remnants.jpg
+**Caption | कैप्शन:** File photo, not from this event: Hurricane Fausto Churns in the Pacific Ocean (CIRA 2026-07-21). Photo: GOES imagery: CSU/CIRA & NOAA / Wikimedia Commons, Public domain | फ़ाइल फ़ोटो, इस घटना की नहीं: Hurricane Fausto Churns in the Pacific Ocean (CIRA 2026-07-21). Photo: GOES imagery: CSU/CIRA & NOAA / Wikimedia Commons, Public domain
 
 ---
 

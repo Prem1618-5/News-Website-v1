@@ -5,7 +5,6 @@
 ## ईटीवी भारत झारखंड पर 16 अक्टूबर 2026 की ठगी की नई खबर
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Page: https://www.etvbharat.com/hi/jharkhand/!state
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
 ---
 

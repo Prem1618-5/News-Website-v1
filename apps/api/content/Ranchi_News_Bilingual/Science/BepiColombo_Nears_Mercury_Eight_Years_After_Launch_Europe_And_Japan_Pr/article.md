@@ -5,7 +5,12 @@
 ## थ्रस्टर की खराबी से लगभग एक साल की देरी के बाद 21 नवंबर 2026 को कक्षा में प्रवेश की योजना
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Sources: https://starlust.org/esa-and-jax-as-bepi-colombo-spacecraft-begins-mercury-arrival-after-8-years-in-space/ ; https://orbitcodex.com/events/bepicolombo-mercury-orbit-insertion ; https://en.wikipedia.org/wiki/BepiColombo
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
+
+**Image | चित्र:** /images/stories/bepicolombo-nears-mercury-eight-years-after-launch-europe-and-japan.jpg
+**Caption | कैप्शन:** File photo, not from this event: BepiColombo spacecraft model. Photo: National Aeronautics and Space Administration (NASA) / Wikimedia Commons, Public domain | फ़ाइल फ़ोटो, इस घटना की नहीं: BepiColombo spacecraft model. Photo: National Aeronautics and Space Administration (NASA) / Wikimedia Commons, Public domain
 
 ---
 

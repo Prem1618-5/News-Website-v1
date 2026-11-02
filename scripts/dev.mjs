@@ -88,7 +88,7 @@ if (wants("api")) {
   const python = ensurePythonEnv();
   supervise("api", python, ["-m", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--reload-dir", "app"], {
     cwd: apiDir,
-    env: { APP_ENV: "development", PYTHONUNBUFFERED: "1" },
+    env: { APP_ENV: "development", DEMO_SEED: "1", PYTHONUNBUFFERED: "1" },
   });
 }
 

@@ -5,7 +5,12 @@
 ## वार्ता विफल; चरणबद्ध आंदोलन जारी
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Pages: https://www.etvbharat.com/hi/jharkhand/!state ; https://www.amarujala.com/jharkhand
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
+
+**Image | चित्र:** /images/stories/108-ambulance-staff-announce-indefinite-strike-from-21-october.jpg
+**Caption | कैप्शन:** File photo, not from this event: The 108 Ambulance. Photo: UY Scuti / Wikimedia Commons, CC BY-SA 3.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: The 108 Ambulance. Photo: UY Scuti / Wikimedia Commons, CC BY-SA 3.0
 
 ---
 

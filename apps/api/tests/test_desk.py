@@ -24,9 +24,9 @@ def auth(email: str, password: str = DEMO_PASSWORD) -> dict:
     return {"Authorization": f"Bearer {r.json()['token']}"}
 
 
-ADMIN = "jane.black@newsapp.example"
-EDITOR = "mary.metcalfe@newsapp.example"
-REPORTER = "alice.chen@newsapp.example"
+ADMIN = "rajiv.ranjan.sinha@newsapp.example"
+EDITOR = "prabhat.singh@newsapp.example"
+REPORTER = "ananya.kumari@newsapp.example"
 
 
 def doc(*paragraphs: str, marks: list | None = None) -> dict:
@@ -62,7 +62,7 @@ def test_admin_adds_editors_and_editors_add_only_their_reporters():
     r, _ = new_person(editor, "editor")
     assert r.status_code == 403
     r, _ = new_person(editor, "reporter", reports_to="someone-else")
-    assert r.status_code == 201 and r.json()["person"]["reportsTo"] == "mary"
+    assert r.status_code == 201 and r.json()["person"]["reportsTo"] == "prabhat"
     reporter = auth(REPORTER)
     r, _ = new_person(reporter, "reporter")
     assert r.status_code == 403
@@ -76,7 +76,7 @@ def test_invite_link_sets_the_password_and_activates_once():
     assert info["purpose"] == "invite" and info["name"] == "New Person"
     headers = join(link)
     me = client.get("/api/desk/me", headers=headers).json()["staff"]
-    assert me["status"] == "active" and me["reportsTo"] == "mary" and me["homeDistrict"] == "dhanbad"
+    assert me["status"] == "active" and me["reportsTo"] == "prabhat" and me["homeDistrict"] == "dhanbad"
     assert client.post("/api/staff-auth/reset", json={"token": link.split("token=")[1], "password": "again-password"}).status_code == 410
 
 
@@ -94,23 +94,23 @@ def test_forgot_password_resets_and_signs_out_old_sessions():
 
 def test_editor_manages_own_reporters_only_and_admin_approves_requests():
     admin, editor = auth(ADMIN), auth(EDITOR)
-    mine = next(p for p in client.get("/api/desk/team", headers=editor).json() if p["id"] == "alice")
+    mine = next(p for p in client.get("/api/desk/team", headers=editor).json() if p["id"] == "ananya")
     assert mine["canManage"] and mine["email"]
-    assert client.patch("/api/desk/team/alice", headers=editor, json={"trusted": True}).json()["trusted"] is True
-    assert client.patch("/api/desk/team/alice", headers=editor, json={"trusted": False}).status_code == 200
-    assert client.patch("/api/desk/team/alice", headers=editor, json={"role": "editor"}).status_code == 403
-    assert client.patch("/api/desk/team/jane", headers=editor, json={"status": "suspended"}).status_code == 403
+    assert client.patch("/api/desk/team/ananya", headers=editor, json={"trusted": True}).json()["trusted"] is True
+    assert client.patch("/api/desk/team/ananya", headers=editor, json={"trusted": False}).status_code == 200
+    assert client.patch("/api/desk/team/ananya", headers=editor, json={"role": "editor"}).status_code == 403
+    assert client.patch("/api/desk/team/rajiv", headers=editor, json={"status": "suspended"}).status_code == 403
     email = f"ask.{uuid.uuid4().hex[:6]}@newsapp.example"
     client.post("/api/staff-auth/signup", json={"display_name": "Asks To Join", "email": email, "password": "long-enough-pw"})
     pending = next(p for p in client.get("/api/desk/team", headers=admin).json() if p.get("email") == email)
     assert pending["status"] == "pending"
-    assert client.post(f"/api/desk/team/{pending['id']}/approve", headers=admin, json={"role": "reporter", "reports_to": "mary"}).status_code == 200
+    assert client.post(f"/api/desk/team/{pending['id']}/approve", headers=admin, json={"role": "reporter", "reports_to": "prabhat"}).status_code == 200
     auth(email, "long-enough-pw")
 
 
 def test_the_last_admin_cannot_be_removed():
     admin = auth(ADMIN)
-    r = client.patch("/api/desk/team/jane", headers=admin, json={"status": "suspended"})
+    r = client.patch("/api/desk/team/rajiv", headers=admin, json={"status": "suspended"})
     assert r.status_code == 403  # nobody manages themselves
 
 
@@ -162,7 +162,7 @@ def test_full_review_cycle_with_highlights_and_senior_edits():
 
     # The writer sees who changed it and what to fix.
     mine = client.get(f"/api/desk/articles/{art['id']}", headers=reporter).json()
-    assert [c["id"] for c in mine["changed_by"]] == ["mary"] and mine["headline"] == "Rain floods Ranchi's Main Road"
+    assert [c["id"] for c in mine["changed_by"]] == ["prabhat"] and mine["headline"] == "Rain floods Ranchi's Main Road"
     assert mine["notes"][0]["kind"] == "problem" and mine["notes"][0]["status"] == "open"
     assert mine["body_en"]["content"][0]["content"][0]["marks"][0]["type"] == "note"
     # It stays until the writer has looked at the changes.
@@ -178,7 +178,7 @@ def test_full_review_cycle_with_highlights_and_senior_edits():
     live = published.json()
     assert live["status"] == "published" and live["story_id"] == f"nr-{art['id']}"
     story = client.get(f"/api/stories/{live['slug']}").json()
-    assert story["title"] == "Rain floods Ranchi's Main Road" and story["district"] == "ranchi" and story["author"] == "Alice Chen"
+    assert story["title"] == "Rain floods Ranchi's Main Road" and story["district"] == "ranchi" and story["author"] == "Ananya Kumari"
     assert "note" not in str(story["body"])  # review highlights never reach readers
 
     history = client.get(f"/api/desk/articles/{art['id']}/history", headers=reporter).json()["items"]
@@ -201,15 +201,15 @@ def test_breaking_news_goes_to_every_editor_and_tops_the_local_feed():
 
 def test_trusted_reporter_publishes_directly_and_editor_checks_after():
     editor = auth(EDITOR)
-    client.patch("/api/desk/team/anthony", headers=editor, json={"trusted": True})
-    trusted = auth("anthony.buteo@newsapp.example")
+    client.patch("/api/desk/team/mohit", headers=editor, json={"trusted": True})
+    trusted = auth("mohit.oraon@newsapp.example")
     art = create(trusted, headline_en="Ranchi wins the state football final", section="sports")
     assert art["can"]["publish"] and not art["can"]["submit"]
     live = client.post(f"/api/desk/articles/{art['id']}/publish", headers=trusted, json={"scope": "state", "state": "JH"}).json()
     assert live["status"] == "published" and live["needs_check"]
     assert any(i["id"] == art["id"] for i in client.get("/api/desk/articles", headers=editor, params={"view": "checks"}).json()["items"])
     assert client.post(f"/api/desk/articles/{art['id']}/check", headers=editor).json()["needs_check"] is False
-    client.patch("/api/desk/team/anthony", headers=editor, json={"trusted": False})
+    client.patch("/api/desk/team/mohit", headers=editor, json={"trusted": False})
 
 
 def test_untrusted_reporter_cannot_publish_and_reject_needs_a_reason():

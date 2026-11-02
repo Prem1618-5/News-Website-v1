@@ -5,7 +5,12 @@
 ## अमर उजाला झारखंड, 6 अक्टूबर 2026
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Page: https://www.amarujala.com/jharkhand
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
+
+**Image | चित्र:** /images/stories/ranchi-university-phd-interviews-to-begin-22-october-117-earlier.jpg
+**Caption | कैप्शन:** File photo, not from this event: Campus of Ranchi University. Photo: Ranchi University / Wikimedia Commons, CC0 | फ़ाइल फ़ोटो, इस घटना की नहीं: Campus of Ranchi University. Photo: Ranchi University / Wikimedia Commons, CC0
 
 ---
 

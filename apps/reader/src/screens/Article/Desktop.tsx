@@ -5,7 +5,7 @@ import { Thumb, TileCard, useStoryView } from '@/components/story/cards'
 import { AuthorCard, WriterRow, authorsOf } from '@/components/story/writers'
 import { FollowToggle } from '@/components/ui/controls'
 import { BLOCKS_DESKTOP_STYLE } from './style'
-import { initials } from '@/lib/format'
+import { captionOf, initials } from '@/lib/format'
 import { useMore, useRelated } from '@/lib/data'
 import { useLang } from '@/lib/library'
 import { BlocksView } from '@/lib/blocks'
@@ -56,8 +56,8 @@ export default function ArticleDesktop({ story, lang }: { story: StoryDetail; la
                 <FollowToggle followKey={`w:${story.author_slug}`} label={`Follow ${story.author}`} />
               </div>
               <div style={{ margin: '16px 0 0' }}><Actions story={story} v={v} /></div>
-              <Thumb story={story} icon={72} style={{ aspectRatio: '16/9', margin: '28px 0 8px' }} />
-              {story.image_url && story.caption ? <p className="mf sm" style={{ margin: '0 0 28px' }}>{story.caption}</p> : <div style={{ height: '20px' }} />}
+              <Thumb story={story} icon={72} priority style={{ aspectRatio: '16/9', margin: '28px 0 8px' }} />
+              {story.image_url && story.caption ? <p className="mf sm" lang={v.htmlLang} style={{ margin: '0 0 28px' }}>{captionOf(story, lang)}</p> : <div style={{ height: '20px' }} />}
               <Highlighter story={story}>
                 <BlocksView blocks={v.body} style={BLOCKS_DESKTOP_STYLE} lang={v.htmlLang} />
               </Highlighter>

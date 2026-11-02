@@ -37,7 +37,7 @@ def bootstrap() -> None:
     init_db()
     with Session(engine) as db:
         staff_auth.seed_first_admin(db)
-    if not settings.is_production and not settings.supabase_enabled:
+    if settings.demo_accounts_on and not settings.supabase_enabled:
         try:
             with Session(engine) as db:
                 staff_auth.seed_demo_staff(db)

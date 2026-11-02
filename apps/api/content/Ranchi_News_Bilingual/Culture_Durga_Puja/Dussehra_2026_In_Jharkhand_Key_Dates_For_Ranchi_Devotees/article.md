@@ -5,7 +5,12 @@
 ## अष्टमी 18 अक्टूबर, नवमी 19 अक्टूबर, विजयादशमी व रावण दहन 20 अक्टूबर
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Page: https://hindutone.com/festivals/dussehra-2026-jharkhand/
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
+
+**Image | चित्र:** /images/stories/dussehra-2026-in-jharkhand-key-dates-for-ranchi-devotees.jpg
+**Caption | कैप्शन:** File photo, not from this event: The Ravana effigy in flames at the Dussehra celebrations, at Ramleela Maidan on the auspicious occasion of Vijay Dashmi, in Delhi on October 22, 2015. Photo: Ministry of Culture / Wikimedia Commons, GODL-India | फ़ाइल फ़ोटो, इस घटना की नहीं: The Ravana effigy in flames at the Dussehra celebrations, at Ramleela Maidan on the auspicious occasion of Vijay Dashmi, in Delhi on October 22, 2015. Photo: Ministry of Culture / Wikimedia Commons, GODL-India
 
 ---
 

@@ -7,7 +7,7 @@ import { AuthorCard } from '@/components/story/writers'
 import { FollowToggle } from '@/components/ui/controls'
 import { BlocksView } from '@/lib/blocks'
 import { useMore } from '@/lib/data'
-import { initials } from '@/lib/format'
+import { captionOf, initials } from '@/lib/format'
 import { useLang } from '@/lib/library'
 import type { Language, StoryDetail } from '@/lib/types'
 import { Actions, DateLine, Highlighter, PillRow, Sources, useArticleView } from './parts'
@@ -36,8 +36,8 @@ export default function ArticleMobile({ story, lang }: { story: StoryDetail; lan
             <FollowToggle followKey={`w:${story.author_slug}`} label={`Follow ${story.author}`} />
           </div>
           <div style={{ marginBottom: '16px' }}><Actions story={story} v={v} /></div>
-          <Thumb story={story} icon={64} style={{ aspectRatio: '4/3', margin: '0 0 8px', borderRadius: '14px' }} />
-          {story.image_url && story.caption ? <p className="mf sm" style={{ margin: '0 0 22px' }}>{story.caption}</p> : <div style={{ height: '14px' }} />}
+          <Thumb story={story} icon={64} priority style={{ aspectRatio: '4/3', margin: '0 0 8px', borderRadius: '14px' }} />
+          {story.image_url && story.caption ? <p className="mf sm" lang={v.htmlLang} style={{ margin: '0 0 22px' }}>{captionOf(story, lang)}</p> : <div style={{ height: '14px' }} />}
           <Highlighter story={story}>
             <BlocksView blocks={v.body} style={BLOCKS_MOBILE_STYLE} lang={v.htmlLang} />
           </Highlighter>

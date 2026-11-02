@@ -5,7 +5,6 @@
 ## 7 से 9 अक्टूबर तक विशेष शिविर और 10 तारीख को मेगा हेल्प डेस्क, अमर उजाला
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Page: https://www.amarujala.com/jharkhand
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
 
 ---
 

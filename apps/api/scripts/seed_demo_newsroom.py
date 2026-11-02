@@ -12,7 +12,7 @@ import httpx
 
 BASE = (sys.argv[1] if len(sys.argv) > 1 else "http://127.0.0.1:8000").rstrip("/")
 PASSWORD = "Newsroom#2026"
-client = httpx.Client(base_url=BASE, timeout=30)
+client = httpx.Client(base_url=BASE, timeout=90)  # a cold free-tier API takes up to a minute to answer
 
 
 def login(email: str) -> dict:
@@ -33,7 +33,8 @@ def call(method: str, path: str, who: dict, **kw):
 
 
 def write(who: dict, **fields) -> dict:
-    return call("POST", "/articles", who, json=fields)
+    # Every invented story carries a "demo" tag so it can be found and removed.
+    return call("POST", "/articles", who, json={**fields, "tags": [*fields.get("tags", []), "demo"]})
 
 
 def send(who: dict, art: dict, **sheet) -> dict:
@@ -44,16 +45,14 @@ def publish(who: dict, art: dict, **sheet) -> dict:
     return call("POST", f"/articles/{art['id']}/publish", who, json={"version": art["version"], **sheet})
 
 
-STAFF = {
-    "rajiv": "rajiv.ranjan.sinha@newsapp.example", "prabhat": "prabhat.singh@newsapp.example",
-    "sunita": "sunita.mahto@newsapp.example", "ananya": "ananya.kumari@newsapp.example",
-    "mohit": "mohit.oraon@newsapp.example", "shabnam": "shabnam.ansari@newsapp.example",
-    "deepak": "deepak.munda@newsapp.example",
-}
-who = {k: login(v) for k, v in STAFF.items()}
+config = client.get("/api/staff-auth/config").json()
+if not config.get("demo_accounts"):
+    raise SystemExit("This API has demo accounts switched off (DEMO_SEED is not set, or it runs in production). Nothing was seeded.")
+# Staff ids are the first names, so each demo account is found by the API's own list instead of a copy here.
+who = {a["name"].split()[0].lower(): login(a["email"]) for a in config["demo_accounts"]}
 
-if call("GET", "/articles", who["rajiv"], params={"view": "all"}).get("items"):
-    raise SystemExit("The Newsroom already has stories. Start from an empty database to seed the demo.")
+if any(call("GET", "/articles", who[k], params={"view": "mine", "limit": 1}).get("items") for k in who):
+    raise SystemExit("The Newsroom already has stories (a half-finished earlier run counts). Start from an empty database to seed the demo.")
 
 # --- Published: written by reporters, approved by their editor -----------------------------------------------------
 a = write(who["ananya"], section="education", headline_en="Ranchi schools reopen with new bus routes for rural students",

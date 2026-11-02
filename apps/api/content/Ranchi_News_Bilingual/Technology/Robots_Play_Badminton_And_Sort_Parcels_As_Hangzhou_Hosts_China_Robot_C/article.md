@@ -5,10 +5,12 @@
 ## 16 से 18 अक्टूबर तक 17 नए आयोजनों में कुशलता, हवा-ज़मीन समन्वय और लचीली छँटाई की परीक्षा
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Source: https://letsdatascience.com/news/hangzhou-to-host-china-robot-competition-and-embodied-ai-cha-ac22a05a
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/robots-play-badminton-and-sort-parcels-as-hangzhou-hosts-china-robot.jpg
-**Caption | कैप्शन:** Autonomous robots demonstrating dexterity and sorting agility at robotics challenge | रोबोटिक्स प्रतियोगिता में स्वायत्त रोबोट्स की दक्षता और छँटाई का प्रदर्शन
+**Caption | कैप्शन:** File photo, not from this event: VEX Robotics Competition Robot. Photo: Noah Wulf / Wikimedia Commons, CC BY-SA 4.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: VEX Robotics Competition Robot. Photo: Noah Wulf / Wikimedia Commons, CC BY-SA 4.0
 
 ---
 

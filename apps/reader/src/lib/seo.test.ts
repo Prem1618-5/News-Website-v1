@@ -63,6 +63,10 @@ describe('story head', () => {
     expect(captionOf(single, 'en')).toBe('Single language only')
     expect(captionOf(single, 'hi')).toBe('Single language only')
 
+    const odd = story({ caption: 'A | B | C' })
+    expect(captionOf(odd, 'hi')).toBe('A | B | C')
+    expect(captionOf(story({ caption: 'Photo of **Birsa Munda** | **बिरसा**' }), 'en')).toBe('Photo of Birsa Munda')
+
     const empty = story({ caption: '' })
     expect(captionOf(empty, 'en')).toBe('')
     expect(captionOf(empty, 'hi')).toBe('')

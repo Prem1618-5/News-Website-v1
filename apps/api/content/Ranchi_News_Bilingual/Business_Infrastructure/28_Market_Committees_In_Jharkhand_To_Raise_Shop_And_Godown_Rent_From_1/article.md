@@ -5,10 +5,6 @@
 ## विपणन बोर्ड के फैसले से व्यवसायियों में आक्रोश, ईटीवी भारत झारखंड की रिपोर्ट
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** Image shown by ETV Bharat: Agricultural Produce Market Committee, Ranchi. Page: https://www.etvbharat.com/hi/jharkhand/!state
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
-
-**Image | चित्र:** /images/stories/28-market-committees-in-jharkhand-to-raise-shop-and-godown-rent-from-1.jpg
-**Caption | कैप्शन:** Agricultural produce market committee (APMC) wholesale yard with merchant shops and storage godowns in Jharkhand | झारखंड में कृषि उत्पादन बाज़ार समिति के दुकान व गोदाम
 
 ---
 

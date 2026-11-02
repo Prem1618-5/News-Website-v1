@@ -5,10 +5,12 @@
 ## टेलीकॉम कंपनियों ने पहले नियम का विरोध किया; नियामक के अनुसार यह उन लोगों की रक्षा करता है जिन्हें डेटा नहीं चाहिए
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Sources: https://www.theweek.in/news/biz-tech/2026/09/23/trai-voice-sms-plans-regulation-update-prepaid-packs-feature-phones.html ; The CSR Journal headline of 18 Oct 2026 on Airtel's three new plans
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/feature-phone-users-win-airtel-others-roll-out-voice-only-prepaid-plans.jpg
-**Caption | कैप्शन:** Classic keypad feature phone used for voice calls and SMS services in India | भारत में वॉइस कॉलिंग और एसएमएस के लिए इस्तेमाल होने वाला कीपैड फ़ीचर फ़ोन
+**Caption | कैप्शन:** File photo, not from this event: Wikipedia Mobile on a feature phone. Photo: Raidarmax / Wikimedia Commons, CC BY-SA 3.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: Wikipedia Mobile on a feature phone. Photo: Raidarmax / Wikimedia Commons, CC BY-SA 3.0
 
 ---
 

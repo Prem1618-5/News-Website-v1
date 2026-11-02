@@ -5,10 +5,12 @@
 ## प्रभात खबर में छपी तीन समितियों की तैयारियाँ (पेज पर तारीख नहीं दिखी, वर्ष की पुष्टि करें)
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No images retrievable. Pages: https://www.prabhatkhabar.com/state/jharkhand/ranchi/this-year-a-grand-durga-puja-is-being-organised ; https://www.prabhatkhabar.com/state/jharkhand/ranchi/jyoti-sangam-shri-durga-puja-committee ; https://www.prabhatkhabar.com/state/jharkhand/ranchi/the-bihar-club-durga-puja-committee
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/more-ranchi-pandals-zila-school-ground-upper-bazar-and-kachahri-road.jpg
-**Caption | कैप्शन:** Spectacular architectural illumination and decorations at a grand Durga Puja pandal | दुर्गा पूजा पंडाल की भव्य रोशनी और सजावट
+**Caption | कैप्शन:** File photo, not from this event: Durga Puja Pandal in Kolkata, 2023 04. Photo: Auli Raha (অলি রাহা) / Wikimedia Commons, CC BY-SA 4.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: Durga Puja Pandal in Kolkata, 2023 04. Photo: Auli Raha (অলি রাহা) / Wikimedia Commons, CC BY-SA 4.0
 
 ---
 

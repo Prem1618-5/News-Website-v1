@@ -5,10 +5,12 @@
 ## इलेक्ट्रॉनिक्स निर्यात लगभग दोगुना; सोने का आयात 58% घटा; व्यापार घाटा फिर भी बड़ा
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image. Sources: https://www.dtnext.in/news/business/indias-exports-up-2612-pc-to-usd-4381-bn-in-aug-trade-deficit-narrows-to-usd-2686-bn ; https://www.ibef.org/news/the-cumulative-exports-merchandise-services-during-april-august-2026-27-is-estimated-at-us-399-27-billion-as-compared-to-us-345-55-billion-in-april-august-2025-26-an-estimated-growth-of-15-55
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/indias-august-merchandise-exports-jump-26-fastest-growth-in-a-decade.jpg
-**Caption | कैप्शन:** Cargo container terminal handling international merchandise export freight | अंतरराष्ट्रीय व्यापारिक निर्यात के लिए कंटेनर फ्रेट संभालता पोर्ट टर्मिनल
+**Caption | कैप्शन:** File photo, not from this event: JNPT Port container handling. Photo: Ccmarathe / Wikimedia Commons, CC BY-SA 4.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: JNPT Port container handling. Photo: Ccmarathe / Wikimedia Commons, CC BY-SA 4.0
 
 ---
 

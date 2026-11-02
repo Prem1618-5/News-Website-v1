@@ -12,15 +12,15 @@
     "semantic_hash": "fc3687e9dddfadbd6c5a801a318a5d87"
   },
   "apps/api/app/config.py": {
-    "mtime": 1792492042.0288875,
-    "seen": 1792492875.1886563,
-    "ast_hash": "ca78ebde7c4ca906ce2c985aa3daa504",
+    "mtime": 1792604698.753054,
+    "seen": 1793654222.5054204,
+    "ast_hash": "331d96bd49d09d5a91fe83d437307456",
     "semantic_hash": ""
   },
   "apps/api/app/content_pack.py": {
-    "mtime": 1792499028.4213345,
-    "seen": 1792499609.2443743,
-    "ast_hash": "06209f1bee3b15100e90ae5f2f4b2201",
+    "mtime": 1792604686.7847128,
+    "seen": 1793654222.5054204,
+    "ast_hash": "66aaa1d84585b939bb6ca39cf6d7fb6c",
     "semantic_hash": ""
   },
   "apps/api/app/database.py": {
@@ -30,10 +30,10 @@
     "semantic_hash": "a7e89e93b25e53ba2d09c1b39b1a3fc9"
   },
   "apps/api/app/main.py": {
-    "mtime": 1792386664.0583465,
-    "seen": 1792484638.9233534,
-    "ast_hash": "cef949e7a7340d5743f30a6128a038ae",
-    "semantic_hash": "cef949e7a7340d5743f30a6128a038ae"
+    "mtime": 1792604698.753054,
+    "seen": 1793654222.5054204,
+    "ast_hash": "4cbcc0f255f94423e5ca2cb5f6825121",
+    "semantic_hash": ""
   },
   "apps/api/app/models.py": {
     "mtime": 1792386147.377782,
@@ -102,10 +102,10 @@
     "semantic_hash": "c192b3ad0851a0911ab2f161cbf85c1b"
   },
   "apps/api/app/routers/staff_auth.py": {
-    "mtime": 1792387312.7000635,
-    "seen": 1792484638.9233534,
-    "ast_hash": "e1df1d3b789d0e1a96c237e2b11b15a6",
-    "semantic_hash": "e1df1d3b789d0e1a96c237e2b11b15a6"
+    "mtime": 1793656060.8958383,
+    "seen": 1793656153.0876515,
+    "ast_hash": "217398dce46db548353338ea3bfc8222",
+    "semantic_hash": ""
   },
   "apps/api/app/routers/team.py": {
     "mtime": 1792386594.4875493,
@@ -192,28 +192,28 @@
     "semantic_hash": "8f8a32dac0641bbdf5903149b0734801"
   },
   "apps/api/tests/conftest.py": {
-    "mtime": 1792491691.4356942,
-    "seen": 1792492875.1886563,
-    "ast_hash": "91dfc87cc8f0428a1d6ee45b6ece4579",
+    "mtime": 1792604698.753054,
+    "seen": 1793654222.5054204,
+    "ast_hash": "10fb39d27df79cb20a99e31d0c750f3a",
     "semantic_hash": ""
   },
   "apps/api/tests/test_content.py": {
-    "mtime": 1792499160.871876,
-    "seen": 1792499609.2443743,
-    "ast_hash": "702e64159b0a16b369036dd3b9a81f1e",
+    "mtime": 1792604686.81212,
+    "seen": 1793654222.5054204,
+    "ast_hash": "398901f405e5a3309188b9eb45622082",
     "semantic_hash": ""
   },
   "apps/api/tests/test_desk.py": {
-    "mtime": 1792389512.164945,
-    "seen": 1792484638.9233534,
-    "ast_hash": "318104d2bb11415a30dc19782c597087",
-    "semantic_hash": "318104d2bb11415a30dc19782c597087"
+    "mtime": 1792561336.2078204,
+    "seen": 1792561351.277991,
+    "ast_hash": "72c9070cab5fdf11412b063241373488",
+    "semantic_hash": ""
   },
   "apps/api/tests/test_staff_auth.py": {
-    "mtime": 1792386918.0174022,
-    "seen": 1792484638.9233534,
-    "ast_hash": "7c1b8f72ffff671b6d5c19adf043ad03",
-    "semantic_hash": "7c1b8f72ffff671b6d5c19adf043ad03"
+    "mtime": 1792561336.2103944,
+    "seen": 1792561351.277991,
+    "ast_hash": "5e8227d56d679893a9dec6757c2afed2",
+    "semantic_hash": ""
   },
   "apps/api/tests/test_taxonomy.py": {
     "mtime": 1792386054.954936,
@@ -654,9 +654,9 @@
     "semantic_hash": "fd135296730c019851336e904fc31e44"
   },
   "apps/reader/src/components/story/cards.tsx": {
-    "mtime": 1792499065.3493097,
-    "seen": 1792499609.2443743,
-    "ast_hash": "7cd4836610b510b98c13d019045b8b2d",
+    "mtime": 1793656059.1779275,
+    "seen": 1793656153.0876515,
+    "ast_hash": "3a33491fe08c7a5f7a3daa135af0bbbc",
     "semantic_hash": ""
   },
   "apps/reader/src/components/story/writers.tsx": {
@@ -720,9 +720,9 @@
     "semantic_hash": "acad5f514839fff0bfd60e34c6c25af5"
   },
   "apps/reader/src/lib/format.ts": {
-    "mtime": 1792499040.6139758,
-    "seen": 1792499609.2443743,
-    "ast_hash": "04d3249ee6ae6243e29122b4ee90bc2c",
+    "mtime": 1792604970.0219114,
+    "seen": 1793654222.5054204,
+    "ast_hash": "74621d0cf433cb4116fd5d1d3b17294f",
     "semantic_hash": ""
   },
   "apps/reader/src/lib/head.tsx": {
@@ -756,9 +756,9 @@
     "semantic_hash": "ce693fce19f29c1fba6f6bca804f4031"
   },
   "apps/reader/src/lib/seo.test.ts": {
-    "mtime": 1792499192.9241934,
-    "seen": 1792499609.2443743,
-    "ast_hash": "f74f9e0989eadefd06f3ae57ed8f919e",
+    "mtime": 1792604980.8775697,
+    "seen": 1793654222.5054204,
+    "ast_hash": "4414393362f76497fb6719f342cbc6f7",
     "semantic_hash": ""
   },
   "apps/reader/src/lib/seo.ts": {
@@ -1494,10 +1494,10 @@
     "semantic_hash": "57b25827805b96b3e1d6d8e53208941f"
   },
   "scripts/dev.mjs": {
-    "mtime": 1791202226.2189238,
-    "seen": 1792484638.9233534,
-    "ast_hash": "aa8e0370e982545adedbf06253e45a9f",
-    "semantic_hash": "aa8e0370e982545adedbf06253e45a9f"
+    "mtime": 1792604706.4985797,
+    "seen": 1793654222.5054204,
+    "ast_hash": "11d6296ae03e69040e5d63ea911fd94e",
+    "semantic_hash": ""
   },
   "vercel.json": {
     "mtime": 1792389154.577402,
@@ -1506,9 +1506,9 @@
     "semantic_hash": "41926074ac50bdca4b9f343dfa789736"
   },
   ".claude/settings.json": {
-    "mtime": 1792493222.43185,
-    "seen": 1792494529.755145,
-    "ast_hash": "c30805ec944707eff34e25d8a7f8c211",
+    "mtime": 1792499649.71529,
+    "seen": 1792561087.8373098,
+    "ast_hash": "23fc329b7ae672e9135c4627fbdb1afb",
     "semantic_hash": ""
   },
   ".claude/skills/verify/SKILL.md": {
@@ -1524,9 +1524,9 @@
     "semantic_hash": ""
   },
   "DEPLOYMENT.md": {
-    "mtime": 1792484222.3385131,
-    "seen": 1792485009.0441024,
-    "ast_hash": "85955678762d5b7552734a8cd6b2a8a3",
+    "mtime": 1793656061.6315522,
+    "seen": 1793656153.0876515,
+    "ast_hash": "222c663c771bf5c270ad6628c95e47ba",
     "semantic_hash": ""
   },
   "NEWSROOM_PLAN.md": {
@@ -1554,111 +1554,111 @@
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Business_Infrastructure/28_Market_Committees_In_Jharkhand_To_Raise_Shop_And_Godown_Rent_From_1/article.md": {
-    "mtime": 1792497899.3427136,
-    "seen": 1792499609.2443743,
-    "ast_hash": "4eee2dd117af72e133fa3b77da1cfac8",
+    "mtime": 1793654169.817963,
+    "seen": 1793654222.5054204,
+    "ast_hash": "f0d4aaddbb3632b7d929ddeb8830fea6",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Business_Infrastructure/Crores_Lost_In_Fraud_Promising_Land_And_Flats_In_Ranchi/article.md": {
-    "mtime": 1792497900.7199802,
-    "seen": 1792499609.2443743,
-    "ast_hash": "02c0a946a004cc744a1640d2d41d5172",
+    "mtime": 1793654169.817963,
+    "seen": 1793654222.5054204,
+    "ast_hash": "5a90cce033b7e11e51a86ddf9e245c8e",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Business_Infrastructure/Ranchi_s_Birsa_Munda_Airport_Says_It_Is_Ready_For_International_Flight/article.md": {
-    "mtime": 1792497810.2540083,
-    "seen": 1792499609.2443743,
-    "ast_hash": "416956d3233f2a3c3eb63009154dcaf0",
+    "mtime": 1792604658.8883972,
+    "seen": 1793654222.5054204,
+    "ast_hash": "073fb9707506c7f2f9dd9ab6eabcb1d3",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Crime_Accidents/Over_20_Injured_As_Kolkata_Ranchi_Bus_Overturns_On_NH_33/article.md": {
-    "mtime": 1792497812.1647432,
-    "seen": 1792499609.2443743,
-    "ast_hash": "8ee10ac0ec8444b14110878736384ab5",
+    "mtime": 1792604659.1796753,
+    "seen": 1793654222.5054204,
+    "ast_hash": "091a565cf082b6f3dcafd490e16fa38d",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Culture_Durga_Puja/Durgabari_Ranchi_Releases_2026_Puja_Schedule_Goddess_To_Arrive_On_Hors/article.md": {
-    "mtime": 1792497814.2680664,
-    "seen": 1792499609.2443743,
-    "ast_hash": "d1961ee9b6477788e07b2bde54b2de4e",
+    "mtime": 1792604659.4578114,
+    "seen": 1793654222.5054204,
+    "ast_hash": "717e95c90d2fa1f18b74bd6c5d49d7bc",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Culture_Durga_Puja/Dussehra_2026_In_Jharkhand_Key_Dates_For_Ranchi_Devotees/article.md": {
-    "mtime": 1792497816.1796052,
-    "seen": 1792499609.2443743,
-    "ast_hash": "b7cf1b0b30ccbd91d22a070e5478b3c8",
+    "mtime": 1792604659.759876,
+    "seen": 1793654222.5054204,
+    "ast_hash": "7c07117f13529a9f2553ee5e6c384015",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Culture_Durga_Puja/More_Ranchi_Pandals_Zila_School_Ground_Upper_Bazar_And_Kachahri_Road/article.md": {
-    "mtime": 1792497818.067415,
-    "seen": 1792499609.2443743,
-    "ast_hash": "764710664523774add7f6057acc12a4c",
+    "mtime": 1792604660.0373697,
+    "seen": 1793654222.5054204,
+    "ast_hash": "201fa38806968340cd1cd239c231c46d",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Culture_Durga_Puja/Ranchi_Pandal_Themed_On_African_Union_Tribes_Takes_Shape/article.md": {
-    "mtime": 1792497819.9837646,
-    "seen": 1792499609.2443743,
-    "ast_hash": "35331c73011772ac85a73281164aa9a9",
+    "mtime": 1792604660.3134036,
+    "seen": 1793654222.5054204,
+    "ast_hash": "b878435188d4010d2574d3771b687658",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Culture_Durga_Puja/Singh_Mod_Puja_Committee_Builds_Indonesian_Style_Shri_Ram_Temple_Panda/article.md": {
-    "mtime": 1792497822.4418402,
-    "seen": 1792499609.2443743,
-    "ast_hash": "ac1941d32a68cd86d21e00e895613169",
+    "mtime": 1792604660.6047065,
+    "seen": 1793654222.5054204,
+    "ast_hash": "870510b385e5e6dc8f7005fe8c5f1fb1",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Education/CMPDIL_Holds_Student_Activities_Ahead_Of_Vigilance_Awareness_Week_2026/article.md": {
-    "mtime": 1792497825.8695428,
-    "seen": 1792499609.2443743,
-    "ast_hash": "0b034ab38b90f8ece3586fc87dc4b3aa",
+    "mtime": 1792604661.175052,
+    "seen": 1793654222.5054204,
+    "ast_hash": "7d5b31d6e196213c58d02609179aaa9f",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Education/IIM_Ranchi_Hindi_House_Magazine_Released_And_Makers_Of_Modern_India_Fi/article.md": {
-    "mtime": 1792497828.1665864,
-    "seen": 1792499609.2443743,
-    "ast_hash": "fc6268d300212b88b1ce7632fe3bf72c",
+    "mtime": 1792604661.611553,
+    "seen": 1793654222.5054204,
+    "ast_hash": "3c97d3958a448d83ea041310ee2bf8e4",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Education/Ranchi_University_PhD_Interviews_To_Begin_22_October_117_Earlier_Candi/article.md": {
-    "mtime": 1792497830.0072906,
-    "seen": 1792499609.2443743,
-    "ast_hash": "2f01b6af69596e7608a06029b81a7c4b",
+    "mtime": 1792604661.8753586,
+    "seen": 1793654222.5054204,
+    "ast_hash": "83f0ac5bb24f0c25fbd055a4eba3b742",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Entertainment/Rajinikanth_s_Jailer_2_Opens_At_Rs_125_Crore_Worldwide_Crosses_Rs_200_/article.md": {
-    "mtime": 1792497832.0307221,
-    "seen": 1792499609.2443743,
-    "ast_hash": "e98c78e975edbcfce30a5e0f2e36874a",
+    "mtime": 1792604662.2124228,
+    "seen": 1793654222.5054204,
+    "ast_hash": "8fd87bf307c4a3f999ffd37b684a07b3",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Environment_Civic/Jharkhand_Holds_Special_Camps_To_Add_Names_Under_SIR_Of_Electoral_Roll/article.md": {
-    "mtime": 1792497834.6498442,
-    "seen": 1792499609.2443743,
-    "ast_hash": "763183499ee6dd4415c0f0ed72171ba0",
+    "mtime": 1793654169.8297524,
+    "seen": 1793654222.5054204,
+    "ast_hash": "5f25623fcd1d4f752010b178e3fd22cf",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Environment_Civic/Rs_30_Crore_Plan_For_Three_Eco_Friendly_Parks_In_Ranchi/article.md": {
-    "mtime": 1792497835.9972062,
-    "seen": 1792499609.2443743,
-    "ast_hash": "48f9669a3b2fbec4c2d31a73e291f413",
+    "mtime": 1792604662.5160017,
+    "seen": 1793654222.5054204,
+    "ast_hash": "dcbd295c135cc6c85ae98be6df559b91",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Health_Public_Services/108_Ambulance_Staff_Announce_Indefinite_Strike_From_21_October/article.md": {
-    "mtime": 1792497838.7269883,
-    "seen": 1792499609.2443743,
-    "ast_hash": "ed90a71d6beb91e8954e15c039034747",
+    "mtime": 1792604662.8035262,
+    "seen": 1793654222.5054204,
+    "ast_hash": "a4283a423df3b3dea75618f6c6a3cc28",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/National/IPL_Auction_Comes_Home_Goa_To_Host_The_2027_Mini_Auction_In_December/article.md": {
-    "mtime": 1792497842.665152,
-    "seen": 1792499609.2443743,
-    "ast_hash": "e43899febbe464fc7b087ededcadcfc0",
+    "mtime": 1792604663.4158993,
+    "seen": 1793654222.5054204,
+    "ast_hash": "4e3ff6109312262ba226f2f0ade793d4",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/National/India_s_August_Merchandise_Exports_Jump_26_Fastest_Growth_In_A_Decade/article.md": {
-    "mtime": 1792497840.7071102,
-    "seen": 1792499609.2443743,
-    "ast_hash": "572b9cd878f1d28d2c9d9e10e245c18e",
+    "mtime": 1792604663.1110847,
+    "seen": 1793654222.5054204,
+    "ast_hash": "8c335379387894c1b0ed3bcaf9f54458",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/README.md": {
@@ -1668,57 +1668,57 @@
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Science/BepiColombo_Nears_Mercury_Eight_Years_After_Launch_Europe_And_Japan_Pr/article.md": {
-    "mtime": 1792497844.659201,
-    "seen": 1792499609.2443743,
-    "ast_hash": "c8d42e048d3e95a542c070cb18e162de",
+    "mtime": 1792604663.705576,
+    "seen": 1793654222.5054204,
+    "ast_hash": "8a6239083b170dc2fb6ea883b7cd6307",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Science/Science_Roundup_Dark_Matter_Clump_Universal_Black_Hole_Jet_Rule_Cancer/article.md": {
-    "mtime": 1792497846.6205344,
-    "seen": 1792499609.2443743,
-    "ast_hash": "70bc221beb04fd8d34e701e2a6f8ab60",
+    "mtime": 1792604663.9920049,
+    "seen": 1793654222.5054204,
+    "ast_hash": "fc189cac0ee65a25aa1cfc7c24debe9f",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Sports/Ranchi_Tightens_Security_For_India_West_Indies_T20I_At_JSCA_Stadium/article.md": {
-    "mtime": 1792497850.24244,
-    "seen": 1792499609.2443743,
-    "ast_hash": "258cfa45ab6e9cba9a03982b51baf49d",
+    "mtime": 1792604664.264373,
+    "seen": 1793654222.5054204,
+    "ast_hash": "d37e907fefadbfe08d2632fa2e1f2bd2",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Sports/Ranchi_s_Morabadi_To_Get_Rs_5_Crore_International_Standard_Indoor_Stad/article.md": {
-    "mtime": 1792497848.285102,
-    "seen": 1792499609.2443743,
-    "ast_hash": "93db231ab03af2f76c336925c53b1eb3",
+    "mtime": 1792604664.0058205,
+    "seen": 1793654222.5054204,
+    "ast_hash": "2102eae091935f5bf1092c2b23861462",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Technology/Feature_Phone_Users_Win_Airtel_Others_Roll_Out_Voice_Only_Prepaid_Plan/article.md": {
-    "mtime": 1792497852.1738997,
-    "seen": 1792499609.2443743,
-    "ast_hash": "27a4e107f4ace3e7236702bf067dcab2",
+    "mtime": 1792604664.538314,
+    "seen": 1793654222.5054204,
+    "ast_hash": "ef8244fe052a7b5bde0089ee47b703e8",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Technology/Robots_Play_Badminton_And_Sort_Parcels_As_Hangzhou_Hosts_China_Robot_C/article.md": {
-    "mtime": 1792497854.2936742,
-    "seen": 1792499609.2443743,
-    "ast_hash": "23a429d5aa910a9b6da5f511b921ead6",
+    "mtime": 1792604664.8372676,
+    "seen": 1793654222.5054204,
+    "ast_hash": "336932ee5f48ec43b9c6e4b6e5140f48",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/Technology/US_Announces_6_Billion_In_Science_Initiatives_Medals_To_Tech_Leaders_V/article.md": {
-    "mtime": 1792497857.979797,
-    "seen": 1792499609.2443743,
-    "ast_hash": "8dbbea31abdd366625005fcd8e159008",
+    "mtime": 1793654169.8297524,
+    "seen": 1793654222.5054204,
+    "ast_hash": "5a09fb823b500a406615a02cacb7638e",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/World/Hurricane_Simon_Crawls_Along_Mexico_s_Pacific_Coast_As_Rachel_s_Remnan/article.md": {
-    "mtime": 1792497860.8808937,
-    "seen": 1792499609.2443743,
-    "ast_hash": "0a3577a33ad549aaf981075ed6f9ede5",
+    "mtime": 1792604665.6392398,
+    "seen": 1793654222.5054204,
+    "ast_hash": "7c7f34e328a935949b6747ae6dc919ad",
     "semantic_hash": ""
   },
   "apps/api/content/Ranchi_News_Bilingual/World/Saudi_Airspace_Turmoil_Indian_Airlines_Extend_Cancellations_To_Riyadh_/article.md": {
-    "mtime": 1792497863.1977334,
-    "seen": 1792499609.2443743,
-    "ast_hash": "79c77c8ae2609388964b7a0edd621453",
+    "mtime": 1792604665.897912,
+    "seen": 1793654222.5054204,
+    "ast_hash": "33d72932067c05fdeb9c29aea87c1a82",
     "semantic_hash": ""
   },
   "apps/api/requirements-dev.txt": {
@@ -1902,21 +1902,15 @@
     "semantic_hash": ""
   },
   "scripts/fetch_all_story_images.py": {
-    "mtime": 1792497802.1433046,
-    "seen": 1792499609.2443743,
-    "ast_hash": "9dae3947b5453612a6a7148f7a26a601",
+    "mtime": 1793654169.817963,
+    "seen": 1793654222.5054204,
+    "ast_hash": "141298493667b7ef9f58ecb6f332eaf1",
     "semantic_hash": ""
   },
   "apps/reader/public/images/stories/108-ambulance-staff-announce-indefinite-strike-from-21-october.jpg": {
     "mtime": 1792497838.725729,
     "seen": 1792499609.2443743,
     "ast_hash": "454346899bdd2a9250c32ab3b9b9cdb5",
-    "semantic_hash": ""
-  },
-  "apps/reader/public/images/stories/28-market-committees-in-jharkhand-to-raise-shop-and-godown-rent-from-1.jpg": {
-    "mtime": 1792497899.341641,
-    "seen": 1792499609.2443743,
-    "ast_hash": "bca76f951d476165834acd84fb4131bd",
     "semantic_hash": ""
   },
   "apps/reader/public/images/stories/bepicolombo-nears-mercury-eight-years-after-launch-europe-and-japan.jpg": {
@@ -1929,12 +1923,6 @@
     "mtime": 1792497825.86857,
     "seen": 1792499609.2443743,
     "ast_hash": "929ae8b4d8bab8da5eb3b5ea6a0b1dbb",
-    "semantic_hash": ""
-  },
-  "apps/reader/public/images/stories/crores-lost-in-fraud-promising-land-and-flats-in-ranchi.jpg": {
-    "mtime": 1792497900.7189772,
-    "seen": 1792499609.2443743,
-    "ast_hash": "8bf6b73cc6841ce3e5e1462558d47a70",
     "semantic_hash": ""
   },
   "apps/reader/public/images/stories/durgabari-ranchi-releases-2026-puja-schedule-goddess-to-arrive-on-horse.jpg": {
@@ -1977,12 +1965,6 @@
     "mtime": 1792497842.6642492,
     "seen": 1792499609.2443743,
     "ast_hash": "8d334ec119f8d16dd9e18f3a258a1300",
-    "semantic_hash": ""
-  },
-  "apps/reader/public/images/stories/jharkhand-holds-special-camps-to-add-names-under-sir-of-electoral-rolls.jpg": {
-    "mtime": 1792497834.648841,
-    "seen": 1792499609.2443743,
-    "ast_hash": "94f8164d9f102f081af79ea90e8db02f",
     "semantic_hash": ""
   },
   "apps/reader/public/images/stories/more-ranchi-pandals-zila-school-ground-upper-bazar-and-kachahri-road.jpg": {
@@ -2063,10 +2045,16 @@
     "ast_hash": "5afa283686841809f7293856a8175fa4",
     "semantic_hash": ""
   },
-  "apps/reader/public/images/stories/us-announces-6-billion-in-science-initiatives-medals-to-tech-leaders.jpg": {
-    "mtime": 1792497857.9788988,
-    "seen": 1792499609.2443743,
-    "ast_hash": "f0ea24415603793a6ac436c519450091",
+  "apps/api/scripts/seed_demo_newsroom.py": {
+    "mtime": 1792604706.6765873,
+    "seen": 1793654222.5054204,
+    "ast_hash": "5f1767acdbf2052acc2efd57ad79373a",
+    "semantic_hash": ""
+  },
+  "apps/api/tests/test_demo_seed.py": {
+    "mtime": 1792604861.4183352,
+    "seen": 1793654222.5054204,
+    "ast_hash": "b3408e569165fd0415826f3324beb23d",
     "semantic_hash": ""
   }
 }

@@ -5,10 +5,12 @@
 ## संस्थान के मीडिया कवरेज पेज पर दो आयोजन; कैट 2026 29 नवंबर को
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Page: https://iimranchi.ac.in/ ; CAT date via https://www.msmunify.com/in/college/iim-ranchi
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/iim-ranchi-hindi-house-magazine-released-and-makers-of-modern-india.jpg
-**Caption | कैप्शन:** Academic building at the Indian Institute of Management (IIM) Ranchi campus | भारतीय प्रबंधन संस्थान (आईआईएम) रांची का परिसर
+**Caption | कैप्शन:** File photo, not from this event: IIM Ranchi academic building. Photo: Krunalpatelwiki / Wikimedia Commons, CC BY-SA 3.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: IIM Ranchi academic building. Photo: Krunalpatelwiki / Wikimedia Commons, CC BY-SA 3.0
 
 ---
 

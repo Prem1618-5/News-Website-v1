@@ -20,7 +20,9 @@ def test_pack_has_every_story_with_both_languages():
     assert len(items) == PACK > 0
     assert all(i["blocks"] and i["blocks_hi"] and i["title_hi"] for i in items)
     assert all(i["section"] in SECTION_KEYS for i in items)
-    assert all(i["image_url"].startswith("/images/stories/") and i["caption"] for i in items)
+    # A photo always comes with its credit line; stories without a verified photo simply have none.
+    assert all(i["caption"] and "Wikimedia Commons" in i["caption"] for i in items if i["image_url"])
+    assert all(i["image_url"].startswith("/images/stories/") for i in items if i["image_url"])
     assert len({i["slug"] for i in items}) == len(items)
 
 
@@ -57,7 +59,7 @@ def test_demo_data_is_gone_and_real_stories_are_served(client):
     assert page["total"] == PACK
     assert all(i["title_hi"] and i["author"] == "News APP Desk" for i in page["items"])
     assert not any(i["image_url"].startswith("http") for i in page["items"])  # third-party photos are never hotlinked
-    assert all(i["image_url"].startswith("/images/stories/") for i in page["items"])
+    assert all(i["image_url"].startswith("/images/stories/") for i in page["items"] if i["image_url"])
     dates = [i["published_at"] for i in page["items"]]
     assert dates == sorted(dates, reverse=True)
 
@@ -98,7 +100,7 @@ def test_snapshot_carries_everything_the_build_needs(client):
     snap = client.get("/api/snapshot").json()
     assert len(snap["stories"]) == PACK and len(snap["sections"]) == 13
     assert all(s["body"] for s in snap["stories"])
-    assert all(s["image_url"].startswith("/images/stories/") and s["caption"] for s in snap["stories"])
+    assert all(s["caption"] for s in snap["stories"] if s["image_url"])
 
 
 def test_parser_handles_images_and_captions_with_bold_formatting():

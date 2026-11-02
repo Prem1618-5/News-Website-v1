@@ -104,7 +104,7 @@ For true minute-by-minute breaking news later, move the story route to an edge f
 - [ ] `VITE_SITE_URL` is the real domain; `VITE_CONTACT_EMAIL` is set (the Contact page says "details are being set up" without it).
 - [ ] `APP_ENV=production`, strong `JWT_SECRET` and `NEWSROOM_API_KEY` (the API refuses to start without them).
 - [ ] `NEWS_CORS_ORIGINS` lists only your two front ends.
-- [ ] Demo staff accounts are not created (they are only seeded when `APP_ENV` is not `production`).
+- [ ] Demo staff accounts are not created (they are only seeded when `DEMO_SEED=1` is set **and** `APP_ENV` is not `production`; leave `DEMO_SEED` unset on a live host).
 - [ ] A volume is mounted at `/srv/media` and `NEWS_MEDIA_DIR=/srv/media` is set. Upload a photo, redeploy, and confirm it is still there.
 - [ ] `/media/...` addresses resolve on the Reader and Newsroom hostnames (see "Uploaded files and the two front ends").
 - [ ] `READER_URL` and `NEWSROOM_URL` are the real addresses, `RESEND_API_KEY` is set and `EMAIL_FROM` uses a verified domain. Send yourself an invite and a password reset and open the links.

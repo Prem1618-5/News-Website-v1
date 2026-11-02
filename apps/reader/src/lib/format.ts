@@ -42,17 +42,11 @@ export function initials(name: string): string {
 /** Headline and standfirst in the reader's language, falling back to the story's own. */
 export const titleOf = (s: Story, lang: Language) => (lang === 'hi' && s.title_hi ? s.title_hi : s.title)
 export const deckOf = (s: Story, lang: Language) => (lang === 'hi' && s.title_hi ? s.deck_hi || s.deck : s.deck)
-/** Caption in the reader's language, parsing bilingual pipe format "En | Hi". */
+/** Caption in the reader's language: "English | Hindi" has exactly two parts; anything else is one caption. Markdown marks are dropped. */
 export function captionOf(s: Story, lang: Language): string {
-  const cap = s.caption || ''
-  if (!cap) return ''
-  if (cap.includes('|')) {
-    const parts = cap.split('|').map((p) => p.trim())
-    if (parts.length >= 2) {
-      return (lang === 'hi' ? parts[1] || parts[0] : parts[0] || parts[1]) ?? cap
-    }
-  }
-  return cap
+  const parts = (s.caption || '').replace(/\*+/g, '').split(' | ').map((p) => p.trim())
+  if (parts.length === 2 && parts[0] && parts[1]) return lang === 'hi' ? parts[1] : parts[0]
+  return parts.join(' | ')
 }
 /** True when the text shown for this story is Hindi, so it gets lang="hi" and the Devanagari fonts. */
 export const isHindi = (s: Story, lang: Language) => (lang === 'hi' && !!s.title_hi) || (s.language === 'hi' && !s.title_hi)

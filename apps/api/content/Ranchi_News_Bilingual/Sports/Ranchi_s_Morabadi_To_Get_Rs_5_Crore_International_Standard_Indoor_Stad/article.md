@@ -5,10 +5,12 @@
 ## बास्केटबॉल, बैडमिंटन, वॉलीबॉल कोर्ट और फिटनेस सेंटर; आम लोगों के लिए भी खुला
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** Image (The CSR Journal): https://thecsrjournal.in/wp-content/uploads/2026/10/10000789938091278910206100444.webp  Page: https://thecsrjournal.in/ranchi-morabadi-indoor-stadium-hindi
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/ranchis-morabadi-to-get-rs-5-crore-international-standard-indoor-stadium.jpg
-**Caption | कैप्शन:** Architectural visualization of the proposed international-standard indoor stadium in Morabadi, Ranchi | रांची के मोरहाबादी में प्रस्तावित अंतरराष्ट्रीय स्तर के इनडोर स्टेडियम का स्वरूप
+**Caption | कैप्शन:** File photo, not from this event: stock image. Photo: Wikimedia Commons | फ़ाइल फ़ोटो, इस घटना की नहीं: stock image. Photo: Wikimedia Commons
 
 ---
 

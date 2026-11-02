@@ -14,7 +14,7 @@ from sqlmodel import Session, select
 
 from ..config import get_settings
 from ..database import DB
-from ..models import StaffAccount
+from ..models import NewsroomArticle, StaffAccount
 from ..ratelimit import Limiter, client_ip
 from ..schemas import EmailText, LoginPassword, NewPassword, StaffLogin, StaffSignup
 from ..security import CurrentStaff, bearer, create_staff_token, hash_password, staff_from_token, verify_password
@@ -24,17 +24,19 @@ router = APIRouter(prefix="/api/staff-auth", tags=["staff-auth"])
 settings = get_settings()
 EMAIL = re.compile(r"[^@\s]+@[^@\s]+\.[^@\s]+")
 DEMO_PASSWORD = "Newsroom#2026"
-# Local development only (never seeded in production): one of each role, already linked.
+# Local development only (seeded when DEMO_SEED is set outside production): one of each role, already linked.
+# (staff_id, name, role, title, reports_to, home district)
 DEMO_STAFF = [
-    ("rajiv", "Rajiv Ranjan Sinha", "admin", "Managing editor", ""),
-    ("prabhat", "Prabhat Singh", "editor", "City editor", ""),
-    ("sunita", "Sunita Mahto", "editor", "State desk editor", ""),
-    ("ananya", "Ananya Kumari", "reporter", "City reporter", "prabhat"),
-    ("mohit", "Mohit Oraon", "reporter", "Sports reporter", "prabhat"),
-    ("shabnam", "Shabnam Ansari", "reporter", "Jamshedpur correspondent", "sunita"),
-    ("deepak", "Deepak Munda", "reporter", "Dhanbad correspondent", "sunita"),
+    ("rajiv", "Rajiv Ranjan Sinha", "admin", "Managing editor", "", "ranchi"),
+    ("prabhat", "Prabhat Singh", "editor", "City editor", "", "ranchi"),
+    ("sunita", "Sunita Mahto", "editor", "State desk editor", "", "ranchi"),
+    ("ananya", "Ananya Kumari", "reporter", "City reporter", "prabhat", "ranchi"),
+    ("mohit", "Mohit Oraon", "reporter", "Sports reporter", "prabhat", "ranchi"),
+    ("shabnam", "Shabnam Ansari", "reporter", "Jamshedpur correspondent", "sunita", "east-singhbhum"),
+    ("deepak", "Deepak Munda", "reporter", "Dhanbad correspondent", "sunita", "dhanbad"),
 ]
-DEMO_HOME = {"shabnam": "east-singhbhum", "deepak": "dhanbad"}
+# Earlier demo roster: removed on seeding so older databases do not show two newsrooms.
+OLD_DEMO_IDS = ("jane", "mary", "alice", "anthony")
 _login_failures = Limiter(8)
 _signups = Limiter(5, "Too many requests from this network. Try again in a few minutes.")
 _forgot = Limiter(5, "Too many reset requests. Check your inbox, or try again in a few minutes.")
@@ -45,12 +47,16 @@ def _email_for(name: str) -> str:
 
 
 def seed_demo_staff(db: Session) -> None:
-    for staff_id, name, role, title, reports_to in DEMO_STAFF:
+    for old in db.exec(select(StaffAccount).where(StaffAccount.staff_id.in_(OLD_DEMO_IDS), StaffAccount.email.like("%@newsapp.example"))).all():  # type: ignore[attr-defined]
+        # Only an account that never wrote anything: deleting an author would orphan their stories.
+        if not db.exec(select(NewsroomArticle.id).where(NewsroomArticle.author_id == old.staff_id)).first():
+            db.delete(old)
+    for staff_id, name, role, title, reports_to, district in DEMO_STAFF:
         if db.exec(select(StaffAccount).where(StaffAccount.staff_id == staff_id)).first():
             continue
         db.add(StaffAccount(
             id=str(uuid.uuid4()), staff_id=staff_id, email=_email_for(name), password_hash=hash_password(DEMO_PASSWORD),
-            display_name=name, role=role, job_title=title, reports_to=reports_to, home_state="JH", home_district=DEMO_HOME.get(staff_id, "ranchi"),
+            display_name=name, role=role, job_title=title, reports_to=reports_to, home_state="JH", home_district=district,
         ))
     db.commit()
 
@@ -99,10 +105,10 @@ def _require_active(a: StaffAccount) -> None:
 
 @router.get("/config")
 def config():
-    demo = not settings.is_production
+    demo = settings.demo_accounts_on and not settings.supabase_enabled  # same gate as seeding in main.bootstrap
     return {
         "demo_accounts": [
-            {"email": _email_for(n), "role": r, "name": n, "password": DEMO_PASSWORD} for _, n, r, _t, _e in DEMO_STAFF
+            {"email": _email_for(n), "role": r, "name": n, "password": DEMO_PASSWORD} for _, n, r, *_ in DEMO_STAFF
         ] if demo else [],
         "signup_requires_approval": True,
         "email_enabled": settings.email_enabled,

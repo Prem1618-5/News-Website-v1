@@ -5,10 +5,12 @@
 ## हटिया की सिंह मोड़ समिति 34वें वर्ष में 60 फीट ऊँचा पंडाल बना रही
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** Prabhat Khabar used an AI-generated illustration (not a photo). Page: https://www.prabhatkhabar.com/state/jharkhand/ranchi-durga-puja-ram-temple-inspired-indonesian-style-pandal-to-dazzle-visitors
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/singh-mod-puja-committee-builds-indonesian-style-shri-ram-temple-pandal.jpg
-**Caption | कैप्शन:** 60-foot temple replica pandal inspired by Indonesian architecture and Shri Ram Temple | इंडोनेशियाई वास्तुकला व श्रीराम मंदिर से प्रेरित भव्य पूजा पंडाल
+**Caption | कैप्शन:** File photo, not from this event: Durga Puja Pandal in Kolkata, 2023 03. Photo: Auli Raha (অলি রাহা) / Wikimedia Commons, CC BY-SA 4.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: Durga Puja Pandal in Kolkata, 2023 03. Photo: Auli Raha (অলি রাহা) / Wikimedia Commons, CC BY-SA 4.0
 
 ---
 

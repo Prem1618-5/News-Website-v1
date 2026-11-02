@@ -5,10 +5,12 @@
 ## प्रशासन व पुलिस ने रूट, भीड़ नियंत्रण, टिकट की कालाबाज़ारी और साइबर ठगी की समीक्षा की
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Sources: https://www.uniindia.com/sports/sports-jharkhand-india-wi-t20/202719 ; https://www.uniindia.com/sports/sports-jharkhand-t20i-security/195953
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/ranchi-tightens-security-for-india-west-indies-t20i-at-jsca-stadium.jpg
-**Caption | कैप्शन:** The JSCA International Stadium Complex in Ranchi prepared for international cricket | अंतरराष्ट्रीय क्रिकेट मैच के लिए तैयार रांची का जेएससीए स्टेडियम
+**Caption | कैप्शन:** File photo, not from this event: JSCAStad. Photo: Ayush0412 / Wikimedia Commons, CC BY-SA 4.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: JSCAStad. Photo: Ayush0412 / Wikimedia Commons, CC BY-SA 4.0
 
 ---
 

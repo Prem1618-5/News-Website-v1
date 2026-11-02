@@ -5,10 +5,12 @@
 ## साइंसडेली और साइंस की 12-18 अक्टूबर 2026 की संक्षिप्त खबरें
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No images. Sources: https://www.sciencedaily.com/ ; https://www.sciencedaily.com/news/top/science/ ; https://www.sciencedaily.com/news/health_medicine/ ; https://www.science.org/news
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/science-roundup-dark-matter-clump-universal-black-hole-jet-rule-cancer.jpg
-**Caption | कैप्शन:** Artist rendering of a supermassive black hole with relativistic jets and accretion disk | अंतरिक्ष में ब्लैक होल, उसके चारों ओर घूमते पदार्थ और तीव्र जेट्स का चित्रण
+**Caption | कैप्शन:** File photo, not from this event: Jets Spout Far Closer to Black Hole Than Thought, Scientists Say (2004-ss433). Photo: Credit: NASA/CXC/M.Weiss) JPEG (97 kb), Tiff (24.7 MB), PS (4.8 MB) / Wikimedia Commons, Public domain | फ़ाइल फ़ोटो, इस घटना की नहीं: Jets Spout Far Closer to Black Hole Than Thought, Scientists Say (2004-ss433). Photo: Credit: NASA/CXC/M.Weiss) JPEG (97 kb), Tiff (24.7 MB), PS (4.8 MB) / Wikimedia Commons, Public domain
 
 ---
 

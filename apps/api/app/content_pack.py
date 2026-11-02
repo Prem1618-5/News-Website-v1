@@ -301,11 +301,6 @@ def load_pack(root: Path = CONTENT_DIR) -> list[dict]:
                 item["image_url"] = f"/images/stories/{slug}.jpg"
             else:
                 item["image_url"] = ""
-        if not item.get("caption"):
-            if item.get("image_url"):
-                item["caption"] = f"{item['title']} | {item['title_hi']}"
-            else:
-                item["caption"] = ""
 
     items.sort(key=lambda i: (-i["words"], i["slug"]))
     for rank, item in enumerate(items):

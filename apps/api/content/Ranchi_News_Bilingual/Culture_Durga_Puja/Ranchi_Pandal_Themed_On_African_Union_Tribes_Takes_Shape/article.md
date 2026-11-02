@@ -5,10 +5,12 @@
 ## पूजा से कुछ दिन पहले कारीगर थीम आधारित पंडाल को अंतिम रूप देते हुए
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** Photos (PTI via Outlook India, 12 Oct 2026): workers decorating the 'Tribals of the African Union' pandal in Ranchi. Page: https://www.outlookindia.com/national/durga-puja-2026-pandals-rise-idols-take-shape
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/ranchi-pandal-themed-on-african-union-tribes-takes-shape.jpg
-**Caption | कैप्शन:** Artisans and decorators crafting an elaborate themed Durga Puja pandal | थीम आधारित दुर्गा पूजा पंडाल को अंतिम रूप देते कारीगर
+**Caption | कैप्शन:** File photo, not from this event: Durga Puja Pandal - Bosepukur Talbagan - Kasba - Kolkata 2012-10-23 1178. Photo: Biswarup Ganguly / Wikimedia Commons, CC BY 3.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: Durga Puja Pandal - Bosepukur Talbagan - Kasba - Kolkata 2012-10-23 1178. Photo: Biswarup Ganguly / Wikimedia Commons, CC BY 3.0
 
 ---
 

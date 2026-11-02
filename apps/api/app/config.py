@@ -20,6 +20,8 @@ class Settings(BaseSettings):
 
     # Fail closed: an unset APP_ENV is production, so demo accounts and the dev secret never leak onto a public deploy.
     app_env: str = Field(default="production", validation_alias="APP_ENV")
+    # Demo staff (and their published password) exist only when this is set AND the app is not in production.
+    demo_seed: bool = Field(default=False, validation_alias="DEMO_SEED")
     # Trust X-Forwarded-For only behind a proxy that sets it (Vercel/Render/Railway); otherwise clients could spoof it.
     trust_proxy: bool = Field(
         default_factory=lambda: any(os.environ.get(k) for k in ("VERCEL", "RENDER", "RAILWAY_ENVIRONMENT")),
@@ -84,6 +86,10 @@ class Settings(BaseSettings):
     @property
     def is_production(self) -> bool:
         return self.app_env.lower() == "production"
+
+    @property
+    def demo_accounts_on(self) -> bool:
+        return self.demo_seed and not self.is_production
 
     @property
     def email_enabled(self) -> bool:

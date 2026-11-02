@@ -5,10 +5,12 @@
 ## श्रीश्री हरिसभा व दुर्गा पूजा समिति ने सप्तमी से विजयादशमी तक का समय जारी किया
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Page: https://www.prabhatkhabar.com/religion/durga-puja-2026-ranchi-durgabari-puja-schedule-chandi-path-navpatrika-vijayadashami-timings/amp
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/durgabari-ranchi-releases-2026-puja-schedule-goddess-to-arrive-on-horse.jpg
-**Caption | कैप्शन:** Traditional idol of Goddess Durga during Durga Puja celebrations | दुर्गा पूजा के दौरान मां दुर्गा की पारंपरिक प्रतिमा
+**Caption | कैप्शन:** File photo, not from this event: Idol at Chittaranjan Park Cooperative Pandal Durga Puja in 2017. Photo: Slyronit / Wikimedia Commons, CC BY-SA 4.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: Idol at Chittaranjan Park Cooperative Pandal Durga Puja in 2017. Photo: Slyronit / Wikimedia Commons, CC BY-SA 4.0
 
 ---
 

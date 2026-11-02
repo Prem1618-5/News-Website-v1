@@ -1,17 +1,17 @@
-# Graph Report - Final-Iteration  (2026-10-20)
+# Graph Report - Final-Iteration  (2026-11-03)
 
 ## Corpus Check
-- 299 files · ~315,901 words
+- 301 files · ~283,307 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 17 file(s) not represented in the graph (top: (none) 7, .css 5, .example 2)
 
 ## Summary
-- 2210 nodes · 6749 edges · 107 communities (99 shown, 8 thin omitted)
-- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 204 edges (avg confidence: 0.93)
+- 2229 nodes · 6806 edges · 112 communities (104 shown, 8 thin omitted)
+- Extraction: 97% EXTRACTED · 3% INFERRED · 0% AMBIGUOUS · INFERRED: 212 edges (avg confidence: 0.93)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d995f531`
+- Built from commit: `2878ac67`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,55 +19,56 @@
 - routers/desk.py
 - primitives.tsx
 - reader/package.json
-- test_desk.py
-- controls.tsx
+- doc.py
+- Article/Desktop.tsx
 - ref_react
-- ComposePage.tsx
+- AppShell.tsx
 - newsroom.py
 - routers/content.py
 - domain/types.ts
 - account.py
 - cards.tsx
-- react-router-dom
 - routes.tsx
+- PersonPage.tsx
 - test_ai.py
 - StoryEditor.tsx
 - auth.py
 - staff_auth.py
 - forms.tsx
 - tokens.py
-- data.tsx
-- schemas.py
 - library.ts
+- schemas.py
+- Ico
 - team.py
 - extensions.ts
 - News App Platform
-- security.py
+- test_neon_auth.py
 - index.ts
 - privacy.py
 - primitives.tsx
-- taxonomy.ts
-- seo.ts
-- HistoryGraph.tsx
+- ref_react_router_dom
+- test_content.py
+- services/content.py
 - consent.ts
 - lib/session.tsx
 - lib/blocks.tsx
 - dependencies
-- services/content.py
-- react-router-dom
-- Layouts
+- database.py
+- Shell.tsx
+- LocationBody
 - content_pack.py
 - build-vercel.mjs
-- state/session.tsx
+- routers/content.py
 - compilerOptions
 - prerender.mjs
 - scripts
-- LocationBody
+- ComposePage.tsx
 - compilerOptions
-- database.py
-- routes.tsx
+- Layouts
+- entry-server.tsx
 - dev.mjs
 - devDependencies
+- Forgot/index.tsx
 - resp.mjs
 - devDependencies
 - fetch_all_story_images.py
@@ -78,16 +79,20 @@
 - deploy
 - dependencies
 - serve.mjs
-- Newsroom overhaul: phone-first writing, real review workflow, location ranking, accounts
+- test_desk.py
 - scripts
 - paste.ts
-- Forgot/index.tsx
-- OnboardingStep2
+- useIsMobile.ts
+- SiteHeader
 - reader/public/sw.js
 - test_staff_auth.py
+- OnboardingStep2
 - newsroom/package.json
 - main.py
-- InstallPrompt.tsx
+- Newsroom overhaul: phone-first writing, real review workflow, location ranking, accounts
+- screens.test.tsx
+- seed_demo_newsroom.py
+- Deployment status and verification checklist
 - Newsroom overhaul: progress
 - झारखंड की 28 बाज़ार समितियों में 1 नवंबर से दुकान-गोदाम का किराया बढ़ेगा
 - रांची में ज़मीन-फ्लैट दिलाने के नाम पर करोड़ों की ठगी
@@ -121,7 +126,7 @@
 - SKILL.md
 
 ## God Nodes (most connected - your core abstractions)
-1. `StaffAccount` - 51 edges
+1. `StaffAccount` - 53 edges
 2. `Composer()` - 50 edges
 3. `SiteHeader()` - 48 edges
 4. `Ico()` - 48 edges
@@ -130,13 +135,13 @@
 7. `SiteFooter()` - 43 edges
 8. `sectionName()` - 43 edges
 9. `api()` - 38 edges
-10. `useLang()` - 34 edges
+10. `NewsroomArticle` - 35 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Decisions` --references--> `scope()`  [INFERRED]
-  NEWSROOM_PLAN.md → apps/reader/src/lib/taxonomy.ts
 - `Live addresses` --references--> `main()`  [INFERRED]
   DEPLOY_CHECKLIST.md → scripts/fetch_all_story_images.py
+- `Decisions` --references--> `scope()`  [INFERRED]
+  NEWSROOM_PLAN.md → apps/reader/src/lib/taxonomy.ts
 - `Decisions` --references--> `NewsroomArticle`  [INFERRED]
   NEWSROOM_PLAN.md → apps/api/app/models.py
 - `Decisions` --references--> `ArticleRevision`  [INFERRED]
@@ -147,79 +152,79 @@
 ## Import Cycles
 - None detected.
 
-## Communities (107 total, 8 thin omitted)
+## Communities (112 total, 8 thin omitted)
 
 ### Community 0 - "routers/desk.py"
 Cohesion: 0.06
 Nodes (82): ArticleRevision, NewsroomArticle, Notice, ReviewNote, StaffAccount, add_note(), _apply(), _apply_place() (+74 more)
 
 ### Community 1 - "primitives.tsx"
-Cohesion: 0.11
-Nodes (49): addPerson(), approvePerson(), articlesKey(), NewPerson, PersonPatch, removePerson(), resendInvite(), resetLinkFor() (+41 more)
+Cohesion: 0.12
+Nodes (38): articlesKey(), updateProfile(), useArticles(), useStats(), useTeam(), fetcher(), changePassword(), signOutEverywhere() (+30 more)
 
 ### Community 2 - "reader/package.json"
 Cohesion: 0.09
 Nodes (21): clsx, lucide-react, @news/contracts, playwright-core, react, react-dom, react-router-dom, swr (+13 more)
 
-### Community 3 - "test_desk.py"
-Cohesion: 0.09
-Nodes (38): _block(), _clean_attrs(), clean_doc(), _clean_marks(), _clean_node(), _Ids, _inline(), _list_items() (+30 more)
+### Community 3 - "doc.py"
+Cohesion: 0.14
+Nodes (17): _block(), _clean_attrs(), clean_doc(), _clean_marks(), _clean_node(), _Ids, _inline(), _list_items() (+9 more)
 
-### Community 4 - "controls.tsx"
-Cohesion: 0.19
-Nodes (32): Author, AuthorCard(), authorRole(), authorsOf(), Avatar(), DESK_BIO, DESK_BIO_HI, WriterCard() (+24 more)
+### Community 4 - "Article/Desktop.tsx"
+Cohesion: 0.18
+Nodes (33): LangSwitch(), Author, AuthorCard(), authorRole(), Avatar(), DESK_BIO, DESK_BIO_HI, WriterCard() (+25 more)
 
 ### Community 5 - "ref_react"
 Cohesion: 0.09
-Nodes (43): updateProfile(), ApiError, tokenStore, AuthConfig, AuthResult, changePassword(), checkLink(), choosePassword() (+35 more)
+Nodes (39): ApiError, tokenStore, AuthConfig, AuthResult, checkLink(), choosePassword(), DemoAccount, fetchAuthConfig() (+31 more)
 
-### Community 6 - "ComposePage.tsx"
-Cohesion: 0.11
-Nodes (46): AiResult, AiStatus, OFF, runAi(), useAiStatus(), A(), addNote(), ArticleView (+38 more)
+### Community 6 - "AppShell.tsx"
+Cohesion: 0.14
+Nodes (22): createArticle(), readNotices(), refreshLists(), useNotices(), WritePage, AppShell(), NavItem, NoticeBell() (+14 more)
 
 ### Community 7 - "newsroom.py"
 Cohesion: 0.22
 Nodes (9): _clean_content(), _clean_inline(), _clean_text(), _clean_url(), _plain_text(), publish(), sanitize_blocks(), unpublish() (+1 more)
 
 ### Community 8 - "routers/content.py"
-Cohesion: 0.12
-Nodes (23): ArticleContent, Story, authors(), _aware(), is_breaking(), newest_first(), parse_near(), ranked() (+15 more)
+Cohesion: 0.18
+Nodes (8): authors(), parse_near(), sections(), snapshot(), stories(), story(), trending(), Page
 
 ### Community 9 - "domain/types.ts"
-Cohesion: 0.11
-Nodes (33): ArticlePatch, ArticleQuery, SendInput, Target, Article, ArticleSummary, Can, Doc (+25 more)
+Cohesion: 0.08
+Nodes (48): ArticlePatch, ArticleQuery, ArticleView, NewPerson, opts, PersonPatch, SendInput, updateArticle() (+40 more)
 
 ### Community 10 - "account.py"
-Cohesion: 0.14
-Nodes (19): AccountProfile, MediaAsset, Reader, ReadingDay, Section, utcnow(), checkin_today(), export_my_data() (+11 more)
+Cohesion: 0.13
+Nodes (20): AccountProfile, AnalyticsEvent, ConsentRecord, MediaAsset, Reader, ReadingDay, utcnow(), checkin_today() (+12 more)
 
 ### Community 11 - "cards.tsx"
-Cohesion: 0.28
-Nodes (23): Banner(), BreakingBanner(), Byline(), clamp(), CompactCard(), DeskTile(), HeroDesktop(), HeroMobile() (+15 more)
+Cohesion: 0.14
+Nodes (39): Banner(), BreakingBanner(), Byline(), clamp(), CompactCard(), DeskTile(), HeroDesktop(), HeroMobile() (+31 more)
 
-### Community 12 - "react-router-dom"
-Cohesion: 0.13
-Nodes (22): MobileHeader(), NoHighlightsView(), NoResultsView(), item(), Props, TabBar(), FollowingEmptyDesktop(), FollowingEmptyMobile() (+14 more)
+### Community 12 - "routes.tsx"
+Cohesion: 0.09
+Nodes (47): DocPage(), H2(), blocksText(), useAuthor(), storyPath(), titleOf(), applyHead(), DEFAULT_IMAGE (+39 more)
 
-### Community 13 - "routes.tsx"
-Cohesion: 0.22
-Nodes (14): DocPage(), H2(), Layout, MOBILE_MAX, subscribe(), TABLET_MAX, useIsMobile(), useLayout() (+6 more)
+### Community 13 - "PersonPage.tsx"
+Cohesion: 0.21
+Nodes (26): addPerson(), approvePerson(), removePerson(), resendInvite(), resetLinkFor(), updatePerson(), Body, errorText() (+18 more)
 
 ### Community 14 - "test_ai.py"
-Cohesion: 0.05
-Nodes (43): Settings, _client(), looks_like_neon_token(), user_from_token(), _verify(), ai_status(), _cache_key(), Provider (+35 more)
+Cohesion: 0.10
+Nodes (24): Settings, _client(), _verify(), ai_status(), resolve_provider(), status(), _clear_cache(), _fake_client() (+16 more)
 
 ### Community 15 - "StoryEditor.tsx"
-Cohesion: 0.09
-Nodes (41): Uploaded, uploadMedia(), PromptModal(), Field(), FieldChild(), Modal(), Tabs(), textareaCls (+33 more)
+Cohesion: 0.10
+Nodes (43): Uploaded, uploadMedia(), useHistory(), dateTime(), Modal(), changed(), diffSize(), Piece (+35 more)
 
 ### Community 16 - "auth.py"
-Cohesion: 0.16
-Nodes (19): LocalUser, client_ip(), auth_config(), auth_me(), auth_session(), forgot_password(), _local_session(), login() (+11 more)
+Cohesion: 0.09
+Nodes (27): LocalUser, auth_config(), auth_me(), auth_session(), forgot_password(), _local_session(), login(), logout() (+19 more)
 
 ### Community 17 - "staff_auth.py"
-Cohesion: 0.13
-Nodes (21): change_password(), ChangePassword, check_token(), config(), _email_for(), forgot(), Forgot, login() (+13 more)
+Cohesion: 0.12
+Nodes (22): client_ip(), change_password(), ChangePassword, check_token(), config(), _email_for(), forgot(), Forgot (+14 more)
 
 ### Community 18 - "forms.tsx"
 Cohesion: 0.19
@@ -229,17 +234,17 @@ Nodes (16): Field(), ForgotForm(), INPUT, LoginForm(), NeonLink(), Problem(), Re
 Cohesion: 0.28
 Nodes (6): AuthToken, _aware(), consume(), _hash(), issue(), peek()
 
-### Community 20 - "data.tsx"
-Cohesion: 0.14
-Nodes (28): Rules, authorKey(), Feed, feedKey(), idsKey(), moreKey(), relatedKey(), searchKey() (+20 more)
+### Community 20 - "library.ts"
+Cohesion: 0.12
+Nodes (31): Rules, SavedEmptyView(), SaveToggle(), authorKey(), idsKey(), moreKey(), relatedKey(), searchKey() (+23 more)
 
 ### Community 21 - "schemas.py"
-Cohesion: 0.15
-Nodes (19): AccountUpdate, AiRequest, AuthCredentials, ConsentChoice, CookiePreferences, EventBatch, EventIn, ForgotRequest (+11 more)
+Cohesion: 0.14
+Nodes (20): AccountUpdate, AuthCredentials, ConsentChoice, CookiePreferences, EventBatch, EventIn, ForgotRequest, HeroMedia (+12 more)
 
-### Community 22 - "library.ts"
-Cohesion: 0.12
-Nodes (32): InstallEvent, InstallSheet(), listeners, read(), write(), clamp2, NoticeMenu(), Row() (+24 more)
+### Community 22 - "Ico"
+Cohesion: 0.16
+Nodes (26): EmptyCard(), clamp2, NoticeMenu(), Row(), SiteFooter(), NoNotificationsView(), ScopeChips(), Ico() (+18 more)
 
 ### Community 23 - "team.py"
 Cohesion: 0.16
@@ -247,47 +252,47 @@ Nodes (15): add_person(), _admins(), Approval, approve(), _check_place(), _edito
 
 ### Community 24 - "extensions.ts"
 Cohesion: 0.08
-Nodes (27): AudioNode, Commands, FactBox, HighlightColor, HIGHLIGHTS, ImageNode, mediaAttributes, MediaAttrs (+19 more)
+Nodes (28): NoteKind, AudioNode, Commands, FactBox, HighlightColor, HIGHLIGHTS, ImageNode, mediaAttributes (+20 more)
 
 ### Community 25 - "News App Platform"
 Cohesion: 0.04
 Nodes (43): Commands, Folder map, Reader (`@news/reader`), Routes, Build and check, How it fits together, News APP Reader, Run it (+35 more)
 
-### Community 26 - "security.py"
-Cohesion: 0.15
-Nodes (9): bearer(), current_staff(), current_user(), _decode(), local_user_from_token(), optional_user(), require_newsroom(), require_staff() (+1 more)
+### Community 26 - "test_neon_auth.py"
+Cohesion: 0.17
+Nodes (14): bearer(), _lifespan(), neon_on(), test_expired_token_is_rejected(), test_hs256_token_with_the_neon_issuer_is_not_accepted(), test_local_login_still_works_with_neon_on(), test_missing_subject_or_expiry_is_rejected(), test_neon_off_ignores_neon_tokens() (+6 more)
 
 ### Community 27 - "index.ts"
-Cohesion: 0.10
-Nodes (18): SELECT, AI_TASKS, BLOCK_ALLOWLIST, BREAKING_HOURS, CONSENT_TIERS, ConsentId, ConsentTier, DEFAULT_LOCATION (+10 more)
+Cohesion: 0.11
+Nodes (16): AI_TASKS, BLOCK_ALLOWLIST, BREAKING_HOURS, CONSENT_TIERS, CONSENT_VERSION, ConsentId, ConsentTier, DEFAULT_LOCATION (+8 more)
 
 ### Community 28 - "privacy.py"
-Cohesion: 0.20
-Nodes (7): AnalyticsEvent, ConsentRecord, audience_summary(), get_consent(), ingest_events(), latest_consent(), record_consent()
+Cohesion: 0.12
+Nodes (6): Limiter, audience_summary(), get_consent(), ingest_events(), latest_consent(), record_consent()
 
 ### Community 29 - "primitives.tsx"
+Cohesion: 0.13
+Nodes (22): StatusPill(), PromptModal(), BtnVariant, Drawer(), Field(), FieldChild(), layers, PALETTE (+14 more)
+
+### Community 30 - "ref_react_router_dom"
 Cohesion: 0.11
-Nodes (31): StatusPill(), BtnVariant, dateTime(), layers, PALETTE, SectionDot(), selectCls, shortDate() (+23 more)
+Nodes (28): MobileHeader(), Props, tab(), NoHighlightsView(), NoResultsView(), OfflineView(), item(), Props (+20 more)
 
-### Community 30 - "taxonomy.ts"
-Cohesion: 0.14
-Nodes (28): DeskPills(), SectionIcon(), useSectionCounts(), fmtLongDate(), useToday(), toggle(), byKey, isSection() (+20 more)
+### Community 31 - "test_content.py"
+Cohesion: 0.12
+Nodes (7): classify(), init_db(), migrate_columns(), client(), test_classification_uses_plain_positive_desks(), test_old_database_gains_new_columns_without_losing_rows(), test_old_place_scopes_become_levels()
 
-### Community 31 - "seo.ts"
-Cohesion: 0.11
-Nodes (30): Rendered, blocksText(), applyHead(), DEFAULT_IMAGE, esc(), HeadCollector, HeadContext, HeadData (+22 more)
-
-### Community 32 - "HistoryGraph.tsx"
-Cohesion: 0.25
-Nodes (16): useHistory(), changed(), diffSize(), Piece, tokens(), wordDiff(), ChangesView(), DiffText() (+8 more)
+### Community 32 - "services/content.py"
+Cohesion: 0.19
+Nodes (7): blocks_text(), ArticleContent, Section, purge_legacy_demo(), sync_content(), sync_sections(), test_sync_is_idempotent()
 
 ### Community 33 - "consent.ts"
-Cohesion: 0.12
-Nodes (26): ConsentBanner(), Switch(), wrap, Choices, closeConsent(), current, emit(), EventIn (+18 more)
+Cohesion: 0.17
+Nodes (19): ConsentBanner(), Switch(), wrap, Choices, closeConsent(), current, emit(), EventIn (+11 more)
 
 ### Community 34 - "lib/session.tsx"
-Cohesion: 0.07
-Nodes (40): api(), API_BASE, ApiError, env, post(), put(), setTokenProvider(), loadLibrary() (+32 more)
+Cohesion: 0.16
+Nodes (18): api(), API_BASE, ApiError, env, post(), setTokenProvider(), loadLibrary(), mergeLibraries() (+10 more)
 
 ### Community 35 - "lib/blocks.tsx"
 Cohesion: 0.16
@@ -297,29 +302,29 @@ Nodes (19): BlocksView(), BODY_DESKTOP, BODY_MOBILE, BodyStyle, HIGHLIGHT, Inlin
 Cohesion: 0.10
 Nodes (20): dependencies, clsx, diff, lucide-react, @news/contracts, react, react-dom, react-router-dom (+12 more)
 
-### Community 37 - "services/content.py"
-Cohesion: 0.18
-Nodes (7): slugify(), purge_legacy_demo(), slugify_author(), sync_content(), sync_sections(), test_slug_is_ascii_and_short(), test_sync_is_idempotent()
+### Community 37 - "database.py"
+Cohesion: 0.06
+Nodes (14): get_settings(), _database_url(), get_db(), looks_like_neon_token(), user_from_token(), ai_assist(), AiRequest, _cache_key() (+6 more)
 
-### Community 38 - "react-router-dom"
-Cohesion: 0.15
-Nodes (28): DeskRail(), EmptyCard(), LangSwitch(), SiteFooter(), Props, SiteHeader(), tab(), LikeToggle() (+20 more)
+### Community 38 - "Shell.tsx"
+Cohesion: 0.24
+Nodes (11): build(), getNeon(), isNeonUser(), markNeonUser(), NEON_AUTH_URL, neonJwt(), neonSignOut(), NeonAccountScreen() (+3 more)
 
-### Community 39 - "Layouts"
-Cohesion: 0.16
-Nodes (26): DataGate(), ErrorView(), FollowingEmptyView(), LoadingView(), NoNotificationsView(), OfflineView(), SavedEmptyView(), useOffline() (+18 more)
+### Community 39 - "LocationBody"
+Cohesion: 0.36
+Nodes (5): LocationBody(), SELECT, LocationDesktop(), LocationMobile(), SCOPES
 
 ### Community 40 - "content_pack.py"
-Cohesion: 0.08
-Nodes (19): _block(), blocks_text(), classify(), discover(), load_pack(), outlet_name(), parse_article(), place_of() (+11 more)
+Cohesion: 0.13
+Nodes (15): _block(), discover(), load_pack(), outlet_name(), parse_article(), place_of(), slugify(), snapshot() (+7 more)
 
 ### Community 41 - "build-vercel.mjs"
 Cohesion: 0.29
 Nodes (4): newsroomDist, out, readerDist, root
 
-### Community 42 - "state/session.tsx"
-Cohesion: 0.11
-Nodes (25): createArticle(), readNotices(), refreshLists(), useMe(), useNotices(), Body, fetcher(), setUnauthorizedHandler() (+17 more)
+### Community 42 - "routers/content.py"
+Cohesion: 0.25
+Nodes (12): Story, _aware(), is_breaking(), newest_first(), ranked(), relevance(), sections_with_counts(), serve_image() (+4 more)
 
 ### Community 43 - "compilerOptions"
 Cohesion: 0.12
@@ -333,21 +338,21 @@ Nodes (14): dist, files, jsonForHtml(), LS, manifestPath, page(), preloads(), pr
 Cohesion: 0.12
 Nodes (16): description, name, packageManager, private, scripts, build, build:newsroom, build:reader (+8 more)
 
-### Community 46 - "LocationBody"
-Cohesion: 0.67
-Nodes (3): LocationBody(), LocationDesktop(), LocationMobile()
+### Community 46 - "ComposePage.tsx"
+Cohesion: 0.09
+Nodes (53): AiResult, AiStatus, OFF, runAi(), useAiStatus(), A(), addNote(), checkArticle() (+45 more)
 
 ### Community 47 - "compilerOptions"
 Cohesion: 0.13
 Nodes (14): compilerOptions, isolatedModules, jsx, lib, module, moduleResolution, noEmit, paths (+6 more)
 
-### Community 48 - "database.py"
-Cohesion: 0.07
-Nodes (8): get_settings(), _database_url(), get_db(), Limiter, ai_assist(), _layout(), send(), _fire()
+### Community 48 - "Layouts"
+Cohesion: 0.28
+Nodes (13): DataGate(), ErrorView(), LoadingView(), useOffline(), useStory(), Layouts(), Article(), Loaded() (+5 more)
 
-### Community 49 - "routes.tsx"
-Cohesion: 0.12
-Nodes (18): Analytics(), App(), SkipLink(), render(), DataProvider(), ScrollToTop(), start(), Window (+10 more)
+### Community 49 - "entry-server.tsx"
+Cohesion: 0.09
+Nodes (21): Analytics(), App(), SkipLink(), InstallEvent, InstallSheet(), listeners, read(), write() (+13 more)
 
 ### Community 50 - "dev.mjs"
 Cohesion: 0.20
@@ -356,6 +361,10 @@ Nodes (9): apiDir, children, COLORS, ensurePythonEnv(), prefix(), requested, roo
 ### Community 51 - "devDependencies"
 Cohesion: 0.18
 Nodes (11): devDependencies, playwright-core, tailwindcss, @tailwindcss/vite, @types/node, @types/react, @types/react-dom, typescript (+3 more)
+
+### Community 52 - "Forgot/index.tsx"
+Cohesion: 0.62
+Nodes (3): ResetYourPasswordDiv(), ForgotDesktop(), ForgotMobile()
 
 ### Community 53 - "resp.mjs"
 Cohesion: 0.18
@@ -366,8 +375,8 @@ Cohesion: 0.20
 Nodes (10): devDependencies, playwright-core, tailwindcss, @tailwindcss/vite, @types/react, @types/react-dom, typescript, vite (+2 more)
 
 ### Community 55 - "fetch_all_story_images.py"
-Cohesion: 0.08
-Nodes (17): test_places_match_shared_contract(), test_sections_match_shared_contract(), After you sign in, AI and translation (Gemini free tier, model `gemini-3.5-flash`), Deployment status and verification checklist, Do these first (things only you can do), Live addresses, Newsroom (staff app) (+9 more)
+Cohesion: 0.14
+Nodes (10): test_places_match_shared_contract(), test_sections_match_shared_contract(), commons_credit(), fetch_bytes_with_retry(), honest_caption(), main(), process_image(), resolve_wikimedia_file() (+2 more)
 
 ### Community 56 - "scripts"
 Cohesion: 0.20
@@ -393,9 +402,9 @@ Nodes (9): dependencies, clsx, lucide-react, @neondatabase/neon-js, @news/contra
 Cohesion: 0.25
 Nodes (6): args, dir, isFile(), port, rules, TYPES
 
-### Community 64 - "Newsroom overhaul: phone-first writing, real review workflow, location ranking, accounts"
-Cohesion: 0.29
-Nodes (6): Bugs fixed along the way, Context, Dead / fake features → decision, Files, Newsroom overhaul: phone-first writing, real review workflow, location ranking, accounts, Verification
+### Community 64 - "test_desk.py"
+Cohesion: 0.20
+Nodes (21): auth(), create(), doc(), join(), _lifespan(), new_person(), test_admin_adds_editors_and_editors_add_only_their_reporters(), test_bilingual_story_keeps_both_languages() (+13 more)
 
 ### Community 65 - "scripts"
 Cohesion: 0.29
@@ -405,17 +414,21 @@ Nodes (7): scripts, build, dev, icons, preview, test, typecheck
 Cohesion: 0.48
 Nodes (6): cleanPastedHtml(), fixWordLists(), KEEP_STYLE_TAGS, rename(), unwrap(), wrapChildren()
 
-### Community 67 - "Forgot/index.tsx"
-Cohesion: 0.62
-Nodes (3): ResetYourPasswordDiv(), ForgotDesktop(), ForgotMobile()
+### Community 67 - "useIsMobile.ts"
+Cohesion: 0.38
+Nodes (6): Layout, MOBILE_MAX, subscribe(), TABLET_MAX, useIsMobile(), useLayout()
 
-### Community 69 - "OnboardingStep2"
-Cohesion: 0.36
-Nodes (6): Onboarding2Desktop(), Onboarding2Mobile(), bar(), OnboardingStep2(), Row(), Shell()
+### Community 69 - "SiteHeader"
+Cohesion: 0.10
+Nodes (37): DeskRail(), SiteHeader(), FollowingEmptyView(), authorsOf(), paths, SectionIcon(), toggle(), byKey (+29 more)
 
 ### Community 71 - "test_staff_auth.py"
-Cohesion: 0.18
+Cohesion: 0.17
 Nodes (11): _lifespan(), login(), test_editor_token_passes_newsroom_guard(), test_login_and_session_roundtrip(), test_login_wrong_password_is_401(), test_reader_token_is_not_a_staff_token(), test_repeated_failures_are_throttled(), test_reporter_can_call_ai_assist_but_gets_503_without_key() (+3 more)
+
+### Community 73 - "OnboardingStep2"
+Cohesion: 0.43
+Nodes (5): put(), Onboarding2Desktop(), Onboarding2Mobile(), OnboardingStep2(), Row()
 
 ### Community 76 - "newsroom/package.json"
 Cohesion: 0.08
@@ -423,11 +436,23 @@ Nodes (24): clsx, lucide-react, @news/contracts, playwright-core, react, react-d
 
 ### Community 78 - "main.py"
 Cohesion: 0.07
-Nodes (11): init_db(), bootstrap(), _friendly(), health(), index(), lifespan(), request_context(), validation_error() (+3 more)
+Nodes (10): bootstrap(), _friendly(), health(), index(), lifespan(), request_context(), validation_error(), serve_media() (+2 more)
 
-### Community 82 - "InstallPrompt.tsx"
-Cohesion: 0.36
-Nodes (8): emit(), installed(), InstallEvent, isIosSafari(), listeners, recentlyDismissed(), subscribe(), useInstall()
+### Community 79 - "Newsroom overhaul: phone-first writing, real review workflow, location ranking, accounts"
+Cohesion: 0.29
+Nodes (6): Bugs fixed along the way, Context, Dead / fake features → decision, Files, Newsroom overhaul: phone-first writing, real review workflow, location ranking, accounts, Verification
+
+### Community 80 - "screens.test.tsx"
+Cohesion: 0.13
+Nodes (19): Feed, SECTIONS_KEY, BOOST, fallbackFor(), newestFirst(), rankFor(), relevance(), resolveKey() (+11 more)
+
+### Community 81 - "seed_demo_newsroom.py"
+Cohesion: 0.24
+Nodes (4): call(), publish(), send(), write()
+
+### Community 82 - "Deployment status and verification checklist"
+Cohesion: 0.20
+Nodes (9): After you sign in, AI and translation (Gemini free tier, model `gemini-3.5-flash`), Deployment status and verification checklist, Do these first (things only you can do), Live addresses, Newsroom (staff app), Reader (public site), Security and platform (the minute ones) (+1 more)
 
 ### Community 83 - "Newsroom overhaul: progress"
 Cohesion: 0.22
@@ -547,23 +572,23 @@ Nodes (3): graphify, Project notes (read this instead of exploring the repo), Sa
 
 ## Knowledge Gaps
 - **34 isolated node(s):** `@news/contracts`, `@tiptap/pm`, `clsx`, `lucide-react`, `react` (+29 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 741 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 750 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Decisions` connect `routers/desk.py` to `Newsroom overhaul: phone-first writing, real review workflow, location ranking, accounts`, `taxonomy.ts`?**
-  _High betweenness centrality (0.383) - this node is a cross-community bridge._
-- **Are the 40 inferred relationships involving `StaffAccount` (e.g. with `_full()` and `_get()`) actually correct?**
-  _`StaffAccount` has 40 INFERRED edges - model-reasoned connections that need verification._
+- **Why does `Decisions` connect `routers/desk.py` to `SiteHeader`, `Newsroom overhaul: phone-first writing, real review workflow, location ranking, accounts`?**
+  _High betweenness centrality (0.387) - this node is a cross-community bridge._
+- **Are the 41 inferred relationships involving `StaffAccount` (e.g. with `_full()` and `_get()`) actually correct?**
+  _`StaffAccount` has 41 INFERRED edges - model-reasoned connections that need verification._
 - **What connects `@news/contracts`, `@tiptap/pm`, `clsx` to the rest of the system?**
   _34 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `routers/desk.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.05813953488372093 - nodes in this community are weakly interconnected._
-- **Why does `scope()` connect `taxonomy.ts` to `routers/desk.py`?**
-  _High betweenness centrality (0.379) - this node is a cross-community bridge._
+  _Cohesion score 0.055324879362585566 - nodes in this community are weakly interconnected._
+- **Why does `scope()` connect `SiteHeader` to `routers/desk.py`?**
+  _High betweenness centrality (0.386) - this node is a cross-community bridge._
 - **Should `primitives.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.11311475409836065 - nodes in this community are weakly interconnected._
-- **Why does `NewsroomArticle` connect `routers/desk.py` to `account.py`?**
-  _High betweenness centrality (0.230) - this node is a cross-community bridge._
+  _Cohesion score 0.12025901942645699 - nodes in this community are weakly interconnected._
+- **Why does `NewsroomArticle` connect `routers/desk.py` to `staff_auth.py`, `account.py`?**
+  _High betweenness centrality (0.276) - this node is a cross-community bridge._

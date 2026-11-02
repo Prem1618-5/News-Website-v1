@@ -5,10 +5,12 @@
 ## 2026 की सबसे तेज़ तमिल फिल्म जिसने 200 करोड़ का आँकड़ा छुआ, हालाँकि 'कूली' की ओपनिंग से पीछे
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** No image retrievable. Sources: https://www.theweek.in/news/entertainment/2026/10/16/jailer-2-day-1-box-office-collection.html ; https://www.sacnilk.com/news/jailer-2-box-office-rajinikanths-blockbuster-crosses-200-cr-worldwide-in-2-days-becomes-4th-tamil-film-of-2026-to-do
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/rajinikanths-jailer-2-opens-at-rs-125-crore-worldwide-crosses-rs-200.jpg
-**Caption | कैप्शन:** Superstar Rajinikanth whose blockbuster Jailer 2 crossed ₹200 crore worldwide | सुपरस्टार रजनीकांत, जिनकी फिल्म 'जेलर 2' ने दुनिया भर में ₹200 करोड़ का आंकड़ा पार किया
+**Caption | कैप्शन:** File photo, not from this event: Rajinikanth Felicitates Writer Kalaignanam. Photo: Dani Charles Silverscreen Media Inc. (https://silverscreen.in) / Wikimedia Commons, CC BY-SA 3.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: Rajinikanth Felicitates Writer Kalaignanam. Photo: Dani Charles Silverscreen Media Inc. (https://silverscreen.in) / Wikimedia Commons, CC BY-SA 3.0
 
 ---
 

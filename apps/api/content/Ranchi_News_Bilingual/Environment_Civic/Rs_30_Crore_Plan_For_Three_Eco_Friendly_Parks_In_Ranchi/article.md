@@ -5,10 +5,12 @@
 ## सोलर पैनल, स्मार्ट लाइटिंग, वर्षा जल संचयन, वॉकिंग व साइकिलिंग ट्रैक की योजना
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** Image (The CSR Journal): https://thecsrjournal.in/wp-content/uploads/2026/10/1ranchi-city-pg-2-0_e6e729fe-5e67-4fd0-a76a-adb6568427a6-large-e1791772939998.jpg  Page: https://thecsrjournal.in/ranchi-three-eco-friendly-parks-project-hindi
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/rs-30-crore-plan-for-three-eco-friendly-parks-in-ranchi.jpg
-**Caption | कैप्शन:** Landscaping and green walkways planned for eco-friendly urban parks in Ranchi | रांची में बनने वाले पर्यावरण अनुकूल नगर पार्कों की हरियाली और वॉकवे
+**Caption | कैप्शन:** File photo, not from this event: stock image. Photo: Wikimedia Commons | फ़ाइल फ़ोटो, इस घटना की नहीं: stock image. Photo: Wikimedia Commons
 
 ---
 

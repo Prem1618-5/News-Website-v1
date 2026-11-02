@@ -29,13 +29,14 @@ export function useStoryView(s: Story) {
 export function Thumb({ story, style, icon = 28, loading = 'lazy', priority = false }: { story: Story; style?: CSSProperties; icon?: number; loading?: 'lazy' | 'eager'; priority?: boolean }) {
   const info = sectionInfo(story.section)
   const photo = story.image_url
+  // Decorative: the headline beside it names the story, and the credited caption sits under the article's own photo.
   return (
-    <div className="img" aria-hidden={photo ? undefined : true} style={{ background: tint(story.id), overflow: 'hidden', position: 'relative', display: 'grid', placeItems: 'center', color: info.color, ...style }}>
+    <div className="img" aria-hidden="true" style={{ background: tint(story.id), overflow: 'hidden', position: 'relative', display: 'grid', placeItems: 'center', color: info.color, ...style }}>
       <SectionIcon k={story.section} size={icon} style={{ opacity: 0.35 }} />
       {photo ? (
         <img
           src={photo}
-          alt={story.caption || ''}
+          alt=""
           loading={priority ? 'eager' : loading}
           decoding="async"
           fetchPriority={priority ? 'high' : 'auto'}

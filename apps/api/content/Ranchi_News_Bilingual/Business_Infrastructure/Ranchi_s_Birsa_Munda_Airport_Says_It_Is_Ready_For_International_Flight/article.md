@@ -5,10 +5,12 @@
 ## अब सिर्फ किसी एयरलाइन के प्रस्ताव का इंतज़ार; रोज़ 4,000-5,000 यात्री
 
 **Image / video reference | चित्र / वीडियो संदर्भ:** Image (The CSR Journal): https://thecsrjournal.in/wp-content/uploads/2026/10/Ranchi-Airport.avif  Page: https://thecsrjournal.in/ranchi-airport-international-flights-launch-hindi
-(Images are linked, not downloaded. | चित्र डाउनलोड नहीं किए गए, केवल लिंक दिए गए हैं।)
+(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)
+
+
 
 **Image | चित्र:** /images/stories/ranchis-birsa-munda-airport-says-it-is-ready-for-international-flights.jpg
-**Caption | कैप्शन:** Terminal building of Birsa Munda Airport in Ranchi, Jharkhand | रांची, झारखंड स्थित बिरसा मुंडा हवाई अड्डा टर्मिनल
+**Caption | कैप्शन:** File photo, not from this event: Birsa Munda Airport in Ranchi 1. Photo: IM3847 / Wikimedia Commons, CC BY-SA 4.0 | फ़ाइल फ़ोटो, इस घटना की नहीं: Birsa Munda Airport in Ranchi 1. Photo: IM3847 / Wikimedia Commons, CC BY-SA 4.0
 
 ---
 

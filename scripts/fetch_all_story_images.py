@@ -4,7 +4,8 @@ Saves to both:
 - apps/reader/public/images/stories/<slug>.jpg
 - apps/api/media/images/stories/<slug>.jpg
 
-Also wires `image_url` and `caption` into every `article.md`.
+Also wires `image_url` and `caption` into every `article.md`. These are stock photos, not pictures of the events, so the
+caption says so and credits the Commons author and licence. `--captions-only` rewrites captions without downloading.
 """
 import io
 import json
@@ -12,27 +13,15 @@ import pathlib
 import re
 import sys
 import time
+import html
 import urllib.parse
 import urllib.request
 from PIL import Image
 
 UA = "NewsReaderApp/1.0 (https://newsreader.example; contact@newsreader.example) Python/3.11"
 
+# Stories with no relevant licensed photo (apartment, market and ballot stock shots did not match) are left out on purpose.
 STORIES_CONFIG = [
-    {
-        "slug": "28-market-committees-in-jharkhand-to-raise-shop-and-godown-rent-from-1",
-        "folder": "Business_Infrastructure/28_Market_Committees_In_Jharkhand_To_Raise_Shop_And_Godown_Rent_From_1",
-        "direct_file": "India - Koyambedu Market - Faces of Koyambedu - Sacks of Onion 01 (3981881682).jpg",
-        "wiki_query": "filetype:bitmap wholesale grain market APMC India",
-        "caption": "Agricultural produce market committee (APMC) wholesale yard with merchant shops and storage godowns in Jharkhand | झारखंड में कृषि उत्पादन बाज़ार समिति के दुकान व गोदाम",
-    },
-    {
-        "slug": "crores-lost-in-fraud-promising-land-and-flats-in-ranchi",
-        "folder": "Business_Infrastructure/Crores_Lost_In_Fraud_Promising_Land_And_Flats_In_Ranchi",
-        "direct_file": "Mani Imperial - Residential Complex - Kolkata 2017-04-18 6463.JPG",
-        "wiki_query": "filetype:bitmap residential apartment building Ranchi",
-        "caption": "Residential apartment complex and housing construction under development in Ranchi | रांची में निर्माणाधीन आवासीय अपार्टमेंट और भवन",
-    },
     {
         "slug": "ranchis-birsa-munda-airport-says-it-is-ready-for-international-flights",
         "folder": "Business_Infrastructure/Ranchi_s_Birsa_Munda_Airport_Says_It_Is_Ready_For_International_Flight",
@@ -100,13 +89,6 @@ STORIES_CONFIG = [
         "caption": "Superstar Rajinikanth whose blockbuster Jailer 2 crossed ₹200 crore worldwide | सुपरस्टार रजनीकांत, जिनकी फिल्म 'जेलर 2' ने दुनिया भर में ₹200 करोड़ का आंकड़ा पार किया",
     },
     {
-        "slug": "jharkhand-holds-special-camps-to-add-names-under-sir-of-electoral-rolls",
-        "folder": "Environment_Civic/Jharkhand_Holds_Special_Camps_To_Add_Names_Under_SIR_Of_Electoral_Roll",
-        "direct_file": "A long queue of voters at a polling booth, in Jagatsinghpur, Odisha during the 4th Phase of General Elections-2014 on April 17, 2014.jpg",
-        "wiki_query": "filetype:bitmap polling station voter India election queue",
-        "caption": "Special voter registration helpdesk and electoral roll revision camp in Jharkhand | झारखंड में मतदाता सूची पुनरीक्षण और नाम जोड़ने के लिए विशेष शिविर",
-    },
-    {
         "slug": "rs-30-crore-plan-for-three-eco-friendly-parks-in-ranchi",
         "folder": "Environment_Civic/Rs_30_Crore_Plan_For_Three_Eco_Friendly_Parks_In_Ranchi",
         "direct_url": "https://thecsrjournal.in/wp-content/uploads/2026/10/1ranchi-city-pg-2-0_e6e729fe-5e67-4fd0-a76a-adb6568427a6-large-e1791772939998.jpg",
@@ -165,13 +147,6 @@ STORIES_CONFIG = [
         "folder": "Technology/Robots_Play_Badminton_And_Sort_Parcels_As_Hangzhou_Hosts_China_Robot_C",
         "direct_file": "VEX Robotics Competition Robot.jpg",
         "caption": "Autonomous robots demonstrating dexterity and sorting agility at robotics challenge | रोबोटिक्स प्रतियोगिता में स्वायत्त रोबोट्स की दक्षता और छँटाई का प्रदर्शन",
-    },
-    {
-        "slug": "us-announces-6-billion-in-science-initiatives-medals-to-tech-leaders",
-        "folder": "Technology/US_Announces_6_Billion_In_Science_Initiatives_Medals_To_Tech_Leaders_V",
-        "direct_file": "2011 Presidential Award for Excellence in Science, Mathematics and Engineering Mentoring.jpg",
-        "wiki_query": "filetype:bitmap Presidential Award for Excellence in Science",
-        "caption": "The National Medal of Technology and Innovation honoring leaders in science and technology | विज्ञान और प्रौद्योगिकी के क्षेत्र में उत्कृष्ट योगदान हेतु राष्ट्रीय पदक",
     },
     {
         "slug": "hurricane-simon-crawls-along-mexicos-pacific-coast-as-rachels-remnants",
@@ -241,6 +216,32 @@ def search_wikimedia(query: str) -> str | None:
     return None
 
 
+def commons_credit(filename: str) -> str:
+    """'Photo: <author> / Wikimedia Commons, <licence>' from the file's Commons metadata (licences require attribution)."""
+    title = filename if filename.startswith("File:") else "File:" + filename
+    params = {"action": "query", "format": "json", "titles": title, "prop": "imageinfo", "iiprop": "extmetadata"}
+    req = urllib.request.Request("https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(params), headers={"User-Agent": UA})
+    try:
+        with urllib.request.urlopen(req, timeout=12) as resp:
+            data = json.loads(resp.read().decode("utf-8"))
+        meta = next(iter(data["query"]["pages"].values()))["imageinfo"][0]["extmetadata"]
+        who = meta.get("Artist", {}).get("value") or meta.get("Credit", {}).get("value", "")
+        artist = html.unescape(re.sub(r"<[^>]+>", "", who)).strip() or "Wikimedia Commons contributor"
+        licence = meta.get("LicenseShortName", {}).get("value", "see Commons page")
+    except Exception as e:
+        print(f"Error reading credit for {filename}: {e}", file=sys.stderr)
+        artist, licence = "Wikimedia Commons contributor", "see Commons page"
+    return f"Photo: {artist} / Wikimedia Commons, {licence}"
+
+
+def honest_caption(story: dict) -> str:
+    """The photo is illustrative: say so, name what it really shows, and credit it. No pipe inside a language."""
+    name = pathlib.PurePosixPath(story["direct_file"]).stem if story.get("direct_file") else "stock image"
+    credit = commons_credit(story["direct_file"]) if story.get("direct_file") else "Photo: Wikimedia Commons"
+    clean = lambda t: t.replace("|", "/")
+    return clean(f"File photo, not from this event: {name}. {credit}") + " | " + clean(f"फ़ाइल फ़ोटो, इस घटना की नहीं: {name}. {credit}")
+
+
 def fetch_bytes_with_retry(url: str, retries: int = 3) -> bytes:
     req = urllib.request.Request(url, headers={"User-Agent": UA})
     last_err = None
@@ -286,10 +287,12 @@ def update_article_markdown(article_path: pathlib.Path, img_url: str, caption: s
     # Remove any existing **Image | and **Caption | lines
     filtered = []
     for l in lines:
-        if re.match(r"^\*\*(?:Image(?:\s*URL)?|चित्र)(?:\s*\|[^*]+)?\*\*:", l, re.I):
+        if re.match(r"^\*\*(?:Image(?:\s*URL)?|चित्र)(?:\s*\|[^*:]+)?(?::\*\*|\*\*:)", l, re.I):
             continue
-        if re.match(r"^\*\*(?:Caption|चित्र विवरण|कैप्शन)(?:\s*\|[^*]+)?\*\*:", l, re.I):
+        if re.match(r"^\*\*(?:Caption|चित्र विवरण|कैप्शन)(?:\s*\|[^*:]+)?(?::\*\*|\*\*:)", l, re.I):
             continue
+        if l.startswith("(Images are linked, not downloaded"):
+            l = "(The lead photo is a licensed file photo from Wikimedia Commons, credited in its caption. | मुख्य चित्र विकिमीडिया कॉमन्स की लाइसेंस प्राप्त फ़ाइल फ़ोटो है; श्रेय कैप्शन में है।)"
         filtered.append(l)
 
     # Insert after standfirst (## lines before the first ---)
@@ -326,6 +329,11 @@ def main():
     for idx, story in enumerate(STORIES_CONFIG, 1):
         slug = story["slug"]
         print(f"[{idx}/{len(STORIES_CONFIG)}] {slug}...")
+        story = {**story, "caption": honest_caption(story)}
+        if "--captions-only" in sys.argv:
+            article_file = content_dir / story["folder"] / "article.md"
+            update_article_markdown(article_file, f"/images/stories/{slug}.jpg", story["caption"])
+            continue
 
         img_url = None
         if story.get("direct_url"):
